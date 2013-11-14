@@ -8,4 +8,6 @@ libraryDependencies ++= Seq(
   cache
 )     
 
+playAssetsDirectories <+= baseDirectory / "angular"
+
 play.Project.playJavaSettings
