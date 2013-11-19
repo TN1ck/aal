@@ -1,9 +1,14 @@
 <div class="row full-height">
-	<div ng-repeat="x in [0,1,2,3,4,5]" class="col-md-4 debug half-height">
+	<div ng-repeat="x in [0,1,2,3,4]" class="col-md-4 debug half-height">
 		<widget-title>Persöhnliche Daten</widget-title>
 		<widget-personal name="mockup.name" 
 		                 telephone="mockup.telephone" 
 		                 picture="mockup.picture">
         </widget-personal>
+	</div>
+	<div class="col-md-4 half-height">
+		<widget-title>TODOs</widget-title>
+		<widget-todo todos="mockup.todos">
+		</widget-todo>
 	</div>
 </div>

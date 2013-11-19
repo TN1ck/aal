@@ -82,7 +82,17 @@ body {
 .col-md-12,
 .col-lg-12 {
   padding-right: 5px;
-  padding-left: 15px;
+  padding-left: 5px;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.container {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .col-md-12, col-lg-12, col-sm-12, col-xs-12 {
@@ -92,4 +102,16 @@ body {
 img {
     height: 100%;
     width: 100%;
+}
+
+.red {
+	background-color: #F79514;
+}
+
+.orange {
+	background-color: #D0011B;
+}
+
+.green {
+	background-color: #69C914;
 }
