@@ -1,0 +1,15 @@
+<div class="row">
+  <div ng-repeat="todo in todos" class="col-lg-4" style="padding-bottom: 10px;">
+        <div class="widget todo">
+            <div class="{{todo.type}}"
+                  style="top: 5px;
+                        right: 10px;
+                        position: absolute;
+                        border-radius: 50%;
+                        width: 12px;
+                        height: 12px;">
+            </div>
+            {{todo.text}}
+        </div>
+    </div>
+</div>
