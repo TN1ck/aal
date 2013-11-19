@@ -1,0 +1,21 @@
+widget-h1 {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: 200;
+	font-size: x-large;
+}
+
+widget-h2 {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: 400;
+	color: #2D7CDB;
+	font-size: x-large;
+}
+
+.widget {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	background-color: #F9F9F9;
+}

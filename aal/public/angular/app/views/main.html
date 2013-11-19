@@ -1,7 +1,9 @@
-<div class="row">
-	<div class="col-md-12"><h1>Nothing here yet.</h1></div>
-</div>
-
-<div class="footer">
-	<p>♥</p>
+<div ng-repeat="y in [0,1]" class="row half-height">
+	<div ng-repeat="x in [0,1,2]" class="col-lg-4 debug full-height">
+		<widget-title>Persöhnliche Daten</widget-title>
+		<widget-personal name="mockup.name" 
+		                 telephone="mockup.telephone" 
+		                 picture="mockup.picture">
+        </widget-personal>
+	</div>
 </div>
