@@ -23,3 +23,9 @@ widget-h2 {
 .todo {
 	height: 70px;
 }
+
+.effeckt-caption figcaption {
+	background: rgba(255, 255, 255, 0.8);
+	color: black;
+	padding: 1rem;
+}
