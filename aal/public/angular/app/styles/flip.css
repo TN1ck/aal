@@ -1,0 +1,39 @@
+.flip {
+  position: relative;
+  -webkit-perspective: 800;
+  perspective: 800px;
+}
+
+.flip.flipped .card {
+  -webkit-transform: rotatey(-180deg);
+  transform: rotatey(-180deg);
+}
+
+.flip .card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  transition: 0.5s; }
+.flip .card .face {
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+.flip .card .front {
+  position: relative;
+  z-index: 1;
+}
+
+.flip .card .back {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotatey(-180deg);
+  transform: rotatey(-180deg);
+}

@@ -1,5 +1,7 @@
 <div class="row">
   <div ng-repeat="todo in todos" class="col-lg-4" style="padding-bottom: 10px;">
+    <flip flip-toggle>
+      <flip-front>
         <div class="widget todo">
             <div class="{{todo.type}}"
                   style="top: 5px;
@@ -11,5 +13,14 @@
             </div>
             {{todo.text}}
         </div>
-    </div>
+      </flip-front>
+      <flip-back>
+      <div class="widget todo todo-flipped">
+            erstellt am:
+            <br/>
+            {{todo.created}}
+        </div>
+      </flip-back>
+    </flip>
+  </div>
 </div>

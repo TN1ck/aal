@@ -15,6 +15,7 @@ widget-h2 {
 
 .widget {
 	padding-top: 10px;
+	padding-right: 10px;
 	padding-bottom: 10px;
 	padding-left: 10px;
 	background-color: #F9F9F9;
@@ -22,6 +23,11 @@ widget-h2 {
 
 .todo {
 	height: 70px;
+}
+
+.todo-flipped {
+	background-color: #4A494A;
+	color: white;
 }
 
 .effeckt-caption figcaption {
