@@ -16,11 +16,14 @@
       </flip-front>
       <flip-back>
       <div class="widget todo todo-flipped">
-            erstellt am:
-            <br/>
-            {{todo.created}}
+            <button style="width: 100%; height: 100%;" ng-click="removeTodo($index)" type="button" class="btn btn-danger">remove</button>
         </div>
       </flip-back>
     </flip>
+  </div>
+  <div class="col-lg-4">
+    <div class="widget todo" style="text-align: center; top: 50%;">
+        <button style="width: 100%; height: 100%;" ng-click="addTodo($index)" type="button" class="btn btn-success">new Todo</button>
+      </div>
   </div>
 </div>

@@ -6,6 +6,15 @@ app.directive('widgetTodo', function() {
         restrict: 'E',
         scope: {
         	todos: "="
+        },
+        controller: function($scope) {
+        	$scope.addTodo = function () {
+        		$scope.todos.push({text: "oh well, i got pushed!", type: "success"});
+        	};
+
+        	$scope.removeTodo = function (index) {
+        		$scope.todos.splice(index, 1);
+        	};
         }
     };
 });

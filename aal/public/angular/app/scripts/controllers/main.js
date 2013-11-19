@@ -13,7 +13,6 @@ angular.module('angularApp')
                              {type: 'orange', text: 'Something something...', created: '2013.05.03'},
                              {type: 'orange', text: 'business meeting', created: '2013.05.03'},
                              {type: 'red', text: 'mep mep', created: '2013.05.03'},
-                             {type: 'red', text: 'Something something...', created: '2013.05.03'},
                              ]};
 
   });
