@@ -15,6 +15,10 @@ app.directive('widgetTodo', function() {
         	$scope.removeTodo = function (index) {
         		$scope.todos.splice(index, 1);
         	};
+
+        	$scope.changeTodo = function (index) {
+        		$scope.todos[index].text = "TEXT GEÄNDERT!";
+        	};
         }
     };
 });

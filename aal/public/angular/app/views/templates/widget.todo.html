@@ -15,8 +15,9 @@
         </div>
       </flip-front>
       <flip-back>
-      <div class="widget todo todo-flipped">
-            <button style="width: 100%; height: 100%;" ng-click="removeTodo($index)" type="button" class="btn btn-danger">remove</button>
+        <div class="widget todo todo-flipped" style="height: 100%; width: 100%;">
+            <button ng-click="removeTodo($index)" type="button" class="btn btn-success btn-sm full-width">done</button>
+            <button ng-click="changeTodo($index)" type="button" class="btn btn-primary btn-sm full-width">change</button>
         </div>
       </flip-back>
     </flip>

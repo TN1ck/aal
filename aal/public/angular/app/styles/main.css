@@ -115,3 +115,7 @@ img {
 .green {
 	background-color: #69C914;
 }
+
+.full-width {
+	width: 100%;
+}
