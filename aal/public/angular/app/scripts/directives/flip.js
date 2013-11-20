@@ -74,8 +74,8 @@ angular.module('angular-flip', [])
 
                 previousValue = value;
 
-                $(elm).on('mouseenter', controller.toggle);
-                $(elm).on('mouseleave', controller.toggle);
+                $(elm.parent()).on('mouseenter', controller.toggle);
+                $(elm.parent()).on('mouseleave', controller.toggle);
             });
         }
     }
