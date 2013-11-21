@@ -897,6 +897,7 @@ Example markup:
 }
 
 .effeckt-caption[data-effeckt-type="revolving-door-left"] img {
+  -webkit-transform: translateZ(-1px);
   -webkit-transform: perspective(1300px);
   -ms-transform: perspective(1300px);
   -o-transform: perspective(1300px);

@@ -2,6 +2,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  -webkit-font-smoothing: subpixel-antialiased !important;
 }
 
 html, body {
