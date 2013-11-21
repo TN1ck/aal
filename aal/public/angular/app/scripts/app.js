@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularApp', ['ngRoute', 'angular-flip'])
+angular.module('angularApp', ['ngRoute', 'ngAnimate', 'angular-flip'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
