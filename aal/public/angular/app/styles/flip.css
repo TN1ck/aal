@@ -19,6 +19,7 @@
 }
 .flip .card .face {
 
+  width: 100%;
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
