@@ -601,6 +601,7 @@ Example markup:
 }
 
 .effeckt-caption img {
+  -webkit-transform: translateZ(-1px);
   -webkit-transition: 500ms;
   -o-transition: 500ms;
   transition: 500ms;
@@ -897,8 +898,7 @@ Example markup:
 }
 
 .effeckt-caption[data-effeckt-type="revolving-door-left"] img {
-  -webkit-transform: translateZ(-1px);
-  -webkit-transform: perspective(1300px);
+  /*-webkit-transform: perspective(1300px);*/
   -ms-transform: perspective(1300px);
   -o-transform: perspective(1300px);
   transform: perspective(1300px);
