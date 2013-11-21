@@ -23,6 +23,8 @@ widget-h2 {
 
 .todo {
 	height: 80px;
+	/* The TODO-text should break before the type-dot */
+	padding-right: 15px; 
 }
 
 .todo-flipped {
