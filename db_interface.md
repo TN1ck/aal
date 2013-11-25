@@ -2,7 +2,7 @@ Wir brauchen:
 Anzahl der User
 Bilder der User
 Login-Daten der User
-gemachte Interessen/News der Potenzmenge an Usern
+gemachte Interessen/News der Potenzmenge Usern
 Passwort-Hashes
 JSON-Datensatz des Facebookprofils
 Liste mit favorisierten Newsseiten
