@@ -8,9 +8,18 @@
 
 .ng-enter,
 .ng-leave.ng-leave-active {
-  opacity:0;
+  opacity: 0;
 }
 .ng-leave,
 .ng-enter.ng-enter-active {
-  opacity:1;
+  opacity: 1;
+}
+
+.ng-leave.todo-animate.ng-leave-active {
+  padding: 0;
+  width: 0;
+}
+
+.ng-enter.todo-animate.ng-enter-active {
+  width: 33%;
 }

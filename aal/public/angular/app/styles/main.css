@@ -120,3 +120,7 @@ img {
 .full-width {
 	width: 100%;
 }
+
+.container {
+	max-width: none;
+}

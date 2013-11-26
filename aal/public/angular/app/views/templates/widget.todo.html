@@ -1,5 +1,5 @@
 <div class="row">
-  <div ng-repeat="todo in todos" class="col-lg-4" style="padding-bottom: 10px;">
+  <div ng-repeat="todo in todos" class="col-lg-4 todo-animate" style="padding-bottom: 10px;">
     <flip flip-toggle>
       <flip-front>
         <div class="widget todo">
@@ -18,7 +18,7 @@
         </div>
       </flip-front>
       <flip-back>
-        <div class="widget todo todo-flipped" style="height: 100%; width: 100%;">
+        <div class="widget todo todo-flipped">
             <button ng-click="removeTodo($index)" type="button" class="btn btn-success btn-sm full-width">done</button>
             <button ng-click="changeTodo($index)" type="button" class="btn btn-primary btn-sm full-width">change</button>
         </div>
