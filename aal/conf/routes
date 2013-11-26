@@ -3,10 +3,10 @@
 # ~~~~
 
 # Home page
-GET     /index                      controllers.Application.index()
+GET     /                           controllers.Application.index()
 GET     /websocket                  controllers.Application.websocket()
 
-# I'm not able to define to asset-directorys... sucks
+# I'm not able to define to asset-directories... sucks
 GET     /assets/*file                controllers.Assets.at(path="/public", file)
 GET     /bower_components/*file      controllers.Assets.at(path="/public/angular/app/bower_components", file)
 GET     /fonts/*file                 controllers.Assets.at(path="/public/angular/app/fonts", file)
@@ -14,3 +14,5 @@ GET     /scripts/*file               controllers.Assets.at(path="/public/angular
 GET     /styles/*file                controllers.Assets.at(path="/public/angular/app/styles", file)
 GET     /views/*file                 controllers.Assets.at(path="/public/angular/app/views", file)
 GET     /*file                       controllers.Assets.at(path="/public/angular/app", file)
+
+

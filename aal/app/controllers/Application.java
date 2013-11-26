@@ -7,10 +7,10 @@ import play.libs.F.*;
 import views.html.*;
 
 public class Application extends Controller {
-
+		
     // just for testing, play won't be used to display stuff
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
+        return redirect("index.html");
     }
 
     // this will be the main communication port for angularjs
