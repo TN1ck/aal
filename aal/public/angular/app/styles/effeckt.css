@@ -391,7 +391,7 @@ FILL
   right: 0;
   width: 100%;
   height: 100%;
-  background: black;
+  background: blue;
   -webkit-transform: translate(0, 100%);
   -ms-transform: translate(0, 100%);
   -o-transform: translate(0, 100%);

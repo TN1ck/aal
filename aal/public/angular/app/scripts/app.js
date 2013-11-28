@@ -1,13 +1,40 @@
 'use strict';
 
+var angularApp = angular.module('angularApp', [
+    'ngRoute',
+    'ngAnimate',
+    'angular-flip'
+]);
+
+angularApp.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/', {
+                templateUrl: 'views/main.html',
+                controller: 'MainCtrl'
+            }).
+            when('/toygamer', {
+                templateUrl: 'views/toygamer.html',
+                controller: 'MainCtrl'
+            }).
+            otherwise({
+                redirectTo: '/'
+            });
+}]);
+/*
 angular.module('angularApp', ['ngRoute', 'ngAnimate', 'angular-flip'])
   .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+    $routeProvider.
+    when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .otherwise({
+    }).
+    when('/views/toygamer.html', {
+        templateUrl: 'views/toygamer.html',
+        controller: 'MainCtrl'
+    }).
+    otherwise({
         redirectTo: '/'
-      });
+    });
   });
+*/
