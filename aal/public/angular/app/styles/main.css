@@ -124,3 +124,40 @@ img {
 .container {
 	max-width: none;
 }
+
+.toygamer-nav{
+    height:400px;
+    width:400px;
+    float: left;
+}
+
+.toygamer-nav-el1{
+    height:40px;
+    width:40px;
+    padding:10px;
+    margin: 0 10px 0 10px;
+    transform: rotate(-30deg);
+    transition: all 4s;
+    background-color: #69C914;
+    float:left;
+}
+.toygamer-nav-el1:hover{
+    background-color: blue;
+    transition: transform 1.5s;
+    transform: rotate(0deg);
+    
+}
+
+.toygamer-nav-el1:hover:after{
+    background-color: red;
+}
+
+.toygamer-nav-el2{
+    height:40px;
+    width:40px;
+    padding: 10px;
+    margin: 0 10px 0 10px;
+    transform: rotate(30deg);
+    background-color: #69C914;  
+    float: left;
+}
