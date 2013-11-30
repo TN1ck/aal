@@ -1,7 +1,9 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
+  /* crap
+    padding-top: 20px;
   padding-bottom: 20px;
+    */
   -webkit-font-smoothing: subpixel-antialiased !important;
 }
 
@@ -125,9 +127,50 @@ img {
 	max-width: none;
 }
 
+.toygamer-page{
+    width:100%;
+    height:100%;
+    background-color: #128432; 
+    
+}
+
+.toygamer-page > section{
+    width: 50%;
+    height: 50%;
+    position:absolute;‚
+}
+
+.toygamer-page > section:nth-child(2){
+    top: 50%;
+    background-color: yellow;
+}
+.toygamer-page > section:nth-child(3){
+    left: 50%;
+    background-color: red;
+}
+.toygamer-page > section:nth-child(4){
+    top:50%;
+    left:50%;
+    background-color: blue;
+}
+
+#toygamer-sec-eins{
+    /*background-color: red;*/
+}
+#toygamer-sec-zwei{
+    /*background-color: blue;*/
+}
+
+.toygamer-box{
+    width: 100%;
+    height: 100%;
+    /*background-color: #555555;*/
+}
+
+
 .toygamer-nav{
-    height:400px;
-    width:400px;
+    height:80px;
+    width:150px;
     float: left;
 }
 
