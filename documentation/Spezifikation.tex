@@ -1,0 +1,79 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\begin{document}
+\begin{tabbing}
+Tom Nick \hspace{1.4cm}\= 342225\\
+Tom Lehmann\>  340621\\
+Maximilian Bachl\>  341455\\
+Jonathan Seilkopf\> 340673\\
+Niklas Gebauer \> 340942
+\end{tabbing}
+\begin{center}
+\begin{Huge}
+Spezifikation (Applications)
+\end{Huge}
+\end{center}
+\section{Gesamtziel}
+Das Ziel unserer Gruppe ist es, eine aufgeräumte, einfache Benutzeroberfläche für die 'Living Wall' zu entwickeln, die browserbasiert und  plattformunabhängig ist. Wir wolen in Form von Widgets für verschiedene Funktionen (wie beispielsweise das Abrufen von E-Mails) kleinere Applikationen schreiben, die dann für diverse Anwendungsszenarien verwendet werden können und somit für eine gute Skalierbarkeit sorgen.
+
+\section{Arbeitsumgebung}
+\begin{enumerate}
+\item AngularJS
+\item Play Framework
+\item CSS
+\end{enumerate}
+
+\section{Meilensteine}
+\begin{enumerate}
+\item \textbf{Weihnachten:}\\
+\begin{enumerate}
+\item Web-Socket-Kommunikation zwischen dem AngularJS-Frontend und dem Play-Backend
+\item Folgende Haupt-Widgets für das 'Persönlicher Assistent'-Szenario sind funktionstüchtig:
+\begin{align*}
+&\text{News} \\
+&\text{Todo-Plan} \\
+&\text{Kalender} \\
+&\text{Persönliche Profilinformationen} \\
+&\text{Social-Media-Feed}
+\end{align*}
+\item Fullscreen-Toggle für Widgets
+\item \textit{Extras (falls andere Gruppen soweit sind):\\
+	- Play-Backend kommuniziert mit anderen Gruppen (via JIAC)\\
+	- echte Daten in den Widgets\\
+	- Interaktion via Kinect}
+\end{enumerate}
+\item \textbf{Ende Januar:}\\
+\begin{enumerate}
+\item Texteingabe via Smartphone (über Website, eventuell in Echtzeit)
+\item Folgende Haupt-Widgets für das Kommunikations-Szenario sind voll funktionstüchtig:
+\begin{align*}
+&\text{E-Mail} \\
+&\text{Messengers} \\
+&\text{Social-Media-Updates}
+\end{align*}
+\item Widget für das Gruppen-Szenario visualisiert den Beziehungsgraphen (mit d3.js)
+\end{enumerate}
+\item \textbf{Ende des Semesters:}\\
+\begin{enumerate}
+\item Privatsphäre-Einstellungen:
+\begin{align*}
+&\text{- Verstecken der privaten Daten (Lockscreen), wenn eine andere Person das Sichtfeld der Kamera betritt} \\
+&\text{- individuelles Anpassen der Einstellungen (welche Daten sind privat)} \\
+&\text{- Entsperren aller/einzelner Widgets vom Lockscreen aus} \\
+&\text{- Lockscreen per Befehl/Geste}
+\end{align*}
+\item Widget für das Messe-Szenario ist funktionstüchtig:
+\begin{align*}
+&\text{Karte mit allen Ständen} \\
+&\text{Stände bewerten} \\
+&\text{Stände suchen/nach Kriterien sortieren}\\
+&\text{Route zum Stand anzeigen}
+\end{align*}
+\end{enumerate}
+\end{enumerate}
+\end{document}
