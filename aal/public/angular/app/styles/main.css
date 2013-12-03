@@ -32,6 +32,10 @@ body {
 	min-height: 50%;
 }
 
+.half-width {
+    min-width: 50%;
+}
+
 .debug {
 	/*border: solid gray 1px; */
 }
@@ -127,13 +131,16 @@ img {
 	max-width: none;
 }
 
+/*
 .toygamer-page{
     width:100%;
     height:100%;
     background-color: #128432; 
     
 }
+*/
 
+/*
 .toygamer-page > section{
     width: 50%;
     height: 50%;
@@ -152,7 +159,8 @@ img {
     top:50%;
     left:50%;
     background-color: blue;
-}
+
+*/}
 
 #toygamer-sec-eins{
     /*background-color: red;*/
@@ -162,10 +170,21 @@ img {
 }
 
 .toygamer-box{
+    width: 50%;
+    height: 50%;
+    background-color: #555555;
+    float:left;
+}
+
+/*
+.toygamer-box:hover{
     width: 100%;
     height: 100%;
-    /*background-color: #555555;*/
+    background-color: red;
+    position:fixed;
+    transition: all 4s;
 }
+*/
 
 
 .toygamer-nav{

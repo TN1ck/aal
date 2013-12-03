@@ -29,6 +29,13 @@ angular.module('angularApp')
                              {header: 'Zehn, die Minister werden sollten',
                              text: 'Falls sich Union und SPD auf eine Koalition einigen, werden die Parteien unter sich ausmachen, wer im Kabinett sitzt. Seiteneinsteiger haben kaum Chancen. Muss das sein? SPIEGEL ONLINE zeigt, wer gut in die Ministerriege passen würde, wenn es allein nach Kompetenz ginge.',
                              category: 'tech',
-                             publisher: 'Spiegel'},]};
+                             publisher: 'Spiegel'},
+                            ],
+                     calendars: [{description: 'Description', summary: 'Summary'},
+                                 {description: 'Description2', summary: 'Summary2'}                         
+                               ]
+                     
+                    
+                    };
 
   });
