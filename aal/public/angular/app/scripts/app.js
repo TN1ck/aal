@@ -3,7 +3,8 @@
 var angularApp = angular.module('angularApp', [
     'ngRoute',
     'ngAnimate',
-    'angular-flip'
+    'angular-flip',
+    'appControllers'
 ]);
 
 angularApp.config(['$routeProvider',

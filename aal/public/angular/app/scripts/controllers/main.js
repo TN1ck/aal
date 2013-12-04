@@ -1,7 +1,16 @@
 'use strict';
 
-angular.module('angularApp')
-  .controller('MainCtrl', function ($scope) {
+var appControllers = angular.module('appControllers', []);
+
+
+appControllers.controller('MainCtrl',['$scope','$http',
+    function ($scope, $http) {
+        $http.get('scripts/calendar.json').success(function(data) {
+            $scope.calendars = data;
+            $scope.kacke = 'haha';
+        });
+    $scope.kacke1 = 'hihi';
+
     $scope.mockup = {name: 'Cillian Murphy', 
                      picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
                      telephone: '023234020',
@@ -31,11 +40,8 @@ angular.module('angularApp')
                              category: 'tech',
                              publisher: 'Spiegel'},
                             ],
-                     calendars: [{description: 'Description', summary: 'Summary'},
-                                 {description: 'Description2', summary: 'Summary2'}                         
-                               ]
                      
                     
                     };
 
-  });
+    }]);
