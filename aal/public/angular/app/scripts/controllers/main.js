@@ -5,13 +5,13 @@ var appControllers = angular.module('appControllers', []);
 
 appControllers.controller('MainCtrl', ['$scope', '$http',
     function ($scope, $http) {
-        $http.get('scripts/calendar.json').success(function(data) {
-            $scope.calendars = data;
-            $scope.kacke = 'haha';
-    });
-    $scope.kacke1 = 'hihi';
+    //     $http.get('scripts/calendar.json').success(function(data) {
+    //         $scope.calendars = data;
+    //         $scope.kacke = 'haha';
+    // });
+    // $scope.kacke1 = 'hihi';
 
-    $scope.mockup = {name: 'Cillian Murphy', 
+    $scope.mockup = {name: 'Cillian Murphy',
                      picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
                      telephone: '023234020',
                      todos: [{type: 'red', text: 'make repository', created: '2013.05.03'},
