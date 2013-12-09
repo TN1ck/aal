@@ -35,6 +35,18 @@ widget-h3 {
 	padding-right: 15px; 
 }
 
+.todo-dot {
+	top: 5px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	right: 10px;
+	position: absolute;
+	-webkit-transform: translateZ(1px);
+	border-radius: 50%;
+	width: 12px;
+	height: 12px;"
+}
+
 .todo-flipped {
 	background-color: #4A494A;
 	color: white;
@@ -67,4 +79,30 @@ widget-h3 {
 	height: 100%;
 	background-color: white;
 	z-index: 9;
+	font-size: 24px;
+}
+
+.fullscreen widget-h2 {
+	font-size: 50px;
+}
+
+.fullscreen widget-h3 {
+	font-size: 35px;
+}
+
+.fullscreen widget-h1 {
+	font-size: 50px;
+}
+
+.fullscreen .todo {
+	height: 150px;
+}
+
+.fullscreen .btn {
+	font-size: 24px;
+}
+
+.fullscreen .todo-dot {
+	width: 24px;
+	height: 24px;
 }
