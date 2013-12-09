@@ -1,10 +1,9 @@
-<div>
-    <div ng-repeat="calendar in calendars">
-        {{calendar.description}}<br>
-        {{calendar.summary}}<br>
+<widget title="'Calendar'">
+    <div>
+        <div ng-repeat="calendar in calendars">
+            Description: {{calendar.description}}<br>
+            Summary: {{calendar.summary}}<br>
+        </div>
+        {{calendars}}
     </div>
-    {{calendars}}
-    {{kacke}}
-    {{mockup.name}}
-    FUCK
-</div>
+</widget>

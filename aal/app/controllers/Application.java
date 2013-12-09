@@ -22,14 +22,18 @@ public class Application extends Controller {
             // Called when the Websocket Handshake is done.
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
                 // For each event received on the socket,
+                // Ich raffe nicht, was mir ne callback bringt, in der ich eh nur ein argument habe
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
 
                         // Log events to the console
                         if (event.equals("Test")){
+                            writeAnswer1();
                             toggle = true;
                             System.out.println("YEEEEEHA!");
                             System.out.println(toggle);
+                        } else {
+                            writeAnswer2();
                         }
                         System.out.println(event);
 
@@ -45,17 +49,29 @@ public class Application extends Controller {
                     }
                 });
 
+
+
                 // Send a single 'Hello!' message
-                System.out.println("I am here");
-                System.out.println(toggle);
-                if(toggle == true){
-                    out.write("Not Hello!");
-                } else {
-                    out.write("Hello Motherfucker!");
-                }
+                // System.out.println("I am here");
+                // System.out.println(toggle);
+                // if(toggle == true){
+                //     out.write("Not Hello!");
+                // } else {
+
+                // }
             }
+
+            // public void writeAnswer1(){
+            //     out.write("FUCK!!!!!!!");
+            // }
+
+            // public void writeAnswer2(){
+            //     Out.write("Haha2");
+            // }
 
         };
     }
+
+
 
 }

@@ -6,7 +6,6 @@ app.directive('widgetCalendar', function() {
         restrict: 'E',
         scope: {
             calendars: "=",
-            kacke: "=",
         }
     };
 });
