@@ -28,12 +28,12 @@ public class Application extends Controller {
 
                         // Log events to the console
                         if (event.equals("Test")){
-                            writeAnswer1();
+                            //writeAnswer1();
                             toggle = true;
                             System.out.println("YEEEEEHA!");
                             System.out.println(toggle);
                         } else {
-                            writeAnswer2();
+                            //writeAnswer2();
                         }
                         System.out.println(event);
 
