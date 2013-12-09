@@ -17,15 +17,20 @@ public class Application extends Controller {
     // just a stub atm
     public static WebSocket<String> websocket() {
         return new WebSocket<String>() {
+            boolean toggle = false;
 
             // Called when the Websocket Handshake is done.
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
-
                 // For each event received on the socket,
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
 
                         // Log events to the console
+                        if (event.equals("Test")){
+                            toggle = true;
+                            System.out.println("YEEEEEHA!");
+                            System.out.println(toggle);
+                        }
                         System.out.println(event);
 
                     }
@@ -41,8 +46,13 @@ public class Application extends Controller {
                 });
 
                 // Send a single 'Hello!' message
-                out.write("Hello!");
-
+                System.out.println("I am here");
+                System.out.println(toggle);
+                if(toggle == true){
+                    out.write("Not Hello!");
+                } else {
+                    out.write("Hello Motherfucker!");
+                }
             }
 
         };
