@@ -3,7 +3,6 @@
 
   function init()
   {
-    // document ist hier falsch. aber keine ahnung was richtig wäre
     output = document.getElementById("websocket-screen");
     testWebSocket();
   }

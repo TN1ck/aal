@@ -5,10 +5,10 @@ var appControllers = angular.module('appControllers', []);
 
 appControllers.controller('MainCtrl', ['$scope', '$http',
     function ($scope, $http) {
-    //     $http.get('scripts/calendar.json').success(function(data) {
-    //         $scope.calendars = data;
+         $http.get('scripts/calendar.json').success(function(data) {
+             $scope.calendars = data;
     //         $scope.kacke = 'haha';
-    // });
+     });
     // $scope.kacke1 = 'hihi';
 
     $scope.mockup = {name: 'Cillian Murphy',

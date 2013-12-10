@@ -4,24 +4,15 @@
       <flip flip-toggle>
         <flip-front>
           <div class="widget todo">
-              <div class="{{todo.type}}"
-                    style="top: 5px;
-                          -webkit-backface-visibility: hidden;
-                          backface-visibility: hidden;
-                          right: 10px;
-                          position: absolute;
-                          -webkit-transform: translateZ(1px);
-                          border-radius: 50%;
-                          width: 12px;
-                          height: 12px;">
+              <div class="{{todo.type}} todo-dot">
               </div>
               {{todo.text}}
           </div>
         </flip-front>
         <flip-back>
           <div class="widget todo todo-flipped">
-              <button ng-click="removeTodo($index)" type="button" class="btn btn-success btn-sm full-width">done</button>
-              <button ng-click="changeTodo($index)" type="button" class="btn btn-primary btn-sm full-width">change</button>
+              <button ng-click="removeTodo($index)" type="button" class="btn btn-success btn-sm full-width half-height">done</button>
+              <button ng-click="changeTodo($index)" type="button" class="btn btn-primary btn-sm full-width half-height">change</button>
           </div>
         </flip-back>
       </flip>
