@@ -177,6 +177,31 @@ img {
     float:left;
 }
 
+.toygamer-box:focus{
+    <!--background-color: darkgreen;-->
+    /*border-color: red;
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-style: groove;*/
+    -moz-box-shadow: inset 0 0 5px 5px lightblue;
+     box-shadow: inset 0 0 5px 5px lightblue;
+}
+
+.toygamer-box > a:hover {
+    color: aquamarine;
+}
+
+.toygamer-box  a:focus {
+    color: red;
+    background-color: green;
+}
+
+.toygamer-box > input:focus{
+    color: red;
+}
+
 /*
 .toygamer-box:hover{
     width: 100%;
