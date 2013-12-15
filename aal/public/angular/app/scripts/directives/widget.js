@@ -32,17 +32,25 @@ app.directive('widget',  function(Navigation) {
                 }
               };
             scope.$watch(Navigation.getCurrentSelected , function (newValue, oldValue, scope){
-                    if(newValue === scope.counter){
-                        //alert('Addborder');
-                        $(element).parent().parent().removeClass('noborder');
-                        $(element).parent().parent().addClass('border');
-                    }
-                    if(oldValue === scope.counter && newValue !== oldValue){
-                        //alert('Removeborder');
-                        $(element).parent().parent().removeClass('border');
-                        $(element).parent().parent().addClass('noborder');
-                    }
-                });
+                if(newValue === scope.counter){
+                    //alert('Addborder');
+                    $(element).parent().parent().removeClass('noborder');
+                    $(element).parent().parent().addClass('border');
+                }
+                if(oldValue === scope.counter && newValue !== oldValue){
+                    //alert('Removeborder');
+                    $(element).parent().parent().removeClass('border');
+                    $(element).parent().parent().addClass('noborder');
+                }
+            });
+            scope.$watch(Navigation.getFullscreenOn , function(newValue, oldValue, scope){
+                if(newValue === 1 && oldValue === 0 && Navigation.getCurrentSelected() === scope.counter){
+                    scope.toggleFullscreen();
+                }
+                if(newValue === 0 && oldValue === 1 && Navigation.getCurrentSelected() === scope.counter){
+                    scope.toggleFullscreen();
+                }
+            });
           },
         };
 });

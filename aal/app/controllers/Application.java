@@ -49,7 +49,7 @@ public class Application extends Controller {
                     }
                 });
                 
-                ActorRef wsPushActor = Akka.system().actorOf(Props.create(WsPush.class, out));
+                /*ActorRef wsPushActor = Akka.system().actorOf(Props.create(WsPush.class, out));
                 final Cancellable cancellable = Akka.system().scheduler().schedule(Duration.Zero(), Duration.create(500, TimeUnit.MILLISECONDS), wsPushActor, "wsPush", Akka.system().dispatcher(), null);
                 
                 Akka.system().scheduler().scheduleOnce(new FiniteDuration(5, TimeUnit.SECONDS), new Runnable() {
@@ -58,7 +58,7 @@ public class Application extends Controller {
 					public void run() {
 						cancellable.cancel();
 					}
-				}, Akka.system().dispatcher());
+				}, Akka.system().dispatcher());*/
                 
             }
         };
