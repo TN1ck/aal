@@ -138,3 +138,43 @@ widget-h3 {
 
 .social .body {
 }
+
+.fullscreen .day {
+	width: 14%;
+	text-align: center;
+	float: left;
+	padding: 5px;
+}
+
+.day {
+	text-align: left;
+	width: 50%;
+	float: left;
+	padding: 5px;
+} 
+
+.event {
+	margin-bottom: 10px;
+	padding: 5px;
+	text-align: left;
+	background-color: #FBFBFB;
+	position: relative;
+}
+
+
+.fullscreen .event .todo-dot {
+	width: 12px;
+	height: 12px;
+}
+
+.business {
+	border-left: 3px solid blue;
+}
+
+.private {
+	border-left: 3px solid green;
+}
+
+.fullscreen .event {
+	font-size: 20px;
+}

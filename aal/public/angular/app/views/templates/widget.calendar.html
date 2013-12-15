@@ -1,9 +1,13 @@
 <widget title="'Calendar'">
     <div>
-        <div ng-repeat="event in events">
-            Description: {{event.text}}<br>
-            Time: {{event.start}}<br>
-            <br>
-        </div>
+    	<div class="day" ng-repeat="day in days">
+			{{day}}
+			<div class="event {{event.category}}" ng-repeat="event in events | filter:{weekday: day}">
+			<div class="{{event.priority}} todo-dot"></div>
+				<b>{{moment(event.start).format('H:mm')}} - {{moment(event.end).format('H:mm')}}</b>
+				<br/>
+				{{event.text}}
+			</div>
+    	</div>
     </div>
 </widget>
