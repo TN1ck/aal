@@ -1,6 +1,6 @@
 'use strict';
 
-/* global angular */
+/* global angular, moment */
 
 var app = angular.module('angularApp');
 
@@ -9,7 +9,22 @@ app.directive('widgetCalendar', function() {
         templateUrl: '/views/templates/widget.calendar.html',
         restrict: 'E',
         scope: {
-            calendars: '=',
+            events: '=',
+          },
+          link: function (scope) {
+
+            scope.days = [];
+            scope.moment = moment;
+            scope.date = moment().format('LL')
+
+            for (var i = 0; i < 7; i++) {
+              scope.days.push((moment().add('days', i)).calendar().split(" ")[0]);
+            }
+
+            scope.events = scope.events.map(function (event) {
+                event.weekday = moment(event.start).calendar().split(" ")[0];
+                return event;
+              });
           }
         };
   });

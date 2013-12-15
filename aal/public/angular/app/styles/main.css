@@ -4,6 +4,7 @@ body {
     padding-top: 20px;
   padding-bottom: 20px;
     */
+    padding: 50px;
   -webkit-font-smoothing: subpixel-antialiased !important;
 }
 
@@ -181,6 +182,32 @@ img {
     /*background-color: blue;*/
 }
 
+.border{
+    -moz-box-shadow: 0 0 10px 10px #BBB;
+    -webkit-box-shadow: 0 0 10px 10px #BBB;
+    box-shadow: 0 0 10px 10px #BBB;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+    opacity: 1;
+    background-color: white;
+    transition: box-shadow 500ms, -webkit-box-shadow 500ms, -moz-box-shadow 500ms, transform 500ms, -webkit-transform 500ms, -ms-transform 500ms, -o-transform 500ms;
+    z-index: 100;
+}
+
+.noborder{
+    -moz-box-shadow: 0 0 0 0 #BBB;
+    -webkit-box-shadow: 0 0 0 0 #BBB;
+    box-shadow: 0 0 0 0 #BBB;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    transition: box-shadow 500ms, -webkit-box-shadow 500ms, -moz-box-shadow 500ms, transform 500ms, -webkit-transform 500ms, -ms-transform 500ms, -o-transform 500ms;
+}
+
 .toygamer-box{
     width: 50%;
     height: 50%;
@@ -241,6 +268,8 @@ img {
 }
 .toygamer-nav-el1:hover{
     background-color: blue;
+    transform: translateZ(400px);
+
     transition: transform 1.5s;
     transform: rotate(0deg);
 
