@@ -1,14 +1,9 @@
 <widget title="'Calendar'">
     <div>
-        <div ng-repeat="calendar in calendars">
-            Description: {{calendar.description}}<br>
-            Summary: {{calendar.summary}}<br>
-            <div ng-repeat="event in calendar.events">
-                Datum: {{event.date}}<br>
-                Ort: {{event.location}}<br>
-            </div>
+        <div ng-repeat="event in events">
+            Description: {{event.text}}<br>
+            Time: {{event.start}}<br>
             <br>
         </div>
-        {{calendars}}
     </div>
 </widget>

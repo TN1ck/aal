@@ -6,10 +6,7 @@ var appControllers = angular.module('appControllers', []);
 
 
 appControllers.controller('MainCtrl', ['$scope', '$http',
-    function ($scope, $http) {
-        $http.get('scripts/calendar.json').success(function(data) {
-            $scope.calendars = data;
-          });
+    function ($scope) {
 
         $scope.mockup = {
             name: 'Cillian Murphy',
@@ -59,6 +56,31 @@ appControllers.controller('MainCtrl', ['$scope', '$http',
                   url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
                   name: 'Cillian Murphy'
                 }
-              ]
+              ],
+            calendar: [{start: '2013-12-17 12:00',
+                     end: '2013-12-17 14:00',
+                     text: 'Ersten Meilenstein präsentieren',
+                     location: 'TEL 1119',
+                     priority: 'urgent',
+                     category: 'business'},
+                    {start: '2013-12-17 14:00',
+                     end: '', text: 'Mittagessen!',
+                     location: 'Mensa',
+                     priority: 'normal',
+                     category:'private'},
+                    {start: '2013-12-18 8:00',
+                     end: '',
+                     text: 'Frühstück mit Harry',
+                     location: '',
+                     priority: 'urgent',
+                     category:'private'},
+                    {start: '2013-12-19 19:00',
+                     end: '2013-12-19 22:30',
+                     text: 'Kino - Hobbit 2',
+                     location: 'Cineplexx Potsdamer Platz',
+                     priority: 'low',
+                     category:'private'},
+                ]
             };
       }]);
+
