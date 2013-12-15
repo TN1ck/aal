@@ -15,6 +15,7 @@ app.directive('widgetCalendar', function() {
 
             scope.days = [];
             scope.moment = moment;
+            scope.date = moment().format('LL')
 
             for (var i = 0; i < 7; i++) {
               scope.days.push((moment().add('days', i)).calendar().split(" ")[0]);
