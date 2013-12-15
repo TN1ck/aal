@@ -3,6 +3,11 @@
         <div ng-repeat="calendar in calendars">
             Description: {{calendar.description}}<br>
             Summary: {{calendar.summary}}<br>
+            <div ng-repeat="event in calendar.events">
+                Datum: {{event.date}}<br>
+                Ort: {{event.location}}<br>
+            </div>
+            <br>
         </div>
         {{calendars}}
     </div>

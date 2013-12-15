@@ -1,10 +1,30 @@
 [
     {
         "summary": "SUMMARY",
-        "description": "DESCRIPTION"
+        "description": "DESCRIPTION",
+        "events": [
+        {
+            "date": "1.1.2013",
+            "location": "Berlin"
+        },
+        {
+            "date": "1.1.2014",
+            "location": "Dresden"
+        }
+        ]
     },
     {
         "summary": "SUMMARY2",
-        "description": "DESCRIPTION2"   
+        "description": "DESCRIPTION2",  
+        "events": [
+        {
+            "date": "2.2.2013",
+            "location": "London"
+        },
+        {
+            "date": "2.2.2014",
+            "location": "Manchester"
+        }
+        ]
     }
 ]
