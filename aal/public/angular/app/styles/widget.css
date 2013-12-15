@@ -110,14 +110,31 @@ widget-h3 {
 }
 
 .social {
-	height: 80px;
+	height: 120px;
+}
+
+.social .twitter {
+	border: 2px solid blue;
 }
 
 .social img {
 	float: left;
+	padding-right: 4px;
+}
+
+.social .title {
+	width: 64px;
+	float: left;
+}
+
+.social .title img {
+  width: 64px;
+  height: 64px;
+}
+
+.social .title {
+	font-size: 10px;
 }
 
 .social .body {
-	float: left;
-	padding-left: 4px;
 }
