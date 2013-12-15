@@ -47,12 +47,12 @@ appControllers.controller('MainCtrl', ['$scope', '$http',
                   name: 'Cillian Murphy'
                 },
                 {
-                  type: 'twitter', text: 'some stupid entry. aoeu aoeu oeu', created: '2013.05.03', 
+                  type: 'facebook', text: 'some stupid entry. aoeu aoeu oeu', created: '2013.05.03', 
                   url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
                   name: 'Cillian Murphy'
                 },
                 {
-                  type: 'twitter', text: 'some stupid entry. aoeuaoeu aoeuaoeu', created: '2013.05.03', 
+                  type: 'twitter', text: 'some stupid entry. aoeuaoeu aoeuaoeu toetu aosetu aoetus oestu asoeutoa es toeuts uetosn ', created: '2013.05.03', 
                   url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
                   name: 'Cillian Murphy'
                 }

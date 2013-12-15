@@ -113,8 +113,12 @@ widget-h3 {
 	height: 120px;
 }
 
-.social .twitter {
-	border: 2px solid blue;
+.twitter {
+	border-left: 5px solid #4099FF;
+}
+
+.facebook {
+	border-left: 5px solid #3B5999;
 }
 
 .social img {
@@ -168,11 +172,11 @@ widget-h3 {
 }
 
 .business {
-	border-left: 3px solid blue;
+	border-left: 5px solid blue;
 }
 
 .private {
-	border-left: 3px solid green;
+	border-left: 5px solid green;
 }
 
 .fullscreen .event {
