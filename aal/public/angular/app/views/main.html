@@ -2,11 +2,19 @@
 	<div class="col-md-4 full-height">
 		<widget-news news="mockup.news"></widget-news>
 	</div>
-	<div ng-repeat="x in [0,1,2]" class="col-md-4 debug half-height screens">
+	<div class="col-md-4 debug half-height screens">
 		<widget-personal name="mockup.name" 
 		                 telephone="mockup.telephone" 
 		                 picture="mockup.picture">
         </widget-personal>
+	</div>
+	<div class="col-md-4 debug half-height screens">
+		<widget-calendar events="mockup.calendar">
+        </widget-calendar>
+	</div>
+	<div class="col-md-4 half-height">
+		<widget-social social="mockup.social">
+		</widget-social>
 	</div>
 	<div class="col-md-4 half-height">
 		<widget-todo todos="mockup.todos">

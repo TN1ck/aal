@@ -23,6 +23,8 @@ public class Application extends Controller {
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
                 // For each event received on the socket,
                 // Ich raffe nicht, was mir ne callback bringt, in der ich eh nur ein argument habe
+            	// Das hat mit den Argumenten eig nix zu tun. Callback ist halt einfach ein Programmierstil.
+            	// Empfiehlt sich besonders für asynchrone Programmierung...
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
 
@@ -39,7 +41,7 @@ public class Application extends Controller {
 
                     }
                 });
-
+                
                 // When the socket is closed.
                 in.onClose(new Callback0() {
                     public void invoke() {
@@ -49,7 +51,7 @@ public class Application extends Controller {
                     }
                 });
 
-
+                
 
                 // Send a single 'Hello!' message
                 // System.out.println("I am here");

@@ -172,6 +172,8 @@ img {
 
 .border{
     box-shadow: inset 0 0 5px 5px lightblue;
+    transform: translateZ(50px);
+    transition: transform 2s;
 
 }
 
@@ -236,8 +238,10 @@ img {
 }
 .toygamer-nav-el1:hover{
     background-color: blue;
+    transform: translateZ(400px);
+
     transition: transform 1.5s;
-    transform: rotate(0deg);
+    <!--transform: rotate(0deg);-->
     
 }
 

@@ -9,7 +9,10 @@ app.directive('widgetCalendar', function() {
         templateUrl: '/views/templates/widget.calendar.html',
         restrict: 'E',
         scope: {
-            calendars: '=',
+            events: '=',
+          },
+          link: function (scope) {
+
           }
         };
   });

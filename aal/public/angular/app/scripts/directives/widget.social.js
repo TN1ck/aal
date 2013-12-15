@@ -9,7 +9,7 @@ app.directive('widgetSocial', function() {
         templateUrl: '/views/templates/widget.social.html',
         restrict: 'E',
         scope: {
-            news: '=',
+            social: '=',
           }
         };
   });
