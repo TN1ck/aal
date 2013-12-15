@@ -16,6 +16,7 @@
   -o-transition: -o-transform 0.5s;
   -moz-transition: -moz-transform 0.5s;
   transition: transform 0.5s;
+  transition-timing-function: ease;
 }
 .flip .card .face {
 

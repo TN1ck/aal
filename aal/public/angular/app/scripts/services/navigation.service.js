@@ -6,11 +6,11 @@ app.factory('Navigation', function($rootScope){
 
     var widgetList = document.getElementsByTagName("widget");
     //var widgetCounter = widgetList.length;
-    var currentSelected = 0;
+    var currentSelected = -1;
     $('body').on('keydown', function( event ){
             if(event.which === 37){
                 console.log('currentSelected: ' + currentSelected);
-                if(currentSelected === 0){
+                if(currentSelected <= 0){
                     currentSelected = widgetList.length -1;
                 } else {
                     currentSelected= (currentSelected - 1) % widgetList.length;
