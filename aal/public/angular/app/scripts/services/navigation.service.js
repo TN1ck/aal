@@ -2,29 +2,39 @@
 var app = angular.module('angularApp');
 
 app.factory('Navigation', function($rootScope){
-    var widgetCounter = 0;
+    var contentDiv = document.getElementById("content");
+
+    var widgetList = document.getElementsByTagName("widget");
+    //var widgetCounter = widgetList.length;
     var currentSelected = 0;
     $('body').on('keydown', function( event ){
             if(event.which === 37){
-                //alert('left pressed');
-                //alert(currentSelected);
+                console.log('currentSelected: ' + currentSelected);
                 if(currentSelected === 0){
-                    currentSelected = widgetCounter-1;
+                    currentSelected = widgetList.length -1;
                 } else {
-                    currentSelected= (currentSelected - 1) % widgetCounter;
+                    currentSelected= (currentSelected - 1) % widgetList.length;
                 }
                 $rootScope.$apply();
             }
             if(event.which === 39){
                 //alert('right pressed');
                 //alert(currentSelected);
-                currentSelected = (currentSelected + 1) % widgetCounter;
+                currentSelected = (currentSelected + 1) % widgetList.length;
                 $rootScope.$apply();
             }
         });
     return {
-        initNext: function (){
-            return widgetCounter++;
+        getCounter: function (questioner){
+            //console.log(widgetList.length);
+            for(var i = widgetList.length; i--;){
+                if (widgetList[i] === questioner.context){
+                    console.log(i);
+                    return i;
+                } else {
+                    console.log(i);
+                }
+            }
         },
         selectNext: function (){
             return currentSelected++;
