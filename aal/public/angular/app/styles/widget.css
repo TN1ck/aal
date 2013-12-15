@@ -108,3 +108,16 @@ widget-h3 {
 	width: 24px;
 	height: 24px;
 }
+
+.social {
+	height: 80px;
+}
+
+.social img {
+	float: left;
+}
+
+.social .body {
+	float: left;
+	padding-left: 4px;
+}
