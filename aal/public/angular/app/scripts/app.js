@@ -5,7 +5,6 @@ var angularApp = angular.module('angularApp', [
     'ngAnimate',
     'angular-flip',
     'appControllers',
-    'btford.socket-io'
 ]);
 
 angularApp.config(['$routeProvider',

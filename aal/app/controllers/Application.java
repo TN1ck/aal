@@ -1,10 +1,16 @@
 package controllers;
 
-import play.*;
+import java.util.concurrent.TimeUnit;
+
+import akka.actor.ActorRef;
+import akka.actor.Cancellable;
+import akka.actor.Props;
 import play.mvc.*;
 import play.libs.F.*;
-
-import views.html.*;
+import play.libs.Akka;
+import scala.concurrent.duration.Duration;
+import scala.concurrent.duration.FiniteDuration;
+import util.WsPush;
 
 public class Application extends Controller {
 		
@@ -12,12 +18,11 @@ public class Application extends Controller {
     public static Result index() {
         return redirect("index.html");
     }
-
+    
     // this will be the main communication port for angularjs
     // just a stub atm
     public static WebSocket<String> websocket() {
         return new WebSocket<String>() {
-            boolean toggle = false;
 
             // Called when the Websocket Handshake is done.
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
@@ -27,13 +32,9 @@ public class Application extends Controller {
             	// Empfiehlt sich besonders für asynchrone Programmierung...
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
-
                         // Log events to the console
                         if (event.equals("Test")){
-                            //writeAnswer1();
-                            toggle = true;
-                            System.out.println("YEEEEEHA!");
-                            System.out.println(toggle);
+                            System.out.println("The message was 'Test'");
                         } else {
                             //writeAnswer2();
                         }
@@ -42,38 +43,24 @@ public class Application extends Controller {
                     }
                 });
                 
-                // When the socket is closed.
                 in.onClose(new Callback0() {
                     public void invoke() {
-
                         System.out.println("Disconnected");
-
                     }
                 });
-
                 
-
-                // Send a single 'Hello!' message
-                // System.out.println("I am here");
-                // System.out.println(toggle);
-                // if(toggle == true){
-                //     out.write("Not Hello!");
-                // } else {
-
-                // }
+                ActorRef wsPushActor = Akka.system().actorOf(Props.create(WsPush.class, out));
+                final Cancellable cancellable = Akka.system().scheduler().schedule(Duration.Zero(), Duration.create(500, TimeUnit.MILLISECONDS), wsPushActor, "wsPush", Akka.system().dispatcher(), null);
+                
+                Akka.system().scheduler().scheduleOnce(new FiniteDuration(180, TimeUnit.SECONDS), new Runnable() {
+					
+					@Override
+					public void run() {
+						cancellable.cancel();
+					}
+				}, Akka.system().dispatcher());
+                
             }
-
-            // public void writeAnswer1(){
-            //     out.write("FUCK!!!!!!!");
-            // }
-
-            // public void writeAnswer2(){
-            //     Out.write("Haha2");
-            // }
-
         };
     }
-
-
-
 }

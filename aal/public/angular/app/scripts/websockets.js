@@ -1,55 +1,41 @@
-  var wsUri = "ws://localhost:9000/websocket";
-  var output;
+function moveCursor(x, y) {
+	$('#cursor').css('display', 'block').css('left', x).css('top', y);
+}
 
-  function init()
-  {
-    output = document.getElementById("websocket-screen");
-    testWebSocket();
-  }
+function init() {
+	
+	var loc = window.location;
+	var wsUri = "ws:" + "//" + loc.host + "/websocket";
+	
+	websocket = new WebSocket(wsUri);
+	websocket.onopen = function(evt) {onOpen(evt)};
+	websocket.onclose = function(evt) {onClose(evt)};
+	websocket.onmessage = function(evt) {onMessage(evt)};
+	websocket.onerror = function(evt) {onError(evt)};
+}
 
-  function testWebSocket()
-  {
-    websocket = new WebSocket(wsUri);
-    websocket.onopen = function(evt) { onOpen(evt) };
-    websocket.onclose = function(evt) { onClose(evt) };
-    websocket.onmessage = function(evt) { onMessage(evt) };
-    websocket.onerror = function(evt) { onError(evt) };
-  }
+function onOpen(evt) {
+//	alert('Connected');
+	sendMessage("Test");
+}
 
-  function onOpen(evt)
-  {
-    writeToScreen("CONNECTED");
-    doSend("Test");
-  }
+function onClose(evt) {
+//	alert('Disconnected');
+}
 
-  function onClose(evt)
-  {
-    writeToScreen("DISCONNECTED");
-  }
+function onMessage(evt) {
+	parsed = JSON.parse(evt.data);
+	console.log(parsed);
+	moveCursor(parsed.x, parsed.y);
+//	websocket.close();
+}
 
-  function onMessage(evt)
-  {
-    writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
-    websocket.close();
-  }
+function onError(evt) {
+	alert('An error occured')
+}
 
-  function onError(evt)
-  {
-    writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
-  }
+function sendMessage(message) {
+	websocket.send(message);
+}
 
-  function doSend(message)
-  {
-    writeToScreen("SENT: " + message); 
-    websocket.send(message);
-  }
-
-  function writeToScreen(message)
-  {
-    var pre = document.createElement("p");
-    pre.style.wordWrap = "break-word";
-    pre.innerHTML = message;
-    output.appendChild(pre);
-  }
-
-  window.addEventListener("load", init, false);
+window.addEventListener("load", init, false);
