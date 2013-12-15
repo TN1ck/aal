@@ -4,12 +4,12 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetCalendar', function() {
+app.directive('widgetSocial', function() {
     return {
-        templateUrl: '/views/templates/widget.calendar.html',
+        templateUrl: '/views/templates/widget.social.html',
         restrict: 'E',
         scope: {
-            calendars: '=',
+            news: '=',
           }
         };
   });

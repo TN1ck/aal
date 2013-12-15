@@ -1,0 +1,11 @@
+<widget title="'Social'">
+	<div class="row">
+		<div ng-repeat="n in news" class="col-lg-12" style="padding-bottom: 10px;">
+			<div class="widget news">
+				<widget-h3>{{n.header | truncate:45}}</widget-h3>
+				<p>{{n.text | truncate:150 }}</p>
+				<p style="position:absolute; right: 10px; bottom: 5px;">{{n.publisher}}</p>
+			</div>
+		</div>
+	</div>
+</widget>

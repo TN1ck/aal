@@ -1,3 +1,7 @@
+'use strict';
+
+/* global angular */
+
 var app = angular.module('angularApp');
 
 app.directive('widgetPersonal', function() {
@@ -5,9 +9,9 @@ app.directive('widgetPersonal', function() {
         templateUrl: '/views/templates/widget.personal.html',
         restrict: 'E',
         scope: {
-        	picture: "=",
-        	name: "=",
-        	telephone: "="
-        }
-    };
-});
+            picture: '=',
+            name: '=',
+            telephone: '='
+          }
+        };
+  });

@@ -1,3 +1,7 @@
+'use strict';
+
+/* global angular, $ */
+
 angular.module('angular-flip', [])
 .directive('flip', function() {
     return {
@@ -6,38 +10,38 @@ angular.module('angular-flip', [])
         replace: true,
         scope: {
             flipped: '=?'
-        },
-        template:
+          },
+          template:
             '<div class="flip">' +
                 '<div class="card" ng-transclude></div>' +
             '</div>',
-        controller: ['$scope', '$element', function($scope, $element) {
+          controller: ['$scope', '$element', function($scope, $element) {
             this.toggle = function() {
                 var flipped = !$element.hasClass('flipped');
                 $scope.$apply(function() {
                     $scope.flipped = flipped;
-                })
-            };
+                  });
+              };
 
             this.flipFront = function() {
                 $scope.flipped = false;
-            };
+              };
 
             this.flipBack = function() {
                 $scope.flipped = true;
-            }
-        }],
-        link: function(scope, elm, attrs) {
-            scope.$watch('flipped', function(newValue, oldValue) {
+              };
+          }],
+          link: function(scope, elm) {
+            scope.$watch('flipped', function(newValue) {
                 if (newValue) {
-                    elm.addClass('flipped');
+                  elm.addClass('flipped');
                 } else {
-                    elm.removeClass('flipped');
+                  elm.removeClass('flipped');
                 }
-            });
-        }
-    }
-})
+              });
+          }
+        };
+  })
 .directive('flipFront', function() {
     return {
         require: '^flip',
@@ -46,8 +50,8 @@ angular.module('angular-flip', [])
         transclude: true,
         template:
             '<div class="face front" ng-transclude></div>'
-    }
-})
+      };
+  })
 .directive('flipBack', function() {
     return {
         require: '^flip',
@@ -56,8 +60,8 @@ angular.module('angular-flip', [])
         transclude: true,
         template:
             '<div class="face back" ng-transclude></div>'
-    }
-})
+      };
+  })
 .directive('flipToggle', function() {
     return {
         require: '^flip',
@@ -67,16 +71,18 @@ angular.module('angular-flip', [])
 
             attrs.$observe('flipToggle', function(value) {
                 if (!value) {
-                    value = 'hover';
+                  value = 'hover';
                 }
 
-                if (previousValue) elm.off(previousValue, controller.toggle);
+                if (previousValue) {
+                  elm.off(previousValue, controller.toggle);
+                }
 
                 previousValue = value;
 
                 $(elm.parent()).on('mouseenter', controller.toggle);
                 $(elm.parent()).on('mouseleave', controller.toggle);
-            });
-        }
-    }
-});
+              });
+          }
+      };
+  });

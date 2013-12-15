@@ -1,3 +1,7 @@
+'use strict';
+
+/* global angular, $ */
+
 var app = angular.module('angularApp');
 
 app.directive('widget', function() {
@@ -9,12 +13,12 @@ app.directive('widget', function() {
         scope: {
             title: '=',
           },
-        link: function (scope, element) {
+          link: function (scope, element) {
             scope.fullscreen = ['enter fullscreen', 'exit fullscreen'];
             scope.toggleFullscreen = function () {
                 $(element).parent().parent().toggleClass('fullscreen');
                 scope.fullscreen.reverse();
-            };
-        }
+              };
+          }
         };
   });

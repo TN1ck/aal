@@ -1,3 +1,7 @@
+'use strict';
+
+/* global angular */
+
 var app = angular.module('angularApp');
 
 app.directive('widgetNews', function() {
@@ -5,7 +9,7 @@ app.directive('widgetNews', function() {
         templateUrl: '/views/templates/widget.news.html',
         restrict: 'E',
         scope: {
-        	news: "=",
-        }
-    };
-});
+            news: '=',
+          }
+        };
+  });
