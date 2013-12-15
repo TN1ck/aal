@@ -22,6 +22,14 @@ app.directive('widget',  function(Navigation) {
             scope.toggleFullscreen = function () {
                 $(element).parent().parent().toggleClass('fullscreen');
                 scope.fullscreen.reverse();
+
+                if($(element).parent().parent().hasClass('fullscreen')){
+                    $(element).parent().parent().removeClass('border');
+                    $(element).parent().parent().removeClass('noborder');
+                } else {
+                    $(element).parent().parent().addClass('border');
+
+                }
               };
             scope.$watch(Navigation.getCurrentSelected , function (newValue, oldValue, scope){
                     if(newValue === scope.counter){
