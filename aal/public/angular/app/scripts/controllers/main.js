@@ -40,6 +40,12 @@ appControllers.controller('MainCtrl', ['$scope', '$http',
                              category: 'tech',
                              publisher: 'Spiegel'},
                             ],
+                     calendar: [{start: '2013-12-17 12:00', end: '2013-12-17 14:00', text: 'Ersten Meilenstein präsentieren', location: 'TEL 1119', priority: 'urgent', category: 'business'},
+                                {start: '2013-12-17 14:00', end: '', text: 'Mittagessen!', location: 'Mensa' , priority: 'normal', category:'private'}
+                                {start: '2013-12-18 8:00', end: '', text: 'Frühstück mit Harry', location: '', priority: 'urgent', category:'private'}
+                                {start: '2013-12-19 19:00', end: '2013-12-19 22:30', text: 'Kino - Hobbit 2', location: 'Cineplexx Potsdamer Platz', priority: 'low', category:'private'}
+                            ],
+                     }
                      
                     
                     };
