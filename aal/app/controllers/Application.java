@@ -41,8 +41,6 @@ public class Application extends Controller {
 
                     }
                 });
-
-                broadcastMessage("foo");
                 
                 // When the socket is closed.
                 in.onClose(new Callback0() {
