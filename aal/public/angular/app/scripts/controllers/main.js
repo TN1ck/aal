@@ -1,6 +1,6 @@
 'use strict';
 
-/* global angular */
+/* global angular, moment */
 
 var appControllers = angular.module('appControllers', []);
 
@@ -53,6 +53,16 @@ appControllers.controller('MainCtrl', ['$scope', '$http',
                 },
                 {
                   type: 'twitter', text: 'some stupid entry. aoeuaoeu aoeuaoeu toetu aosetu aoetus oestu asoeutoa es toeuts uetosn ', created: '2013.05.03', 
+                  url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
+                  name: 'Cillian Murphy'
+                },
+                {
+                  type: 'twitter', text: 'some stupid entry. aoeuaoeu aoeuaoeu toetu aosetu aoetus oestu asoeutoa es toeuts uetosn ', created: '2013.05.03', 
+                  url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
+                  name: 'Cillian Murphy'
+                },
+                {
+                  type: 'facebook', text: 'some stupid entry. aoeuaoeu aoeuaoeu toetu aosetu aoetus oestu asoeutoa es toeuts uetosn ', created: '2013.05.03', 
                   url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
                   name: 'Cillian Murphy'
                 }

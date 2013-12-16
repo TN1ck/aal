@@ -4,8 +4,12 @@ body {
     padding-top: 20px;
   padding-bottom: 20px;
     */
-    padding: 50px;
+    font-size: 12px;
   -webkit-font-smoothing: subpixel-antialiased !important;
+}
+
+.big-padding {
+    padding: 50px;
 }
 
 html, body {
@@ -37,7 +41,7 @@ body {
 }
 
 .full-height {
-	height: 100%;
+	min-height: 100%;
 }
 
 .half-height {
@@ -100,13 +104,17 @@ body {
 .col-sm-12,
 .col-md-12,
 .col-lg-12 {
-  padding-right: 5px;
-  padding-left: 5px;
+  padding-right: 0.3em;
+  padding-left: 0.3em;
+}
+
+.overflow {
+  overflow-y: auto;
 }
 
 .row {
-	margin-left: -5px;
-	margin-right: -5px;
+	margin-left: -0.3em;
+	margin-right: -0.3em;
 }
 
 .container {
@@ -172,14 +180,21 @@ img {
     left:50%;
     background-color: blue;
 
-*/}
+} */
 
-// I think one should avoid German words when programming :) -- Max)
 #toygamer-sec-eins{
     /*background-color: red;*/
 }
 #toygamer-sec-zwei{
     /*background-color: blue;*/
+}
+
+.animate-border {
+     transition: box-shadow 500ms, transform 500ms;
+    -webkit-transition: -webkit-box-shadow 500ms, -webkit-transform 500ms;
+    -moz-transition: box-shadow 500ms, transform 500ms;
+    -ms-transition: box-shadow 500ms, transform 500ms;
+    transition-timing-function: ease-in-out;
 }
 
 .border{
@@ -192,11 +207,6 @@ img {
     transform: scale(1.05);
     opacity: 1;
     background-color: white;
-    transition: box-shadow 500ms, transform 500ms;
-    -webkit-transition: -webkit-box-shadow 500ms, -webkit-transform 500ms;
-    -moz-transition: box-shadow 500ms, transform 500ms;
-    -ms-transition: box-shadow 500ms, transform 500ms;
-    transition-timing-function: ease-in-out;
     z-index: 100;
 }
 
@@ -208,12 +218,9 @@ img {
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1);
+    background-color: white;
     opacity: 1;
-    transition: box-shadow 500ms, transform 500ms;
-    -webkit-transition: -webkit-box-shadow 500ms, -webkit-transform 500ms;
-    -moz-transition: box-shadow 500ms, transform 500ms;
-    -ms-transition: box-shadow 500ms, transform 500ms;
-    transition-timing-function: ease-in-out;
+    z-index: 99;
 }
 
 .toygamer-box{

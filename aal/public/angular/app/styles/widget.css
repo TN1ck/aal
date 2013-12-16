@@ -2,7 +2,7 @@ widget-h1 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-weight: 200;
-	font-size: x-large;
+	font-size: 2em;
 }
 
 widget-h2 {
@@ -10,7 +10,7 @@ widget-h2 {
 	margin-bottom: 0;
 	font-weight: 400;
 	color: #2D7CDB;
-	font-size: x-large;
+	font-size: 2em;
 }
 
 widget-h3 {
@@ -18,33 +18,37 @@ widget-h3 {
 	margin-bottom: 0;
 	font-weight: 400;
 	color: #2D7CDB;
-	font-size: large;
+	font-size: 1.5em;
 }
 
 .widget {
-	padding-top: 10px;
-	padding-right: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;
+	padding-top: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+	padding-left: 1em;
 	background-color: #F9F9F9;
 }
 
+.widget-item {
+	padding-bottom: 0.6em;
+}
+
 .todo {
-	height: 80px;
+	height: 6em;
 	/* The TODO-text should break before the type-dot */
-	padding-right: 15px; 
+	padding-right: 1.2em; 
 }
 
 .todo-dot {
-	top: 5px;
+	top: 0.5em;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-	right: 10px;
+	right: 0.5em;
 	position: absolute;
 	-webkit-transform: translateZ(1px);
 	border-radius: 50%;
-	width: 12px;
-	height: 12px;"
+	width: 0.9em;
+	height: 0.9em;
 }
 
 .todo-flipped {
@@ -62,123 +66,67 @@ widget-h3 {
 
 }
 
-.fullscreen-btn {
-	position: absolute;
-	right: 5px;
-	bottom: 0;
-}
-
-.fullscreen-btn:hover {
-	color: orange;
-	cursor: pointer;
-}
-
-.fullscreen {
-	position: absolute;
-	right: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: white;
-	z-index: 9;
-	font-size: 24px;
-}
-
-.fullscreen widget-h2 {
-	font-size: 50px;
-}
-
-.fullscreen widget-h3 {
-	font-size: 35px;
-}
-
-.fullscreen widget-h1 {
-	font-size: 50px;
-}
-
-.fullscreen .todo {
-	height: 150px;
-}
-
-.fullscreen .btn {
-	font-size: 24px;
-}
-
-.fullscreen .todo-dot {
-	width: 24px;
-	height: 24px;
-}
-
 .social {
-	height: 120px;
+	height: 8em;
 }
 
 .twitter {
-	border-left: 5px solid #4099FF;
+	border-left: 0.5em solid #4099FF;
 }
 
 .facebook {
-	border-left: 5px solid #3B5999;
+	border-left: 0.5em solid #3B5999;
 }
 
 .social img {
 	float: left;
-	padding-right: 4px;
+	border-radius: 100%;
 }
 
 .social .title {
-	width: 64px;
+	width: 5em;
 	float: left;
 }
 
-.social .title img {
-  width: 64px;
-  height: 64px;
-}
-
 .social .title {
-	font-size: 10px;
-}
-
-.social .body {
-}
-
-.fullscreen .day {
-	width: 14%;
+	margin-right: 0.4em;
 	text-align: center;
-	float: left;
-	padding: 5px;
+	font-size: 0.8em;
+}
+
+.social .profile-pic {
+	background-size: cover;
+	background-image: url('http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg');
+	border-radius: 100%;
+	width: 5em;
+	height: 5em;
 }
 
 .day {
 	text-align: left;
 	width: 50%;
 	float: left;
-	padding: 5px;
+	padding: 0.5em;
 } 
 
 .event {
-	margin-bottom: 10px;
-	padding: 5px;
+	margin-bottom: 1em;
+	padding: 0.5em;
 	text-align: left;
 	background-color: #FBFBFB;
 	position: relative;
 }
 
-
-.fullscreen .event .todo-dot {
-	width: 12px;
-	height: 12px;
-}
-
 .business {
-	border-left: 5px solid blue;
+	border-left: 0.5em solid blue;
 }
 
 .private {
-	border-left: 5px solid green;
+	border-left: 0.5em solid green;
 }
 
-.fullscreen .event {
-	font-size: 20px;
+.news-publisher {
+	position: absolute;
+	right: 1em;
+	bottom: 1.5em;
 }
