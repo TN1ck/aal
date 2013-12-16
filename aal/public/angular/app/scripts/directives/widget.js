@@ -20,10 +20,12 @@ app.directive('widget',  function(Navigation) {
                 screenHeight = (windowSize * 9/16);
 
             var setHeights = function () {
-              if ($(element).parent().parent().hasClass('half-height')) {
-                $(element).parent().parent().css('height', (screenHeight/2) + 'px');
-              } else {
-                $(element).parent().parent().css('height', screenHeight + 'px');
+              if(windowSize > 1200) {
+                if ($(element).parent().parent().hasClass('half-height')) {
+                  $(element).parent().parent().css('height', (screenHeight/2) + 'px');
+                } else {
+                  $(element).parent().parent().css('height', screenHeight + 'px');
+                }
               }
             };
 
