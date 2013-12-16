@@ -17,6 +17,7 @@ public class WsPush extends UntypedActor {
 			CursorPosition cp = CursorPosition.getRandomPosition();
 //			cp.moveCursor();
 //			out.write(cp.toJSON());
+//			System.out.println("\n\nSent something\n\n");
 		} else {
 			unhandled(message);
 		}
