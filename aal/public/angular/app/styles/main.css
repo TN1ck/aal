@@ -183,6 +183,14 @@ img {
     /*background-color: blue;*/
 }
 
+.animate-border {
+     transition: box-shadow 500ms, transform 500ms;
+    -webkit-transition: -webkit-box-shadow 500ms, -webkit-transform 500ms;
+    -moz-transition: box-shadow 500ms, transform 500ms;
+    -ms-transition: box-shadow 500ms, transform 500ms;
+    transition-timing-function: ease-in-out;
+}
+
 .border{
     -moz-box-shadow: 0 0 10px 10px rgba(0,0,0,0.25);
     -webkit-box-shadow: 0 0 10px 10px rgba(0,0,0,0.25);
@@ -193,11 +201,6 @@ img {
     transform: scale(1.05);
     opacity: 1;
     background-color: white;
-    transition: box-shadow 500ms, transform 500ms;
-    -webkit-transition: -webkit-box-shadow 500ms, -webkit-transform 500ms;
-    -moz-transition: box-shadow 500ms, transform 500ms;
-    -ms-transition: box-shadow 500ms, transform 500ms;
-    transition-timing-function: ease-in-out;
     z-index: 100;
 }
 
@@ -210,11 +213,6 @@ img {
     -o-transform: scale(1);
     transform: scale(1);
     opacity: 1;
-    transition: box-shadow 500ms, transform 500ms;
-    -webkit-transition: -webkit-box-shadow 500ms, -webkit-transform 500ms;
-    -moz-transition: box-shadow 500ms, transform 500ms;
-    -ms-transition: box-shadow 500ms, transform 500ms;
-    transition-timing-function: ease-in-out;
 }
 
 .toygamer-box{

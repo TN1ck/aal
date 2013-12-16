@@ -38,9 +38,11 @@ app.directive('widget',  function(Navigation) {
                 scope.fullscreen.reverse();
 
                 if($(element).parent().parent().hasClass('fullscreen')){
-                  $(element).parent().parent().removeClass('border');
-                  $(element).parent().parent().removeClass('noborder');
-                  $(element).parent().parent().css('height', '100%');
+                  $(element).parent().parent()
+                            .removeClass('border')
+                            .removeClass('noborder')
+                            .removeClass('animate-border')
+                            .css('height', '100%');
                 } else {
                   setHeights();
                   $(element).parent().parent().addClass('border');
@@ -49,12 +51,16 @@ app.directive('widget',  function(Navigation) {
               };
             scope.$watch(Navigation.getCurrentSelected , function (newValue, oldValue, scope){
                 if(newValue === scope.counter){
-                  $(element).parent().parent().removeClass('noborder');
-                  $(element).parent().parent().addClass('border');
+                  $(element).parent().parent()
+                            .removeClass('noborder')
+                            .addClass('border')
+                            .addClass('animate-border');
                 }
                 if(oldValue === scope.counter && newValue !== oldValue){
-                  $(element).parent().parent().removeClass('border');
-                  $(element).parent().parent().addClass('noborder');
+                  $(element).parent().parent()
+                            .removeClass('border')
+                            .addClass('noborder')
+                            .addClass('animate-border');
                 }
               });
             scope.$watch(Navigation.getFullscreenOn , function(newValue, oldValue, scope){
