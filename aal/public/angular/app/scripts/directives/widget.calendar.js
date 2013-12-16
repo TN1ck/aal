@@ -11,7 +11,7 @@ app.directive('widgetCalendar', function() {
         scope: {
             events: '=',
           },
-          link: function (scope) {
+          link: function(scope) {
 
             moment.lang('de');
 
@@ -23,9 +23,12 @@ app.directive('widgetCalendar', function() {
               scope.days.push((moment().add('days', i)).calendar().split(' ')[0]);
             }
 
-            scope.events = scope.events.map(function (event) {
+            // for easy filtering add the weekday
+            scope.events = scope.events.map(function(event) {
+                
                 event.weekday = moment(event.start).calendar().split(' ')[0];
                 return event;
+
               });
           }
         };

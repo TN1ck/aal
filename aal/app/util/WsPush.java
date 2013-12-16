@@ -15,8 +15,9 @@ public class WsPush extends UntypedActor {
 	public void onReceive(Object message) {
 		if (message.equals("wsPush")) {
 			CursorPosition cp = CursorPosition.getRandomPosition();
-			cp.moveCursor();
+//			cp.moveCursor();
 //			out.write(cp.toJSON());
+//			System.out.println("\n\nSent something\n\n");
 		} else {
 			unhandled(message);
 		}
