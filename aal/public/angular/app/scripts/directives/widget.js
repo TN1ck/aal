@@ -34,7 +34,10 @@ app.directive('widget',  function(Navigation) {
             scope.fullscreen = ['enter fullscreen', 'exit fullscreen'];
             scope.counter = Navigation.getCounter(element);
             scope.toggleFullscreen = function () {
-                $(element).parent().parent().toggleClass('fullscreen');
+                $(element).parent().parent()
+                          .toggleClass('fullscreen')
+                          .toggleClass('overflow');
+                $('body').toggleClass('big-padding');
                 scope.fullscreen.reverse();
 
                 if($(element).parent().parent().hasClass('fullscreen')){

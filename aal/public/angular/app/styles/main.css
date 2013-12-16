@@ -4,9 +4,12 @@ body {
     padding-top: 20px;
   padding-bottom: 20px;
     */
-    padding: 50px;
     font-size: 12px;
   -webkit-font-smoothing: subpixel-antialiased !important;
+}
+
+.big-padding {
+    padding: 50px;
 }
 
 html, body {
@@ -103,6 +106,9 @@ body {
 .col-lg-12 {
   padding-right: 0.3em;
   padding-left: 0.3em;
+}
+
+.overflow {
   overflow-y: auto;
 }
 
