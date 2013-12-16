@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widget',  function(Navigation) {
+app.directive('widget', function(Navigation) {
     
     return {
         templateUrl: '/views/templates/widget.html',
@@ -13,20 +13,23 @@ app.directive('widget',  function(Navigation) {
         scope: {
             title: '=',
           },
-        link: function (scope, element) {
+        link: function(scope, element) {
 
             // we assume 16/9 screens and two rows
             var windowSize = $(window).width(),
-                screenHeight = (windowSize * 9/16);
+                screenHeight = (windowSize * 9/16),
+                outerDiv = $(element).parent().parent();
 
             var setHeights = function () {
-              if(windowSize > 1200) {
-                if ($(element).parent().parent().hasClass('half-height')) {
-                  $(element).parent().parent().css('height', (screenHeight/2) + 'px');
+              
+              if (windowSize > 1200) {
+                if (outerDiv.hasClass('half-height')) {
+                  outerDiv.css('height', (screenHeight/2) + 'px');
                 } else {
-                  $(element).parent().parent().css('height', screenHeight + 'px');
+                  outerDiv.css('height', screenHeight + 'px');
                 }
               }
+
             };
 
             setHeights();
@@ -34,45 +37,58 @@ app.directive('widget',  function(Navigation) {
             scope.fullscreen = ['enter fullscreen', 'exit fullscreen'];
             scope.counter = Navigation.getCounter(element);
             scope.toggleFullscreen = function () {
-                $(element).parent().parent()
-                          .toggleClass('fullscreen')
-                          .toggleClass('overflow');
+                
+                outerDiv.toggleClass('fullscreen')
+                        .toggleClass('overflow');
+                
                 $('body').toggleClass('big-padding');
+                
                 scope.fullscreen.reverse();
 
-                if($(element).parent().parent().hasClass('fullscreen')){
-                  $(element).parent().parent()
-                            .removeClass('border')
-                            .removeClass('noborder')
-                            .removeClass('animate-border')
-                            .css('height', '100%');
+                if (outerDiv.hasClass('fullscreen')) {
+                  outerDiv.removeClass('border')
+                          .removeClass('noborder')
+                          .removeClass('animate-border')
+                          .css('height', '100%');
                 } else {
+                  
                   setHeights();
-                  $(element).parent().parent().addClass('border');
+                  outerDiv.addClass('border');
 
                 }
               };
-            scope.$watch(Navigation.getCurrentSelected , function (newValue, oldValue, scope) {
-                if(newValue === scope.counter){
-                  $(element).parent().parent()
-                            .removeClass('noborder')
-                            .addClass('border')
-                            .addClass('animate-border');
+            scope.$watch(Navigation.getCurrentSelected , function(newValue, oldValue, scope) {
+                
+                if (newValue === scope.counter) {
+                  
+                  outerDiv.removeClass('noborder')
+                          .addClass('border')
+                          .addClass('animate-border');
                 }
-                if(oldValue === scope.counter && newValue !== oldValue) {
+
+                if (oldValue === scope.counter && newValue !== oldValue) {
+                  
                   $('div').removeClass('noborder');
-                  $(element).parent().parent()
-                            .removeClass('border')
-                            .addClass('noborder')
-                            .addClass('animate-border');
+                  outerDiv.removeClass('border')
+                          .addClass('noborder')
+                          .addClass('animate-border');
                 }
+
               });
-            scope.$watch(Navigation.getFullscreenOn , function(newValue, oldValue, scope){
-                if(newValue === 1 && oldValue === 0 && Navigation.getCurrentSelected() === scope.counter){
+            scope.$watch(Navigation.getFullscreenOn , function(newValue, oldValue, scope) {
+                
+                if (newValue === 1 && oldValue === 0 &&
+                   Navigation.getCurrentSelected() === scope.counter) {
+                  
                   scope.toggleFullscreen();
+                
                 }
-                if(newValue === 0 && oldValue === 1 && Navigation.getCurrentSelected() === scope.counter){
+
+                if (newValue === 0 && oldValue === 1 &&
+                   Navigation.getCurrentSelected() === scope.counter) {
+                  
                   scope.toggleFullscreen();
+                
                 }
               });
           },
