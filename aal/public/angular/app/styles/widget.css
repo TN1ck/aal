@@ -80,7 +80,7 @@ widget-h3 {
 
 .social img {
 	float: left;
-	padding-right: 0.4em;
+	border-radius: 100%;
 }
 
 .social .title {
@@ -94,6 +94,8 @@ widget-h3 {
 }
 
 .social .title {
+	margin-right: 0.4em;
+	text-align: center;
 	font-size: 0.8em;
 }
 
