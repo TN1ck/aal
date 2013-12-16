@@ -218,7 +218,9 @@ img {
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1);
+    background-color: white;
     opacity: 1;
+    z-index: 99;
 }
 
 .toygamer-box{

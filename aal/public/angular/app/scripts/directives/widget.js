@@ -52,14 +52,15 @@ app.directive('widget',  function(Navigation) {
 
                 }
               };
-            scope.$watch(Navigation.getCurrentSelected , function (newValue, oldValue, scope){
+            scope.$watch(Navigation.getCurrentSelected , function (newValue, oldValue, scope) {
                 if(newValue === scope.counter){
                   $(element).parent().parent()
                             .removeClass('noborder')
                             .addClass('border')
                             .addClass('animate-border');
                 }
-                if(oldValue === scope.counter && newValue !== oldValue){
+                if(oldValue === scope.counter && newValue !== oldValue) {
+                  $('div').removeClass('noborder');
                   $(element).parent().parent()
                             .removeClass('border')
                             .addClass('noborder')
