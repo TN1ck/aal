@@ -35,8 +35,11 @@ widget-h3 {
 
 .todo {
 	height: 6em;
-	/* The TODO-text should break before the type-dot */
-	padding-right: 1.2em; 
+}
+
+.todo .btn {
+	padding: 0;
+	font-size: 1em;
 }
 
 .todo-dot {
