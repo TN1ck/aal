@@ -34,9 +34,7 @@ public class Application extends Controller {
                     public void invoke(String event) {
                         // Log events to the console
                         if (event.equals("Test")){
-                            System.out.println("The message was 'Test'");
-                        } else {
-                            //writeAnswer2();
+                            System.out.println("\n\nThe message was 'Test'\n\n");
                         }
                         System.out.println(event);
 

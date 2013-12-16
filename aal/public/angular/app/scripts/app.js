@@ -4,7 +4,7 @@ var angularApp = angular.module('angularApp', [
     'ngRoute',
     'ngAnimate',
     'angular-flip',
-    'appControllers',
+    'appControllers'
 ]);
 
 angularApp.config(['$routeProvider',
@@ -21,7 +21,8 @@ angularApp.config(['$routeProvider',
             otherwise({
                 redirectTo: '/'
             });
-}]);
+        }
+]);
 /*
 angular.module('angularApp', ['ngRoute', 'ngAnimate', 'angular-flip'])
   .config(function ($routeProvider) {

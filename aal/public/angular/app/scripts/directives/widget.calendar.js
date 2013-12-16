@@ -11,7 +11,7 @@ app.directive('widgetCalendar', function() {
         scope: {
             events: '=',
           },
-          link: function (scope) {
+          link: function(scope) {
 
             scope.days = [];
             scope.moment = moment;
@@ -21,7 +21,7 @@ app.directive('widgetCalendar', function() {
               scope.days.push((moment().add('days', i)).calendar().split(" ")[0]);
             }
 
-            scope.events = scope.events.map(function (event) {
+            scope.events = scope.events.map(function(event) {
                 event.weekday = moment(event.start).calendar().split(" ")[0];
                 return event;
               });
