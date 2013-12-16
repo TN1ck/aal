@@ -9,7 +9,7 @@ app.factory('Navigation', function($rootScope){
     var currentSelected = -1;
     var fullscreenOn = 0;
     $('body').on('keydown', function( event ){
-            if(event.which === 37){
+            if(event.which === 37 && fullscreenOn === 0){
                 //console.log('currentSelected: ' + currentSelected);
                 if(currentSelected <= 0){
                     currentSelected = widgetList.length -1;
@@ -18,7 +18,7 @@ app.factory('Navigation', function($rootScope){
                 }
                 $rootScope.$apply();
             }
-            if(event.which === 39){
+            if(event.which === 39 && fullscreenOn === 0){
                 //alert('right pressed');
                 //alert(currentSelected);
                 currentSelected = (currentSelected + 1) % widgetList.length;
