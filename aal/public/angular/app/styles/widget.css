@@ -88,18 +88,18 @@ widget-h3 {
 	float: left;
 }
 
-.social .title img {
-  width: 5em;
-  height: 5em;
-}
-
 .social .title {
 	margin-right: 0.4em;
 	text-align: center;
 	font-size: 0.8em;
 }
 
-.social .body {
+.social .profile-pic {
+	background-size: cover;
+	background-image: url('http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg');
+	border-radius: 100%;
+	width: 5em;
+	height: 5em;
 }
 
 .day {
