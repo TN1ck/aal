@@ -1,6 +1,6 @@
 'use strict';
 
-/* global angular */
+/* global angular, moment */
 
 var appControllers = angular.module('appControllers', []);
 

@@ -43,7 +43,7 @@ widget-h3 {
 	top: 0.5em;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-	right: 1em;
+	right: 0.5em;
 	position: absolute;
 	-webkit-transform: translateZ(1px);
 	border-radius: 50%;

@@ -13,16 +13,18 @@ app.directive('widgetCalendar', function() {
           },
           link: function (scope) {
 
+            moment.lang('de');
+
             scope.days = [];
             scope.moment = moment;
-            scope.date = moment().format('LL')
+            scope.date = moment().format('LL');
 
             for (var i = 0; i < 7; i++) {
-              scope.days.push((moment().add('days', i)).calendar().split(" ")[0]);
+              scope.days.push((moment().add('days', i)).calendar().split(' ')[0]);
             }
 
             scope.events = scope.events.map(function (event) {
-                event.weekday = moment(event.start).calendar().split(" ")[0];
+                event.weekday = moment(event.start).calendar().split(' ')[0];
                 return event;
               });
           }
