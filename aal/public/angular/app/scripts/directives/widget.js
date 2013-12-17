@@ -51,7 +51,7 @@ app.directive('widget', function(Navigation) {
                 scope.fullscreen.reverse();
 
                 if ($outerOuterDiv.hasClass('fullscreen')) {
-                  $outerOuterDiv.removeClass('border')
+                  $outerDiv.removeClass('border')
                     .removeClass('noborder')
                     .removeClass('animate-border');
 
@@ -59,7 +59,7 @@ app.directive('widget', function(Navigation) {
                 } else {
                   
                   setHeights();
-                  $outerOuterDiv.addClass('border');
+                  $outerDiv.addClass('border');
 
                 }
               };
@@ -67,7 +67,7 @@ app.directive('widget', function(Navigation) {
                 
                 if (newValue === scope.counter) {
                   
-                  $outerOuterDiv.removeClass('noborder')
+                  $outerDiv.removeClass('noborder')
                     .addClass('border')
                     .addClass('animate-border');
                 }
@@ -75,7 +75,7 @@ app.directive('widget', function(Navigation) {
                 if (oldValue === scope.counter && newValue !== oldValue) {
                   
                   $('div').removeClass('noborder');
-                  $outerOuterDiv.removeClass('border')
+                  $outerDiv.removeClass('border')
                     .addClass('noborder')
                     .addClass('animate-border');
                 }
