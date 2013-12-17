@@ -11,8 +11,7 @@ app.directive('widget', function(Navigation) {
         restrict: 'E',
         transclude: true,
         scope: {
-            title: '=',
-          },
+        },
         link: function(scope, element) {
 
             // TODO remove the magic 8 and 6
