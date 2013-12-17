@@ -8,7 +8,7 @@
               </div>
               <div class="title">
                 <!-- This line throws error 500s -->
-                <div class="profile-pic" style="background-image: url({{s.picture}});"></div>
+                <div class="profile-pic" ng-style="{'background-image': url(s.picture)}"></div>
                 {{s.name}}
               </div>
               <div class="body">
