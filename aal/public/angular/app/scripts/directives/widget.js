@@ -15,14 +15,18 @@ app.directive('widget', function(Navigation) {
           },
         link: function(scope, element) {
 
-            // we assume 16/9 screens and two rows
-            var windowWidth = $(window).width(),
-                windowHeight = $(window).height(),
+            // TODO remove the magic 8 and 6
+            var paddingVert = Number($('.widget-padding').css('padding-left').replace('px', '')) * 8,
+                paddingHor = Number($('.widget-padding').css('padding-top').replace('px', '')) * 10,
+                windowWidth = $(window).width() - paddingVert,
+                windowHeight = $(window).height() - paddingHor,
                 $outerDiv = $(element).parent().parent();
+
+            console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
 
             var setHeights = function () {
               
-              if (windowWidth > 1200) {
+              if ($(window).width() > 1200) {
                 if ($outerDiv.hasClass('half-height')) {
                   $outerDiv.css('height', (windowHeight/2) + 'px');
                 } else {
