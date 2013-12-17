@@ -15,18 +15,23 @@ app.directive('widget', function(Navigation) {
           },
         link: function(scope, element) {
 
-            // we assume 16/9 screens and two rows
-            var windowSize = $(window).width(),
-                screenHeight = (windowSize * 9/16),
-                outerDiv = $(element).parent().parent();
+            // TODO remove the magic 8 and 6
+            var paddingVert = Number($('.widget-padding').css('padding-left').replace('px', '')) * 8,
+                paddingHor = Number($('.widget-padding').css('padding-top').replace('px', '')) * 10,
+                windowWidth = $(window).width() - paddingVert,
+                windowHeight = $(window).height() - paddingHor,
+                $outerDiv = $(element).parent().parent(),
+                $outerOuterDiv = $outerDiv.parent();
+
+            console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
 
             var setHeights = function () {
               
-              if (windowSize > 1200) {
-                if (outerDiv.hasClass('half-height')) {
-                  outerDiv.css('height', (screenHeight/2) + 'px');
+              if ($(window).width() > 1200) {
+                if ($outerDiv.hasClass('half-height')) {
+                  $outerDiv.css('height', (windowHeight/2) + 'px');
                 } else {
-                  outerDiv.css('height', screenHeight + 'px');
+                  $outerDiv.css('height', windowHeight + 'px');
                 }
               }
 
@@ -38,22 +43,23 @@ app.directive('widget', function(Navigation) {
             scope.counter = Navigation.getCounter(element);
             scope.toggleFullscreen = function () {
                 
-                outerDiv.toggleClass('fullscreen')
-                        .toggleClass('overflow');
+                $outerOuterDiv.toggleClass('fullscreen')
+                  .toggleClass('overflow');
                 
                 $('body').toggleClass('big-padding');
                 
                 scope.fullscreen.reverse();
 
-                if (outerDiv.hasClass('fullscreen')) {
-                  outerDiv.removeClass('border')
-                          .removeClass('noborder')
-                          .removeClass('animate-border')
-                          .css('height', '100%');
+                if ($outerOuterDiv.hasClass('fullscreen')) {
+                  $outerDiv.removeClass('border')
+                    .removeClass('noborder')
+                    .removeClass('animate-border');
+
+                  $outerDiv.css('height', '100%');
                 } else {
                   
                   setHeights();
-                  outerDiv.addClass('border');
+                  $outerDiv.addClass('border');
 
                 }
               };
@@ -61,17 +67,17 @@ app.directive('widget', function(Navigation) {
                 
                 if (newValue === scope.counter) {
                   
-                  outerDiv.removeClass('noborder')
-                          .addClass('border')
-                          .addClass('animate-border');
+                  $outerDiv.removeClass('noborder')
+                    .addClass('border')
+                    .addClass('animate-border');
                 }
 
                 if (oldValue === scope.counter && newValue !== oldValue) {
                   
                   $('div').removeClass('noborder');
-                  outerDiv.removeClass('border')
-                          .addClass('noborder')
-                          .addClass('animate-border');
+                  $outerDiv.removeClass('border')
+                    .addClass('noborder')
+                    .addClass('animate-border');
                 }
 
               });
