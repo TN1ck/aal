@@ -20,7 +20,8 @@ app.directive('widget', function(Navigation) {
                 paddingHor = Number($('.widget-padding').css('padding-top').replace('px', '')) * 10,
                 windowWidth = $(window).width() - paddingVert,
                 windowHeight = $(window).height() - paddingHor,
-                $outerDiv = $(element).parent().parent();
+                $outerDiv = $(element).parent().parent(),
+                $outerOuterDiv = $outerDiv.parent();
 
             console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
 
@@ -42,22 +43,23 @@ app.directive('widget', function(Navigation) {
             scope.counter = Navigation.getCounter(element);
             scope.toggleFullscreen = function () {
                 
-                $outerDiv.toggleClass('fullscreen')
+                $outerOuterDiv.toggleClass('fullscreen')
                   .toggleClass('overflow');
                 
                 $('body').toggleClass('big-padding');
                 
                 scope.fullscreen.reverse();
 
-                if ($outerDiv.hasClass('fullscreen')) {
-                  $outerDiv.removeClass('border')
+                if ($outerOuterDiv.hasClass('fullscreen')) {
+                  $outerOuterDiv.removeClass('border')
                     .removeClass('noborder')
-                    .removeClass('animate-border')
-                    .css('height', '100%');
+                    .removeClass('animate-border');
+
+                  $outerDiv.css('height', '100%');
                 } else {
                   
                   setHeights();
-                  $outerDiv.addClass('border');
+                  $outerOuterDiv.addClass('border');
 
                 }
               };
@@ -65,7 +67,7 @@ app.directive('widget', function(Navigation) {
                 
                 if (newValue === scope.counter) {
                   
-                  $outerDiv.removeClass('noborder')
+                  $outerOuterDiv.removeClass('noborder')
                     .addClass('border')
                     .addClass('animate-border');
                 }
@@ -73,7 +75,7 @@ app.directive('widget', function(Navigation) {
                 if (oldValue === scope.counter && newValue !== oldValue) {
                   
                   $('div').removeClass('noborder');
-                  $outerDiv.removeClass('border')
+                  $outerOuterDiv.removeClass('border')
                     .addClass('noborder')
                     .addClass('animate-border');
                 }
