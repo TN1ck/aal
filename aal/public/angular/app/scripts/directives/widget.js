@@ -5,7 +5,7 @@
 var app = angular.module('angularApp');
 
 app.directive('widget', function(Navigation) {
-    
+
     return {
         templateUrl: '/views/templates/widget.html',
         restrict: 'E',
@@ -46,7 +46,7 @@ app.directive('widget', function(Navigation) {
                   .toggleClass('overflow');
                 
                 $('body').toggleClass('big-padding');
-                
+
                 scope.fullscreen.reverse();
 
                 if ($outerOuterDiv.hasClass('fullscreen')) {
@@ -56,14 +56,14 @@ app.directive('widget', function(Navigation) {
 
                   $outerDiv.css('height', '100%');
                 } else {
-                  
+
                   setHeights();
                   $outerDiv.addClass('border');
 
                 }
               };
             scope.$watch(Navigation.getCurrentSelected , function(newValue, oldValue, scope) {
-                
+
                 if (newValue === scope.counter) {
                   
                   $outerDiv.removeClass('noborder')
@@ -72,7 +72,7 @@ app.directive('widget', function(Navigation) {
                 }
 
                 if (oldValue === scope.counter && newValue !== oldValue) {
-                  
+
                   $('div').removeClass('noborder');
                   $outerDiv.removeClass('border')
                     .addClass('noborder')
@@ -81,19 +81,19 @@ app.directive('widget', function(Navigation) {
 
               });
             scope.$watch(Navigation.getFullscreenOn , function(newValue, oldValue, scope) {
-                
+
                 if (newValue === 1 && oldValue === 0 &&
                    Navigation.getCurrentSelected() === scope.counter) {
-                  
+
                   scope.toggleFullscreen();
-                
+
                 }
 
                 if (newValue === 0 && oldValue === 1 &&
                    Navigation.getCurrentSelected() === scope.counter) {
-                  
+
                   scope.toggleFullscreen();
-                
+
                 }
               });
           },
