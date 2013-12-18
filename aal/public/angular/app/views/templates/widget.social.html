@@ -1,5 +1,9 @@
 <widget title="'Social'">
   <div class="row">
+    <div id="placeholder-div"></div>
+    <script>
+    gapi.hangout.render('placeholder-div', { 'render': 'createhangout' });
+    </script>
     <div ng-repeat="s in social" class="col-lg-6 widget-item">
       <flip flip-toggle>
         <flip-front>
