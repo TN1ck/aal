@@ -1,14 +1,11 @@
 <widget>
   <widget-title title="'Social'">
-  <div style="padding-top: 0.5em;" class="pull-right">
-    <button class="btn btn-primary btn-xs">Proof of concept</button>
+  <div class="pull-right">
+    <div style='float: left;' ng-bind-html="htmlForMax"></div>
+    <div ng-init="hangout()" style="float: left;" id="placeholder-div"></div>
   </div>
   </widget-title>
   <div class="row">
-    <div id="placeholder-div"></div>
-    <script>
-    gapi.hangout.render('placeholder-div', { 'render': 'createhangout' });
-    </script>
     <div ng-repeat="s in social" class="col-lg-6 widget-item">
       <flip flip-toggle>
         <flip-front>
