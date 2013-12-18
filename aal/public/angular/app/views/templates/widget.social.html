@@ -1,4 +1,9 @@
-<widget title="'Social'">
+<widget>
+  <widget-title title="'Social'">
+  <div style="padding-top: 0.5em;" class="pull-right">
+    <button class="btn btn-primary btn-xs">Proof of concept</button>
+  </div>
+  </widget-title>
   <div class="row">
     <div id="placeholder-div"></div>
     <script>
@@ -12,7 +17,7 @@
               </div>
               <div class="title">
                 <!-- This line throws error 500s -->
-                <div class="profile-pic" style="background-image: url({{s.picture}});"></div>
+                <div class="profile-pic" ng-style="{'background-image': url(s.picture)}"></div>
                 {{s.name}}
               </div>
               <div class="body">
