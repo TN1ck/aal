@@ -4,7 +4,8 @@ var angularApp = angular.module('angularApp', [
     'ngRoute',
     'ngAnimate',
     'angular-flip',
-    'appControllers'
+    'appControllers',
+    'google-maps'
 ]);
 
 angularApp.config(['$routeProvider',

@@ -25,7 +25,7 @@ app.directive('widget', function(Navigation) {
             console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
 
             var setHeights = function () {
-              
+
               if ($(window).width() > 1200) {
                 if ($outerDiv.hasClass('half-height')) {
                   $outerDiv.css('height', (windowHeight/2) + 'px');
@@ -41,10 +41,10 @@ app.directive('widget', function(Navigation) {
             scope.fullscreen = ['enter fullscreen', 'exit fullscreen'];
             scope.counter = Navigation.getCounter(element);
             scope.toggleFullscreen = function () {
-                
+
                 $outerOuterDiv.toggleClass('fullscreen')
                   .toggleClass('overflow');
-                
+
                 $('body').toggleClass('big-padding');
 
                 scope.fullscreen.reverse();
@@ -65,7 +65,7 @@ app.directive('widget', function(Navigation) {
             scope.$watch(Navigation.getCurrentSelected , function(newValue, oldValue, scope) {
 
                 if (newValue === scope.counter) {
-                  
+
                   $outerDiv.removeClass('noborder')
                     .addClass('border')
                     .addClass('animate-border');

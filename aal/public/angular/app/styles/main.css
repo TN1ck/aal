@@ -1,9 +1,5 @@
 /* Space out content a bit */
 body {
-  /* crap
-    padding-top: 20px;
-  padding-bottom: 20px;
-    */
     font-size: 12px;
   -webkit-font-smoothing: subpixel-antialiased !important;
 }
