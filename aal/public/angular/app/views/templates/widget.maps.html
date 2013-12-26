@@ -1,14 +1,24 @@
 <widget>
-	{{ bar }}
-  <widget-title title="'Maps'">
-  <google-map
-		center="center"
-		zoom="zoom"
-		latitude="clickedLatitude"
-		longitude="clickedLongitude"
-		mark-click="true"
-		draggable="true"
-		style="height: 450px; width: 100%">
-	</google-map>
-  </widget-title>
+  <widget-title title="'Maps'"></widget-title>
+  <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" name="angularGoogleMapsForm" novalidate="">
+  							<fieldset>
+
+  								<div ng-hidden="!navigator.geolocation">
+  										<a class="btn btn-default btn-xs" ng-click="findMe()" href="" id="find-me">
+  											Find my position
+  										</a>
+  									</div>
+  								</div>
+  							</fieldset>
+
+							  <google-map
+									center="center"
+									zoom="zoom"
+									latitude="clickedLatitude"
+									longitude="clickedLongitude"
+									mark-click="true"
+									draggable="true"
+									style="height: 300px; width: 100%">
+								</google-map>
+  					</form>
 </widget>

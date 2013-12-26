@@ -9,16 +9,22 @@ app.directive('widgetMaps', function() {
         templateUrl: '/views/templates/widget.maps.html',
         restrict: 'E',
         controller: function ($scope) {
-          angular.extend($scope, {
-              center: {
-                  latitude: 45,
-                  longitude: -73
-              },
-              bar: 'spam',
-              zoom: 8,
-              clickedLatitude: null,
-              clickedLongitude: null,
-          });
+            $scope.center = {
+                latitude: 45,
+                longitude: -73
+            };
+            $scope.zoom = 8;
+            $scope.clickedLatitude = null;
+            $scope.clickedLongitude = null;
+            $scope.findMe = function() {
+              if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
+                  $scope.center.latitude = pos.coords.latitude;
+                  $scope.center.longitude = pos.coords.longitude;
+                  $scope.$apply()
+              }, function(error) {
+                  // ...
+              });
+            };
         }
   }
 });
