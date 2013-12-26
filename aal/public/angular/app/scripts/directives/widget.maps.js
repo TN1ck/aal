@@ -10,8 +10,8 @@ app.directive('widgetMaps', function() {
         restrict: 'E',
         controller: function ($scope) {
             $scope.center = {
-                latitude: 45,
-                longitude: -73
+                latitude: 46,
+                longitude: 7
             };
             $scope.zoom = 8;
             $scope.clickedLatitude = null;
@@ -21,10 +21,9 @@ app.directive('widgetMaps', function() {
                   $scope.center.latitude = pos.coords.latitude;
                   $scope.center.longitude = pos.coords.longitude;
                   $scope.$apply()
-              }, function(error) {
-                  // ...
-              });
+              }, function(error) {});
             };
+            $scope.findMe();
         }
   }
 });
