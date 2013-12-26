@@ -12,6 +12,10 @@ html, body {
 	height: 100%;
 }
 
+.angular-google-map {
+    display: block;
+}
+
 #cursor {
     display: none;
     /*This should be set when cursor appears*/
