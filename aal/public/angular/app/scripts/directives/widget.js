@@ -61,6 +61,8 @@ app.directive('widget', function(Navigation) {
                   $outerDiv.addClass('border');
 
                 }
+
+                $(window).trigger('resize');
               };
             scope.$watch(Navigation.getCurrentSelected , function(newValue, oldValue, scope) {
 

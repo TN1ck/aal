@@ -14,7 +14,7 @@ html, body {
 
 
 #find-me {
-    margin-bottom: 4px
+    margin-bottom: 0.7em;
 }
 .angular-google-map {
     display: block;
