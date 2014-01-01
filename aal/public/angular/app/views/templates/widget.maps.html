@@ -1,6 +1,6 @@
 <widget>
   <widget-title title="'Maps'"></widget-title>
-  <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" name="angularGoogleMapsForm" novalidate="">
+  <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required full-height" name="angularGoogleMapsForm" novalidate="">
   							<fieldset>
 
   								<div ng-hidden="!navigator.geolocation">
@@ -18,8 +18,7 @@
 									longitude="clickedLongitude"
 									mark-click="true"
 									draggable="true"
-									style="width: 100%"
-                  refresh="shouldRefresh">
+                  refresh="refresh">
 								</google-map>
   					</form>
 </widget>

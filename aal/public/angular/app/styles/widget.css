@@ -134,3 +134,33 @@ widget-h3 {
 	right: 1em;
 	bottom: 1.5em;
 }
+
+widget-maps {
+	height: 100%;
+}
+
+widget-maps widget {
+	height: 100%;
+}
+
+widget-maps widget .ng-transclude {
+	height: 100%;
+}
+
+widget-maps form {
+	height: 100%;
+}
+
+widget-maps google-map {
+	height: 100%;
+	width: 100%;
+}
+
+
+.angular-google-map {
+    display: block;
+    height: 100%;
+}
+.angular-google-map-container {
+    height: 100%;
+}

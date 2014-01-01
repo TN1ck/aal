@@ -16,13 +16,6 @@ html, body {
 #find-me {
     margin-bottom: 0.7em;
 }
-.angular-google-map {
-    display: block;
-    height: 100%;
-}
-.angular-google-map-container {
-    height: 100%;
-}
 
 #cursor {
     display: none;

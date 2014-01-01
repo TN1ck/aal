@@ -5,35 +5,41 @@
 var app = angular.module('angularApp');
 
 app.factory('Navigation', function($rootScope){
-    var contentDiv = document.getElementById("content");
 
-    var widgetList = document.getElementsByTagName('widget'),
-        currentSelected = -1,
-        fullscreenOn = 0;
+    var widgetList,
+        currentSelected,
+        fullscreenOn;
 
-    $('body').on('keydown', function(event) {
-            
-      if (event.which === 37 && fullscreenOn === 0) {
-        if (currentSelected <= 0) {
-          currentSelected = widgetList.length - 1;
-        } else {
-          currentSelected = (currentSelected - 1) % widgetList.length;
+    $rootScope.$watch('$locationChangeStart', function() {
+      
+      widgetList = document.getElementsByTagName('widget');
+      currentSelected = -1;
+      fullscreenOn = 0;
+
+      $('body').on('keydown', function(event) {
+              
+        if (event.which === 37 && fullscreenOn === 0) {
+          if (currentSelected <= 0) {
+            currentSelected = widgetList.length - 1;
+          } else {
+            currentSelected = (currentSelected - 1) % widgetList.length;
+          }
+          $rootScope.$apply();
         }
-        $rootScope.$apply();
-      }
-      if (event.which === 39 && fullscreenOn === 0) {
-        currentSelected = (currentSelected + 1) % widgetList.length;
-        $rootScope.$apply();
-      }
-      if (event.which === 13 && fullscreenOn === 0) {
-        fullscreenOn = 1;
-        $rootScope.$apply();
-      }
-      if (event.which === 27 && fullscreenOn === 1) {
-        fullscreenOn = 0;
-        $rootScope.$apply();
+        if (event.which === 39 && fullscreenOn === 0) {
+          currentSelected = (currentSelected + 1) % widgetList.length;
+          $rootScope.$apply();
+        }
+        if (event.which === 13 && fullscreenOn === 0) {
+          fullscreenOn = 1;
+          $rootScope.$apply();
+        }
+        if (event.which === 27 && fullscreenOn === 1) {
+          fullscreenOn = 0;
+          $rootScope.$apply();
 
-      }
+        }
+      });
     });
 
     return {
