@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.concurrent.TimeUnit;
 
+import com.avaje.ebean.annotation.Transactional;
+
 import akka.actor.ActorRef;
 import akka.actor.Cancellable;
 import akka.actor.Props;
@@ -15,12 +17,14 @@ import util.WsPush;
 public class Application extends Controller {
 		
     // just for testing, play won't be used to display stuff
-    public static Result index() {
+	@Transactional
+	public static Result index() {
         return redirect("index.html");
     }
     
     // this will be the main communication port for angularjs
     // just a stub atm
+    @Transactional
     public static WebSocket<String> websocket() {
         return new WebSocket<String>() {
 

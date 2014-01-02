@@ -34,7 +34,7 @@ app.directive('widgetMaps', function() {
               return $('#widget-maps').parent().parent().hasClass('fullscreen');
             };
 
-            scope.$watch(isFullscreen, function(){
+            scope.$watch(isFullscreen, function() {
               scope.refresh = !scope.refresh;
             });
 
