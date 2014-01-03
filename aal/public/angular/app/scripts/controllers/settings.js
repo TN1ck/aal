@@ -2,7 +2,7 @@
 
 /* global angular, moment */
 
-var appControllers = angular.module('appControllers', []);
+var appControllers = angular.module('appControllers');
 
 
 appControllers.controller('SettingsCtrl', ['$scope', '$http',
