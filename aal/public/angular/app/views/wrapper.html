@@ -1,0 +1,19 @@
+
+<button ng-click="sidebar = !sidebar" class="sidebar-button btn btn-default">
+	<b ng-show="!sidebar"><</b><b ng-show="sidebar">></b>
+</button>
+<div class="sidebar sidebar-animate" ng-class="{'sidebar-active': sidebar}">
+	<widget-h1>Menu</widget-h1>
+	<br/>
+	<div class="sidebar-menu">
+		<ul>
+			<a ui-sref="login"><li>LOGIN</li></a>
+			<a ui-sref="wrapper.main"><li>MAIN</li></a>
+			<a ui-sref="wrapper.toygamer"><li>TOYGAMER</li></a>
+			<a ui-sref="wrapper.playground"><li>PLAYGROUND</li></a>
+		</ul>
+	</div>
+</div>
+<div class="full-height sidebar-right sidebar-animate" ng-class="{'sidebar-active': sidebar}">
+	<div ui-view=""></div>
+</div>
