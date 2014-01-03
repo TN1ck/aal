@@ -25,7 +25,7 @@ public class TodoItem extends Model {
   @Formats.DateTime(pattern="dd/MM/yyyy")
   public Date created = new Date();
   
-  public TodoItem(String text, String type, Date created) {
+  public TodoItem(String type, String text, Date created) {
 	  this.text = text;
 	  this.type = type;
 	  this.created = created;
