@@ -8,6 +8,7 @@ create table calendar_item (
   text                      TEXT,
   location                  TEXT,
   priority                  varchar(255),
+  category                  varchar(255),
   start_date                timestamp,
   end_date                  timestamp,
   constraint pk_calendar_item primary key (id))

@@ -76,13 +76,13 @@ public class Application extends Controller {
         new TodoItem("green", "fix broken water pipe in toilet", new Date(now.getTime() + TimeUnit.HOURS.toMillis(340))).save();
         new TodoItem("red", "book flight for holiday", new Date(now.getTime() + TimeUnit.HOURS.toMillis(1337))).save();
         
-        new CalendarItem("Meet up with Harry", "TU Berlin", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(1))).save();
-        new CalendarItem("Buy Groceries", "Aldi", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(1)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(2))).save();
-        new CalendarItem("Meet Aunt Teresa", "At home", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(1)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(5))).save();
-        new CalendarItem("Exam :o", "TU Berlin", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(2)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(3))).save();
-        new CalendarItem("Buy ticket for concert", null, "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(1))).save();
-        new CalendarItem("Buy present for Harry", "Kurfürstendamm", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(4)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(6))).save();
-        new CalendarItem("Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Meet up with Harry", "TU Berlin", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(1))).save();
+        new CalendarItem("private", "Buy Groceries", "Aldi", "green", new Date(now.getTime() + TimeUnit.HOURS.toMillis(1)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(2))).save();
+        new CalendarItem("business", "Meet Aunt Teresa", "At home", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(1)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(5))).save();
+        new CalendarItem("private", "Exam :o", "TU Berlin", "orange", new Date(now.getTime() + TimeUnit.HOURS.toMillis(2)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(3))).save();
+        new CalendarItem("business", "Buy ticket for concert", null, "green", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(1))).save();
+        new CalendarItem("business", "Buy present for Harry", "Kurfürstendamm", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(4)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(6))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
         
         return ok("Created test data");
 	}

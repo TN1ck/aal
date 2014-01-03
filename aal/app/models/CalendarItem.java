@@ -24,6 +24,9 @@ public class CalendarItem extends Model {
   
   @Constraints.Required
   public String priority;
+
+  @Constraints.Required
+  public String category;
   
   @Constraints.Required
   @Formats.DateTime(pattern="dd/MM/yyyy")
@@ -33,12 +36,13 @@ public class CalendarItem extends Model {
   @Formats.DateTime(pattern="dd/MM/yyyy")
   public Date endDate = new Date();
   
-  public CalendarItem(String text, String location, String priority, Date startDate, Date endDate) {
-	  this.text = text;
-	  this.location = location;
-	  this.priority = priority;
-	  this.startDate = startDate;
-	  this.endDate = endDate;
+  public CalendarItem(String category, String text, String location, String priority, Date startDate, Date endDate) {
+    this.category = category;
+    this.text = text;
+    this.location = location;
+    this.priority = priority;
+    this.startDate = startDate;
+    this.endDate = endDate;
   }
   
   public static Finder<Long,CalendarItem> find = new Finder<Long,CalendarItem>(
