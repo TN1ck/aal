@@ -34,13 +34,8 @@
 .sidebar ul li {
 	padding: 10px 10px;
 	font-size: 1.5em;
-	border-bottom: 1px solid lightgray;
+	border-left: 0.2em solid transparent;
 	cursor: pointer;
-}
-
-.sidebar ul li:hover {
-	background-color: lightgray;
-	color: white;
 }
 
 .sidebar ul a:hover {
@@ -48,8 +43,17 @@
 	text-decoration: none;
 }
 
+.sidebar ul a:hover li {
+	background-color: #F9F9F9;
+}
+
 .sidebar ul a:focus {
 	color: #2D7CDB;
+	background-color: #F9F9F9;
+}
+
+.sidebar ul .active li {
+	border-left: 0.2em solid #2D7CDB;
 }
 
 .sidebar-menu {
