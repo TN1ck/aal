@@ -28,20 +28,3 @@ angularApp.config(['$routeProvider',
             });
         }
 ]);
-/*
-angular.module('angularApp', ['ngRoute', 'ngAnimate', 'angular-flip'])
-  .config(function ($routeProvider) {
-    $routeProvider.
-    when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-    }).
-    when('/views/toygamer.html', {
-        templateUrl: 'views/toygamer.html',
-        controller: 'MainCtrl'
-    }).
-    otherwise({
-        redirectTo: '/'
-    });
-  });
-*/
