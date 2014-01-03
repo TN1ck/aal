@@ -4,13 +4,26 @@
 
 var appControllers = angular.module('appControllers');
 
+appControllers.controller('SettingsCtrl', ['$scope', '$http',
+    function ($scope, $http) {
 
-appControllers.controller('SettingsCtrl', function ($scope, Persistence) {
+      $scope.buttons = [{disabled: false}, {disabled: false}];
 
-    var foo = Persistence.todo.get();
-    foo.$promise.then(function(data) {
-        console.log(data);
-      });
+      $scope.createTestData = function() {
 
-  });
+        $scope.buttons[0].disabled = true;
+        $http.get('/populateDatabase').then(function() {
+            $scope.buttons[0].disabled = false;
+          });
+      };
+
+      $scope.deleteAllData = function() {
+
+        $scope.buttons[1].disabled = true;
+        $http.delete('/populateDatabase').then(function() {
+            $scope.buttons[1].disabled = false;
+          });
+      };
+    }
+]);
 
