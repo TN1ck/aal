@@ -5,8 +5,8 @@
 
 create table calendar_item (
   id                        bigint not null,
-  text                      varchar(255),
-  location                  varchar(255),
+  text                      TEXT,
+  location                  TEXT,
   priority                  varchar(255),
   start_date                timestamp,
   end_date                  timestamp,
@@ -15,11 +15,11 @@ create table calendar_item (
 
 create table news_item (
   id                        bigint not null,
-  header                    varchar(255),
-  text                      varchar(255),
+  header                    TEXT,
+  text                      TEXT,
   category                  varchar(255),
   publisher                 varchar(255),
-  due_date                  timestamp,
+  date                      timestamp,
   constraint pk_news_item primary key (id))
 ;
 
@@ -36,11 +36,8 @@ create table social_item (
 
 create table todo_item (
   id                        bigint not null,
-  text                      varchar(255),
+  text                      TEXT,
   type                      varchar(255),
-  url                       varchar(255),
-  picture                   varchar(255),
-  name                      varchar(255),
   created                   timestamp,
   constraint pk_todo_item primary key (id))
 ;

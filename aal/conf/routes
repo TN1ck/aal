@@ -2,17 +2,23 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.Application.index()
-GET     /websocket                  controllers.Application.websocket()
+GET     /                           	controllers.Application.index()
+GET     /websocket                  	controllers.Application.websocket()
+GET     /todos                      	controllers.Application.getTodos()
+
+# Routes for testing
+GET	/populateDatabase		controllers.Application.createDemoData
+DELETE  /populateDatabase		controllers.Application.deleteAllData()
+	
+
 
 # I'm not able to define to asset-directories... sucks
-GET     /assets/*file                controllers.Assets.at(path="/public", file)
-GET     /bower_components/*file      controllers.Assets.at(path="/public/angular/app/bower_components", file)
-GET     /fonts/*file                 controllers.Assets.at(path="/public/angular/app/fonts", file)
-GET     /scripts/*file               controllers.Assets.at(path="/public/angular/app/scripts", file)
-GET     /styles/*file                controllers.Assets.at(path="/public/angular/app/styles", file)
-GET     /views/*file                 controllers.Assets.at(path="/public/angular/app/views", file)
-GET     /*file                       controllers.Assets.at(path="/public/angular/app", file)
+GET     /assets/*file                	controllers.Assets.at(path="/public", file)
+GET     /bower_components/*file      	controllers.Assets.at(path="/public/angular/app/bower_components", file)
+GET     /fonts/*file                 	controllers.Assets.at(path="/public/angular/app/fonts", file)
+GET     /scripts/*file               	controllers.Assets.at(path="/public/angular/app/scripts", file)
+GET     /styles/*file                	controllers.Assets.at(path="/public/angular/app/styles", file)
+GET     /views/*file                 	controllers.Assets.at(path="/public/angular/app/views", file)
+GET     /*file                       	controllers.Assets.at(path="/public/angular/app", file)
 
 
