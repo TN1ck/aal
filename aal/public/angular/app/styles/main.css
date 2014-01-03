@@ -2,7 +2,7 @@
 body {
     font-size: 12px;
   -webkit-font-smoothing: subpixel-antialiased !important;
-} 
+}
 
 .big-padding {
     padding: 1.35em 0.8em;
@@ -12,6 +12,9 @@ html, body {
 	height: 100%;
 }
 
+/*#test-control {
+    margin-top: 1.5em;
+}*/
 
 #find-me {
     margin-bottom: 0.7em;
