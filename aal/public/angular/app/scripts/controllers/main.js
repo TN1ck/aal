@@ -92,7 +92,5 @@ appControllers.controller('MainCtrl', ['$scope', '$http',
                      category:'private'},
                 ]
             };
-
-            return $scope;
 }]);
 

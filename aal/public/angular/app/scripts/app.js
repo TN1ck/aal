@@ -34,5 +34,10 @@ angularApp.config(function($urlRouterProvider, $stateProvider) {
         url: '/playground',
         templateUrl: 'views/playground.html',
         controller: 'MainCtrl'
+      })
+      .state('wrapper.settings', {
+        url: '/settings',
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
       });
   });
