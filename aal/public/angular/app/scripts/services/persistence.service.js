@@ -4,32 +4,36 @@
 
 var app = angular.module('angularApp');
 
-app.factory('Persistence', function($resource){
+app.factory('Persistence', function($resource) {
 
-    var todo = $resource('/todo/:id', {},
+    var todo = $resource('/todoitems/:id', {},
     {
       get: {
-        'GET': {isArray: true}
-      }
-    });
+          method: 'GET',
+          isArray: true
+        }
+      });
 
-    var calendar = $resource('/calendar/:id', {}, {
+    var calendar = $resource('/calendaritems/:id', {}, {
       get: {
-        'GET': {isArray: true}
-      }
-    });
+          method: 'GET',
+          isArray: true
+        }
+      });
 
-    var news = $resource('/news', {}, {
+    var news = $resource('/newsitems', {}, {
       get: {
-        'GET': {isArray: true}
-      }
-    });
+          method: 'GET',
+          isArray: true
+        }
+      });
 
-    var social = $resource('/social', {}, {
+    var social = $resource('/socialitems', {}, {
       get: {
-        'GET': {isArray: true}
-      }
-    });
+          method: 'GET',
+          isArray: true
+        }
+      });
 
     return {
       calendar: calendar,

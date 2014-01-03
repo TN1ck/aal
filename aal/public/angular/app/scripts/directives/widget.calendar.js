@@ -22,14 +22,6 @@ app.directive('widgetCalendar', function() {
             for (var i = 0; i < 7; i++) {
               scope.days.push((moment().add('days', i)).calendar().split(' ')[0]);
             }
-
-            // for easy filtering add the weekday
-            scope.events = scope.events.map(function(event) {
-                
-                event.weekday = moment(event.start).calendar().split(' ')[0];
-                return event;
-
-              });
           }
         };
   });

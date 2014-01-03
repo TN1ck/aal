@@ -5,6 +5,7 @@ var angularApp = angular.module('angularApp', [
     'ngAnimate',
     'angular-flip',
     'appControllers',
+    'ngResource',
     'google-maps',
     'ui.router'
   ]);
