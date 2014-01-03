@@ -10,6 +10,7 @@ import models.TodoItem;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.annotation.Transactional;
+import com.avaje.ebean.text.json.JsonContext;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import akka.actor.ActorRef;
@@ -96,6 +97,21 @@ public class Application extends Controller {
 		MiscUtils.emptyDb();
 
 		return ok("Deleted all data");
+	}
+	
+	@Transactional
+	public static Result getAllTodoItems() {
+		return ok(Json.toJson(TodoItem.find.all()));
+	}
+	
+	@Transactional
+	public static Result getAllCalendarItems() {
+		return ok(Json.toJson(CalendarItem.find.all()));
+	}
+	
+	@Transactional
+	public static Result getAllNewsItems() {
+		return ok(Json.toJson(NewsItem.find.all()));
 	}
 	
 	@Transactional
