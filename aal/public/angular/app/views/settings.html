@@ -1,28 +1,38 @@
-<div class="row">
-	<div class="widget-padding col-md-12">
-		<div class="clearfix">
-			<widget-h1>Database</widget-h1>
-		</div>
-		<div id="test-control" class="row">
-		    <button class="btn btn-default" ng-class="{disabled: buttons[0].disabled}" ng-click="createTestData()">
-		    	create test data
-		    </button>
-		    <button class="btn btn-danger" ng-class="{disabled: buttons[1].disabled}" ng-click="deleteAllData()">
-		    	delete all data
-		    </button>
+<div class="settings">
+	<div class="row half-height">
+		<div class="widget-padding col-md-4 full-height">
+			<div class="clearfix">
+				<widget-h1>Database</widget-h1>
+			</div>
+			<div class="settings-content">
+				<div class="row-fluid">
+					<div class="col-md-6">
+						<h2>create test data</h2>
+						<button class="btn btn-success" ng-class="{disabled: buttons[0].disabled}" ng-click="createTestData()">
+							create
+						</button>
+					</div>
+					<div class="col-md-6">
+						<h2>delete test data</h2>
+						<button class="btn btn-danger" ng-class="{disabled: buttons[1].disabled}" ng-click="deleteAllData()">
+							delete
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
-<div class="row">
-	<div class="widget-padding col-md-12">
-		<div class="clearfix">
-			<widget-h1>Mobile Code</widget-h1>
-				</div>
-			<p>
-				Enter this code on your phone <br>to pair your phone to the Wall.
-			</p>
-		<div class="mobile-code well well-sm">
-			1234
+	<div class="row">
+		<div class="widget-padding col-md-4">
+			<div class="clearfix">
+				<widget-h1>Mobile Code</widget-h1>
+			</div>
+			<div class="settings-content">
+			<h2>Enter this code on your phone to pair your phone to the Wall.</h2>
+			<div class="mobile-code well well-sm">
+				1234
+			</div>
+			</div>
 		</div>
 	</div>
 </div>

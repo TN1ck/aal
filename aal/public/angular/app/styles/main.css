@@ -168,10 +168,10 @@ img {
 }
 
 .animate-border {
-     transition: box-shadow 75ms, transform 250ms;
-    -webkit-transition: -webkit-box-shadow 75ms, -webkit-transform 250ms;
-    -moz-transition: box-shadow 75ms, transform 250ms;
-    -ms-transition: box-shadow 75ms, transform 250ms;
+     transition: box-shadow 250ms, transform 250ms;
+    -webkit-transition: -webkit-box-shadow 250ms, -webkit-transform 250ms;
+    -moz-transition: box-shadow 250ms, transform 250ms;
+    -ms-transition: box-shadow 250ms, transform 250ms;
     transition-timing-function: ease-in-out;
 }
 

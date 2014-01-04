@@ -164,3 +164,19 @@ widget-maps google-map {
 .angular-google-map-container {
     height: 100%;
 }
+
+.settings .settings-content {
+	padding: 0.5em 0 0 1em;
+}
+
+.settings .settings-content h2 {
+	margin: 0.2em 0 0.2em 0;
+	font-size: 1em;
+	font-weight: normal;
+	text-transform: uppercase;
+	color: gray;
+}
+
+.settings .settings-content button {
+	width: 100%;
+}
