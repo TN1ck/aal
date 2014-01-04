@@ -1,7 +1,7 @@
 /* Space out content a bit */
 body {
     font-size: 12px;
-  -webkit-font-smoothing: subpixel-antialiased !important;
+    -webkit-font-smoothing: subpixel-antialiased !important;
 }
 
 .big-padding {
@@ -168,17 +168,17 @@ img {
 }
 
 .animate-border {
-     transition: box-shadow 500ms, transform 500ms;
-    -webkit-transition: -webkit-box-shadow 500ms, -webkit-transform 500ms;
-    -moz-transition: box-shadow 500ms, transform 500ms;
-    -ms-transition: box-shadow 500ms, transform 500ms;
+     transition: box-shadow 75ms, transform 250ms;
+    -webkit-transition: -webkit-box-shadow 75ms, -webkit-transform 250ms;
+    -moz-transition: box-shadow 75ms, transform 250ms;
+    -ms-transition: box-shadow 75ms, transform 250ms;
     transition-timing-function: ease-in-out;
 }
 
 .border{
-    -moz-box-shadow: 0 0 10px 10px rgba(0,0,0,0.25);
-    -webkit-box-shadow: 0 0 10px 10px rgba(0,0,0,0.25);
-    box-shadow: 0 0 10px 10px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 0 7px 7px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0 0 7px 7px rgba(0,0,0,0.25);
+    box-shadow: 0 0 7px 7px rgba(0,0,0,0.25);
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     -o-transform: scale(1.05);
