@@ -22,6 +22,6 @@ GET     /fonts/*file                 	controllers.Assets.at(path="/public/angula
 GET     /scripts/*file               	controllers.Assets.at(path="/public/angular/app/scripts", file)
 GET     /styles/*file                	controllers.Assets.at(path="/public/angular/app/styles", file)
 GET     /views/*file                 	controllers.Assets.at(path="/public/angular/app/views", file)
-GET     /*file                       	controllers.Assets.at(path="/public/angular/app", file)
+GET     /index.html                   	controllers.Assets.at(path="/public/angular/app", file="index.html")
 
 
