@@ -5,7 +5,60 @@
 var appControllers = angular.module('appControllers', []);
 
 
-appControllers.controller('MainCtrl', function ($scope, Persistence) {
+appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
+
+    updateMe();
+  
+    updateLoginStatus()
+    .then(updateApiCall);
+
+    $FB.Event.subscribe('auth.statusChange', function (statusRes) {
+      $scope.loginStatus = statusRes;
+
+      updateMe();
+      updateApiCall();
+    });
+
+    $scope.login = function () {
+      $FB.login(null, {scope: 'email,user_likes,read_stream'});
+    };
+
+    $scope.logout = function () {
+      $FB.logout();
+    };
+
+    function updateMe () {
+      $FB.getLoginStatus()
+      .then(function () { 
+        return $FB.api('/me');
+      })
+      .then(function (me) {
+        $scope.me = me;
+      });
+    }
+    
+    function updateLoginStatus () {
+      return $FB.getLoginStatus()
+        .then(function (res) {
+          $scope.loginStatus = res;
+        });
+    }
+
+    function updateApiCall () {
+      return $q.all([
+          $FB.api('/me'),
+          $FB.api('/me/picture?type=large'),
+          $FB.api('/me/home')
+        ])
+        .then(function (resList) {
+          $scope.user = resList;
+          $scope.user[0].picture = $scope.user[1].data;
+          $scope.mockup.social = resList[2].data;
+          console.log($scope.user);
+        });
+
+    }
+
 
     $scope.mockup = {
         name: 'Cillian Murphy',

@@ -106,6 +106,12 @@ widget-h3 {
 	height: 5em;
 }
 
+.social .body {
+	word-wrap: break-word;
+	width: 68%;
+	float: left;
+}
+
 .day {
 	text-align: left;
 	width: 50%;

@@ -9,9 +9,7 @@ app.directive('widgetPersonal', function() {
         templateUrl: '/views/templates/widget.personal.html',
         restrict: 'E',
         scope: {
-            picture: '=',
-            name: '=',
-            telephone: '='
+            user: '=',
           }
         };
   });

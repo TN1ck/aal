@@ -7,21 +7,21 @@
 					<div class="widget">
 						Name:
 						<br/>
-						<widget-h2>{{name}}</widget-h2>
+						<widget-h2>{{user.first_name}} {{user.last_name}}</widget-h2>
 					</div>
 				</div>
 				<div class="col-lg-12">
 					<div class="widget">
 						Telefon:
 						<br/>
-						<widget-h2>{{telephone}}</widget-h2>
+						<widget-h2>{{user.id}}</widget-h2>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-4">
 			<figure class="effeckt-caption" data-effeckt-type="revolving-door-left">
-			    <img ng-src='{{picture}}'/>
+			    <img ng-src='{{user.picture.url}}'/>
 			    <figcaption>
 			      <div class="effeckt-figcaption-wrap">
 			        <p>Lorem ipsum dolar.</p>

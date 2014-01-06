@@ -7,10 +7,15 @@ var angularApp = angular.module('angularApp', [
     'appControllers',
     'ngResource',
     'google-maps',
-    'ui.router'
+    'ui.router',
+    'ezfb'
   ]);
 
-angularApp.config(function($urlRouterProvider, $stateProvider) {
+angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
+
+    $FBProvider.setInitParams({
+      appId: '342970865841932'
+    });
 
     $urlRouterProvider
       .otherwise('/');

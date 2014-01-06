@@ -2,6 +2,25 @@
 	<div class="row half-height">
 		<div class="widget-padding col-md-4 full-height">
 			<div class="clearfix">
+				<widget-h1>Facebook</widget-h1>
+			</div>
+			<div class="settings-content">
+				<div class="row-fluid">
+					<div class="col-md-6">
+						<h2>connect with facebook</h2>
+						<button class="btn btn-primary" ng-click="login()" ng-disabled="loginStatus.status == 'connected'">connect</button>
+					</div>
+					<div class="col-md-6">
+						<h2>logout of facebook</h2>
+						<button class="btn btn-danger" ng-click="logout()" ng-disabled="!loginStatus || loginStatus.status != 'connected'">Logout</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row half-height">
+		<div class="widget-padding col-md-4 full-height">
+			<div class="clearfix">
 				<widget-h1>Database</widget-h1>
 			</div>
 			<div class="settings-content">

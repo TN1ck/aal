@@ -12,17 +12,17 @@
               </div>
               <div class="title">
                 <!-- This line throws error 500s -->
-                <div class="profile-pic" ng-style="{'background-image': url(s.picture)}"></div>
-                {{s.name}}
+                <div class="profile-pic"></div>
+                {{s.from.name | truncate:10 }}
               </div>
               <div class="body">
-                {{ s.text | truncate:70 }}
+                {{ s.message | truncate:70 }}
               </div>
           </div>
         </flip-front>
         <flip-back>
           <div class="widget social todo-flipped">
-              {{s.text}}
+              {{s.message}}
           </div>
         </flip-back>
       </flip>
