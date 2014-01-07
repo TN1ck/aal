@@ -27,6 +27,19 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
       $FB.logout();
     };
 
+    $scope.share = function () {
+        $FB.ui(
+          {
+            method: 'feed',
+            name: 'The Wall rocks!',
+            picture: 'http://www3.math.tu-berlin.de/stoch/nf-stoch/TUB-logo.png',
+            link: 'http://www.tu-berlin.de',
+            description: 'The Wall is a project build in Ambient Assistent Living project at DAI-Labor at TU-Berlin.'
+          },
+          null
+        );
+    };
+
     function updateMe () {
       $FB.getLoginStatus()
       .then(function () {
@@ -75,9 +88,9 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
 
 
     $scope.mockup = {
-        name: 'Cillian Murphy',
-        picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
-        telephone: '023234020',
+        name: 'Arnold Schwarzenegger',
+        picture: 'http://www.celebritymeasurement.com/wp-content/uploads/2013/05/Arnold-Schwarzenegger-Body.jpg',
+        email: 'me@bla.com',
         social: [
                 {
                   type: 'twitter', text: 'some stupid entry.', created: '2013.05.03',
