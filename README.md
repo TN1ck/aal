@@ -8,10 +8,16 @@ This repository holds the frontend and application layer of an interactive wall 
 ### play
 
 1. Download play (http://downloads.typesafe.com/play/2.2.1/play-2.2.1.zip).
-2. Extract the .zip and place it somewhere, create an `alias` to the `play` command. For this open your `.bashrc/.zsrrc` and add the line: `alias play="~/...where you put it.../play-2.2.1/play"`. 
+2. Extract the .zip and place it somewhere, create an `alias` to the `play` command. For this open your `.bashrc/.zsrrc` and add the line: `alias play="~/...where you put it.../play-2.2.1/play"`.
 3. Download and install Java 7 SDK.
 
 To run the project just execute `play run`. It normally runs on port 9000. http:localhost:9000/index should work.
+
+### database
+
+1. Install PostgreSQL, make sure it runs on port 5432.
+2. Use Postgres' commandline utility `psql` and issue command `create database aal;` there.
+3. Make sure user `postgres` has full access rights on database `aal` that you created in the previous step.
 
 ### angular
 
@@ -19,6 +25,6 @@ To run the project just execute `play run`. It normally runs on port 9000. http:
 2. `npm install -g bower` to install bower
 3. inside `aal/public/angular/` execute `bower install` to install all the needed frontend-packages **you will have to repeat this everytime a new library is added**.
 
-The angular-page is currently at http://localhost:9000/index.html . Play must be running for this ;). 
+The angular-page is currently at http://localhost:9000/index.html . Play must be running for this ;).
 
 
