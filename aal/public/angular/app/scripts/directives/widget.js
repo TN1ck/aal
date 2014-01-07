@@ -22,7 +22,7 @@ app.directive('widget', function(Navigation) {
                 $outerDiv = $(element).parent().parent(),
                 $outerOuterDiv = $outerDiv.parent();
 
-            console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
+            // console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
 
             var setHeights = function () {
 

@@ -11,9 +11,8 @@
               <div class="social-bar">
               </div>
               <div class="title">
-                <!-- This line throws error 500s -->
-                <div class="profile-pic"></div>
-                {{s.from.name | truncate:10 }}
+                <img class="profile-pic" ng-src="{{ s.from.profile_picture }}"></img>
+                {{ s.from.name | truncate:10 }}
               </div>
               <div class="body">
                 {{ s.message | truncate:70 }}

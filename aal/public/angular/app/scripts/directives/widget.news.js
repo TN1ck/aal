@@ -14,7 +14,7 @@ app.directive('widgetNews', function(Websocket) {
 	// 	Websocket.send("Test");
 	// });
   Websocket.onopen(function(evt) {
-    console.log('opened');
+    // console.log('opened');
     Websocket.send("Test");
   });
   var firstListener = function(evt) {console.log('First Listener!')};
@@ -22,7 +22,7 @@ app.directive('widgetNews', function(Websocket) {
   Websocket.addListener(function(evt) {console.log('Second Listener!')});
 	setTimeout(function() {Websocket.removeListener(firstListener)}, 2000);
   Websocket.onclose(function(evt) {console.log('closed');});
-  console.log(Websocket);
+  // console.log(Websocket);
 
 
   return {

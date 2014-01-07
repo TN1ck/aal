@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 /* global angular, moment */
 
@@ -8,7 +8,7 @@ var appControllers = angular.module('appControllers', []);
 appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
 
     updateMe();
-  
+
     updateLoginStatus()
     .then(updateApiCall);
 
@@ -29,14 +29,14 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
 
     function updateMe () {
       $FB.getLoginStatus()
-      .then(function () { 
+      .then(function () {
         return $FB.api('/me');
       })
       .then(function (me) {
         $scope.me = me;
       });
     }
-    
+
     function updateLoginStatus () {
       return $FB.getLoginStatus()
         .then(function (res) {
@@ -53,10 +53,19 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
         .then(function (resList) {
           $scope.user = resList;
           $scope.user[0].picture = $scope.user[1].data;
-          $scope.mockup.social = resList[2].data;
+          var postsArray = resList[2].data;
           console.log($scope.user);
+          $scope.mockup.social = postsArray;
+          for (var i=0; i<postsArray.length; i++) {
+            (function(index) {
+              $FB.api('/'+postsArray[index].from.id+'/picture').then(
+                function(result) {
+                  postsArray[index].from.profile_picture = result.data.url;
+                }
+              );
+            }) (i);
+          }
         });
-
     }
 
 
@@ -93,14 +102,11 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
               ],
       };
 
-    console.log(Persistence);
-
     Persistence
       .todo
       .get()
       .$promise
       .then(function(data) {
-        console.log(data);
         $scope.mockup.todos = data;
       });
 

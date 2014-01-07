@@ -99,8 +99,6 @@ widget-h3 {
 }
 
 .social .profile-pic {
-	background-size: cover;
-	background-image: url('http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg');
 	border-radius: 100%;
 	width: 5em;
 	height: 5em;
