@@ -65,6 +65,11 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
               );
             }) (i);
           }
+          for (var i=0; i<postsArray.length; i++) {
+            if (!postsArray[i].message) {
+              postsArray[i].message = postsArray[i].story;
+            }
+          }
         });
     }
 
