@@ -93,7 +93,7 @@ widget-h3 {
 }
 
 .social .title {
-	margin-right: 0.4em;
+	margin-right: 1em;
 	text-align: center;
 	font-size: 0.8em;
 }
@@ -106,7 +106,7 @@ widget-h3 {
 
 .social .body {
 	word-wrap: break-word;
-	width: 68%;
+	width: 65%;
 	float: left;
 }
 
