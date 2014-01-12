@@ -202,8 +202,8 @@ img {
 }
 
 .toygamer-box{
-    width: 50%;
-    height: 50%;
+    min-width: 50%;
+    min-height: 50%;
     background-color: #555555;
     float:left;
 }
