@@ -86,6 +86,10 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
         });
     }
 
+    $scope.user = {
+      first_name: 'Tom'
+    };
+
 
     $scope.mockup = {
         name: 'Arnold Schwarzenegger',

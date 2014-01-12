@@ -11,18 +11,19 @@ app.directive('widgetTodo', function() {
         scope: {
             todos: '='
           },
-        controller: function($scope) {
-          $scope.addTodo = function () {
-              $scope.todos.push({text: 'oh well, i got pushed!', type: 'success'});
-            };
+        controller: function($scope, Textinput) {
+            $scope.addTodo = function () {
+                Textinput.open();
+                $scope.todos.push({text: 'oh well, i got pushed!', type: 'success'});
+              };
 
-          $scope.removeTodo = function (index) {
-              $scope.todos.splice(index, 1);
-            };
+            $scope.removeTodo = function (index) {
+                $scope.todos.splice(index, 1);
+              };
 
-          $scope.changeTodo = function (index) {
-              $scope.todos[index].text = 'TEXT GEÄNDERT!';
-            };
-        }
+            $scope.changeTodo = function (index) {
+                $scope.todos[index].text = 'TEXT GEÄNDERT!';
+              };
+          }
       };
   });

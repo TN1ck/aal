@@ -281,3 +281,7 @@ img {
     background-color: #69C914;
     float: left;
 }
+
+.modal {
+    display: block !important;
+}

@@ -12,7 +12,7 @@ app.directive('widget', function(Navigation) {
         transclude: true,
         scope: {
         },
-        link: function(scope, element) {
+        link: function(scope, element, $modal) {
 
             // TODO remove the magic 8 and 6
             var paddingVert = Number($('.widget-padding').css('padding-left').replace('px', '')) * 8,
