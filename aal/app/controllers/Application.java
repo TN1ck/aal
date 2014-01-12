@@ -127,24 +127,19 @@ public class Application extends Controller {
     @Transactional
     public static WebSocket<String> websocket() {
         return new WebSocket<String>() {
-
             
             // Called when the Websocket Handshake is done.
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
 
+                // keep track of all our clients
                 clients.push(out);
-                // For each event received on the socket,
-                // Ich raffe nicht, was mir ne callback bringt, in der ich eh nur ein argument habe
-            	// Das hat mit den Argumenten eig nix zu tun. Callback ist halt einfach ein Programmierstil.
-            	// Empfiehlt sich besonders für asynchrone Programmierung...
+
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
-                        // Log events to the console
-                        if (event.equals("Test")){
-                            System.out.println("\n\nThe message was 'Test'\n\n");
-                        }
-                        System.out.println(event);
                         
+                        // Log events to the console
+                        System.out.println(event);
+
                         for(int i = 0; i < clients.size(); i++) {
                             clients.get(i).write(event);
                         }

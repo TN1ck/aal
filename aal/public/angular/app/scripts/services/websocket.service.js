@@ -1,123 +1,140 @@
-// 'use strict';
+'use strict';
 
 var app = angular.module('angularApp');
 
 app.factory('Websocket', function($rootScope) {
-	var createSocket = function() {
+    
+  var createSocket = function() {
 
-		var loc = window.location;
-		var wsURI = "ws://" + loc.host + "/websocket";
-		var socket = new WebSocket(wsURI);
+    var wsURI = 'ws://' + window.location.host + '/websocket',
+        socket = new WebSocket(wsURI);
 
-		socket.onopen = function() {
-			var args = arguments;
-			service.open = true;
-			service.timesOpened++;
-			// Attempted to connect. Note timestamp.
-			service.connectTimeStamps.push(new Date().getTime());
+    socket.onopen = function() {
 
-			$rootScope.$broadcast('SOCKET_CLOSED');
+      var args = arguments;
 
-			if (service.handlers.onopen) {
-				$rootScope.$apply(function() {
-					service.handlers.onopen.apply(socket, args)
-				});
-			}
-		}
+      service.open = true;
+      service.timesOpened++;
 
-		socket.onmessage = function(data) {
-			var args = arguments;
-			try {
-				args[0].data = JSON.parse(args[0].data);
-			} catch(e) {
-				// there should be a better way to do this
-				// but it is fast
-			}
+      // Attempted to connect. Note timestamp.
+      service.connectTimeStamps.push(new Date().getTime());
 
-			if (service.listeners.length > 0) {
-				console.log("Yo, I'm here!")
-				$rootScope.$apply(
-					function() {
-						for (var i=0; i<service.listeners.length; i++) {
-							service.listeners[i].apply(socket, args);
-						}
-					}
-				)
-			}
-		}
+      $rootScope.$broadcast('SOCKET_CLOSED');
 
-		socket.onclose = function(){
-			service.open = false;
-			setTimeout(function() {
-				socket = createSocket(service);
-			} , 3000);
-			var args = arguments;
-			$rootScope.$broadcast( 'SOCKET_OPEN' );
+      if (service.handlers.onopen) {
+        $rootScope.$apply(function() {
+            service.handlers.onopen.apply(socket, args);
+          });
+      }
+    };
 
-			if( service.handlers.onclose ){
-				$rootScope.$apply(
-					function() {
-						service.handlers.onclose.apply(socket,args);
-					}
-				)
-			}
-		}
+    socket.onmessage = function(data) {
 
-		return socket;
-	}
+      var splitted = data.data.split('.'),
+          channel = splitted.shift(),
+          message = {data: splitted.join('')};
 
-	var service = {
-		listeners: [],
-		handlers: {},
+      try {
+          data.data = JSON.parse(data.data);
+        } catch(e) {
+          // there should be a better way to do this
+          // but it is fast
+      }
 
-		addListener: function(func) {
-			if (!(func instanceof Function)) {
-				new Error("Not a function.")
-				return;
-			}
-			this.listeners.push(func);
-		},
-		removeListener: function(func) {
-			if (!(func instanceof Function)) {
-				new Error("Not a function.")
-				return;
-			}
-			var index = this.listeners.indexOf(func);
-			if (index > -1) {
-    			this.listeners.splice(index, 1);
-			}
-		},
-		onopen: function(callback) {
-			this.handlers.onopen = callback;
-		},
-		// onmessage: function(callback) {
-		// 	this.handlers.onmessage = callback;
-		// },
-		onclose: function(callback) {
-			this.handlers.onclose = callback;
-		},
-		send: function(data) {
-			err = null;
-			switch (socket.readyState) {
-				case 0:
-					err = "Connection is being opened, can't send now.";
-				case 2:
-					err = "Connection is being closed, can't send now";
-				case 3:
-					err = "Weird error with WebSocket occured: socket.readyState == 3. Can't send messages.";
-			}
-			if (err) {
-				new Error(err);
-				return;
-			}
-			var msg = typeof(data) == "object" ? JSON.stringify(data) : data;
-			socket.send(msg);
-		},
-		connectTimeStamps: [],
-		timesOpened: 0,
-		open: false
-	};
+      if (service.listeners.length > 0) {
+        $rootScope.$apply(
+          function() {
+              service.listeners.forEach(function(listener) {
+                  if (channel === listener[0]) {
+                    listener[1](message);
+                  }
+                });
+            });
+      }
+    
+    };
 
-	var socket = createSocket();
-	return service;
+    socket.onclose = function() {
+
+      service.open = false;
+
+      setTimeout(function() {
+          socket = createSocket(service);
+        } , 3000);
+
+      $rootScope.$broadcast( 'SOCKET_OPEN' );
+
+      if (service.handlers.onclose) {
+        $rootScope.$apply(
+          function() {
+              service.handlers.onclose.apply(socket, arguments);
+            });
+      }
+    };
+
+    return socket;
+
+  };
+
+  var service = {
+      
+    listeners: [],
+    handlers: {},
+
+    addListener: function(channel, func) {
+
+      if (!(func instanceof Function)) {
+        new Error('Not a function.');
+        return;
+      }
+
+      this.listeners.push([channel, func]);
+    },
+
+    removeListener: function(func) {
+
+      if (!(func instanceof Function)) {
+        new Error('Not a function.');
+        return;
+      }
+      
+      var index = this.listeners.indexOf(func);
+      if (index > -1) {
+        this.listeners.splice(index, 1);
+      }
+    },
+
+    onopen: function(callback) {
+      this.handlers.onopen = callback;
+    },
+
+    onclose: function(callback) {
+      this.handlers.onclose = callback;
+    },
+
+    send: function(channel, data) {
+      
+      var errors = {
+        0: 'Connection is being opened, can not send now.',
+        2: 'Connection is being closed, can not send now',
+        3: 'Weird error with WebSocket occured: socket.readyState == 3. Can not send messages.'
+      };
+
+      var error = errors[socket.readyState];
+
+      if (error) {
+        new Error(error);
+        return;
+      }
+
+      var msg = typeof(data) === 'object' ? JSON.stringify(data) : data;
+      socket.send(channel + '.' + msg);
+    },
+    connectTimeStamps: [],
+    timesOpened: 0,
+    open: false
+  };
+
+  var socket = createSocket();
+  return service;
 });
