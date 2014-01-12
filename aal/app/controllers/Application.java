@@ -2,6 +2,7 @@ package controllers;
 
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 import models.CalendarItem;
@@ -28,34 +29,35 @@ import util.MiscUtils;
 import util.WsPush;
 
 public class Application extends Controller {
-		
+        
+    public final static LinkedList<WebSocket.Out<String>> clients = new LinkedList<WebSocket.Out<String>>();
     // just for testing, play won't be used to display stuff
-	public static Result index() {
+    public static Result index() {
         return redirect("index.html");
     }
-	
-	/* 
-	 * TODO Datenbank mit Daten füllen, wenn diese Methode aufgerufen wird.
-	 * Außerdem sollte die Datenbank leer sein. Wird dann über das Interface aufgerufen.
-	 * Macht einen alert je nachdem ob's erfolgreich war.
-	 */
-	/**
-	 * 
-	 * Creates data for demonstration purposes if the database is empty
-	 */
-	@Transactional
-	public static Result createDemoData() {
-		
-		MiscUtils.emptyDb();
-		
-		new NewsItem("Zehn, die Minister werden sollten"
-				,"Falls sich Union und SPD auf eine Koalition einigen, werden die Parteien unter sich ausmachen, wer im Kabinett sitzt. Seiteneinsteiger haben kaum Chancen. Muss das sein? SPIEGEL ONLINE zeigt, wer gut in die Ministerriege passen würde, wenn es allein nach Kompetenz ginge."
-				,"tech"
-				,"Spiegel", null).save();
+    
+    /* 
+     * TODO Datenbank mit Daten füllen, wenn diese Methode aufgerufen wird.
+     * Außerdem sollte die Datenbank leer sein. Wird dann über das Interface aufgerufen.
+     * Macht einen alert je nachdem ob's erfolgreich war.
+     */
+    /**
+     * 
+     * Creates data for demonstration purposes if the database is empty
+     */
+    @Transactional
+    public static Result createDemoData() {
+        
+        MiscUtils.emptyDb();
+        
+        new NewsItem("Zehn, die Minister werden sollten"
+                ,"Falls sich Union und SPD auf eine Koalition einigen, werden die Parteien unter sich ausmachen, wer im Kabinett sitzt. Seiteneinsteiger haben kaum Chancen. Muss das sein? SPIEGEL ONLINE zeigt, wer gut in die Ministerriege passen würde, wenn es allein nach Kompetenz ginge."
+                ,"tech"
+                ,"Spiegel", null).save();
         new NewsItem("Meteorit verrät frühe Entwicklung des Mars"
-        		,"In der Sahara haben Beduinen einen Meteoriten vom Mars gefunden. Er stammt aus der Kindheit des Roten Planeten und zeigt, wie dieser sich in jungen Jahren entwickelt hat."
-        		,"tech"
-        		,"Spiegel", null).save();
+                ,"In der Sahara haben Beduinen einen Meteoriten vom Mars gefunden. Er stammt aus der Kindheit des Roten Planeten und zeigt, wie dieser sich in jungen Jahren entwickelt hat."
+                ,"tech"
+                ,"Spiegel", null).save();
         new NewsItem("Russland lässt Kapitän des Greenpeace-Schiffs frei"
             ,"Es wird immer leerer im Gefängnis in St. Petersburg: Erneut hat ein Gericht mehrere Besatzungsmitglieder der 'Arctic Sunrise' freigelassen. Darunter auch den US-amerikanischen Kapitän des Schiffs."
             ,"tech"
@@ -85,38 +87,38 @@ public class Application extends Controller {
         new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
         
         return ok("Created test data");
-	}
-	
-	/**
-	 * 
-	 * Delete all currently held data
-	 */
-	@Transactional
-	public static Result deleteAllData() {
-		
-		MiscUtils.emptyDb();
+    }
+    
+    /**
+     * 
+     * Delete all currently held data
+     */
+    @Transactional
+    public static Result deleteAllData() {
+        
+        MiscUtils.emptyDb();
 
-		return ok("Deleted all data");
-	}
-	
-	@Transactional
-	public static Result getAllTodoItems() {
-		return ok(Json.toJson(TodoItem.find.all()));
-	}
-	
-	@Transactional
-	public static Result getAllCalendarItems() {
-		return ok(Json.toJson(CalendarItem.find.all()));
-	}
-	
-	@Transactional
-	public static Result getAllNewsItems() {
-		return ok(Json.toJson(NewsItem.find.all()));
-	}
-	
-	@Transactional
-	public static Result getTodos() {
-		ObjectNode result = Json.newObject();
+        return ok("Deleted all data");
+    }
+    
+    @Transactional
+    public static Result getAllTodoItems() {
+        return ok(Json.toJson(TodoItem.find.all()));
+    }
+    
+    @Transactional
+    public static Result getAllCalendarItems() {
+        return ok(Json.toJson(CalendarItem.find.all()));
+    }
+    
+    @Transactional
+    public static Result getAllNewsItems() {
+        return ok(Json.toJson(NewsItem.find.all()));
+    }
+    
+    @Transactional
+    public static Result getTodos() {
+        ObjectNode result = Json.newObject();
         return redirect("index.html");
     }
     
@@ -126,8 +128,11 @@ public class Application extends Controller {
     public static WebSocket<String> websocket() {
         return new WebSocket<String>() {
 
+            
             // Called when the Websocket Handshake is done.
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
+
+                clients.push(out);
                 // For each event received on the socket,
                 // Ich raffe nicht, was mir ne callback bringt, in der ich eh nur ein argument habe
             	// Das hat mit den Argumenten eig nix zu tun. Callback ist halt einfach ein Programmierstil.
@@ -139,6 +144,10 @@ public class Application extends Controller {
                             System.out.println("\n\nThe message was 'Test'\n\n");
                         }
                         System.out.println(event);
+                        
+                        for(int i = 0; i < clients.size(); i++) {
+                            clients.get(i).write(event);
+                        }
 
                     }
                 });

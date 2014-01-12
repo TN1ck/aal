@@ -46,5 +46,10 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         url: '/settings',
         templateUrl: 'views/settings.html',
         controller: 'SettingsCtrl'
+      })
+      .state('wrapper.mobile', {
+        url: '/mobile',
+        templateUrl: 'views/mobile.html',
+        controller: 'MobileCtrl'
       });
   });
