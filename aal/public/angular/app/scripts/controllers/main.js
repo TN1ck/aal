@@ -74,6 +74,7 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
           $FB.api('/' + post.from.id + '/picture?type=large').then(
             function(result) {
               post.from.profilePicture = result.data.url;
+              post.type = 'facebook';
               if (!post.message) {
                 post.message = post.story;
               }
