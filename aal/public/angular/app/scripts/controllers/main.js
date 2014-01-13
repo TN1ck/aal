@@ -71,7 +71,7 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
           $scope.mockup.social = postsArray;
           for (var i=0; i<postsArray.length; i++) {
             (function(index) {
-              $FB.api('/'+postsArray[index].from.id+'/picture').then(
+              $FB.api('/'+postsArray[index].from.id+'/picture?type=large').then(
                 function(result) {
                   postsArray[index].from.profile_picture = result.data.url;
                 }
