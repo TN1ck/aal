@@ -7,7 +7,7 @@ var appControllers = angular.module('appControllers');
 appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission',
     function ($scope, TextTransmission) {
 
-      $scope.textinput = 'Wurst';
+      $scope.textinput = '';
 
       $scope.$watch('textinput', function(newVal, oldVal) {
           console.log('send', newVal);
@@ -20,7 +20,7 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission',
       //     console.log('got', data.data);
       //     $scope.textinput = data.data;
       //   });
-      
+
     }
 ]);
 

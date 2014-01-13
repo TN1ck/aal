@@ -8,7 +8,7 @@ app.factory('Textinput', function($modal) {
 
     var ModalInstanceCtrl = function ($scope, $modalInstance, TextTransmission) {
 
-      $scope.textinput = 'Wurst';
+      $scope.textinput = '';
 
       // $scope.$watch('textinput', function(newVal, oldVal) {
       //     if (newVal !== oldVal) {
