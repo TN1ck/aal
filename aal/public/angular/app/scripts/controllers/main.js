@@ -58,32 +58,28 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
     }
 
     function updateApiCall () {
-      return $q.all([
-          $FB.api('/me'),
-          $FB.api('/me/picture?type=large'),
-          $FB.api('/me/home')
-        ])
-        .then(function (resList) {
-          $scope.user = resList;
-          $scope.user[0].picture = $scope.user[1].data;
-          var postsArray = resList[2].data;
-          console.log($scope.user);
-          $scope.mockup.social = postsArray;
-          for (var i=0; i<postsArray.length; i++) {
-            (function(index) {
-              $FB.api('/'+postsArray[index].from.id+'/picture').then(
-                function(result) {
-                  postsArray[index].from.profile_picture = result.data.url;
-                }
-              );
-            }) (i);
-          }
-          for (var i=0; i<postsArray.length; i++) {
-            if (!postsArray[i].message) {
-              postsArray[i].message = postsArray[i].story;
-            }
-          }
+
+      $FB.api('/me').then(function(data) {
+        $scope.user = data;
+        console.log($scope.user);
+      }).then(function(){
+        $FB.api('/me/picture?type=large').then(function(picture) {
+          $scope.user.picture = picture.data;
         });
+      });
+
+      $FB.api('/me/home').then(function(posts) {
+        $scope.mockup.social = posts.data;
+        $scope.mockup.social.forEach(function(post) {
+          $FB.api('/' + post.from.id + '/picture').then(
+            function(result) {
+              post.from.profilePicture = result.data.url;
+              if (!post.message) {
+                post.message = post.story;
+              }
+            });
+        });
+      });
     }
 
     $scope.user = {
@@ -94,34 +90,7 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
     $scope.mockup = {
         name: 'Arnold Schwarzenegger',
         picture: 'http://www.celebritymeasurement.com/wp-content/uploads/2013/05/Arnold-Schwarzenegger-Body.jpg',
-        email: 'me@bla.com',
-        social: [
-                {
-                  type: 'twitter', text: 'some stupid entry.', created: '2013.05.03',
-                  url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
-                  name: 'Cillian Murphy'
-                },
-                {
-                  type: 'facebook', text: 'some stupid entry. aoeu aoeu oeu', created: '2013.05.03',
-                  url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
-                  name: 'Cillian Murphy'
-                },
-                {
-                  type: 'twitter', text: 'some stupid entry. aoeuaoeu aoeuaoeu toetu aosetu aoetus oestu asoeutoa es toeuts uetosn ', created: '2013.05.03',
-                  url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
-                  name: 'Cillian Murphy'
-                },
-                {
-                  type: 'twitter', text: 'some stupid entry. aoeuaoeu aoeuaoeu toetu aosetu aoetus oestu asoeutoa es toeuts uetosn ', created: '2013.05.03',
-                  url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
-                  name: 'Cillian Murphy'
-                },
-                {
-                  type: 'facebook', text: 'some stupid entry. aoeuaoeu aoeuaoeu toetu aosetu aoetus oestu asoeutoa es toeuts uetosn ', created: '2013.05.03',
-                  url: 'http://google.de', picture: 'http://hollywoodhatesme.files.wordpress.com/2011/08/cillian-murphy.jpg',
-                  name: 'Cillian Murphy'
-                }
-              ],
+        email: 'me@bla.com'
       };
 
     Persistence

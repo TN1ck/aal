@@ -32,7 +32,7 @@ app.factory('Websocket', function($rootScope) {
 
       var splitted = data.data.split('.'),
           channel = splitted.shift(),
-          message = {data: splitted.join('')};
+          message = {data: splitted.join('.')};
 
       try {
           data.data = JSON.parse(data.data);

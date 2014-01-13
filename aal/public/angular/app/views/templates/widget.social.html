@@ -4,24 +4,44 @@
   <!-- <div ng-init="hangout()" id="placeholder-div"></div> -->
   </widget-title>
   <div class="row">
-    <div ng-repeat="s in social" class="col-lg-6 widget-item">
+    <div class="col-lg-12 widget-item">
+      <div class="social widget social">
+        <button class="btn btn-primary full-width">New Entry</button>
+      </div>
+    </div>
+    <div ng-repeat="s in social" class="col-lg-12 widget-item">
       <flip flip-toggle>
         <flip-front>
           <div class="widget social {{s.type}}">
               <div class="social-bar">
               </div>
-              <div class="title">
-                <img class="profile-pic" ng-src="{{ s.from.profile_picture }}"></img>
-                {{ s.from.name | truncate:10 }}
-              </div>
-              <div class="body">
-                {{ s.message | truncate:70 }}
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="title">
+                    {{ s.from.name | uppercase }}
+                  </div>
+                </div>
+                <div class="col-xs-2">
+                  <div class="title">
+                    <img class="profile-pic" ng-src="{{ s.from.profilePicture }}"></img>
+                  </div>
+                </div>
+                <div class="col-xs-10">
+                  <div class="body">
+                    {{ s.message | truncate:200}}
+                  </div>
+                </div>
               </div>
           </div>
         </flip-front>
         <flip-back>
-          <div class="widget social todo-flipped">
-              {{s.message}}
+          <div class="widget social todo-flipped full-height">
+              <div class="row full-height">
+                <div class="col-xs-6 full-height">
+                  <button class="btn btn-primary full-width half-height">Like</button>
+                  <button class="btn btn-primary full-width half-height">Share</button>
+                </div>
+              </div>
           </div>
         </flip-back>
       </flip>
