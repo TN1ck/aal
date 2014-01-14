@@ -52,9 +52,9 @@ app.factory('Websocket', function($rootScope) {
 
       setTimeout(function() {
           socket = createSocket(service);
-        } , 3000);
+        }, 3000);
 
-      $rootScope.$broadcast( 'SOCKET_OPEN' );
+      $rootScope.$broadcast('SOCKET_OPEN');
 
       if (service.handlers.onclose) {
         $rootScope.$apply(
@@ -76,7 +76,9 @@ app.factory('Websocket', function($rootScope) {
     addListener: function(channel, func) {
 
       this.listeners.push([channel, func]);
-      this.send(channel, '');
+      var thisOuter = this;
+      setTimeout(function() {thisOuter.send(channel, '');}, 250);
+      console.log("Added Listener");
     },
 
     removeListener: function(channelAndFunc) {
@@ -111,7 +113,9 @@ app.factory('Websocket', function($rootScope) {
       }
 
       var msg = typeof(data) === 'object' ? JSON.stringify(data) : data;
-      socket.send(channel + ':' + msg);
+      var toSend = channel + ':' + msg;
+      socket.send(toSend);
+      console.log("Sent: ", toSend);
     },
     connectTimeStamps: [],
     timesOpened: 0,

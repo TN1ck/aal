@@ -12,8 +12,8 @@ app.factory('TextTransmission', function($rootScope, Websocket) {
 		code: '',
 		// brings text from input device to Webserver
 		deliverText: function(text) {
-			if (code && code != '')
-				Websocket.send(''+code, text);
+			if (this.code && this.code != '' && this.code.length==4)
+				Websocket.send(''+this.code, text);
 		},
 		// fetches text from server to the Wall
 		fetchText: function(func) {

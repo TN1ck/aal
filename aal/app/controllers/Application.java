@@ -138,10 +138,6 @@ public class Application extends Controller {
                     	int prefix = Integer.parseInt(event.substring(0, index));
                     	String message = event.substring(index+1);
 
-                        // Log events to the console
-                        System.out.println(prefix);
-                        System.out.println(message);
-
                         Set<Out<String>> currentSet = idsToSockets.get(prefix);
                         if (currentSet == null) {
                         	currentSet = new HashSet<Out<String>>();
@@ -149,6 +145,9 @@ public class Application extends Controller {
                         currentSet.add(out);
                         idsToSockets.put(prefix, currentSet);
                         
+                        System.out.println("Length of idToSockets: "+idsToSockets.size());
+                        System.out.println("Length of inToOut: "+inToOut.size());
+
                         if (!message.equals("")) {
 	                        for (WebSocket.Out<String> outOfSameId : currentSet) {
 	                        	outOfSameId.write(""+prefix+":"+message);

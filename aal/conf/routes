@@ -4,7 +4,6 @@
 
 GET     /                           	controllers.Application.index()
 GET     /websocket                  	controllers.Application.websocket()
-GET     /todos                      	controllers.Application.getTodos()
 
 # Routes for testing
 GET	/populateDatabase		controllers.Application.createDemoData()

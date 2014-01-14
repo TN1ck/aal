@@ -7,15 +7,15 @@ var appControllers = angular.module('appControllers');
 appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission',
     function ($scope, TextTransmission) {
 
-      $scope.mobileIdText = '';
+      $scope.foo = '';
       $scope.textinput = '';
 
-      $scope.$watch('mobileIdText'), function(newVal, oldVal) {
+      $scope.$watch('mobileIdText', function(newVal, oldVal) {
         TextTransmission.code = newVal;
-      }
+        console.log("changed code to: "+newVal);
+      });
 
       $scope.$watch('textinput', function(newVal, oldVal) {
-        console.log('send', newVal);
         if (newVal !== oldVal) {
           TextTransmission.deliverText(newVal);
         }

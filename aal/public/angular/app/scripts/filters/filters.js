@@ -5,7 +5,7 @@
 var app = angular.module('angularApp');
 
 app.filter('truncate', function () {
-  
+
   return function (text, length, end) {
 
     if (!text) {
@@ -26,11 +26,13 @@ app.filter('truncate', function () {
       return String(text).substring(0, length-end.length) + end;
     }
   };
-  
+
 });
 
 app.filter('reverse', function() {
   return function(items) {
-    return items.slice().reverse();
-  };
+    if (items) {
+      return items.slice().reverse();
+    }
+  }
 });
