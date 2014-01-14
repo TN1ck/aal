@@ -84,15 +84,18 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
     }
 
     $scope.user = {
-      first_name: 'Tom'
+      first_name: 'Ano',
+      last_name: 'Nymous',
+      picture: {
+        url: 'http://designyoutrust.com/wp-content/uploads7/designfetishnophotofacebook1.jpg'
+      },
+      email: 'Anonymous@gmail.com'
     };
 
-
+    // TODO: refactor and remove this
     $scope.mockup = {
-        name: 'Arnold Schwarzenegger',
-        picture: 'http://www.celebritymeasurement.com/wp-content/uploads/2013/05/Arnold-Schwarzenegger-Body.jpg',
-        email: 'me@bla.com'
-      };
+    
+    };
 
     Persistence
       .todo
