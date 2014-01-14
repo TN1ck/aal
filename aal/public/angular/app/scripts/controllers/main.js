@@ -20,7 +20,9 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
     });
 
     $scope.login = function () {
-      $FB.login(null, {scope: 'email,user_likes,read_stream'});
+      $FB.login(null, {
+        scope: 'email, user_likes, read_stream'
+      });
     };
 
     $scope.logout = function () {

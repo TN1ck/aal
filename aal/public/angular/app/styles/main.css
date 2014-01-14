@@ -40,7 +40,7 @@ html, body {
 
 /* Add lato as default font */
 
-body {
+body, h1, h2, h3, h4, h5 {
   font-family: 'Lato', sans-serif;
 }
 
@@ -54,6 +54,10 @@ body {
 
 .half-width {
     min-width: 50%;
+}
+
+.third-width {
+    width: 33%;
 }
 
 .debug {
@@ -141,11 +145,12 @@ img {
 }
 
 .red {
-	background-color: #F79514;
+	background-color: #D0011B;
 }
 
 .orange {
-	background-color: #D0011B;
+	background-color: #F79514;
+
 }
 
 .green {
