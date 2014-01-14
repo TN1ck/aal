@@ -71,7 +71,7 @@ widget-h3 {
 }
 
 .social {
-	height: 8em;
+	height: 100%;
 }
 
 .twitter {
@@ -84,30 +84,16 @@ widget-h3 {
 
 .social img {
 	float: left;
+	height: 4em;
+	width: 4em;
 	border-radius: 100%;
 }
 
-.social .title {
-	width: 5em;
-	float: left;
-}
-
-.social .title {
-	margin-right: 1em;
-	text-align: center;
-	font-size: 0.8em;
-}
-
-.social .profile-pic {
-	border-radius: 100%;
-	width: 5em;
-	height: 5em;
-}
 
 .social .body {
 	word-wrap: break-word;
-	width: 65%;
-	float: left;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 }
 
 .day {
@@ -126,11 +112,11 @@ widget-h3 {
 }
 
 .business {
-	border-left: 0.5em solid blue;
+	border-left: 0.5em solid #428bca;
 }
 
 .private {
-	border-left: 0.5em solid green;
+	border-left: 0.5em solid #5cb85c;
 }
 
 .news-publisher {
@@ -183,4 +169,13 @@ widget-maps google-map {
 
 .settings .settings-content button {
 	width: 100%;
+}
+
+.social button {
+	font-size: 1em;
+	padding: 0.5em 1em;
+}
+
+.social .title {
+	margin-bottom: 0.2em;
 }
