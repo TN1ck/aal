@@ -36,10 +36,9 @@ import util.WsPush;
 
 public class Application extends Controller {
      
-//    public final static HashMap<WebSocket.Out<String>, Integer> clients = new HashMap<WebSocket.Out<String>, Integer>();
     public final static HashMap<Integer, Set<WebSocket.Out<String>>> idsToSockets = new HashMap<Integer, Set<WebSocket.Out<String>>>();
     public final static HashMap<WebSocket.In<String>, WebSocket.Out<String>> inToOut = new HashMap<WebSocket.In<String>, WebSocket.Out<String>>();
-    // just for testing, play won't be used to display stuff
+
     public static Result index() {
         return redirect("index.html");
     }
@@ -119,8 +118,6 @@ public class Application extends Controller {
         return ok(Json.toJson(NewsItem.find.all()));
     }
     
-    // this will be the main communication port for angularjs
-    // just a stub atm
     @Transactional
     public static WebSocket<String> websocket() {
         return new WebSocket<String>() {
@@ -128,9 +125,6 @@ public class Application extends Controller {
             // Called when the Websocket Handshake is done.
             public void onReady(final WebSocket.In<String> in, final WebSocket.Out<String> out) {
             	inToOut.put(in, out);
-            	
-                // keep track of all our clients
-//                clients.put(out, null);
 
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
@@ -171,16 +165,16 @@ public class Application extends Controller {
                     }
                 });
                 
-                ActorRef wsPushActor = Akka.system().actorOf(Props.create(WsPush.class, out));
-                final Cancellable cancellable = Akka.system().scheduler().schedule(Duration.Zero(), Duration.create(500, TimeUnit.MILLISECONDS), wsPushActor, "wsPush", Akka.system().dispatcher(), null);
-                
-                Akka.system().scheduler().scheduleOnce(new FiniteDuration(5, TimeUnit.SECONDS), new Runnable() {
-					
-					@Override
-					public void run() {
-						cancellable.cancel();
-					}
-				}, Akka.system().dispatcher());
+//                ActorRef wsPushActor = Akka.system().actorOf(Props.create(WsPush.class, out));
+//                final Cancellable cancellable = Akka.system().scheduler().schedule(Duration.Zero(), Duration.create(500, TimeUnit.MILLISECONDS), wsPushActor, "wsPush", Akka.system().dispatcher(), null);
+//                
+//                Akka.system().scheduler().scheduleOnce(new FiniteDuration(5, TimeUnit.SECONDS), new Runnable() {
+//					
+//					@Override
+//					public void run() {
+//						cancellable.cancel();
+//					}
+//				}, Akka.system().dispatcher());
                 
             }
         };
