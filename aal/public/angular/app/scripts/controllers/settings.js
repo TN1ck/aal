@@ -4,8 +4,10 @@
 
 var appControllers = angular.module('appControllers');
 
-appControllers.controller('SettingsCtrl', ['$scope', '$http',
-    function ($scope, $http) {
+appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission',
+    function ($scope, $http, TextTransmission) {
+
+      $scope.mobileId = TextTransmission.mobileId;
 
       $scope.buttons = [{disabled: false}, {disabled: false}];
 

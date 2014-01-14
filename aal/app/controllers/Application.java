@@ -2,7 +2,12 @@ package controllers;
 
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import models.CalendarItem;
@@ -18,6 +23,7 @@ import akka.actor.ActorRef;
 import akka.actor.Cancellable;
 import akka.actor.Props;
 import play.mvc.*;
+import play.mvc.WebSocket.Out;
 import play.api.mvc.SimpleResult;
 import play.libs.Json;
 import play.libs.F.*;
@@ -29,18 +35,15 @@ import util.MiscUtils;
 import util.WsPush;
 
 public class Application extends Controller {
-        
-    public final static LinkedList<WebSocket.Out<String>> clients = new LinkedList<WebSocket.Out<String>>();
+     
+//    public final static HashMap<WebSocket.Out<String>, Integer> clients = new HashMap<WebSocket.Out<String>, Integer>();
+    public final static HashMap<Integer, Set<WebSocket.Out<String>>> idsToSockets = new HashMap<Integer, Set<WebSocket.Out<String>>>();
+    public final static HashMap<WebSocket.In<String>, WebSocket.Out<String>> inToOut = new HashMap<WebSocket.In<String>, WebSocket.Out<String>>();
     // just for testing, play won't be used to display stuff
     public static Result index() {
         return redirect("index.html");
     }
     
-    /* 
-     * TODO Datenbank mit Daten füllen, wenn diese Methode aufgerufen wird.
-     * Außerdem sollte die Datenbank leer sein. Wird dann über das Interface aufgerufen.
-     * Macht einen alert je nachdem ob's erfolgreich war.
-     */
     /**
      * 
      * Creates data for demonstration purposes if the database is empty
@@ -116,12 +119,6 @@ public class Application extends Controller {
         return ok(Json.toJson(NewsItem.find.all()));
     }
     
-    @Transactional
-    public static Result getTodos() {
-        ObjectNode result = Json.newObject();
-        return redirect("index.html");
-    }
-    
     // this will be the main communication port for angularjs
     // just a stub atm
     @Transactional
@@ -129,27 +126,49 @@ public class Application extends Controller {
         return new WebSocket<String>() {
             
             // Called when the Websocket Handshake is done.
-            public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
-
+            public void onReady(final WebSocket.In<String> in, final WebSocket.Out<String> out) {
+            	inToOut.put(in, out);
+            	
                 // keep track of all our clients
-                clients.push(out);
+//                clients.put(out, null);
 
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
-                        
+                    	int index = event.indexOf(":");
+                    	int prefix = Integer.parseInt(event.substring(0, index));
+                    	String message = event.substring(index+1);
+
                         // Log events to the console
-                        System.out.println(event);
+                        System.out.println(prefix);
+                        System.out.println(message);
 
-                        for(int i = 0; i < clients.size(); i++) {
-                            clients.get(i).write(event);
+                        Set<Out<String>> currentSet = idsToSockets.get(prefix);
+                        if (currentSet == null) {
+                        	currentSet = new HashSet<Out<String>>();
                         }
-
+                        currentSet.add(out);
+                        idsToSockets.put(prefix, currentSet);
+                        
+                        if (!message.equals("")) {
+	                        for (WebSocket.Out<String> outOfSameId : currentSet) {
+	                        	outOfSameId.write(""+prefix+":"+message);
+	                        }
+                        }
                     }
                 });
                 
                 in.onClose(new Callback0() {
                     public void invoke() {
-                        System.out.println("Disconnected");
+                    	WebSocket.Out<String> relatedOut = inToOut.remove(in);
+                    	Set<Integer> keys = idsToSockets.keySet();
+                        
+                    	for (Integer key : keys) {
+                    		Set<WebSocket.Out<String>> associatedSockets = idsToSockets.get(key);
+                    		associatedSockets.remove(relatedOut);
+                    		idsToSockets.put(key, associatedSockets);
+                    	}
+                    	
+                    	System.out.println("Disconnected");
                     }
                 });
                 

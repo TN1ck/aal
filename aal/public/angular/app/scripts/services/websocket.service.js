@@ -3,7 +3,7 @@
 var app = angular.module('angularApp');
 
 app.factory('Websocket', function($rootScope) {
-    
+
   var createSocket = function() {
 
     var wsURI = 'ws://' + window.location.host + '/websocket',
@@ -23,23 +23,16 @@ app.factory('Websocket', function($rootScope) {
 
       if (service.handlers.onopen) {
         $rootScope.$apply(function() {
-            service.handlers.onopen.apply(socket, args);
-          });
+          service.handlers.onopen.apply(socket, args);
+        });
       }
     };
 
     socket.onmessage = function(data) {
 
-      var splitted = data.data.split('.'),
-          channel = splitted.shift(),
-          message = {data: splitted.join('')};
-
-      try {
-          data.data = JSON.parse(data.data);
-        } catch(e) {
-          // there should be a better way to do this
-          // but it is fast
-      }
+      var split = data.data.split(':'),
+          channel = split.shift(),
+          message = {data: split.join(':')};
 
       if (service.listeners.length > 0) {
         $rootScope.$apply(
@@ -51,7 +44,6 @@ app.factory('Websocket', function($rootScope) {
                 });
             });
       }
-    
     };
 
     socket.onclose = function() {
@@ -77,28 +69,19 @@ app.factory('Websocket', function($rootScope) {
   };
 
   var service = {
-      
+
     listeners: [],
     handlers: {},
 
     addListener: function(channel, func) {
 
-      if (!(func instanceof Function)) {
-        new Error('Not a function.');
-        return;
-      }
-
       this.listeners.push([channel, func]);
+      this.send(channel, '');
     },
 
-    removeListener: function(func) {
+    removeListener: function(channelAndFunc) {
 
-      if (!(func instanceof Function)) {
-        new Error('Not a function.');
-        return;
-      }
-      
-      var index = this.listeners.indexOf(func);
+      var index = this.listeners.indexOf(channelAndFunc);
       if (index > -1) {
         this.listeners.splice(index, 1);
       }
@@ -113,7 +96,7 @@ app.factory('Websocket', function($rootScope) {
     },
 
     send: function(channel, data) {
-      
+
       var errors = {
         0: 'Connection is being opened, can not send now.',
         2: 'Connection is being closed, can not send now',
@@ -123,12 +106,12 @@ app.factory('Websocket', function($rootScope) {
       var error = errors[socket.readyState];
 
       if (error) {
-        new Error(error);
+        throw new Error(error);
         return;
       }
 
       var msg = typeof(data) === 'object' ? JSON.stringify(data) : data;
-      socket.send(channel + '.' + msg);
+      socket.send(channel + ':' + msg);
     },
     connectTimeStamps: [],
     timesOpened: 0,

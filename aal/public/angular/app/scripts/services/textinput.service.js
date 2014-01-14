@@ -10,13 +10,6 @@ app.factory('Textinput', function($modal) {
 
       $scope.textinput = '';
 
-      // $scope.$watch('textinput', function(newVal, oldVal) {
-      //     if (newVal !== oldVal) {
-      //       console.log('send2', newVal);
-      //       TextTransmission.deliverText(newVal);
-      //     }
-      //   });
-
       TextTransmission.fetchText(function(data) {
           console.log('fetch', data.data);
           $scope.textinput = data.data;
