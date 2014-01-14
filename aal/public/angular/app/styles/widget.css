@@ -112,11 +112,11 @@ widget-h3 {
 }
 
 .business {
-	border-left: 0.5em solid blue;
+	border-left: 0.5em solid #428bca;
 }
 
 .private {
-	border-left: 0.5em solid green;
+	border-left: 0.5em solid #5cb85c;
 }
 
 .news-publisher {
