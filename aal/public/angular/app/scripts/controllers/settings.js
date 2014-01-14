@@ -4,8 +4,8 @@
 
 var appControllers = angular.module('appControllers');
 
-appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission',
-    function ($scope, $http, TextTransmission) {
+appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission', '$FB',
+    function ($scope, $http, TextTransmission, $FB) {
 
       $scope.mobileId = TextTransmission.mobileId;
 

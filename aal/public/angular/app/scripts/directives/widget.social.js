@@ -4,37 +4,49 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetSocial', function($q, $modal) {
+app.directive('widgetSocial', function($q, $modal, $FB) {
 
   var modalInstanceCtrlFactory = function(){
-      
+
     // create a new promise
 
     var defered = $q.defer();
 
-    var modalInstanceCtrl = function ($scope, $modalInstance, TextTransmission) {
+    var modalInstanceCtrl = function ($scope, $modalInstance, TextTransmission, FacebookPost) {
 
       $scope.modal = {
         message: '',
-        type: 'facebook',
-        from: {
-          profilePicture: 'http://www3.math.tu-berlin.de/stoch/nf-stoch/TUB-logo.png'
-        }
+        type: 'facebook'
+        // from: {
+        //   profilePicture: 'http://www3.math.tu-berlin.de/stoch/nf-stoch/TUB-logo.png'
+        // }
       };
 
       TextTransmission.fetchText(function(data) {
         $scope.modal.message = data.data;
       });
 
-      $scope.ok = function () {
-        
+      $scope.fbpost = FacebookPost.facebookPost;
+
+      $scope.ok = function() {
+
+        if ($scope.modal.type == 'facebook') {
+          var newPost = {message: $scope.modal.message};
+
+          newPost = angular.extend(newPost, $scope.fbpost);
+
+          $FB.api('/me/feed', 'post', newPost, function(data) {
+                console.log(data);
+           });
+        }
+
         $modalInstance.close();
         defered.resolve($scope.modal);
 
       };
 
       $scope.cancel = function () {
-        
+
         $modalInstance.dismiss('cancel');
         defered.reject('Canceled');
 
@@ -58,7 +70,7 @@ app.directive('widgetSocial', function($q, $modal) {
 
       scope.new = function() {
         var modalInstanceCtrl = modalInstanceCtrlFactory();
-                
+
         $modal.open({
           templateUrl: '/views/modals/modal.social.html',
           controller: modalInstanceCtrl.controller

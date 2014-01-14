@@ -5,7 +5,7 @@
 var appControllers = angular.module('appControllers', []);
 
 
-appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
+appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, FacebookPost) {
 
     updateMe();
 
@@ -21,7 +21,7 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
 
     $scope.login = function () {
       $FB.login(null, {
-        scope: 'email, user_likes, read_stream'
+        scope: 'email, user_likes, read_stream, publish_actions, publish_stream'
       });
     };
 
@@ -29,17 +29,10 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
       $FB.logout();
     };
 
-    $scope.share = function () {
-        $FB.ui(
-          {
-            method: 'feed',
-            name: 'The Wall rocks!',
-            picture: 'http://www3.math.tu-berlin.de/stoch/nf-stoch/TUB-logo.png',
-            link: 'http://www.tu-berlin.de',
-            description: 'The Wall is a project build in Ambient Assistent Living project at DAI-Labor at TU-Berlin.'
-          },
-          null
-        );
+    $scope.fbpost = FacebookPost.facebookPost;
+
+    $scope.share = function() {
+        $FB.ui($scope.fbpost, null);
     };
 
     function updateMe () {
@@ -63,7 +56,6 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
 
       $FB.api('/me').then(function(data) {
         $scope.user = data;
-        console.log($scope.user);
       }).then(function(){
         $FB.api('/me/picture?type=large').then(function(picture) {
           $scope.user.picture = picture.data;
@@ -96,7 +88,7 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q) {
 
     // TODO: refactor and remove this
     $scope.mockup = {
-    
+
     };
 
     Persistence
