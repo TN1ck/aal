@@ -63,7 +63,8 @@ app.directive('widgetTodo', function($q, $modal) {
                 });
 
                 modalInstanceCtrl.promise.then(function(data){
-                  $scope.todos.push(data);
+                  $scope.todos.reverse().push(data);
+                  $scope.todos.reverse();
                 });
 
               };

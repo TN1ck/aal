@@ -6,7 +6,7 @@
           <button style="width: 100%; height: 100%;" ng-click="addTodo($index)" type="button" class="btn btn-success">new Todo</button>
         </div>
     </div>
-    <div ng-repeat="todo in todos | reverse" class="col-lg-4 todo-animate widget-item">
+    <div ng-repeat="todo in todos" class="col-lg-4 todo-animate widget-item">
       <flip flip-toggle>
         <flip-front>
           <div class="widget todo">
