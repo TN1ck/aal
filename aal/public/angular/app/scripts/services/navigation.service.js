@@ -18,7 +18,7 @@ app.factory('Navigation', function($rootScope){
 
       $('body').on('keydown', function(event) {
               
-        if (event.which === 37 && fullscreenOn === 0) {
+        if (event.which === 37 && fullscreenOn === 0 &&!($rootScope.sidebar)) {
           if (currentSelected <= 0) {
             currentSelected = widgetList.length - 1;
           } else {
@@ -26,15 +26,15 @@ app.factory('Navigation', function($rootScope){
           }
           $rootScope.$apply();
         }
-        if (event.which === 39 && fullscreenOn === 0) {
+        if (event.which === 39 && fullscreenOn === 0 && !($rootScope.sidebar)) {
           currentSelected = (currentSelected + 1) % widgetList.length;
           $rootScope.$apply();
         }
-        if (event.which === 13 && fullscreenOn === 0) {
+        if (event.which === 13 && fullscreenOn === 0 && !($rootScope.sidebar)) {
           fullscreenOn = 1;
           $rootScope.$apply();
         }
-        if (event.which === 27 && fullscreenOn === 1) {
+        if (event.which === 27 && fullscreenOn === 1 && !($rootScope.sidebar)) {
           fullscreenOn = 0;
           $rootScope.$apply();
 
