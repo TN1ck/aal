@@ -1,0 +1,60 @@
+<div class="row full-height">
+	<div class="col-md-6 big-padding">
+		DEMO MODE
+	</div>
+	<div class="col-md-6 big-padding">
+			<form class="form-horizontal" role="form">
+	            <div class="form-group">
+	                <label for="inputPrename" class="col-sm-2 control-label">Vorname:</label>
+	                <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="inputPrename" placeholder="Vorname" ng-model="newUser.prename">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label for="inputName" class="col-sm-2 control-label">Nachname:</label>
+	                <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="inputName" placeholder="Nachname"  ng-model="newUser.lastname">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label for="inputUsername" class="col-sm-2 control-label">Username:</label>
+	                <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="inputUsername" placeholder="Username"  ng-model="newUser.username">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label for="inputEmail" class="col-sm-2 control-label" >eMail:</label>
+	                <div class="col-sm-6">
+	                    <input type="email" class="form-control" id="inputEmail" placeholder="eMail" ng-model="newUser.mail">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label for="inputPassword" class="col-sm-2 control-label">Passwort:</label>
+	                <div class="col-sm-6">
+	                    <input type="password" class="form-control" id="inputEmail" placeholder="Passwort" ng-model="newUser.password"></input>
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label for"Spiegel" class="col-sm-2 control-label">Spiegel:</label>
+	                <div class="col-sm-6">
+	                    <input type="checkbox" value="Spiegel" id="Spiegel" ng-model="newUser.news.spiegel">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                    <label for="BBC" class="col-sm-2 control-label">BBC:</label>
+	                    <div class="col-sm-6">
+	                        <input type="checkbox" value="BBC" id="BBC" ng-model="newUser.news.bbc">
+	                    </div>
+	            </div>
+	            {{newUser}}
+	            <div class="row-fluid">
+	                <div class="col-xs-6">
+	                    <button class="btn btn-primary full-width" ng-click="newUser.$save()">OK</button>
+	                </div>
+	                <div class="col-xs-6">
+	                    <button class="btn btn-danger full-width" ng-click="newUser = {}">discard</button>
+	                </div>
+	            </div>
+	        </form>
+	</div>
+</div>

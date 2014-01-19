@@ -51,5 +51,10 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         url: '/mobile',
         templateUrl: 'views/mobile.html',
         controller: 'MobileCtrl'
+      })
+      .state('wrapper.idle', {
+        url: '/idle',
+        templateUrl: 'views/idle.html',
+        controller: 'MainCtrl'
       });
   });
