@@ -51,5 +51,10 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         url: '/mobile',
         templateUrl: 'views/mobile.html',
         controller: 'MobileCtrl'
+      })
+      .state('wrapper.radial', {
+        url: '/radial',
+        templateUrl: 'views/radial.html',
+        controller: 'RadialCtrl'
       });
   });
