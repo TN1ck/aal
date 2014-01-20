@@ -56,5 +56,10 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         url: '/radial',
         templateUrl: 'views/radial.html',
         controller: 'RadialCtrl'
+      })
+      .state('wrapper.idle', {
+        url: '/idle',
+        templateUrl: 'views/idle.html',
+        controller: 'MainCtrl'
       });
   });
