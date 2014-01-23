@@ -15,7 +15,9 @@
 	width: 14em;
 	height: 100%;
 	margin-left: -14.8em;
+	background-color: white;
 	position: absolute;
+	z-index: 99;
 	top: 2.5em;
 	float: left;
 }
@@ -66,7 +68,7 @@
 
 .sidebar-right.sidebar-active {
 	width: 100%;
-	margin-left: 14.8em;
+	/*margin-left: 14.8em;*/
 }
 
 .sidebar-animate {
