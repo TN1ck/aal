@@ -1,5 +1,7 @@
 'use strict';
 
+/* global OAuth */
+
 var angularApp = angular.module('angularApp', [
     'ngRoute',
     'ngAnimate',
@@ -17,6 +19,8 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
     $FBProvider.setInitParams({
       appId: '342970865841932'
     });
+
+    OAuth.initialize('IQqjfz7Hzomr2m_iZBaIlnAiTBI');
 
     $urlRouterProvider
       .otherwise('/');

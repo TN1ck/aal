@@ -1,6 +1,6 @@
-// 'use strict';
+'use strict';
 
-/* global angular, moment */
+/* global angular, moment, OAuth */
 
 var appControllers = angular.module('appControllers', []);
 
