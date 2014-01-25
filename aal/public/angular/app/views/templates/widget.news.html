@@ -1,6 +1,11 @@
 <!-- <widget-title title="'Nachrichten'"></widget-title> -->
 <div class="row full-height" ng-style="{'background-color': color}">
 	<div class="col-md-6 row-md-1"><widget-h1>News</widget-h1></div>
+	<div class="col-md-6 row-md-1 widget" ng-style="{'border-color': color}">Test</div>
+	<div class="col-md-6 row-md-2 widget" ng-style="{'border-color': color}">
+		<widget-h3>{{data[0].header | truncate:25}}</widget-h3>
+		<p>{{data[0].text | truncate:300 }}</p>
+	</div>
 	<div ng-repeat="n in data" class="col-lg-6 widget row-md-1" ng-style="{'border-color': color}">
 		<widget-h3>{{n.header | truncate:25}}</widget-h3>
 		<p>{{n.text | truncate:150 }}</p>
