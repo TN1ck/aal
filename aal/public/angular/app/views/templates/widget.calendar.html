@@ -1,14 +1,12 @@
-<widget>
-	<widget-title title="'Kalender - ' + moment().format('LL')"></widget-title>
-    <div>
-    	<div class="day" ng-repeat="day in days">
-			{{day}}
-			<div class="event {{event.category}}" ng-repeat="event in events | filter:{weekday: day}">
-			<div class="{{event.priority}} todo-dot"></div>
-				<b>{{moment(event.startDate).format('H:mm')}} - {{moment(event.endDate).format('H:mm')}}</b>
-				<br/>
-				{{event.text}}
-			</div>
-    	</div>
-    </div>
-</widget>
+<!-- <widget-title title="'Kalender - ' + moment().format('LL')"></widget-title> -->
+<div>
+	<div class="day" ng-repeat="day in days">
+		{{day}}
+		<div class="event {{event.category}}" ng-repeat="event in data | filter:{weekday: day}">
+		<div class="{{event.priority}} todo-dot"></div>
+			<b>{{moment(event.startDate).format('H:mm')}} - {{moment(event.endDate).format('H:mm')}}</b>
+			<br/>
+			{{event.text}}
+		</div>
+	</div>
+</div>

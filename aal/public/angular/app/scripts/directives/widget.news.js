@@ -10,7 +10,7 @@ app.directive('widgetNews', function(Websocket) {
       templateUrl: '/views/templates/widget.news.html',
       restrict: 'E',
       scope: {
-          news: '=',
+          data: '=',
         }
       };
 });

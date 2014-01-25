@@ -9,7 +9,7 @@ app.directive('widgetPersonal', function() {
         templateUrl: '/views/templates/widget.personal.html',
         restrict: 'E',
         scope: {
-            user: '=',
+            data: '=',
           }
         };
   });

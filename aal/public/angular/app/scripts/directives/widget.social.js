@@ -64,7 +64,7 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
     templateUrl: '/views/templates/widget.social.html',
     restrict: 'E',
     scope: {
-      social: '=',
+      data: '=',
     },
     link: function(scope) {
 

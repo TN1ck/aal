@@ -4,28 +4,34 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widget', function(Navigation) {
+app.directive('widget', function(Navigation, $compile) {
 
     return {
-        templateUrl: '/views/templates/widget.html',
+        template: '<div></div>',
         restrict: 'E',
-        transclude: true,
         scope: {
+          type: '=',
+          data: '='
         },
         link: function(scope, element, $modal) {
+
+            element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
+            
+            scope.$watch('type', function() {
+              element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
+            });
 
             // TODO remove the magic 8 and 6
             var paddingVert = Number($('.widget-padding').css('padding-left').replace('px', '')) * 8,
                 paddingHor = Number($('.widget-padding').css('padding-top').replace('px', '')) * 10,
                 windowWidth = $(window).width() - paddingVert,
                 windowHeight = $(window).height() - paddingHor,
-                $outerDiv = $(element).parent().parent(),
+                $outerDiv = $(element).parent(),
                 $outerOuterDiv = $outerDiv.parent();
 
             // console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
 
             var setHeights = function () {
-
               if ($(window).width() > 1200) {
                 if ($outerDiv.hasClass('half-height')) {
                   $outerDiv.css('height', (windowHeight/2) + 'px');
@@ -33,7 +39,6 @@ app.directive('widget', function(Navigation) {
                   $outerDiv.css('height', windowHeight + 'px');
                 }
               }
-
             };
 
             setHeights();
@@ -57,7 +62,7 @@ app.directive('widget', function(Navigation) {
                   $outerDiv.css('height', '100%');
                 } else {
 
-                  setHeights();
+                  // setHeights();
                   $outerDiv.addClass('border');
 
                 }

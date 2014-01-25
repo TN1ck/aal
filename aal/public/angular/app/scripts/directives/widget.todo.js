@@ -49,7 +49,7 @@ app.directive('widgetTodo', function($q, $modal) {
         templateUrl: '/views/templates/widget.todo.html',
         restrict: 'E',
         scope: {
-          todos: '='
+          data: '='
         },
         controller: function($scope) {
 

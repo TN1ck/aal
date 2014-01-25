@@ -5,9 +5,15 @@
 var appControllers = angular.module('appControllers', []);
 
 
-appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, FacebookPost) {
+appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, FacebookPost, $timeout) {
 
     updateMe();
+
+    $scope.typeTest = 'personal';
+
+    $timeout(function() {
+      $scope.typeTest = 'todo';
+    }, 2000);
 
     updateLoginStatus()
     .then(updateApiCall);

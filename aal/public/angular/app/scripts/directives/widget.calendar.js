@@ -9,19 +9,19 @@ app.directive('widgetCalendar', function() {
         templateUrl: '/views/templates/widget.calendar.html',
         restrict: 'E',
         scope: {
-            events: '=',
-          },
-          link: function(scope) {
+          data: '=',
+        },
+        link: function(scope) {
 
-            moment.lang('de');
+          moment.lang('de');
 
-            scope.days = [];
-            scope.moment = moment;
-            scope.date = moment().format('LL');
+          scope.days = [];
+          scope.moment = moment;
+          scope.date = moment().format('LL');
 
-            for (var i = 0; i < 7; i++) {
-              scope.days.push((moment().add('days', i)).calendar().split(' ')[0]);
-            }
+          for (var i = 0; i < 7; i++) {
+            scope.days.push((moment().add('days', i)).calendar().split(' ')[0]);
           }
-        };
+        }
+      };
   });
