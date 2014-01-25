@@ -13,6 +13,8 @@ app.directive('widgetCalendar', function() {
         },
         link: function(scope) {
 
+          scope.color = '#FFBB33';
+
           moment.lang('de');
 
           scope.days = [];

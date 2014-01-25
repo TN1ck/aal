@@ -27,18 +27,21 @@ app.directive('widget', function(Navigation, $compile) {
                 windowWidth = $(window).width() - paddingVert,
                 windowHeight = $(window).height() - paddingHor,
                 $outerDiv = $(element).parent(),
-                $outerOuterDiv = $outerDiv.parent();
+                $outerOuterDiv = $outerDiv.parent(),
+                $style = $('#row-mds').length || $('<style id="row-mds" type="text/css">').appendTo('head');
 
             // console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
 
             var setHeights = function () {
-              if ($(window).width() > 1200) {
-                if ($outerDiv.hasClass('half-height')) {
-                  $outerDiv.css('height', (windowHeight/2) + 'px');
-                } else {
-                  $outerDiv.css('height', windowHeight + 'px');
-                }
-              }
+
+              var css =
+                  ['.row-md-8 { ', 'height: ', windowHeight,'px; }',
+                   '.row-md-4 { ', 'height: ', windowHeight/2,'px; }',
+                   '.row-md-2 { ', 'height: ', windowHeight/4, 'px; }',
+                   '.row-md-1 { ', 'height: ', windowHeight/8, 'px; }'].join('');
+
+              $style.html(css);
+
             };
 
             setHeights();

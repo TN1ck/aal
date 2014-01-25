@@ -4,39 +4,6 @@ body {
     -webkit-font-smoothing: subpixel-antialiased !important;
 }
 
-.big-padding {
-    padding: 1.35em 0.8em;
-}
-
-html, body {
-	height: 100%;
-}
-
-/*#test-control {
-    margin-top: 1.5em;
-}*/
-
-#find-me {
-    margin-bottom: 0.7em;
-}
-
-#cursor {
-    display: none;
-    /*This should be set when cursor appears*/
-    /*display: block;*/
-    width: 10px;
-    height: 10px;
-    position: fixed;
-    background-color: red;
-    z-index: 9999;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
 
 /* Add lato as default font */
 
@@ -60,9 +27,6 @@ body, h1, h2, h3, h4, h5 {
     width: 33%;
 }
 
-.debug {
-	/*border: solid gray 1px; */
-}
 
 .col-xs-1,
 .col-sm-1,
@@ -117,17 +81,16 @@ body, h1, h2, h3, h4, h5 {
 }
 
 .overflow {
-  overflow-y: auto;
-  padding: 0.45em 0.8em;
+  overflow: hidden;
+  padding: 0 0;
 }
 
 .widget-padding {
-  padding: 0.45em 0.8em;
+  padding: 0 0;
 }
 
 .row {
-	margin-left: -0.3em;
-	margin-right: -0.3em;
+	margin: 0;
 }
 
 .container {
@@ -137,11 +100,6 @@ body, h1, h2, h3, h4, h5 {
 
 .col-md-12, col-lg-12, col-sm-12, col-xs-12 {
 	float: left;
-}
-
-img {
-    height: 100%;
-    width: 100%;
 }
 
 .red {

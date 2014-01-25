@@ -68,6 +68,8 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
     },
     link: function(scope) {
 
+      scope.color = '#73CCED';
+
       scope.new = function() {
         var modalInstanceCtrl = modalInstanceCtrlFactory();
 

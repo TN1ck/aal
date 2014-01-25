@@ -1,32 +1,21 @@
 <!-- <widget-title title="'Persönliche Daten'"></widget-title> -->
-<div class="row">
-	<div class="col-lg-8">
+<div class="row full-height" ng-style="{'background-color': color}">
+	<div class="col-md-12 row-md-1"><widget-h1>Personal</widget-h1></div>
+	<div class="col-lg-6 row-md-1 widget-padding">
 		<div class="row">
-			<div class="col-lg-12 widget-item">
-				<div class="widget">
-					Name:
-					<br/>
-					<widget-h2>{{data.first_name}} {{data.last_name}}</widget-h2>
-				</div>
+			<div class="col-lg-12 row-md-1 widget" ng-style="{'border-color': color}">
+				Name:
+				<br/>
+				<widget-h2>{{data.first_name}} {{data.last_name}}</widget-h2>
 			</div>
-			<div class="col-lg-12">
-				<div class="widget">
-					E-Mail:
-					<br/>
-					<widget-h2>{{data.email | truncate:15}}</widget-h2>
-				</div>
+			<div class="col-lg-12 row-md-1 widget" ng-style="{'border-color': color}">
+				E-Mail:
+				<br/>
+				<widget-h2>{{data.email}}</widget-h2>
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-4">
-		<figure class="effeckt-caption" data-effeckt-type="revolving-door-left">
-		    <img ng-src='{{data.picture.url}}'/>
-		    <figcaption>
-		      <div class="effeckt-figcaption-wrap">
-		        <p>Lorem ipsum dolar.</p>
-		      </div>
-		    </figcaption>
-		  </figure>
+	<div class="col-lg-6 row-md-2 widget" style="background-image: url({{data.picture.url}});background-size: cover; border-color: {{color}};">
 	</div>
 </div>
 

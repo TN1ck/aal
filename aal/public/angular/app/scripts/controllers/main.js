@@ -11,9 +11,9 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
 
     $scope.typeTest = 'personal';
 
-    $timeout(function() {
-      $scope.typeTest = 'todo';
-    }, 2000);
+    // $timeout(function() {
+    //   $scope.typeTest = 'todo';
+    // }, 2000);
 
     updateLoginStatus()
     .then(updateApiCall);
@@ -70,16 +70,17 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
 
       $FB.api('/me/home').then(function(posts) {
         $scope.mockup.social = posts.data;
-        $scope.mockup.social.forEach(function(post) {
-          $FB.api('/' + post.from.id + '/picture?type=large').then(
-            function(result) {
-              post.from.profilePicture = result.data.url;
-              post.type = 'facebook';
-              if (!post.message) {
-                post.message = post.story;
-              }
-            });
-        });
+        console.log(posts.data);
+        // $scope.mockup.social.forEach(function(post) {
+        //   $FB.api('/' + post.from.id + '/picture?type=large').then(
+        //     function(result) {
+        //       post.from.profilePicture = result.data.url;
+        //       post.type = 'facebook';
+        //       if (!post.message) {
+        //         post.message = post.story;
+        //       }
+        //     });
+        // });
       });
     }
 

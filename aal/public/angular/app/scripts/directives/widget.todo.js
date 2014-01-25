@@ -53,6 +53,8 @@ app.directive('widgetTodo', function($q, $modal) {
         },
         controller: function($scope) {
 
+            $scope.color = '#FFD580';
+
             $scope.addTodo = function () {
                 
                 var modalInstanceCtrl = modalInstanceCtrlFactory();

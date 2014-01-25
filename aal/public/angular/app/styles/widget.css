@@ -2,8 +2,12 @@ widget-h1 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-weight: 200;
-	font-size: 2em;
+	font-size: 5em;
+	color: white;
 	float: left;
+	bottom: 0em;
+	left: 0.2em;
+	position: absolute;
 }
 
 widget-h2 {
@@ -22,25 +26,20 @@ widget-h3 {
 	font-size: 1.5em;
 }
 
-.widget {
-	padding-top: 1em;
-	padding-right: 1em;
-	padding-bottom: 1em;
-	padding-left: 1em;
-	background-color: #F9F9F9;
-}
-
-.widget-item {
-	padding-bottom: 0.6em;
-}
-
-.todo {
-	height: 6em;
-}
-
-.todo .btn {
-	padding: 0;
+widget-h4 {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: 400;
+	color: #2D7CDB;
 	font-size: 1em;
+}
+
+.widget {
+	box-sizing: border-box;
+	border: 0.5em solid #73CCED;
+	padding: 0.6em;
+	background-color: white;
+	overflow: hidden;
 }
 
 .todo-dot {
@@ -55,105 +54,7 @@ widget-h3 {
 	height: 0.9em;
 }
 
-.todo-flipped {
-	background-color: #4A494A;
-	color: white;
-}
 
-.effeckt-caption figcaption {
-	background: rgba(255, 255, 255, 0.8);
-	color: black;
-	padding: 1rem;
-}
-
-.news {
-
-}
-
-.social {
-	height: 100%;
-}
-
-.twitter {
-	border-left: 0.5em solid #4099FF;
-}
-
-.facebook {
-	border-left: 0.5em solid #3B5999;
-}
-
-.social img {
-	float: left;
-	height: 4em;
-	width: 4em;
-	border-radius: 100%;
-}
-
-
-.social .body {
-	word-wrap: break-word;
-	backface-visibility: hidden;
-	-webkit-backface-visibility: hidden;
-}
-
-.day {
-	text-align: left;
-	width: 50%;
-	float: left;
-	padding: 0.5em;
-}
-
-.event {
-	margin-bottom: 1em;
-	padding: 0.5em;
-	text-align: left;
-	background-color: #FBFBFB;
-	position: relative;
-}
-
-.business {
-	border-left: 0.5em solid #428bca;
-}
-
-.private {
-	border-left: 0.5em solid #5cb85c;
-}
-
-.news-publisher {
-	position: absolute;
-	right: 1em;
-	bottom: 1.5em;
-}
-
-widget-maps {
-	height: 100%;
-}
-
-widget-maps widget {
-	height: 100%;
-}
-
-widget-maps widget .ng-transclude {
-	height: 100%;
-}
-
-widget-maps form {
-	height: 100%;
-}
-
-widget-maps google-map {
-	height: 100%;
-	width: 100%;
-}
-
-
-.angular-google-map {
-    display: block;
-    height: 100%;
-}
-.angular-google-map-container {
-    height: 100%;
-}
 
 .settings .settings-content {
 	padding: 0.5em 0 0 1em;

@@ -17,8 +17,8 @@
 	}
 }
 
-@media (min-width: 1000px) and (1999px){
+@media (min-width: 1000px) and (max-width: 1999px) {
 	body {
-		font-size: 10px;
+		font-size: 8px;
 	}
 }

@@ -1,42 +1,8 @@
-<!-- <widget-title title="'Social'">
-&nbsp;&nbsp;&nbsp;
-<div ng-init="hangout()" id="placeholder-div"></div>
-</widget-title> -->
-<div class="row">
-  <div class="col-lg-12 widget-item">
-    <div class="social widget social">
-      <button class="btn btn-primary full-width" ng-click="new()">New Entry</button>
-    </div>
-  </div>
-  <div ng-repeat="s in data" class="col-lg-12 widget-item">
-  <div class="widget social {{s.type}}">
-    <div class="social-bar">
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="title">
-          {{ s.from.name | uppercase }}
-        </div>
-      </div>
-      <div class="col-xs-2">
-        <div class="title">
-          <img class="profile-pic" ng-src="{{ s.from.profilePicture }}"></img>
-        </div>
-      </div>
-      <div class="col-xs-10">
-        <div class="body">
-          {{ s.message | truncate:200}}
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- div class="widget social todo-flipped full-height">
-    <div class="row full-height">
-      <div class="col-xs-6 full-height">
-        <button class="btn btn-primary full-width half-height">Like</button>
-        <button class="btn btn-primary full-width half-height">Share</button>
-      </div>
-    </div>
-  </div> -->
+<div class="row full-height" ng-style="{'background-color': color}">
+  <div class="col-md-6 row-md-1"><widget-h1>Social</widget-h1></div>
+  <div class="col-md-6 row-md-1 widget">Test</div>
+  <div ng-repeat="post in data" class="col-md-3 row-md-1 widget" ng-style="{'border-color': color}">
+    <widget-h4>{{post.from.name}}</widget-h4>
+    <p>{{post.message}}</p>
   </div>
 </div>

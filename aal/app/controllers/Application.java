@@ -68,9 +68,27 @@ public class Application extends Controller {
             ,"Falls sich Union und SPD auf eine Koalition einigen, werden die Parteien unter sich ausmachen, wer im Kabinett sitzt. Seiteneinsteiger haben kaum Chancen. Muss das sein? SPIEGEL ONLINE zeigt, wer gut in die Ministerriege passen würde, wenn es allein nach Kompetenz ginge."
             ,"tech"
             ,"Spiegel", null).save();
+        new NewsItem("Zehn, die Minister werden sollten"
+            ,"Falls sich Union und SPD auf eine Koalition einigen, werden die Parteien unter sich ausmachen, wer im Kabinett sitzt. Seiteneinsteiger haben kaum Chancen. Muss das sein? SPIEGEL ONLINE zeigt, wer gut in die Ministerriege passen würde, wenn es allein nach Kompetenz ginge."
+            ,"tech"
+            ,"Spiegel", null).save();
+        new NewsItem("Zehn, die Minister werden sollten"
+            ,"Falls sich Union und SPD auf eine Koalition einigen, werden die Parteien unter sich ausmachen, wer im Kabinett sitzt. Seiteneinsteiger haben kaum Chancen. Muss das sein? SPIEGEL ONLINE zeigt, wer gut in die Ministerriege passen würde, wenn es allein nach Kompetenz ginge."
+            ,"tech"
+            ,"Spiegel", null).save();
+        new NewsItem("Zehn, die Minister werden sollten"
+            ,"Falls sich Union und SPD auf eine Koalition einigen, werden die Parteien unter sich ausmachen, wer im Kabinett sitzt. Seiteneinsteiger haben kaum Chancen. Muss das sein? SPIEGEL ONLINE zeigt, wer gut in die Ministerriege passen würde, wenn es allein nach Kompetenz ginge."
+            ,"tech"
+            ,"Spiegel", null).save();
         
         java.util.Date now = Calendar.getInstance().getTime();
         
+        new TodoItem("red", "make repository", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0))).save();
+        new TodoItem("red", "make repository", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0))).save();
+        new TodoItem("red", "make repository", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0))).save();
+        new TodoItem("red", "make repository", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0))).save();
+        new TodoItem("red", "make repository", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0))).save();
+        new TodoItem("red", "make repository", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0))).save();
         new TodoItem("red", "make repository", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0))).save();
         new TodoItem("green", "study for exam", new Date(now.getTime() + TimeUnit.HOURS.toMillis(10))).save();
         new TodoItem("orange", "work for aal", new Date(now.getTime() + TimeUnit.HOURS.toMillis(6))).save();
@@ -86,6 +104,32 @@ public class Application extends Controller {
         new CalendarItem("private", "Exam :o", "TU Berlin", "orange", new Date(now.getTime() + TimeUnit.HOURS.toMillis(2)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(3))).save();
         new CalendarItem("business", "Buy ticket for concert", null, "green", new Date(now.getTime() + TimeUnit.HOURS.toMillis(0)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(1))).save();
         new CalendarItem("business", "Buy present for Harry", "Kurfürstendamm", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(4)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(6))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
+        new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
         new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
         
         return ok("Created test data");
