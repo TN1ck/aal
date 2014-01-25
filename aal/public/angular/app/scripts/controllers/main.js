@@ -70,7 +70,23 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
 
       $FB.api('/me/home').then(function(posts) {
         $scope.mockup.social = posts.data;
+        $scope.mockup.social.picturePosts = [];
         console.log(posts.data);
+        
+        var picturePosts = posts.data.filter(function(d) {
+          return d.status_type === 'added_photos';
+        });
+
+        picturePosts.forEach(function(d, i) {
+          $FB.api(d.object_id + '?fields=images').then(function(picture) {
+            console.log(picture);
+            if (picture.images) {
+              d.picture = picture.images[0];
+              $scope.mockup.social.picturePosts.push(d);
+            }
+          });
+        });
+
         // $scope.mockup.social.forEach(function(post) {
         //   $FB.api('/' + post.from.id + '/picture?type=large').then(
         //     function(result) {

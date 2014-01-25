@@ -28,7 +28,7 @@ app.directive('widget', function(Navigation, $compile) {
                 windowHeight = $(window).height() - paddingHor,
                 $outerDiv = $(element).parent(),
                 $outerOuterDiv = $outerDiv.parent(),
-                $style = $('#row-mds').length || $('<style id="row-mds" type="text/css">').appendTo('head');
+                $style = $('#row-mds').length === 0 ? $('<style id="row-mds" type="text/css">').appendTo('head') : $('#row-mds');
 
             // console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
 

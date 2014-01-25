@@ -23,7 +23,7 @@ widget-h3 {
 	margin-bottom: 0;
 	font-weight: 400;
 	color: #2D7CDB;
-	font-size: 1.5em;
+	font-size: 1.25em;
 }
 
 widget-h4 {
@@ -79,4 +79,21 @@ widget-h4 {
 
 .social .title {
 	margin-bottom: 0.2em;
+}
+
+
+.widget-picture-post {
+	padding: 0.5em;
+	position: absolute;
+	bottom: 0.5em;
+	left: 0.5em;
+	right: 0.5em;
+	background-color: white;
+}
+
+.social-footer {
+	position: absolute;
+	bottom: 0;
+	background-color: white;
+	color: gray;
 }

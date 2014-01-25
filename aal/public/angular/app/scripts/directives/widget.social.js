@@ -12,7 +12,7 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
 
     var defered = $q.defer();
 
-    var modalInstanceCtrl = function ($scope, $modalInstance, TextTransmission, FacebookPost) {
+    var modalInstanceCtrl = function ($scope, $modalInstance, TextTransmission, FacebookPost, $FB) {
 
       $scope.modal = {
         message: '',
