@@ -15,97 +15,74 @@ app.directive('widget', function(Navigation, $compile) {
         },
         link: function(scope, element, $modal) {
 
+          element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
+          
+          scope.$watch('type', function() {
             element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
-            
-            scope.$watch('type', function() {
-              element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
-            });
+          });
 
-            // TODO remove the magic 8 and 6
-            var paddingVert = Number($('.widget-padding').css('padding-left').replace('px', '')) * 8,
-                paddingHor = Number($('.widget-padding').css('padding-top').replace('px', '')) * 10,
-                windowWidth = $(window).width() - paddingVert,
-                windowHeight = $(window).height() - paddingHor,
-                $outerDiv = $(element).parent(),
-                $outerOuterDiv = $outerDiv.parent(),
-                $style = $('#row-mds').length === 0 ? $('<style id="row-mds" type="text/css">').appendTo('head') : $('#row-mds');
+          // TODO remove the magic 8 and 6
+          var paddingVert = Number($('.widget-padding').css('padding-left').replace('px', '')) * 8,
+              paddingHor = Number($('.widget-padding').css('padding-top').replace('px', '')) * 10,
+              windowWidth = $(window).width() - paddingVert,
+              windowHeight = $(window).height() - paddingHor,
+              $outerDiv = $(element).parent(),
+              $outerOuterDiv = $outerDiv.parent(),
+              $style = $('#row-mds').length === 0 ? $('<style id="row-mds" type="text/css">').appendTo('head') : $('#row-mds');
 
-            // console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
+          // console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
 
-            var setHeights = function () {
+          var setHeights = function () {
 
-              var css =
-                  ['.row-md-8 { ', 'height: ', windowHeight,'px; }',
-                   '.row-md-4 { ', 'height: ', windowHeight/2,'px; }',
-                   '.row-md-2 { ', 'height: ', windowHeight/4, 'px; }',
-                   '.row-md-1 { ', 'height: ', windowHeight/8, 'px; }'].join('');
+            var css =
+                ['.row-md-8 { ', 'height: ', windowHeight,'px; }',
+                 '.row-md-4 { ', 'height: ', windowHeight/2,'px; }',
+                 '.row-md-2 { ', 'height: ', windowHeight/4, 'px; }',
+                 '.row-md-1 { ', 'height: ', windowHeight/8, 'px; }'].join('');
 
-              $style.html(css);
+            $style.html(css);
 
-            };
+          };
 
-            setHeights();
+          setHeights();
 
-            scope.fullscreen = ['enter fullscreen', 'exit fullscreen'];
-            scope.counter = Navigation.getCounter(element);
-            scope.toggleFullscreen = function () {
+          scope.counter = Navigation.getCounter(element);
+          scope.toggleScreens = function () {
 
-                $outerOuterDiv.toggleClass('fullscreen')
-                  .toggleClass('overflow');
+            var widgetBig = scope.$parent.widgets[2];
+            scope.$parent.widgets[2] = scope.$parent.widgets[Navigation.getCurrentSelected()];
+            scope.$parent.widgets[Navigation.getCurrentSelected()] = widgetBig;
 
-                $('body').toggleClass('big-padding');
+          };
 
-                scope.fullscreen.reverse();
+          scope.$watch(Navigation.getCurrentSelected , function(newValue, oldValue, scope) {
 
-                if ($outerOuterDiv.hasClass('fullscreen')) {
-                  $outerDiv.removeClass('border')
-                    .removeClass('noborder')
-                    .removeClass('animate-border');
+            console.log('noticed');
 
-                  $outerDiv.css('height', '100%');
-                } else {
+            if (newValue === scope.counter) {
 
-                  // setHeights();
-                  $outerDiv.addClass('border');
+              $outerDiv.removeClass('noborder')
+                .addClass('border')
+                .addClass('animate-border');
+            }
 
-                }
+            if (oldValue === scope.counter && newValue !== oldValue) {
 
-                $(window).trigger('resize');
-              };
-            scope.$watch(Navigation.getCurrentSelected , function(newValue, oldValue, scope) {
+              $('div').removeClass('noborder');
+              $outerDiv.removeClass('border')
+                .addClass('noborder')
+                .addClass('animate-border');
+            }
 
-                if (newValue === scope.counter) {
+          });
 
-                  $outerDiv.removeClass('noborder')
-                    .addClass('border')
-                    .addClass('animate-border');
-                }
+          scope.$watch(Navigation.getToggleScreens , function(newValue, oldValue, scope) {
 
-                if (oldValue === scope.counter && newValue !== oldValue) {
+            if (Navigation.getCurrentSelected() === scope.counter) {
+              scope.toggleScreens();
+            }
 
-                  $('div').removeClass('noborder');
-                  $outerDiv.removeClass('border')
-                    .addClass('noborder')
-                    .addClass('animate-border');
-                }
-
-              });
-            scope.$watch(Navigation.getFullscreenOn , function(newValue, oldValue, scope) {
-
-                if (newValue === 1 && oldValue === 0 &&
-                   Navigation.getCurrentSelected() === scope.counter) {
-
-                  scope.toggleFullscreen();
-
-                }
-
-                if (newValue === 0 && oldValue === 1 &&
-                   Navigation.getCurrentSelected() === scope.counter) {
-
-                  scope.toggleFullscreen();
-
-                }
-              });
-          },
-        };
+          });
+        },
+      };
   });

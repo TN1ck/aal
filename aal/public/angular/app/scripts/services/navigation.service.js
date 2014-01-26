@@ -6,19 +6,19 @@ var app = angular.module('angularApp');
 
 app.factory('Navigation', function($rootScope){
 
-    var widgetList,
+    var widgetList = $('widget'),
         currentSelected,
-        fullscreenOn;
+        toggleScreens;
 
     $rootScope.$watch('$locationChangeStart', function() {
       
-      widgetList = document.getElementsByTagName('widget');
+      widgetList = $('widget');
       currentSelected = -1;
-      fullscreenOn = 0;
+      toggleScreens = 0;
 
       $('body').on('keydown', function(event) {
               
-        if (event.which === 37 && fullscreenOn === 0 &&!($rootScope.sidebar)) {
+        if (event.which === 37) {
           if (currentSelected <= 0) {
             currentSelected = widgetList.length - 1;
           } else {
@@ -26,25 +26,20 @@ app.factory('Navigation', function($rootScope){
           }
           $rootScope.$apply();
         }
-        if (event.which === 39 && fullscreenOn === 0 && !($rootScope.sidebar)) {
+        if (event.which === 39) {
           currentSelected = (currentSelected + 1) % widgetList.length;
           $rootScope.$apply();
         }
-        if (event.which === 13 && fullscreenOn === 0 && !($rootScope.sidebar)) {
-          fullscreenOn = 1;
+        if (event.which === 13) {
+          toggleScreens = !toggleScreens;
           $rootScope.$apply();
-        }
-        if (event.which === 27 && fullscreenOn === 1 && !($rootScope.sidebar)) {
-          fullscreenOn = 0;
-          $rootScope.$apply();
-
         }
       });
     });
 
     return {
 
-      getCounter: function (questioner){
+      getCounter: function(questioner) {
         for(var i = widgetList.length; i--;){
           if (widgetList[i] === questioner.context) {
             return i;
@@ -52,15 +47,16 @@ app.factory('Navigation', function($rootScope){
         }
       },
 
-      selectNext: function (){
-          return currentSelected++;
-        },
+      selectNext: function() {
+        return currentSelected++;
+      },
 
-      getCurrentSelected: function (){
-          return currentSelected;
-        },
-      getFullscreenOn: function (){
-          return fullscreenOn;
-        }
+      getCurrentSelected: function() {
+        return currentSelected;
+      },
+
+      getToggleScreens: function() {
+        return toggleScreens;
+      }
     };
   });
