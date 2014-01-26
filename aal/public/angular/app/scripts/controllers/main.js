@@ -1,6 +1,6 @@
 'use strict';
 
-/* global angular, moment, OAuth, d3 */
+/* global angular, moment, OAuth, d3, $ */
 
 var appControllers = angular.module('appControllers', []);
 
@@ -139,12 +139,22 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
     $scope.colors = ['#99D6EA', '#7FCCE5', '#66C1E0', '#4CB7DB', '#33ADD6', '#33ADD6', '#19A3D1', '#0099cc'];
     $scope.colors = ['#CEEA8C', '#9DE572', '#60E059', '#41DB6C', '#2AD691', '#14D1C2', '#0099CC'].reverse();
 
+    var $style = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
+
+    var css = $scope.colors.map(function(d, i) {
+      return '.widget-color-'+ i + ' { border-color: white; background-color: ' + d  + '; color: white; }';
+    }).join(' ');
+
+    $scope.names = [0, 1, 2, 3, 4].map(function(d) {return 'widget-color-' + d; });
+
+    $style.html(css);
+
     $scope.widgets = [
-      {name: 'news', data: 'mockup.news', color: 'colors[0]'},
-      {name: 'personal', data: 'user', color: 'colors[1]'},
-      {name: 'calendar', data: 'mockup.calendar', color: 'colors[2]'},
-      {name: 'social', data: 'mockup.social', color: 'colors[3]'},
-      {name: 'todo', data: 'mockup.todos', color: 'colors[4]'}
+      {name: 'news', data: 'mockup.news', color: 'names[0]'},
+      {name: 'personal', data: 'user', color: 'names[1]'},
+      {name: 'calendar', data: 'mockup.calendar', color: 'names[2]'},
+      {name: 'social', data: 'mockup.social', color: 'names[3]'},
+      {name: 'todo', data: 'mockup.todos', color: 'names[4]'}
     ];
 
   });

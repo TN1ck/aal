@@ -14,7 +14,7 @@ widget-h2 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-weight: 400;
-	color: #2D7CDB;
+	color: white;
 	font-size: 2em;
 }
 
@@ -22,7 +22,7 @@ widget-h3 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-weight: 400;
-	color: #2D7CDB;
+	color: white;
 	font-size: 1.25em;
 }
 
@@ -30,13 +30,13 @@ widget-h4 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-weight: 400;
-	color: #2D7CDB;
+	color: white;
 	font-size: 1em;
 }
 
 .widget {
 	box-sizing: border-box;
-	border: 0.5em solid #73CCED;
+	border: 0.25em solid #73CCED;
 	padding: 0.6em;
 	background-color: white;
 	overflow: hidden;
@@ -44,6 +44,7 @@ widget-h4 {
 
 .todo-dot {
 	top: 0.5em;
+	background-color: white;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 	right: 0.5em;
@@ -94,8 +95,8 @@ widget-h4 {
 .social-footer {
 	position: absolute;
 	bottom: 0;
-	background-color: white;
-	color: gray;
+	background-color: transparent;
+	color: inherit;
 }
 
 .calendar-big b {

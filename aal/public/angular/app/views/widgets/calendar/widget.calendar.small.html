@@ -1,4 +1,4 @@
-<div class="col-md-3 row-md-1 widget" ng-style="{'border-color': color}">
+<div class="col-md-3 row-md-1 widget {{color}}">
 	<b>{{$parent.moment(data.startDate).format('D.M H:mm')}} - {{$parent.moment(data.endDate).format('d.M H:mm')}}</b>
 	<br/>
 	{{data.text}}
