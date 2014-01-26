@@ -46,7 +46,7 @@ app.directive('widgetTodo', function($q, $modal) {
     };
 
     return {
-        templateUrl: '/views/templates/widget.todo.html',
+        templateUrl: '/views/widgets/todo/widget.todo.html',
         restrict: 'E',
         scope: {
           data: '=',

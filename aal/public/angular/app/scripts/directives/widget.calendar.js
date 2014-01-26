@@ -6,7 +6,7 @@ var app = angular.module('angularApp');
 
 app.directive('widgetCalendar', function($timeout) {
     return {
-        templateUrl: '/views/templates/widget.calendar.html',
+        templateUrl: '/views/widgets/calendar/widget.calendar.html',
         restrict: 'E',
         scope: {
           data: '=',
@@ -23,14 +23,7 @@ app.directive('widgetCalendar', function($timeout) {
           };
 
           setTime();
-
-          scope.days = [];
           scope.moment = moment;
-          scope.date = moment().format('LL');
-
-          for (var i = 0; i < 7; i++) {
-            scope.days.push((moment().add('days', i)).calendar().split(' ')[0]);
-          }
         }
       };
   });

@@ -6,7 +6,7 @@ var app = angular.module('angularApp');
 
 app.directive('widgetPersonal', function() {
   return {
-    templateUrl: '/views/templates/widget.personal.html',
+    templateUrl: '/views/widgets/widget.personal.html',
     restrict: 'E',
     scope: {
       data: '=',

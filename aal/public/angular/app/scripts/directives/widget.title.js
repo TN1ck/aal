@@ -6,7 +6,7 @@ var app = angular.module('angularApp');
 
 app.directive('widgetTitle', function() {
     return {
-        templateUrl: '/views/templates/widget.title.html',
+        templateUrl: '/views/widgets/widget.title.html',
         restrict: 'E',
         transclude: true,
         scope: {

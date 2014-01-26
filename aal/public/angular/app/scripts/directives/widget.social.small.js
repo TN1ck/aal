@@ -4,10 +4,10 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetNews', function(Websocket) {
+app.directive('widgetSocialSmall', function() {
 
   return {
-    templateUrl: '/views/widgets/news/widget.news.html',
+    templateUrl: '/views/widgets/social/widget.social.small.html',
     restrict: 'E',
     scope: {
       data: '=',

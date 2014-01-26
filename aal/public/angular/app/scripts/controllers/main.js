@@ -123,7 +123,9 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
           event.weekday = moment(event.startDate).calendar().split(' ')[0];
           return event;
         });
-        $scope.mockup.calendar = data;
+        $scope.mockup.calendar = data.sort(function(a, b) {
+          return a.startDate - b.startDate;
+        });
       });
 
     Persistence

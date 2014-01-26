@@ -61,7 +61,7 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
   };
 
   return {
-    templateUrl: '/views/templates/widget.social.html',
+    templateUrl: '/views/widgets/social/widget.social.html',
     restrict: 'E',
     scope: {
       data: '=',

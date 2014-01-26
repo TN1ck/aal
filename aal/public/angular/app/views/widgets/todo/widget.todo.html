@@ -1,8 +1,5 @@
 <!-- <widget-title title="'TODOs'"></widget-title> -->
 <div class="row full-height" ng-style="{'background-color': color}">
   <div class="col-md-6 row-md-1"><widget-h1>Todos</widget-h1></div>
-  <div ng-repeat="todo in data" class="col-md-3 row-md-1 widget todo-animate" ng-style="{'border-color': color}">
-    <div class="{{todo.type}} todo-dot"></div>
-    {{todo.text}}
-  </div>
+  <widget-todo-small ng-repeat="todo in data" data="todo" color="color"></widget-todo-small>
 </div>

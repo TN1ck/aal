@@ -97,3 +97,8 @@ widget-h4 {
 	background-color: white;
 	color: gray;
 }
+
+.calendar-big b {
+	font-size: 3em;
+	font-weight: 300;
+}
