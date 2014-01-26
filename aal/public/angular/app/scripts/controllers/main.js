@@ -73,25 +73,17 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
         picturePosts = d3.shuffle(picturePosts);
 
         picturePosts.forEach(function(d) {
-          $FB.api(d.object_id + '?fields=images').then(function(picture) {
-            console.log(picture);
-            if (picture.images) {
-              d.picture = picture.images[0];
-              $scope.mockup.social.picturePosts.push(d);
-            }
-          });
+          d.picture = d.picture.replace('_s', '_n');
+          $scope.mockup.social.picturePosts.push(d);
         });
 
-        // $scope.mockup.social.forEach(function(post) {
-        //   $FB.api('/' + post.from.id + '/picture?type=large').then(
-        //     function(result) {
-        //       post.from.profilePicture = result.data.url;
-        //       post.type = 'facebook';
-        //       if (!post.message) {
-        //         post.message = post.story;
-        //       }
-        //     });
-        // });
+        var goodPosts = posts.data.filter(function(d) {
+          return d.status_type === 'wall_post' || d.status_type === 'mobile_status_update';
+        });
+
+        goodPosts = d3.shuffle(goodPosts);
+        $scope.mockup.social.goodPosts = goodPosts;
+
       });
     };
 
@@ -142,12 +134,15 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
         $scope.mockup.news = data;
       });
 
+    $scope.colors = ['#99D6EA', '#7FCCE5', '#66C1E0', '#4CB7DB', '#33ADD6', '#33ADD6', '#19A3D1', '#0099cc'];
+    $scope.colors = ['#CEEA8C', '#9DE572', '#60E059', '#41DB6C', '#2AD691', '#14D1C2', '#0099CC'].reverse();
+
     $scope.widgets = [
-      {name: 'news', data: 'mockup.news'},
-      {name: 'personal', data: 'user'},
-      {name: 'calendar', data: 'mockup.calendar'},
-      {name: 'social', data: 'mockup.social'},
-      {name: 'todo', data: 'mockup.todos'}
+      {name: 'news', data: 'mockup.news', color: 'colors[0]'},
+      {name: 'personal', data: 'user', color: 'colors[1]'},
+      {name: 'calendar', data: 'mockup.calendar', color: 'colors[2]'},
+      {name: 'social', data: 'mockup.social', color: 'colors[3]'},
+      {name: 'todo', data: 'mockup.todos', color: 'colors[4]'}
     ];
 
   });

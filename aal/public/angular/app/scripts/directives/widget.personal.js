@@ -10,9 +10,7 @@ app.directive('widgetPersonal', function() {
     restrict: 'E',
     scope: {
       data: '=',
-    },
-    link: function(scope) {
-      scope.color =  '#FF7F7F';
+      color: '='
     }
   };
 });

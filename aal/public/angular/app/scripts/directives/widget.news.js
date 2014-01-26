@@ -11,9 +11,7 @@ app.directive('widgetNews', function(Websocket) {
     restrict: 'E',
     scope: {
       data: '=',
-    },
-    link: function(scope) {
-      scope.color = '#B9DC51';
+      color: '='
     }
   };
 });

@@ -49,11 +49,10 @@ app.directive('widgetTodo', function($q, $modal) {
         templateUrl: '/views/templates/widget.todo.html',
         restrict: 'E',
         scope: {
-          data: '='
+          data: '=',
+          color: '='
         },
         controller: function($scope) {
-
-            $scope.color = '#FFD580';
 
             $scope.addTodo = function () {
                 

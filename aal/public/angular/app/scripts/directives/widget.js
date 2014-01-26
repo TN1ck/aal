@@ -11,14 +11,15 @@ app.directive('widget', function(Navigation, $compile) {
         restrict: 'E',
         scope: {
           type: '=',
-          data: '='
+          data: '=',
+          color: '='
         },
         link: function(scope, element, $modal) {
 
-          element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
+          element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '" color="' + scope.color + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
           
           scope.$watch('type', function() {
-            element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
+            element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '" color="' + scope.color + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
           });
 
           // TODO remove the magic 8 and 6

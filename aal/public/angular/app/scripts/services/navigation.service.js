@@ -34,6 +34,11 @@ app.factory('Navigation', function($rootScope){
           toggleScreens = !toggleScreens;
           $rootScope.$apply();
         }
+        if (event.which === 27) {
+          currentSelected = -1;
+          $rootScope.$apply();
+        }
+
       });
     });
 
