@@ -10,6 +10,12 @@ widget-h1 {
 	position: absolute;
 }
 
+/* quick fix for settings */
+
+.settings widget-h1 {
+	position: relative;
+}
+
 widget-h2 {
 	margin-top: 0;
 	margin-bottom: 0;
