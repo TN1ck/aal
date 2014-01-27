@@ -138,11 +138,16 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
 
     $scope.colors = ['#99D6EA', '#7FCCE5', '#66C1E0', '#4CB7DB', '#33ADD6', '#33ADD6', '#19A3D1', '#0099cc'];
     $scope.colors = ['#CEEA8C', '#9DE572', '#60E059', '#41DB6C', '#2AD691', '#14D1C2', '#0099CC'].reverse();
+    $scope.colors = ['#703030' , '#2F343B' , '#7E827A' , '#E3CDA4' , '#C77966'];
+    $scope.colors = ['#E64661', '#FFA644', '#998A2F', '#2C594F', '#002D40'];
+    $scope.colors = ['#002F32', '#42826C', '#A5C77F', '#FFC861', '#C84663'];
+    $scope.colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#076D8C', '#026480'];
+    $scope.colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#70BE8A', '#19806E'];
 
     var $style = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
 
     var css = $scope.colors.map(function(d, i) {
-      return '.widget-color-'+ i + ' { border-color: white; background-color: ' + d  + '; color: white; }';
+      return '.widget-color-'+ i + ' { border-color: rgba(255,255,255,1); background-color: ' + d  + '; color: white; }';
     }).join(' ');
 
     $scope.names = [0, 1, 2, 3, 4].map(function(d) {return 'widget-color-' + d; });
