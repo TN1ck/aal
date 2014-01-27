@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <import resource="classpath:de/dailab/jiactng/agentcore/conf/AgentNode.xml" />
+    <import resource="classpath:de/dailab/jiactng/agentcore/conf/JMSMessaging.xml" />
+    <import resource="classpath:de/dailab/jiactng/agentcore/conf/Agent.xml" />
+
+    <bean name="AgentNode" parent="NodeWithJMX">
+        <property name="agents">
+            <list>
+            	<!-- list your Agents here -->
+            	<!-- <ref bean="ExampleAgent" /> -->
+            	<ref bean="HelloWorldAgent" />
+            </list>
+        </property>
+        <property name="logLevel" value="ERROR" />
+    </bean>
+    
+    <bean name="HelloWorldAgent" parent="SimpleAgent" singleton="false">
+		<property name="agentBeans">
+			<list>
+				
+				<ref bean="HelloWorldBean" />
+			</list>
+		</property>
+		<property name="logLevel" value="ERROR" />
+	</bean>
+	
+	<bean name="HelloWorldBean" class="aal.beans.HelloWorldBean" singleton="false">  
+        <property name="logLevel" value="INFO" />
+        <property name="executeInterval" value="1000" />
+    </bean>
+
+
+</beans>
+
