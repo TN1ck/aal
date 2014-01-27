@@ -1,6 +1,6 @@
 'use strict';
 
-/* global angular */
+/* global angular, $ */
 
 var app = angular.module('angularApp');
 

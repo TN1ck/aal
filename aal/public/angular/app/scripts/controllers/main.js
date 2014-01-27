@@ -147,7 +147,11 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
     var $style = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
 
     var css = $scope.colors.map(function(d, i) {
-      return '.widget-color-'+ i + ' { border-color: rgba(255,255,255,1); background-color: ' + d  + '; color: white; }';
+      var widgetColor = '.widget-color-'+ i + ' { border-color: rgba(255,255,255,1); background-color: ' + d  + '; color: white; }';
+      var widgetColorInverted = '.widget-color-'+ i + ':hover { border-color: white; background-color: white; color: ' + d + '; }';
+      // color-specific selection?
+      // var widgetSelected = ' .border .widget-color-' + i + ' { border-color: white; background-color: gray; color: white; } ';
+      return widgetColor + ' ' + widgetColorInverted;
     }).join(' ');
 
     $scope.names = [0, 1, 2, 3, 4].map(function(d) {return 'widget-color-' + d; });

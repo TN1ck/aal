@@ -150,12 +150,8 @@ body, h1, h2, h3, h4, h5 {
     z-index: 100;
 }
 
-.border .row {
-    background-color: gray !important;
-}
-
-.border .widget {
-    border-color: gray !important;
+.border .widget, .border .widget-picture-post {
+    background-color: gray;
 }
 
 .noborder{

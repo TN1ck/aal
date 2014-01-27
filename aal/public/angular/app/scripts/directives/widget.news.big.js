@@ -12,6 +12,17 @@ app.directive('widgetNewsBig', function() {
     scope: {
       data: '=',
       color: '='
+    },
+    link: function(scope, element) {
+      
+      element.on('mouseenter', function() {
+        $(this).children().addClass(scope.color + '-inverted');
+      });
+
+      element.on('mouseleave', function() {
+        $(this).children().removeClass(scope.color + '-inverted');
+      });
+
     }
   };
 });
