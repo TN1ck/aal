@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jiac="jiac" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <jiac:Platform xmi:id="_5CmHAIXSEeOrxZ6EloJ4zA">
+    <springConfigurations xmi:type="jiac:SpringConfiguration" xmi:id="_5CmHAYXSEeOrxZ6EloJ4zA" filename="de/dailab/jiactng/agentcore/conf/JMSMessaging.xml" type="LIBRARY">
+      <springBeans xmi:type="jiac:AgentNodeBean" xmi:id="_5CmHAoXSEeOrxZ6EloJ4zA" Name="ActiveMQBroker" class="de.dailab.jiactng.agentcore.comm.broker.ActiveMQBroker">
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmHA4XSEeOrxZ6EloJ4zA" name="persistent" value="false"/>
+      </springBeans>
+      <springBeans xmi:type="jiac:GeneralBean" xmi:id="_5CmHBIXSEeOrxZ6EloJ4zA" Name="ActiveMQTransportConnector" class="de.dailab.jiactng.agentcore.comm.broker.ActiveMQTransportConnector"/>
+      <springBeans xmi:type="jiac:AgentNodeBean" xmi:id="_5CmHBYXSEeOrxZ6EloJ4zA" Name="StandardJMSBroker" parent="_5CmHAoXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanCollection" xmi:id="_5CmHBoXSEeOrxZ6EloJ4zA" name="connectors" type="set">
+          <subproperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmHB4XSEeOrxZ6EloJ4zA" reference="_5CmHDoXSEeOrxZ6EloJ4zA"/>
+        </springBeanProperties>
+      </springBeans>
+      <springBeans xmi:type="jiac:AgentNodeBean" xmi:id="_5CmHCIXSEeOrxZ6EloJ4zA" Name="StandardJMSBrokerFixedPort" parent="_5CmHAoXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanCollection" xmi:id="_5CmHCYXSEeOrxZ6EloJ4zA" name="connectors" type="set">
+          <subproperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmHCoXSEeOrxZ6EloJ4zA" reference="_5CmuEoXSEeOrxZ6EloJ4zA"/>
+        </springBeanProperties>
+      </springBeans>
+      <springBeans xmi:type="jiac:GeneralBean" xmi:id="_5CmHC4XSEeOrxZ6EloJ4zA" Name="StandardJMSConnectionFactory" class="de.dailab.jiactng.agentcore.comm.broker.ConnectionFactoryProxy"/>
+      <springBeans xmi:type="jiac:GeneralBean" xmi:id="_5CmHDIXSEeOrxZ6EloJ4zA" Name="StandardJMSMessageTransport" class="de.dailab.jiactng.agentcore.comm.transport.jms.JMSMessageTransport">
+        <springBeanProperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmHDYXSEeOrxZ6EloJ4zA" name="connectionFactory" reference="_5CmHC4XSEeOrxZ6EloJ4zA"/>
+      </springBeans>
+      <springBeans xmi:type="jiac:GeneralBean" xmi:id="_5CmHDoXSEeOrxZ6EloJ4zA" Name="StandardTCPConnector" parent="_5CmHBIXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuEIXSEeOrxZ6EloJ4zA" name="transportURI" value="tcp://0.0.0.0:0"/>
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuEYXSEeOrxZ6EloJ4zA" name="discoveryURI" value="smartmulticast://default?group=jiac-tng"/>
+      </springBeans>
+      <springBeans xmi:type="jiac:GeneralBean" xmi:id="_5CmuEoXSEeOrxZ6EloJ4zA" Name="StandardTCPConnectorFixedPort" parent="_5CmHBIXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuE4XSEeOrxZ6EloJ4zA" name="transportURI" value="tcp://0.0.0.0:61616"/>
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuFIXSEeOrxZ6EloJ4zA" name="discoveryURI" value="smartmulticast://default?group=jiac-tng"/>
+      </springBeans>
+    </springConfigurations>
+    <springConfigurations xmi:type="jiac:SpringConfiguration" xmi:id="_5CmuFYXSEeOrxZ6EloJ4zA" filename="src/main/resources/AgentNode.xml">
+      <springBeans xmi:type="jiac:AgentNode" xmi:id="_5CmuFoXSEeOrxZ6EloJ4zA" Name="AgentNode" parent="_5CmuLoXSEeOrxZ6EloJ4zA" agents="_5CmuGIXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuF4XSEeOrxZ6EloJ4zA" name="logLevel" value="ERROR"/>
+      </springBeans>
+      <springBeans xmi:type="jiac:Agent" xmi:id="_5CmuGIXSEeOrxZ6EloJ4zA" Name="HelloWorldAgent" parent="_5CmuOYXSEeOrxZ6EloJ4zA" agentBeans="_5CmuGoXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuGYXSEeOrxZ6EloJ4zA" name="logLevel" value="ERROR"/>
+      </springBeans>
+      <springBeans xmi:type="jiac:AgentBean" xmi:id="_5CmuGoXSEeOrxZ6EloJ4zA" Name="HelloWorldBean" class="aal.beans.HelloWorldBean" executeInterval="1000">
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuG4XSEeOrxZ6EloJ4zA" name="logLevel" value="INFO"/>
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuHIXSEeOrxZ6EloJ4zA" name="executeInterval" value="1000"/>
+      </springBeans>
+    </springConfigurations>
+    <springConfigurations xmi:type="jiac:SpringConfiguration" xmi:id="_5CmuHYXSEeOrxZ6EloJ4zA" filename="de/dailab/jiactng/agentcore/conf/AgentNode.xml" type="LIBRARY">
+      <springBeans xmi:type="jiac:AgentNodeBean" xmi:id="_5CmuHoXSEeOrxZ6EloJ4zA" Name="IDirectory" class="de.dailab.jiactng.agentcore.directory.DirectoryAgentNodeBean">
+        <springBeanProperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmuH4XSEeOrxZ6EloJ4zA" name="messageTransport" reference="_5CmHDIXSEeOrxZ6EloJ4zA"/>
+      </springBeans>
+      <springBeans xmi:type="jiac:GeneralBean" xmi:id="_5CmuIIXSEeOrxZ6EloJ4zA" Name="JaasAuthenticator" class="de.dailab.jiactng.agentcore.management.jmx.JaasAuthenticator">
+        <springBeanProperties xmi:type="jiac:SpringBeanCollection" xmi:id="_5CmuIYXSEeOrxZ6EloJ4zA" name="configuration" type="list">
+          <subproperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmuIoXSEeOrxZ6EloJ4zA" reference="_5CmuJoXSEeOrxZ6EloJ4zA"/>
+        </springBeanProperties>
+        <springBeanProperties xmi:type="jiac:SpringBeanCollection" xmi:id="_5CmuI4XSEeOrxZ6EloJ4zA" name="systemProperties" type="map">
+          <subproperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuJIXSEeOrxZ6EloJ4zA" name="java.security.krb5.realm" value="DAI-LAB.DE"/>
+          <subproperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuJYXSEeOrxZ6EloJ4zA" name="java.security.krb5.kdc" value="birke4.dai-lab.de"/>
+        </springBeanProperties>
+      </springBeans>
+      <springBeans xmi:type="jiac:GeneralBean" xmi:id="_5CmuJoXSEeOrxZ6EloJ4zA" Name="LoginJaas" class="de.dailab.jiactng.agentcore.management.jmx.JaasConfigurationEntry">
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuJ4XSEeOrxZ6EloJ4zA" name="loginModuleName" value="com.sun.security.auth.module.Krb5LoginModule"/>
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuKIXSEeOrxZ6EloJ4zA" name="controlFlag" value="required"/>
+        <springBeanProperties xmi:type="jiac:SpringBeanCollection" xmi:id="_5CmuKYXSEeOrxZ6EloJ4zA" name="options" type="map">
+          <subproperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuKoXSEeOrxZ6EloJ4zA" name="debug" value="false"/>
+          <subproperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuK4XSEeOrxZ6EloJ4zA" name="useTicketCache" value="false"/>
+        </springBeanProperties>
+      </springBeans>
+      <springBeans xmi:type="jiac:AgentNode" xmi:id="_5CmuLIXSEeOrxZ6EloJ4zA" Name="Node" class="de.dailab.jiactng.agentcore.SimpleAgentNode"/>
+      <springBeans xmi:type="jiac:AgentNode" xmi:id="_5CmuLYXSEeOrxZ6EloJ4zA" Name="NodeWithDirectory" parent="_5CmuLIXSEeOrxZ6EloJ4zA" agentNodeBeans="_5CmHBYXSEeOrxZ6EloJ4zA _5CmuHoXSEeOrxZ6EloJ4zA"/>
+      <springBeans xmi:type="jiac:AgentNode" xmi:id="_5CmuLoXSEeOrxZ6EloJ4zA" Name="NodeWithJMX" parent="_5CmuLYXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanCollection" xmi:id="_5CmuL4XSEeOrxZ6EloJ4zA" name="jmxConnectors" type="set"/>
+      </springBeans>
+      <springBeans xmi:type="jiac:AgentNode" xmi:id="_5CmuMIXSEeOrxZ6EloJ4zA" Name="NodeWithRegistry" parent="_5CmuLYXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanCollection" xmi:id="_5CmuMYXSEeOrxZ6EloJ4zA" name="jmxConnectors" type="set">
+          <subproperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuMoXSEeOrxZ6EloJ4zA" name="registryPort" value="1099"/>
+        </springBeanProperties>
+      </springBeans>
+      <springBeans xmi:type="jiac:AgentNode" xmi:id="_5CmuM4XSEeOrxZ6EloJ4zA" Name="NodeWithSecuredJMX" parent="_5CmuLYXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanCollection" xmi:id="_5CmuNIXSEeOrxZ6EloJ4zA" name="jmxConnectors" type="set">
+          <subproperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmuNYXSEeOrxZ6EloJ4zA" name="authenticator" reference="_5CmuIIXSEeOrxZ6EloJ4zA"/>
+        </springBeanProperties>
+      </springBeans>
+    </springConfigurations>
+    <springConfigurations xmi:type="jiac:SpringConfiguration" xmi:id="_5CmuNoXSEeOrxZ6EloJ4zA" filename="de/dailab/jiactng/agentcore/conf/Agent.xml" type="LIBRARY">
+      <springBeans xmi:type="jiac:Agent" xmi:id="_5CmuN4XSEeOrxZ6EloJ4zA" Name="NonBlockingAgent" parent="_5CmuOYXSEeOrxZ6EloJ4zA">
+        <springBeanProperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmuOIXSEeOrxZ6EloJ4zA" name="execution"/>
+      </springBeans>
+      <springBeans xmi:type="jiac:Agent" xmi:id="_5CmuOYXSEeOrxZ6EloJ4zA" Name="SimpleAgent" class="de.dailab.jiactng.agentcore.Agent">
+        <springBeanProperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmuOoXSEeOrxZ6EloJ4zA" name="memory"/>
+        <springBeanProperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmuO4XSEeOrxZ6EloJ4zA" name="execution"/>
+        <springBeanProperties xmi:type="jiac:SpringBeanLeaf" xmi:id="_5CmuPIXSEeOrxZ6EloJ4zA" name="executionInterval" value="1"/>
+        <springBeanProperties xmi:type="jiac:SpringBeanRef" xmi:id="_5CmuPYXSEeOrxZ6EloJ4zA" name="communication"/>
+      </springBeans>
+    </springConfigurations>
+  </jiac:Platform>
+  <notation:Diagram xmi:id="_5CmuPoXSEeOrxZ6EloJ4zA" type="Jiac" element="_5CmHAIXSEeOrxZ6EloJ4zA" name="default.jiac_diagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_5CmuQIXSEeOrxZ6EloJ4zA" type="2004" element="_5CmHAYXSEeOrxZ6EloJ4zA">
+      <children xmi:type="notation:DecorationNode" xmi:id="_5CnVIIXSEeOrxZ6EloJ4zA" type="5006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_5CnVIYXSEeOrxZ6EloJ4zA" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_5TGBIIXSEeOrxZ6EloJ4zA" type="3007" element="_5CmHAoXSEeOrxZ6EloJ4zA">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TGBJIXSEeOrxZ6EloJ4zA" type="5015"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_5TGBIYXSEeOrxZ6EloJ4zA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_5TGBIoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TGBI4XSEeOrxZ6EloJ4zA" x="155" y="109"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_5TGBJYXSEeOrxZ6EloJ4zA" type="3007" element="_5CmHBYXSEeOrxZ6EloJ4zA">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TGBKYXSEeOrxZ6EloJ4zA" type="5015"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_5TGBJoXSEeOrxZ6EloJ4zA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_5TGBJ4XSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TGBKIXSEeOrxZ6EloJ4zA" x="30" y="29"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_5TGoMIXSEeOrxZ6EloJ4zA" type="3007" element="_5CmHCIXSEeOrxZ6EloJ4zA">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TGoNIXSEeOrxZ6EloJ4zA" type="5015"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_5TGoMYXSEeOrxZ6EloJ4zA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_5TGoMoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TGoM4XSEeOrxZ6EloJ4zA" x="230" y="29"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_5CmuQYXSEeOrxZ6EloJ4zA"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_5CmuQoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_5CmuQ4XSEeOrxZ6EloJ4zA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5CmuRIXSEeOrxZ6EloJ4zA" x="30" y="30"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_5CnVIoXSEeOrxZ6EloJ4zA" type="2004" element="_5CmuFYXSEeOrxZ6EloJ4zA">
+      <children xmi:type="notation:DecorationNode" xmi:id="_5Cn8MIXSEeOrxZ6EloJ4zA" type="5006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_5Cn8MYXSEeOrxZ6EloJ4zA" type="7001">
+        <children xmi:type="notation:Shape" xmi:id="_5TLgsIXSEeOrxZ6EloJ4zA" type="3005" element="_5CmuFoXSEeOrxZ6EloJ4zA" fontName="Cantarell">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TMHwIXSEeOrxZ6EloJ4zA" type="5012"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TLgsYXSEeOrxZ6EloJ4zA" x="55" y="29"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_5TMHwYXSEeOrxZ6EloJ4zA" type="3004" element="_5CmuGIXSEeOrxZ6EloJ4zA" fontName="Cantarell">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TMHw4XSEeOrxZ6EloJ4zA" type="5011"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TMHwoXSEeOrxZ6EloJ4zA" x="40" y="154"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_5TMHxIXSEeOrxZ6EloJ4zA" type="3006" element="_5CmuGoXSEeOrxZ6EloJ4zA">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TMHyIXSEeOrxZ6EloJ4zA" type="5013"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_5TMHxYXSEeOrxZ6EloJ4zA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_5TMHxoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TMHx4XSEeOrxZ6EloJ4zA" x="30" y="279"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_5CnVI4XSEeOrxZ6EloJ4zA"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_5CnVJIXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_5CnVJYXSEeOrxZ6EloJ4zA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5CnVJoXSEeOrxZ6EloJ4zA" x="540" y="30"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_5Cn8MoXSEeOrxZ6EloJ4zA" type="2004" element="_5CmuHYXSEeOrxZ6EloJ4zA">
+      <children xmi:type="notation:DecorationNode" xmi:id="_5Cn8N4XSEeOrxZ6EloJ4zA" type="5006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_5Cn8OIXSEeOrxZ6EloJ4zA" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_5TRnUIXSEeOrxZ6EloJ4zA" type="3007" element="_5CmuHoXSEeOrxZ6EloJ4zA">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TSOYIXSEeOrxZ6EloJ4zA" type="5015"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_5TRnUYXSEeOrxZ6EloJ4zA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_5TRnUoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TRnU4XSEeOrxZ6EloJ4zA" x="120" y="279"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_5TSOYYXSEeOrxZ6EloJ4zA" type="3005" element="_5CmuLIXSEeOrxZ6EloJ4zA" fontName="Cantarell">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TSOY4XSEeOrxZ6EloJ4zA" type="5012"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TSOYoXSEeOrxZ6EloJ4zA" x="260" y="279"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_5TSOZIXSEeOrxZ6EloJ4zA" type="3005" element="_5CmuLYXSEeOrxZ6EloJ4zA" fontName="Cantarell">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TSOZoXSEeOrxZ6EloJ4zA" type="5012"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TSOZYXSEeOrxZ6EloJ4zA" x="165" y="154"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_5TSOZ4XSEeOrxZ6EloJ4zA" type="3005" element="_5CmuLoXSEeOrxZ6EloJ4zA" fontName="Cantarell">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TS1cYXSEeOrxZ6EloJ4zA" type="5012"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TS1cIXSEeOrxZ6EloJ4zA" x="30" y="29"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_5TS1coXSEeOrxZ6EloJ4zA" type="3005" element="_5CmuMIXSEeOrxZ6EloJ4zA" fontName="Cantarell">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TS1dIXSEeOrxZ6EloJ4zA" type="5012"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TS1c4XSEeOrxZ6EloJ4zA" x="170" y="29"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_5TS1dYXSEeOrxZ6EloJ4zA" type="3005" element="_5CmuM4XSEeOrxZ6EloJ4zA" fontName="Cantarell">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5TS1d4XSEeOrxZ6EloJ4zA" type="5012"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5TS1doXSEeOrxZ6EloJ4zA" x="340" y="29"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_5Cn8M4XSEeOrxZ6EloJ4zA"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_5Cn8NIXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_5Cn8NYXSEeOrxZ6EloJ4zA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5Cn8NoXSEeOrxZ6EloJ4zA" x="935" y="30"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_5CojQIXSEeOrxZ6EloJ4zA" type="2004" element="_5CmuNoXSEeOrxZ6EloJ4zA">
+      <children xmi:type="notation:DecorationNode" xmi:id="_5CojRYXSEeOrxZ6EloJ4zA" type="5006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_5CojRoXSEeOrxZ6EloJ4zA" type="7001">
+        <children xmi:type="notation:Shape" xmi:id="_5Tb_YIXSEeOrxZ6EloJ4zA" type="3004" element="_5CmuN4XSEeOrxZ6EloJ4zA" fontName="Cantarell">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5Tb_YoXSEeOrxZ6EloJ4zA" type="5011"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5Tb_YYXSEeOrxZ6EloJ4zA" x="30" y="29"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_5Tb_Y4XSEeOrxZ6EloJ4zA" type="3004" element="_5CmuOYXSEeOrxZ6EloJ4zA" fontName="Cantarell">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5Tb_ZYXSEeOrxZ6EloJ4zA" type="5011"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5Tb_ZIXSEeOrxZ6EloJ4zA" x="50" y="154"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_5CojQYXSEeOrxZ6EloJ4zA"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_5CojQoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_5CojQ4XSEeOrxZ6EloJ4zA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5CojRIXSEeOrxZ6EloJ4zA" x="1485" y="30"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_5CmuP4XSEeOrxZ6EloJ4zA"/>
+    <edges xmi:type="notation:Connector" xmi:id="_5TgQ0IXSEeOrxZ6EloJ4zA" type="4003" source="_5TGBJYXSEeOrxZ6EloJ4zA" target="_5TGBIIXSEeOrxZ6EloJ4zA" avoidObstructions="true">
+      <styles xmi:type="notation:FontStyle" xmi:id="_5TgQ0YXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5TgQ0oXSEeOrxZ6EloJ4zA" points="[-19, -9, 2, 1]$[-2, -1, 19, 9]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5U9CUIXSEeOrxZ6EloJ4zA" id="(0.49645390070921985,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5U9CUYXSEeOrxZ6EloJ4zA" id="(0.3305084745762712,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_5The8IXSEeOrxZ6EloJ4zA" type="4003" source="_5TGoMIXSEeOrxZ6EloJ4zA" target="_5TGBIIXSEeOrxZ6EloJ4zA" avoidObstructions="true">
+      <styles xmi:type="notation:FontStyle" xmi:id="_5The8YXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5The8oXSEeOrxZ6EloJ4zA" points="[-27, -9, 33, 11]$[-33, -11, 27, 9]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5U9pYIXSEeOrxZ6EloJ4zA" id="(0.5,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5U9pYYXSEeOrxZ6EloJ4zA" id="(0.6610169491525424,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_5TitEIXSEeOrxZ6EloJ4zA" type="4005" source="_5TLgsIXSEeOrxZ6EloJ4zA" target="_5TMHwYXSEeOrxZ6EloJ4zA">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_5TitEYXSEeOrxZ6EloJ4zA" avoidObstructions="true"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_5TitEoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5TitE4XSEeOrxZ6EloJ4zA" points="[35, 13, 9, 3]$[-25, -10, -51, -20]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VHaYIXSEeOrxZ6EloJ4zA" id="(0.5,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VIBcIXSEeOrxZ6EloJ4zA" id="(0.5,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_5Tj7MIXSEeOrxZ6EloJ4zA" type="4003" source="_5TLgsIXSEeOrxZ6EloJ4zA" target="_5TSOZ4XSEeOrxZ6EloJ4zA" avoidObstructions="true">
+      <styles xmi:type="notation:FontStyle" xmi:id="_5Tj7MYXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5Tj7MoXSEeOrxZ6EloJ4zA" points="[35, 30, 0, 0]$[-3, -2, -38, -32]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_5TkiQIXSEeOrxZ6EloJ4zA" type="4004" source="_5TMHwYXSEeOrxZ6EloJ4zA" target="_5TMHxIXSEeOrxZ6EloJ4zA">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_5TkiQYXSEeOrxZ6EloJ4zA" avoidObstructions="true"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_5TkiQoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5TkiQ4XSEeOrxZ6EloJ4zA" points="[44, -32, 26, -19]$[5, -4, -13, 9]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VIBcYXSEeOrxZ6EloJ4zA" id="(0.5,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VIBcoXSEeOrxZ6EloJ4zA" id="(0.5,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_5TlwYIXSEeOrxZ6EloJ4zA" type="4003" source="_5TMHwYXSEeOrxZ6EloJ4zA" target="_5Tb_Y4XSEeOrxZ6EloJ4zA" avoidObstructions="true">
+      <styles xmi:type="notation:FontStyle" xmi:id="_5TlwYYXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5TlwYoXSEeOrxZ6EloJ4zA" points="[-51, 0, -39, 0]$[27, 0, 39, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_5Tm-gIXSEeOrxZ6EloJ4zA" type="4003" source="_5TSOZIXSEeOrxZ6EloJ4zA" target="_5TSOYYXSEeOrxZ6EloJ4zA" avoidObstructions="true">
+      <styles xmi:type="notation:FontStyle" xmi:id="_5Tm-gYXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5Tm-goXSEeOrxZ6EloJ4zA" points="[-58, -14, -15, -4]$[-18, -5, 25, 5]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VOvIIXSEeOrxZ6EloJ4zA" id="(0.6637931034482759,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VOvIYXSEeOrxZ6EloJ4zA" id="(0.5,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_5TnlkIXSEeOrxZ6EloJ4zA" type="4006" source="_5TSOZIXSEeOrxZ6EloJ4zA" target="_5TGBJYXSEeOrxZ6EloJ4zA">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_5TnlkYXSEeOrxZ6EloJ4zA" avoidObstructions="true"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_5TnlkoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5Tnlk4XSEeOrxZ6EloJ4zA" points="[2, -32, 0, 1]$[0, -24, -2, 9]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_5TozsIXSEeOrxZ6EloJ4zA" type="4006" source="_5TSOZIXSEeOrxZ6EloJ4zA" target="_5TRnUIXSEeOrxZ6EloJ4zA">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_5TozsYXSEeOrxZ6EloJ4zA" avoidObstructions="true"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_5TozsoXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5Tozs4XSEeOrxZ6EloJ4zA" points="[-29, -32, 9, 11]$[-31, -34, 7, 9]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VOvIoXSEeOrxZ6EloJ4zA" id="(0.3275862068965517,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VPWMIXSEeOrxZ6EloJ4zA" id="(0.5,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_5TqB0IXSEeOrxZ6EloJ4zA" type="4003" source="_5TSOZ4XSEeOrxZ6EloJ4zA" target="_5TSOZIXSEeOrxZ6EloJ4zA" avoidObstructions="true">
+      <styles xmi:type="notation:FontStyle" xmi:id="_5TqB0YXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5TqB0oXSEeOrxZ6EloJ4zA" points="[8, -32, 0, -22]$[0, 22, -8, 32]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VP9QIXSEeOrxZ6EloJ4zA" id="(0.5,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VP9QYXSEeOrxZ6EloJ4zA" id="(0.25,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_5Tqo4IXSEeOrxZ6EloJ4zA" type="4003" source="_5TS1coXSEeOrxZ6EloJ4zA" target="_5TSOZIXSEeOrxZ6EloJ4zA" avoidObstructions="true">
+      <styles xmi:type="notation:FontStyle" xmi:id="_5Tqo4YXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5Tqo4oXSEeOrxZ6EloJ4zA" points="[-26, -32, -10, -12]$[10, 12, 26, 32]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VPWMYXSEeOrxZ6EloJ4zA" id="(0.4954128440366973,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VPWMoXSEeOrxZ6EloJ4zA" id="(0.5,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_5Tr3AIXSEeOrxZ6EloJ4zA" type="4003" source="_5TS1dYXSEeOrxZ6EloJ4zA" target="_5TSOZIXSEeOrxZ6EloJ4zA" avoidObstructions="true">
+      <styles xmi:type="notation:FontStyle" xmi:id="_5Tr3AYXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5Tr3AoXSEeOrxZ6EloJ4zA" points="[-41, -32, -3, -2]$[2, 2, 40, 32]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VQkUIXSEeOrxZ6EloJ4zA" id="(0.5,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VQkUYXSEeOrxZ6EloJ4zA" id="(0.75,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_5TtFIIXSEeOrxZ6EloJ4zA" type="4003" source="_5Tb_YIXSEeOrxZ6EloJ4zA" target="_5Tb_Y4XSEeOrxZ6EloJ4zA" avoidObstructions="true">
+      <styles xmi:type="notation:FontStyle" xmi:id="_5TtFIYXSEeOrxZ6EloJ4zA" fontName="Cantarell"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5TtFIoXSEeOrxZ6EloJ4zA" points="[-8, 32, 0, 22]$[0, -22, 8, -32]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VWq8IXSEeOrxZ6EloJ4zA" id="(0.5,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5VWq8YXSEeOrxZ6EloJ4zA" id="(0.5,0.0)"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>
