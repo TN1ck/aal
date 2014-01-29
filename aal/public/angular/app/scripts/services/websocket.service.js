@@ -78,7 +78,7 @@ app.factory('Websocket', function($rootScope) {
       this.listeners.push([channel, func]);
       var thisOuter = this;
       setTimeout(function() {thisOuter.send(channel, '');}, 250);
-      console.log("Added Listener");
+      console.log("Added Listener at" + channel);
     },
 
     removeListener: function(channelAndFunc) {

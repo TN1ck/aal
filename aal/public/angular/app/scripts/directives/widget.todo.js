@@ -19,9 +19,14 @@ app.directive('widgetTodo', function($q, $modal) {
           type: 'green'
         };
 
-        TextTransmission.fetchText(function(data) {
+        TextTransmission.fetchTextForWall(function(data) {
           $scope.modal.text = data.data;
         });
+
+        console.log('We want to send: wrapper.mobile.todo');
+        // TextTransmission.code = TextTransmission.mobileId;
+        // TextTransmission.deliverText('wrapper.mobile.todo');
+        TextTransmission.deliverTextForInputDevice('wrapper.mobile.todo');
 
         $scope.ok = function () {
           
@@ -59,7 +64,7 @@ app.directive('widgetTodo', function($q, $modal) {
                 var modalInstanceCtrl = modalInstanceCtrlFactory();
                 
                 $modal.open({
-                  templateUrl: '/views/modals/modal.todo.html',
+                  templateUrl: '/views/widgets/todo/modal.todo.html',
                   controller: modalInstanceCtrl.controller
                 });
 
@@ -67,6 +72,7 @@ app.directive('widgetTodo', function($q, $modal) {
                   $scope.todos.reverse().push(data);
                   $scope.todos.reverse();
                 });
+
 
               };
 
