@@ -22,9 +22,12 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
         // }
       };
 
-      TextTransmission.fetchText(function(data) {
+      TextTransmission.fetchTextForWall(function(data) {
         $scope.modal.message = data.data;
       });
+
+      TextTransmission.deliverTextForInputDevice('wrapper.mobile.social');
+
 
       $scope.fbpost = FacebookPost.facebookPost;
 
@@ -73,7 +76,7 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
         var modalInstanceCtrl = modalInstanceCtrlFactory();
 
         $modal.open({
-          templateUrl: '/views/modals/modal.social.html',
+          templateUrl: '/views/widgets/social/modal.social.html',
           controller: modalInstanceCtrl.controller
         });
 
