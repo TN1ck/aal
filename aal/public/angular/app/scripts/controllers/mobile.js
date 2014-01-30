@@ -32,7 +32,7 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
 
       $scope.$watch('textinput', function(newVal, oldVal) {
         if (newVal !== oldVal) {
-          TextTransmission.DeliverTextForWall(newVal);
+          TextTransmission.deliverTextForWall(newVal);
         }
       });
 

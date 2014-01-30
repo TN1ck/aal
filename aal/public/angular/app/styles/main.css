@@ -27,6 +27,11 @@ body, h1, h2, h3, h4, h5 {
     width: 33%;
 }
 
+/* FUCKING BOOTSTRAP */
+body.modal-open {
+    margin-right: 0px;
+}
+
 
 .col-xs-1,
 .col-sm-1,
