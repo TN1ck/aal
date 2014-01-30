@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/AgentNode.xml" />
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/Agent.xml" />
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/JMSMessaging.xml" />
+
+	<bean name="PingPongNode" parent="NodeWithJMX">
+		<property name="agents">
+			<list>
+				<ref bean="PingAgent" />
+				<ref bean="PongAgent" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="PingAgent" parent="SimpleAgent" singleton="false">
+		<property name="agentBeans">
+			<list>
+				<ref bean="PingBean" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="PongAgent" parent="SimpleAgent" singleton="false">
+		<property name="agentBeans">
+			<list>
+				<ref bean="PongBean" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="PingBean" class="jiac.pingpong.PingBean" singleton="false">
+		<property name="executeInterval" value="1000" />
+		<property name="logLevel" value="INFO" />
+	</bean>
+
+	<bean name="PongBean" class="jiac.pingpong.PongBean" singleton="false">
+		<property name="logLevel" value="INFO" />
+	</bean>
+
+</beans>

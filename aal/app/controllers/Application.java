@@ -28,11 +28,15 @@ import play.api.mvc.SimpleResult;
 import play.libs.Json;
 import play.libs.F.*;
 import play.libs.Akka;
+import play.Logger;  
+
 import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
 import scala.concurrent.duration.FiniteDuration;
 import util.MiscUtils;
 import util.WsPush;
+
+import jiac.pingpong.PingPongStarter;
 
 public class Application extends Controller {
      
@@ -49,7 +53,6 @@ public class Application extends Controller {
      */
     @Transactional
     public static Result createDemoData() {
-        
         MiscUtils.emptyDb();
         
         new NewsItem("Zehn, die Minister werden sollten"
@@ -140,7 +143,6 @@ public class Application extends Controller {
      */
     @Transactional
     public static Result deleteAllData() {
-        
         MiscUtils.emptyDb();
 
         return ok("Deleted all data");
@@ -221,5 +223,13 @@ public class Application extends Controller {
                 
             }
         };
+    }
+
+    @Transactional
+    public static Result startJiac() {
+        Logger.info("Starting JIAC");
+        PingPongStarter.start();
+        Logger.info("JIAC started");
+        return ok("started jiac");
     }
 }

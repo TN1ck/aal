@@ -8,6 +8,7 @@ GET     /websocket                  	controllers.Application.websocket()
 # Routes for testing
 GET	/populateDatabase		controllers.Application.createDemoData()
 DELETE  /populateDatabase		controllers.Application.deleteAllData()
+GET	/startjiac		controllers.Application.startJiac()
 
 # Routes for RESTful API		
 GET	/todoitems			controllers.Application.getAllTodoItems()

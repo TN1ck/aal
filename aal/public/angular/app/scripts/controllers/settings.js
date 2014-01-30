@@ -41,6 +41,13 @@ appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission'
             $scope.buttons[1].disabled = false;
           });
       };
+      $scope.runJiac = function() {
+
+        $scope.buttons[0].disabled = true;
+        $http.get('/startjiac').then(function() {
+            $scope.buttons[0].disabled = false;
+          });
+      };
     }
 ]);
 
