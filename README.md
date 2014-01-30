@@ -30,7 +30,4 @@ The angular-page is currently at http://localhost:9000/index.html . Play must be
 ### jiac
 
 1. Create 'lib' folder inside the aal root folder.
-
-2. Download
-3 	https://dl.dropboxusercontent.com/u/1188793/agentCore-5.4.1-with-modified-dependencies.jar
-	into this folder.
+2. Download https://dl.dropboxusercontent.com/u/1188793/agentCore-5.1.4-with-modified-dependencies.jar into this folder.
