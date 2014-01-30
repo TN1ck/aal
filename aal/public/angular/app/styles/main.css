@@ -134,6 +134,10 @@ body.modal-open {
     margin-bottom: 4em;
 }
 
+.separation-border {
+    border-top: 1px solid rgb(229,229,229);
+}
+
 #toygamer-sec-eins{
     /*background-color: red;*/
 }
