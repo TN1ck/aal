@@ -128,6 +128,11 @@ body.modal-open {
 	max-width: none;
 }
 
+
+.content {
+    margin-top: 4em;
+}
+
 #toygamer-sec-eins{
     /*background-color: red;*/
 }
