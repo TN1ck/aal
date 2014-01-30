@@ -27,4 +27,12 @@ To run the project just execute `play run`. It normally runs on port 9000. http:
 
 The angular-page is currently at http://localhost:9000/index.html . Play must be running for this ;).
 
+### jiac
 
+1. Create 'lib' folder inside the aal root folder.
+
+2. Download
+	http://repositories.dai-labor.de/extern/content/repositories/dai-open/de/dailab/jiactng/agentCore/5.1.4/agentCore-5.1.4.jar
+	and
+	http://repositories.dai-labor.de/extern/content/repositories/dai-open/de/dailab/jiactng/agentCoreAPI/5.1.4/agentCoreAPI-5.1.4.jar
+	into this folder.

@@ -1,0 +1,28 @@
+2014-01-25 15:06:08,989 WARN [n-2eb6ed0b0d7] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-25 15:08:29,637 WARN [n-30c0c89d703] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-25 15:09:29,604 ERROR [n-30c0c89d703.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node AgentNode as JMX resource.
+2014-01-25 15:09:29,605 ERROR [n-30c0c89d703.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-30c0c89d703,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-01-25 16:05:13,751 WARN [n-624a191ea0e] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-25 16:05:18,646 ERROR [n-624a191ea0e.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node AgentNode as JMX resource.
+2014-01-25 16:05:18,647 ERROR [n-624a191ea0e.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-624a191ea0e,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-01-25 16:08:13,994 WARN [n-64ebbbe1b8f] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-25 16:08:17,749 ERROR [n-64ebbbe1b8f.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node AgentNode as JMX resource.
+2014-01-25 16:08:17,750 ERROR [n-64ebbbe1b8f.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-64ebbbe1b8f,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-01-28 23:50:09,019 WARN [n-4f647d35859] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-28 23:50:16,975 ERROR [n-4f647d35859.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node AgentNode as JMX resource.
+2014-01-28 23:50:16,976 ERROR [n-4f647d35859.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-4f647d35859,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-01-29 00:00:14,261 WARN [n-583a4028af9] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-29 00:00:23,892 ERROR [n-583a4028af9.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node AgentNode as JMX resource.
+2014-01-29 00:00:23,893 ERROR [n-583a4028af9.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-583a4028af9,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-01-29 00:06:03,893 WARN [n-5d4b1efe01b] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-29 00:06:10,861 ERROR [n-5d4b1efe01b.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node AgentNode as JMX resource.
+2014-01-29 00:06:10,861 ERROR [n-5d4b1efe01b.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-5d4b1efe01b,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-01-29 00:14:29,795 WARN [n-64a846b483e] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-29 00:14:36,288 ERROR [n-64a846b483e.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node AgentNode as JMX resource.
+2014-01-29 00:14:36,289 ERROR [n-64a846b483e.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-64a846b483e,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-01-29 00:24:57,366 WARN [n-6dcddb14ee9] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-29 00:25:03,855 ERROR [n-6dcddb14ee9.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node AgentNode as JMX resource.
+2014-01-29 00:25:03,856 ERROR [n-6dcddb14ee9.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-6dcddb14ee9,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-01-29 00:25:18,651 WARN [n-6e1d1a752c4] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-01-29 00:25:41,038 ERROR [n-6e1d1a752c4.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node AgentNode as JMX resource.
+2014-01-29 00:25:41,038 ERROR [n-6e1d1a752c4.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-6e1d1a752c4,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
