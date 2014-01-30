@@ -21,15 +21,8 @@
 	\end{itemize}
 \item[] Fall 2: Mehrere User treten vor die Wand
 	\begin{itemize}
-		\item[-] \textbf{alle unbekannt:}\\
-			Nachricht \textit{multiple\_unknown\_users} mit der Anzahl unbekannter Nutzer
-		\item[-] \textbf{unbekannte und bekannte:}\\
-			Nachricht \textit{multiple\_unknown\_users} mit der Anzahl unbekannter Nutzer\\
-			Nachricht \textit{multiple\_known\_users} mit der Anzahl bekannter Nutzer\\
-			 alle zur Anzeige benötigten Daten
-		\item[-] \textbf{alle bekannt:}\\
-			Nachricht \textit{multiple\_known\_users} mit der Anzahl bekannter Nutzer\\
-			alle zur Anzeige benötigten Daten
+			\item[] Nachricht \textit{seen\_users} mit den unbekannten Nutzern (Foto vom Gesicht) sowie den bekannten Usern inkl. deren Daten
+			 \item[] alle zur Anzeige benötigten Daten
 	\end{itemize}
 \end{itemize}
 \section{Von uns gesendete Nachrichten}
@@ -43,17 +36,9 @@
 		gegebenenfalls: Nachricht \textit{new\_logins} mit neuen Logins
 	\end{itemize}
 \item[] Fall 2: Mehrere User treten vor die Wand
-	\begin{itemize}
-	\item[-] \textbf{alle unbekannt:}\\
-		Nach jedem erfolgreichen Login: \textit{one\_user\_registered}\\
-		sämtliche erhaltenen Daten\\
-		TODO: bekommen wir nachdem alle durch sind die Nachricht für alle bekannt??
-	\item[-] \textbf{unbekannte und bekannte:}\\
-		Nach jedem erfolgreichen Login: \textit{one\_user\_registered}\\
-		sämtliche erhaltenen Daten\\
-		TODO: bekommen wir nachdem alle durch sind die Nachricht für alle bekannt??
-	\item[-] \textbf{alle bekannt:}\\
-		gegebenenfalls: Nachricht \textit{new\_logins} mit neuen Logins
-	\end{itemize}
+\begin{itemize}
+		\item[] Nach jedem erfolgreichen Login: \textit{one\_user\_registered}
+		\item[]sämtliche erhaltenen Daten \textit{save(typ,inhalt,[id])}. Ist \textit{id} leer, handelt es sich um die Daten eines zuvor unbekannten Nutzers
+		\end{itemize}
 \end{itemize}
 \end{document}
