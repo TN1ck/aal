@@ -37,7 +37,13 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
       });
 
       $scope.setMobileId = function() {
+        //set correct channel for listening
         TextTransmission.code = $scope.mobileIdText;
+        //disable the input field for the mobileID
+        document.getElementsByName('mobileIdInput')[0].disabled = 'true';
+        //disable the button too
+        document.getElementsByName('mobileIdButton')[0].disabled ='true';
+        //listen on channel for changes of state
         TextTransmission.fetchTextForInputDevice(function(data) {
           if(data.data === 'wrapper.mobile.todo'){
             console.log('MobileCtrl received wrapper.mobile.todo');
