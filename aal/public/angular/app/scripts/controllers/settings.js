@@ -7,13 +7,14 @@ var appControllers = angular.module('appControllers');
 appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission', '$FB',
     function ($scope, $http, TextTransmission, $FB) {
 
-      $scope.providers = ['twitter', 'facebook', 'linkedin', 'instagram', 'foursquare', 'github', 'google'];
+      // Finding out how Gmail works...
+      $scope.providers = ['twitter', 'facebook', 'linkedin', 'instagram', 'foursquare', 'github', 'googlemail'];
 
       $scope.loginProvider = function (provider) {
           OAuth.popup(provider, function(error, result) {
-      
+
             if (error) {
-              console.log(error); // do something with error
+              throw error; // do something with error
               return;
             }
 

@@ -1,0 +1,44 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\begin{document}
+\begin{center}
+\Huge{SPEZIFIKATION AGENTENKOMMUNIKATION}
+\end{center}
+\section{Von uns erwartete Nachrichten}
+\begin{itemize}
+\item[] Fall 1: Ein User tritt vor die Wand
+	\begin{itemize}
+	\item[-] \textbf{unbekannt:}\\
+		Nachricht \textit{unknown\_user}
+	\item[-] \textbf{bekannt:}\\
+		Nachricht \textit{known\_user}\\
+		 alle zur Anzeige benötigten Daten
+	\end{itemize}
+\item[] Fall 2: Mehrere User treten vor die Wand
+	\begin{itemize}
+			\item[] Nachricht \textit{seen\_users} mit den unbekannten Nutzern (Foto vom Gesicht) sowie den bekannten Usern inkl. deren Daten
+			 \item[] alle zur Anzeige benötigten Daten
+	\end{itemize}
+\end{itemize}
+\section{Von uns gesendete Nachrichten}
+\begin{itemize}
+\item[] Fall 1: Ein User tritt vor die Wand
+	\begin{itemize}
+	\item[-] \textbf{unbekannt:}\\
+		Nachricht \textit{one\_user\_registered}\\
+		sämtlichen erhaltenen Daten
+	\item[-] \textbf{bekannt:}\\
+		gegebenenfalls: Nachricht \textit{new\_logins} mit neuen Logins
+	\end{itemize}
+\item[] Fall 2: Mehrere User treten vor die Wand
+\begin{itemize}
+		\item[] Nach jedem erfolgreichen Login: \textit{one\_user\_registered}
+		\item[]sämtliche erhaltenen Daten \textit{save(typ,inhalt,[id])}. Ist \textit{id} leer, handelt es sich um die Daten eines zuvor unbekannten Nutzers
+		\end{itemize}
+\end{itemize}
+\end{document}

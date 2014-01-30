@@ -34,6 +34,14 @@ app.factory('Websocket', function($rootScope) {
           channel = split.shift(),
           message = {data: split.join(':')};
 
+      try {
+        var json = JSON.parse(message.data);
+        // if no exception occured it was probably a json
+        message.data = json;
+      } catch (e) {
+
+      }
+
       if (service.listeners.length > 0) {
         $rootScope.$apply(
           function() {
@@ -78,7 +86,7 @@ app.factory('Websocket', function($rootScope) {
       this.listeners.push([channel, func]);
       var thisOuter = this;
       setTimeout(function() {thisOuter.send(channel, '');}, 250);
-      console.log("Added Listener");
+      console.log("Added Listener at" + channel);
     },
 
     removeListener: function(channelAndFunc) {
