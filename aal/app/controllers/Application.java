@@ -43,6 +43,13 @@ public class Application extends Controller {
         return redirect("index.html");
     }
     
+    public static Result getFeeds() {
+		return null;
+		// TODO: Install Netbeans and switch
+//    	SyndFeedInput input = new SyndFeedInput();
+//    	SyndFeed feed = input.build(new XmlReader("feed://www.faz.net/rss/aktuell/"));
+    }
+    
     /**
      * 
      * Creates data for demonstration purposes if the database is empty
