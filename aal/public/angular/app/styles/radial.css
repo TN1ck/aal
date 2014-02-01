@@ -2,3 +2,8 @@
 	width: 500px;
 	height: 500px;
 }
+
+.svg-menu {
+	stroke: white;
+	stroke-width: 5px;
+}

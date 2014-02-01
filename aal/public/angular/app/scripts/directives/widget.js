@@ -36,10 +36,10 @@ app.directive('widget', function(Navigation, $compile) {
           var setHeights = function () {
 
             var css =
-                ['.row-md-8 { ', 'height: ', windowHeight,'px; }',
-                 '.row-md-4 { ', 'height: ', windowHeight/2,'px; }',
-                 '.row-md-2 { ', 'height: ', windowHeight/4, 'px; }',
-                 '.row-md-1 { ', 'height: ', windowHeight/8, 'px; }'].join('');
+                ['@media (min-width: 1000px) { .row-md-8 { ', 'height: ', windowHeight,'px; } }',
+                 '@media (min-width: 1000px) { .row-md-4 { ', 'height: ', windowHeight/2,'px; } }',
+                 '@media (min-width: 1000px) { .row-md-2 { ', 'height: ', windowHeight/4, 'px; } }',
+                 '@media (min-width: 1000px) { .row-md-1 { ', 'height: ', windowHeight/8, 'px; } }'].join('');
 
             $style.html(css);
 

@@ -5,9 +5,6 @@ widget-h1 {
 	font-size: 5em;
 	color: inherit;
 	float: left;
-	bottom: 0em;
-	left: 0.1em;
-	position: absolute;
 }
 
 /* quick fix for settings */

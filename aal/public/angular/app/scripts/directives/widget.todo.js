@@ -20,7 +20,8 @@ app.directive('widgetTodo', function($q, $modal) {
         };
 
         TextTransmission.fetchTextForWall(function(data) {
-          $scope.modal.text = data.data;
+          // data.data is an object
+          $scope.modal = data.data;
         });
 
         console.log('We want to send: wrapper.mobile.todo');

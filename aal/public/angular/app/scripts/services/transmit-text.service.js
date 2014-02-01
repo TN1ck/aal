@@ -29,16 +29,16 @@ app.factory('TextTransmission', function($rootScope, Websocket) {
 			Websocket.send(mobileId, text);
 		},
 
-		deliverTextForWall: function(text) {
-			console.log('deliverTextForWall received: ' + text + 'and sends it on ' + this.code + '1');
+		deliverTextForWall: function(data) {
+			console.log('deliverTextForWall received: ' + data.text + 'and sends it on ' + this.code + '1');
 			if (this.code && this.code.length === 4){
-				Websocket.send('' + this.code + '1', text);
+				Websocket.send('' + this.code + '1', data);
 			}
 		},
 
 		fetchTextForWall: function(func) {
 			console.log('fetchTextForWall listens on: ' + mobileId+1);
-			Websocket.addListener(mobileId + '1',func);
+			Websocket.addListener(mobileId + '1', func);
 		},
 
 		fetchTextForInputDevice: function(func) {
