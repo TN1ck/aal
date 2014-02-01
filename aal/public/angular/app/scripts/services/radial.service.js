@@ -46,10 +46,18 @@ app.factory('RadialService', function() {
         .attr('width', x(1) - x(0))
         .attr('height', 0)
         .style('fill', function(d,i) {
-          return colors[i + level];
+          return colors[(i + level) % colors.length];
         })
         .on('click', function(d) {
-          drawRects(d.data, level + 1);
+          var data = [];
+          var rand = Math.random() * 10;
+
+          for (var i = 0; i < rand; i++) {
+            data.push({text: 'test'});
+          }
+
+          console.log(data, rand);
+          drawRects(data, level + 1);
         });
 
       // rects.transition()
