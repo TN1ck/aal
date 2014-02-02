@@ -30,7 +30,7 @@ app.factory('RadialService', function() {
 
     var updateRects = function(level) {
 
-      var elHeight = ($height - (margins.top + margins.bottom))/level;
+      var elHeight = ($height - (margins.top + margins.bottom))/(level || 1);
 
       for (var i = 1; i <= level; i++) {
         var or = oldRects['.rects-' + i];
