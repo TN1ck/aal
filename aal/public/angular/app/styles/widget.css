@@ -58,6 +58,14 @@ widget-h4 {
 	height: 0.9em;
 }
 
+.label {
+	font-size: 1em;
+	top: 0.5em;
+	right: 0.5em;
+	position: absolute;
+	background-color: white;
+}
+
 
 
 .settings .settings-content {
@@ -104,5 +112,10 @@ widget-h4 {
 
 .calendar-big b {
 	font-size: 3em;
+	font-weight: 300;
+}
+
+.calendar-middle b, .todo-middle b, .todo-big b {
+	font-size: 2em;
 	font-weight: 300;
 }

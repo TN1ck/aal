@@ -1,6 +1,9 @@
 <!-- <widget-title title="'TODOs'"></widget-title> -->
 <div class="row full-height {{css}}">
-  <div class="col-md-6 row-md-1 widget {{css}}"><widget-h1><div ng-click="addTodo()">Todos</div></widget-h1></div>
+  <div class="col-md-6 row-md-1 widget {{css}}">
+  	<span style="color: {{color}}" class="label label-default">{{data.length}} Things to do</span>
+  	<widget-h1><div ng-click="addTodo()">Todos</div></widget-h1>
+  </div>
   <widget-todo-big ng-repeat="todo in data | filter:{type: 'red'}" data="todo" color="color" css="css"></widget-todo-big>
   <widget-todo-middle ng-repeat="todo in data | filter:{type: 'orange'}" data="todo" color="color" css="css"></widget-todo-middle>
   <widget-todo-small ng-repeat="todo in data | filter:{type: 'green'}" data="todo" color="color" css="css"></widget-todo-small>

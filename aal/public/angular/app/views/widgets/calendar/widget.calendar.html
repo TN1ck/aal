@@ -1,6 +1,9 @@
 <!-- <widget-title title="'Kalender - ' + moment().format('LL')"></widget-title> -->
 <div class="row full-height {{css}}">
-	<div class="col-md-12 row-md-1 widget {{css}}"><widget-h1>Kalendar - {{time}}</widget-h1></div>
+	<div class="col-md-12 row-md-1 widget {{css}}">
+		<widget-h1>Kalendar - {{time}}</widget-h1>
+		<span style="color: {{color}}" class="label label-default">{{data.length}} appointments left</span>
+	</div>
 	<widget-calendar-big color="color" css="css" data="data[0]"></widget-calendar-big>
 	<widget-calendar-middle color="color" css="css" data="data[1]"></widget-calendar-middle>
 	<widget-calendar-middle color="color" css="css" data="data[2]"></widget-calendar-middle>
