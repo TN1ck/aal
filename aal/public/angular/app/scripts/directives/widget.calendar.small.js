@@ -11,7 +11,8 @@ app.directive('widgetCalendarSmall', function() {
     restrict: 'E',
     scope: {
       data: '=',
-      color: '='
+      color: '=',
+      css: '='
     }
   };
 });

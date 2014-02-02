@@ -1,8 +1,8 @@
 <!-- <widget-title title="'Kalender - ' + moment().format('LL')"></widget-title> -->
-<div class="row full-height {{color}}">
-	<div class="col-md-12 row-md-1 widget {{color}}"><widget-h1>Kalendar - {{time}}</widget-h1></div>
-	<widget-calendar-big color="color" data="data[0]"></widget-calendar-big>
-	<widget-calendar-middle color="color" data="data[1]"></widget-calendar-middle>
-	<widget-calendar-middle color="color" data="data[2]"></widget-calendar-middle>
-	<widget-calendar-small ng-repeat="event in data" data="event" color="color"></widget-calendar-small>
+<div class="row full-height {{css}}">
+	<div class="col-md-12 row-md-1 widget {{css}}"><widget-h1>Kalendar - {{time}}</widget-h1></div>
+	<widget-calendar-big color="color" css="css" data="data[0]"></widget-calendar-big>
+	<widget-calendar-middle color="color" css="css" data="data[1]"></widget-calendar-middle>
+	<widget-calendar-middle color="color" css="css" data="data[2]"></widget-calendar-middle>
+	<widget-calendar-small ng-repeat="event in data" data="event" color="color" css="css"></widget-calendar-small>
 </div>

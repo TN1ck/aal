@@ -68,7 +68,8 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
     restrict: 'E',
     scope: {
       data: '=',
-      color: '='
+      color: '=',
+      css: '='
     },
     link: function(scope) {
 

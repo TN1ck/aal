@@ -11,7 +11,8 @@ app.directive('widgetCalendarMiddle', function() {
     restrict: 'E',
     scope: {
       data: '=',
-      color: '='
+      color: '=',
+      css: '='
     }
   };
 });

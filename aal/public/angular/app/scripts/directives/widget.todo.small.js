@@ -11,7 +11,8 @@ app.directive('widgetTodoSmall', function() {
     restrict: 'E',
     scope: {
       data: '=',
-      color: '='
+      color: '=',
+      css: '='
     }
   };
 });

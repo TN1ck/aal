@@ -12,23 +12,20 @@ app.directive('widget', function(Navigation, $compile) {
         scope: {
           type: '=',
           data: '=',
+          css: '=',
           color: '='
         },
-        link: function(scope, element, $modal) {
+        link: function(scope, element) {
 
-          element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '" color="' + scope.color + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
+
           
           scope.$watch('type', function() {
-            element.html($compile('<widget-' + scope.type + ' data="' + scope.data + '" color="' + scope.color + '">' + '</widget-' + scope.type + '/>')(scope.$parent));
+            var widgetString = '<widget-' + scope.type + ' data="' + scope.data + '" color="' + scope.color + '" css="' + scope.css + '">' + '</widget-' + scope.type + '/>';
+            element.html($compile(widgetString)(scope.$parent));
           });
 
-          // TODO remove the magic 8 and 6
-          var paddingVert = Number($('.widget-padding').css('padding-left').replace('px', '')) * 8,
-              paddingHor = Number($('.widget-padding').css('padding-top').replace('px', '')) * 10,
-              windowWidth = $(window).width() - paddingVert,
-              windowHeight = $(window).height() - paddingHor,
+          var windowHeight = $(window).height(),
               $outerDiv = $(element).parent(),
-              $outerOuterDiv = $outerDiv.parent(),
               $style = $('#row-mds').length === 0 ? $('<style id="row-mds" type="text/css">').appendTo('head') : $('#row-mds');
 
           // console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
@@ -57,8 +54,6 @@ app.directive('widget', function(Navigation, $compile) {
           };
 
           scope.$watch(Navigation.getCurrentSelected , function(newValue, oldValue, scope) {
-
-            console.log('noticed');
 
             if (newValue === scope.counter) {
 

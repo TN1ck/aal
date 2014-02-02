@@ -11,7 +11,8 @@ app.directive('widgetNews', function(Websocket) {
     restrict: 'E',
     scope: {
       data: '=',
-      color: '='
+      color: '=',
+      css: '='
     }
   };
 });

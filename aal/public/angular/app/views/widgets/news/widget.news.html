@@ -1,7 +1,7 @@
 <!-- <widget-title title="'Nachrichten'"></widget-title> -->
-<div class="row full-height {{color}}">
-	<div class="col-md-6 row-md-1 widget {{color}}"><widget-h1>News</widget-h1></div>
-	<widget-news-small data="data[3]" color="color"></widget-news-small>
-	<widget-news-big data="data[0]" color="color"></widget-news-big>
-	<widget-news-small ng-repeat="n in data" data="n" color="color"></widget-news-small>
+<div class="row full-height {{css}}">
+	<div class="col-md-6 row-md-1 widget {{css}}"><widget-h1>News</widget-h1></div>
+	<widget-news-small data="data[3]" color="color" css="css"></widget-news-small>
+	<widget-news-big data="data[0]" color="color" css="css"></widget-news-big>
+	<widget-news-small ng-repeat="n in data" data="n" color="color" css="css"></widget-news-small>
 </div>

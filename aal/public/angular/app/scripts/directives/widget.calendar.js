@@ -10,7 +10,8 @@ app.directive('widgetCalendar', function($timeout) {
         restrict: 'E',
         scope: {
           data: '=',
-          color: '='
+          color: '=',
+          css: '='
         },
         link: function(scope) {
 

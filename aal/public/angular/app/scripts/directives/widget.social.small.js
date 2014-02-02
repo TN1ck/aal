@@ -11,7 +11,8 @@ app.directive('widgetSocialSmall', function() {
     restrict: 'E',
     scope: {
       data: '=',
-      color: '='
+      color: '=',
+      css: '='
     }
   };
 });

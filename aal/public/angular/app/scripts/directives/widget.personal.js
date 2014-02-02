@@ -10,7 +10,8 @@ app.directive('widgetPersonal', function() {
     restrict: 'E',
     scope: {
       data: '=',
-      color: '='
+      color: '=',
+      css: '='
     }
   };
 });

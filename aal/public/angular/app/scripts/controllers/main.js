@@ -5,7 +5,7 @@
 var appControllers = angular.module('appControllers', []);
 
 
-appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, FacebookPost, $timeout) {
+appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, FacebookPost, $timeout, colorUtils) {
 
     // $timeout(function() {
     //   $scope.typeTest = 'todo';
@@ -64,7 +64,6 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
       $FB.api('/me/home').then(function(posts) {
         $scope.mockup.social = posts.data;
         $scope.mockup.social.picturePosts = [];
-        console.log(posts.data);
         
         var picturePosts = posts.data.filter(function(d) {
           return d.type === 'photo';
@@ -136,12 +135,6 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
         $scope.mockup.news = data;
       });
 
-    $scope.colors = ['#99D6EA', '#7FCCE5', '#66C1E0', '#4CB7DB', '#33ADD6', '#33ADD6', '#19A3D1', '#0099cc'];
-    $scope.colors = ['#CEEA8C', '#9DE572', '#60E059', '#41DB6C', '#2AD691', '#14D1C2', '#0099CC'].reverse();
-    $scope.colors = ['#703030' , '#2F343B' , '#7E827A' , '#E3CDA4' , '#C77966'];
-    $scope.colors = ['#E64661', '#FFA644', '#998A2F', '#2C594F', '#002D40'];
-    $scope.colors = ['#002F32', '#42826C', '#A5C77F', '#FFC861', '#C84663'];
-    $scope.colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#076D8C', '#026480'];
     $scope.colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#70BE8A', '#19806E'];
 
     var $style = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
@@ -149,21 +142,25 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
     var css = $scope.colors.map(function(d, i) {
       var widgetColor = '.widget-color-'+ i + ' { border-color: rgba(255,255,255,1); background-color: ' + d  + '; color: white; }';
       var widgetColorInverted = '.widget-color-'+ i + ':hover { border-color: white; background-color: white; color: ' + d + '; }';
+      var widgetSubColors = [0, 1, 2, 3, 4].map(function(n) {
+        var color = colorUtils.blend(d, '#ffffff', 1 - n/10);
+        return '.widget-color-' + i + '-' + n + '{ background-color: ' + color + '; }';
+      });
       // color-specific selection?
       // var widgetSelected = ' .border .widget-color-' + i + ' { border-color: white; background-color: gray; color: white; } ';
-      return widgetColor + ' ' + widgetColorInverted;
+      return widgetColor + ' ' + widgetColorInverted + widgetSubColors.join(' ');
     }).join(' ');
 
-    $scope.names = [0, 1, 2, 3, 4].map(function(d) {return 'widget-color-' + d; });
+    $scope.css = [0, 1, 2, 3, 4].map(function(d) {return 'widget-color-' + d; });
 
     $style.html(css);
 
     $scope.widgets = [
-      {name: 'news', data: 'mockup.news', color: 'names[0]'},
-      {name: 'personal', data: 'user', color: 'names[1]'},
-      {name: 'calendar', data: 'mockup.calendar', color: 'names[2]'},
-      {name: 'social', data: 'mockup.social', color: 'names[3]'},
-      {name: 'todo', data: 'mockup.todos', color: 'names[4]'}
+      {name: 'news', data: 'mockup.news', css: 'css[0]', color: 'colors[0]'},
+      {name: 'personal', data: 'user', css: 'css[1]', color: 'colors[1]'},
+      {name: 'calendar', data: 'mockup.calendar', css: 'css[2]', color: 'colors[2]'},
+      {name: 'social', data: 'mockup.social', css: 'css[3]', color: 'colors[3]'},
+      {name: 'todo', data: 'mockup.todos', css: 'css[4]', color: 'colors[4]'}
     ];
 
 

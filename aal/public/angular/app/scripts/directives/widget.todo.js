@@ -56,7 +56,8 @@ app.directive('widgetTodo', function($q, $modal) {
         restrict: 'E',
         scope: {
           data: '=',
-          color: '='
+          color: '=',
+          css: '='
         },
         controller: function($scope) {
 
