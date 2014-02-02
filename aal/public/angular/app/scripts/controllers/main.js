@@ -166,5 +166,6 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
       {name: 'todo', data: 'mockup.todos', color: 'names[4]'}
     ];
 
+
   });
 

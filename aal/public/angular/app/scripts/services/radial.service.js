@@ -5,8 +5,8 @@
 var app = angular.module('angularApp');
 
 app.factory('RadialService', function() {
-  
-  var drawMenu = function(dict) {
+
+  var Menu = function(dict) {
 
     var colors = ['#B9DC51', '#D4E995', '#73CCED', '#FF7F7F', '#FFBB33', '#FFD580'];
 
@@ -24,7 +24,7 @@ app.factory('RadialService', function() {
 
     var oldRects = {};
     var oldText = {};
-    var currentlySelected = 0;
+    var currentlySelected = -1;
     var currentLength = 0;
     var level = 0;
 
@@ -43,14 +43,41 @@ app.factory('RadialService', function() {
         
         if (i === level) {
           or.style('fill', function(d, j) {
-            return j === currentlySelected ? 'gray' : colors[i % colors.length];
+            return j === currentlySelected ? 'gray' : (d.color || colors[i % colors.length]);
           });
         }
 
         ot.transition()
           .duration(transitionTime)
+          .style('opacity', 1)
           .attr('y', elHeight * (i - 1) + margins.top + elHeight - 5);
       }
+
+      // remove previous level
+      
+      var orn = oldRects['.rects-' + (level + 1)];
+      var otn = oldText['.text-' + (level + 1)];
+
+      if (orn && otn) {
+        
+        orn.transition()
+        .duration(transitionTime)
+        .attr('height', 0)
+        .attr('y', elHeight * level + margins.top)
+        .each('end', function() {
+          this.remove();
+        });
+
+        otn.transition()
+        .duration(transitionTime)
+        .style('opacity', 0)
+        .attr('y', elHeight * level + margins.top + elHeight - 5)
+        .each('end', function() {
+          this.remove();
+        });
+
+      }
+
     };
 
     var drawRects = function(data) {
@@ -80,7 +107,7 @@ app.factory('RadialService', function() {
         .attr('width', x(1) - x(0))
         .attr('height', 0)
         .style('fill', function(d,i) {
-          return i === currentlySelected ? 'gray' : colors[level % colors.length];
+          return i === currentlySelected ? 'gray' : (d.color || colors[level % colors.length]);
         });
 
       text.enter()
@@ -88,6 +115,7 @@ app.factory('RadialService', function() {
         .text(function(d) {
           return d.text;
         })
+        .style('opacity', 0)
         .attr('class', 'svg-menu-text text-' + level)
         .attr('x', function(d, i) {
           return x(i) + 5;
@@ -99,48 +127,66 @@ app.factory('RadialService', function() {
       updateRects(level);
 
     };
-    
-    d3.select('body')
-      .on('keydown', function() {
-      
-      switch (d3.event.keyCode) {
-      
-      case 50:
-        level++;
-        if (level === 1) {
-          drawRects(data);
-        } else {
-          
-          var randData = [];
-          var rand = Math.random() * 4 + 2;
 
-          for (var i = 0; i < rand; i++) {
-            randData.push({text: 'test'});
-          }
-
-          drawRects(randData);
+    this.enterMenu = function() {
+      level++;
+      if (level === 1) {
+        drawRects(data);
+      } else {
         
+        var randData = [];
+        var rand = Math.random() * 4 + 2;
+
+        for (var i = 0; i < rand; i++) {
+          randData.push({text: 'test'});
         }
-        break;
-      case 49:
-        currentlySelected = currentlySelected > 0 ? currentlySelected - 1 : currentlySelected;
-        updateRects(level);
-        break;
-      case 51:
-        currentlySelected = currentlySelected < (currentLength - 1) ? currentlySelected + 1 : currentlySelected;
-        updateRects(level);
-        break;
+
+        drawRects(randData);
+      
+      }
+    };
+
+    this.exitMenu = function() {
+      level--;
+      updateRects(level);
+    };
+
+    this.moveMenuLeft = function() {
+      currentlySelected = (currentlySelected - 1) % currentLength;
+      updateRects(level);
+    };
+
+    this.moveMenuRight = function() {
+      currentlySelected = (currentlySelected + 1) % currentLength;
+      updateRects(level);
+    };
+    
+    // d3.select('body')
+    //   .on('keydown', function() {
+      
+    //   switch (d3.event.keyCode) {
+      
+    //   case 13:
+    //     this.enterMenu();
+    //     break;
+    //   case 37:
+    //     this.moveMenuLeft();
+    //     break;
+    //   case 39:
+    //     this.moveMenuRight();
+    //     break;
+    //   case 27:
+    //     this.exitMenu();
+    //     break;
       
 
-      }
+    //   }
 
-    });
-
-
+    // });
 
   };
 
   return {
-    drawMenu: drawMenu
+    Menu: Menu
   };
 });
