@@ -4,7 +4,10 @@
 
 var app = angular.module('angularApp');
 
-app.factory('RadialService', function() {
+
+app.factory('RadialService', function($rootScope) {
+
+  console.log($rootScope);
 
   var Menu = function(dict) {
 
@@ -43,6 +46,14 @@ app.factory('RadialService', function() {
         
         if (i === level) {
           or.style('fill', function(d, j) {
+            if (j === currentlySelected) {
+              var newData = $('widget-' + d.name).find('.widget').each(function() {
+                return {name: d.name};
+              });
+              console.log(newData);
+              d.data = newData;
+              currentElem = d;
+            }
             return j === currentlySelected ? 'gray' : (d.color || colors[i % colors.length]);
           });
         }
@@ -59,7 +70,9 @@ app.factory('RadialService', function() {
       var otn = oldText['.text-' + (level + 1)];
 
       if (orn && otn) {
-        
+        // TODO
+        currentLength = data.length;
+
         orn.transition()
         .duration(transitionTime)
         .attr('height', 0)
@@ -80,6 +93,7 @@ app.factory('RadialService', function() {
 
     };
 
+    var currentElem;
     var drawRects = function(data) {
 
       currentLength = data.length;
@@ -113,7 +127,7 @@ app.factory('RadialService', function() {
       text.enter()
         .append('text')
         .text(function(d) {
-          return d.text;
+          return d.name;
         })
         .style('opacity', 0)
         .attr('class', 'svg-menu-text text-' + level)
@@ -130,6 +144,7 @@ app.factory('RadialService', function() {
 
     this.enterMenu = function() {
       level++;
+      console.log('enter', level, svg, data);
       if (level === 1) {
         drawRects(data);
       } else {
@@ -138,10 +153,10 @@ app.factory('RadialService', function() {
         var rand = Math.random() * 4 + 2;
 
         for (var i = 0; i < rand; i++) {
-          randData.push({text: 'test'});
+          randData.push({name: 'test'});
         }
 
-        drawRects(randData);
+        drawRects(currentElem.data);
       
       }
     };
@@ -152,7 +167,7 @@ app.factory('RadialService', function() {
     };
 
     this.moveMenuLeft = function() {
-      currentlySelected = (currentlySelected - 1) % currentLength;
+      currentlySelected = currentlySelected === 0 ? (currentLength - 1) : (currentlySelected - 1) % currentLength;
       updateRects(level);
     };
 

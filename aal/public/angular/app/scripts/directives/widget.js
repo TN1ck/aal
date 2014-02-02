@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widget', function(Navigation, $compile) {
+app.directive('widget', function($compile) {
 
     return {
         template: '<div></div>',
@@ -43,42 +43,6 @@ app.directive('widget', function(Navigation, $compile) {
           };
 
           setHeights();
-
-          scope.counter = Navigation.getCounter(element);
-          scope.toggleScreens = function () {
-
-            var widgetBig = scope.$parent.widgets[2];
-            scope.$parent.widgets[2] = scope.$parent.widgets[Navigation.getCurrentSelected()];
-            scope.$parent.widgets[Navigation.getCurrentSelected()] = widgetBig;
-
-          };
-
-          scope.$watch(Navigation.getCurrentSelected , function(newValue, oldValue, scope) {
-
-            if (newValue === scope.counter) {
-
-              $outerDiv.removeClass('noborder')
-                .addClass('border')
-                .addClass('animate-border');
-            }
-
-            if (oldValue === scope.counter && newValue !== oldValue) {
-
-              $('div').removeClass('noborder');
-              $outerDiv.removeClass('border')
-                .addClass('noborder')
-                .addClass('animate-border');
-            }
-
-          });
-
-          scope.$watch(Navigation.getToggleScreens , function(newValue, oldValue, scope) {
-
-            if (Navigation.getCurrentSelected() === scope.counter) {
-              scope.toggleScreens();
-            }
-
-          });
         },
       };
   });

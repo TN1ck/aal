@@ -5,7 +5,7 @@
 var appControllers = angular.module('appControllers', []);
 
 
-appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils, WidgetData) {
+appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, Navigation) {
 
     var $style = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
 
@@ -31,13 +31,14 @@ appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils
 
     $scope.colors = WidgetData.colors;
 
-    $scope.widgets = WidgetData.widgets.map(function(d, i) {
-      WidgetData[d].then(function(data) {
-        $scope[d] = data;
+    // $rootScope is a hack
+    $rootScope.widgets = WidgetData.widgets.map(function(d, i) {
+      WidgetData[d.name].then(function(data) {
+        $scope[d.name] = data;
       });
       return {
-        name: d,
-        data: d,
+        name: d.name,
+        data: d.name,
         css: 'css[' + i + ']',
         color: 'colors[' + i + ']'
       };

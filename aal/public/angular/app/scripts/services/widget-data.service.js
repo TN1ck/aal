@@ -83,7 +83,13 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
     });
 
 
-  widgets = ['news', 'personal', 'calendar', 'social', 'todo'];
+  widgets = [
+    {name: 'news', color: '#D65B3C'},
+    {name: 'personal', color: '#D77F47'},
+    {name: 'calendar', color: '#D9AA5A'},
+    {name: 'social', color: '#70BE8A'},
+    {name: 'todo', color: '#19806E'}
+  ];
   colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#70BE8A', '#19806E'];
 
 

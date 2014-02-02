@@ -159,9 +159,10 @@ body.modal-open {
     z-index: 100;
 }
 
-.border .widget, .border .widget-picture-post {
-    background-color: gray;
+.border .widget, .border .widget-picture-post, .border {
+    background-color: gray !important;
 }
+
 
 .noborder{
     /*-moz-box-shadow: 0 0 0 0 rgba(0,0,0,0.25);

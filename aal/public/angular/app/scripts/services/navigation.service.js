@@ -4,54 +4,68 @@
 
 var app = angular.module('angularApp');
 
-app.factory('Navigation', function($rootScope, RadialService){
+app.factory('Navigation', function($rootScope, RadialService, WidgetData){
 
     var widgetList = $('widget'),
-        currentSelected,
-        toggleScreens;
+        currentSelected = -1;
 
-    var Menu = new RadialService.Menu({
-      selector: '#right',
-      data: [
-        {text: 'news', color: '#D65B3C'},
-        {text: 'personal', color: '#D77F47'},
-        {text: 'calendar', color: '#D9AA5A'},
-        {text: 'social', color: '#70BE8A'},
-        {text: 'todo', color: '#19806E'}
-      ]
-    });
+    var Menu;
+
+    var toggleScreens = function () {
+
+      var widgetBig = $rootScope.widgets[2];
+      $rootScope.widgets[2] = $rootScope.widgets[currentSelected];
+      $rootScope.widgets[currentSelected] = widgetBig;
+
+    };
 
     $rootScope.$watch('$locationChangeStart', function() {
       
       widgetList = $('widget');
-      currentSelected = -1;
-      toggleScreens = 0;
+      currentSelected = 0;
 
       $('body').on('keydown', function(event) {
               
         if (event.which === 37) {
           Menu.moveMenuLeft();
-          if (currentSelected <= 0) {
-            currentSelected = widgetList.length - 1;
-          } else {
-            currentSelected = (currentSelected - 1) % widgetList.length;
-          }
+          currentSelected = currentSelected === 0 ? (widgetList.length - 1) : (currentSelected - 1);
+          $('.border').removeClass('border');
+          $(widgetList[currentSelected])
+            .removeClass('noborder')
+              .addClass('border')
+              .addClass('animate-border');
           $rootScope.$apply();
         }
         if (event.which === 39) {
           Menu.moveMenuRight();
           currentSelected = (currentSelected + 1) % widgetList.length;
+          $('.border').removeClass('border');
+          $(widgetList[currentSelected])
+            .removeClass('noborder')
+              .addClass('border')
+              .addClass('animate-border');
           $rootScope.$apply();
         }
         if (event.which === 13) {
-          Menu.enterMenu();
-          toggleScreens = !toggleScreens;
+          toggleScreens();
           $rootScope.$apply();
+        }
+        if (event.which === 50) {
+          currentSelected = -1;
+          Menu = new RadialService.Menu({
+            selector: '#right',
+            data: WidgetData.widgets
+          });
+          Menu.enterMenu();
         }
         if (event.which === 27) {
           Menu.exitMenu();
-          currentSelected = -1;
+          widgetList = $('widget');
           $rootScope.$apply();
+        }
+        if (event.which === 40) {
+          Menu.enterMenu();
+          widgetList = $(widgetList[currentSelected]).find('.widget');
         }
 
       });
