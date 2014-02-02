@@ -143,7 +143,7 @@ appControllers.controller('MainCtrl', function ($scope, Persistence, $FB, $q, Fa
       var widgetColor = '.widget-color-'+ i + ' { border-color: rgba(255,255,255,1); background-color: ' + d  + '; color: white; }';
       var widgetColorInverted = '.widget-color-'+ i + ':hover { border-color: white; background-color: white; color: ' + d + '; }';
       var widgetSubColors = [0, 1, 2, 3, 4].map(function(n) {
-        var color = colorUtils.blend(d, '#ffffff', 1 - n/10);
+        var color = colorUtils.blend(d, '#ffffff', 1 - n/9);
         return '.widget-color-' + i + '-' + n + '{ background-color: ' + color + '; }';
       });
       // color-specific selection?
