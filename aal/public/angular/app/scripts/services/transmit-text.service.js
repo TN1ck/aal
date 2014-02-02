@@ -26,7 +26,7 @@ app.factory('TextTransmission', function($rootScope, Websocket) {
 		// }
 		deliverTextForInputDevice: function(text) {
 			console.log('deliverTextForInputDevice received: ' + text + 'and sends it on' + mobileId);
-			Websocket.send(mobileId, text);
+			Websocket.send('' + mobileId, text);
 		},
 
 		deliverTextForWall: function(data) {
@@ -38,12 +38,12 @@ app.factory('TextTransmission', function($rootScope, Websocket) {
 
 		fetchTextForWall: function(func) {
 			console.log('fetchTextForWall listens on: ' + mobileId+1);
-			Websocket.addListener(mobileId + '1', func);
+			Websocket.addListener('' + this.mobileId + '1', func);
 		},
 
 		fetchTextForInputDevice: function(func) {
 			console.log('fetchTextForInputDevice listens on: ' + this.code);
-			Websocket.addListener(this.code, func);
+			Websocket.addListener('' + this.code, func);
 		}
 
 	}

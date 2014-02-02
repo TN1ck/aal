@@ -1,18 +1,10 @@
 'use strict';
 
-/* global angular, gapi */
+/* global angular */
 
-var app = angular.module('angularApp');
+var appControllers = angular.module('appControllers');
 
-app.directive('widgetSocial', function($q, $modal, $FB) {
-
-  var modalInstanceCtrlFactory = function(){
-
-    // create a new promise
-
-    var defered = $q.defer();
-
-    var modalInstanceCtrl = function ($scope, $modalInstance, TextTransmission, FacebookPost, $FB) {
+appControllers.controller('ModalSocialCtrl', function ($scope, $modalInstance, TextTransmission, FacebookPost, $FB) {
 
       $scope.modal = {
         message: '',
@@ -23,6 +15,7 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
       };
 
       TextTransmission.fetchTextForWall(function(data) {
+        console.log('Data in fetchTextForWall: ' ,data)
         if(data.data === 'ok'){
           $scope.ok();
         } else if(data.data == 'cancel'){
@@ -62,42 +55,4 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
         // defered.reject('Canceled');
 
       };
-    };
-
-    return {
-      controller: modalInstanceCtrl,
-      promise: defered.promise
-    };
-
-  };
-
-  return {
-    templateUrl: '/views/widgets/social/widget.social.html',
-    restrict: 'E',
-    scope: {
-      data: '=',
-      color: '=',
-      css: '='
-    },
-    link: function(scope) {
-
-      scope.new = function() {
-        var modalInstanceCtrl = modalInstanceCtrlFactory();
-
-        $modal.open({
-          templateUrl: '/views/widgets/social/modal.social.html',
-          controller: modalInstanceCtrl.controller
-        });
-
-        modalInstanceCtrl.promise.then(function(data){
-          scope.social.reverse().push(data);
-          scope.social.reverse();
-        });
-      };
-
-      scope.hangout = function() {
-        gapi.hangout.render('placeholder-div', { 'render': 'createhangout' });
-      };
-    }
-  };
-});
+    });

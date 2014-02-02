@@ -62,7 +62,15 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
       //     $scope.textinput = data.data;
       //   });
 
-      
+      $scope.cancel = function () {
+        TextTransmission.deliverTextForWall('cancel');
+        
+        // defered.reject('Canceled');
+
+      };
+      $scope.ok = function () {
+        TextTransmission.deliverTextForWall('ok');
+      };
       
 
       
