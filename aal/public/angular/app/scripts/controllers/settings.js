@@ -4,23 +4,47 @@
 
 var appControllers = angular.module('appControllers');
 
-appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission', '$FB',
-    function ($scope, $http, TextTransmission, $FB) {
+appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission', '$FB', 'FacebookPost',
+    function ($scope, $http, TextTransmission, $FB, FacebookPost) {
 
       // Finding out how Gmail works...
       $scope.providers = ['twitter', 'facebook', 'linkedin', 'instagram', 'foursquare', 'github', 'googlemail'];
 
       $scope.loginProvider = function (provider) {
-          OAuth.popup(provider, function(error, result) {
+        OAuth.popup(provider, function(error, result) {
 
-            if (error) {
-              throw error; // do something with error
-              return;
-            }
+          if (error) {
+            throw error; // do something with error
+          }
 
-            console.log(result); // do something with result
+          console.log(result); // do something with result
 
+        });
+      };
+
+      var updateLoginStatus = function updateLoginStatus () {
+        return $FB.getLoginStatus()
+          .then(function (res) {
+            $scope.loginStatus = res;
           });
+      };
+
+      updateLoginStatus();
+
+      $scope.login = function () {
+        $FB.login(null, {
+          scope: 'email, user_likes, read_stream, publish_actions, publish_stream'
+        });
+      };
+
+      $scope.logout = function () {
+        $FB.logout();
+      };
+
+      $scope.fbpost = FacebookPost.facebookPost;
+
+      $scope.share = function() {
+        $FB.ui($scope.fbpost, null);
       };
 
       $scope.mobileId = TextTransmission.mobileId;

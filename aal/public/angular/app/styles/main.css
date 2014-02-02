@@ -128,12 +128,6 @@ body.modal-open {
 	max-width: none;
 }
 
-
-.content {
-    margin-top: 4em;
-    margin-bottom: 4em;
-}
-
 .separation-border {
     border-top: 1px solid rgb(229,229,229);
 }
