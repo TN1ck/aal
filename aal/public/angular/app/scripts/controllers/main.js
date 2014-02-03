@@ -21,7 +21,7 @@ appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils
       var widgetColorInvertedHover = '.widget-color-'+ i + ':hover { border-color: white; background-color: ' + textColor + '; color: ' + d + '; }';
       var widgetColorInverted = '.widget-color-'+ i + '-inverted { border-color: white !important; background-color: ' + textColor + ' !important; color: ' + d + ' !important; } ';
       var widgetSubColors = [0, 1, 2, 3, 4].map(function(n) {
-        var color = colorUtils.blend(d, '#ffffff', 1 - n/9);
+        var color = colorUtils.blend(d, '#ffffff', 1 - n/4);
         return '.widget-color-' + i + '-' + n + '{ background-color: ' + color + '; }';
       });
       // color-specific selection?
