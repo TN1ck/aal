@@ -39,7 +39,7 @@ widget-h4 {
 
 .widget {
 	box-sizing: border-box;
-	border: 0.25em solid #73CCED;
+	border: 0.2em solid #73CCED;
 	padding: 0.6em;
 	background-color: white;
 	overflow: hidden;
