@@ -3,88 +3,40 @@
 /* global angular */
 
 var app = angular.module('angularApp');
-
+console.log('APP: ', app);
 app.directive('widgetTodo', function($q, $modal) {
 
-    var modalInstanceCtrlFactory = function(){
-      
-      // create a new promise
+  return {
+    templateUrl: '/views/widgets/todo/widget.todo.html',
+    restrict: 'E',
+    scope: {
+      data: '=',
+      color: '=',
+      css: '='
+    },
+    controller: function($scope,$modal) {
 
-      var defered = $q.defer();
-
-      var modalInstanceCtrl = function ($scope, $modalInstance, TextTransmission) {
-
-        $scope.modal = {
-          text: '',
-          type: 'green'
-        };
-
-        TextTransmission.fetchTextForWall(function(data) {
-          // data.data is an object
-          $scope.modal = data.data;
+      $scope.addTodo = function () {
+        var WidgetModal = $modal.open({
+          templateUrl: '/views/widgets/mobile/mobile.todo.html',
+          controller: 'ModalTodoCtrl'
         });
 
-        console.log('We want to send: wrapper.mobile.todo');
-        // TextTransmission.code = TextTransmission.mobileId;
-        // TextTransmission.deliverText('wrapper.mobile.todo');
-        TextTransmission.deliverTextForInputDevice('wrapper.mobile.todo');
+        WidgetModal.result.then(function(data){
+          $scope.data.reverse().push(data);
+          $scope.data.reverse();
 
-        $scope.ok = function () {
-          
-          $modalInstance.close();
-          defered.resolve($scope.modal);
+        });
 
-        };
-
-        $scope.cancel = function () {
-          
-          $modalInstance.dismiss('cancel');
-          defered.reject('Canceled');
-
-        };
       };
 
-      return {
-        controller: modalInstanceCtrl,
-        promise: defered.promise
+      $scope.removeTodo = function (index) {
+          $scope.data.splice(index, 1);
       };
 
-    };
-
-    return {
-        templateUrl: '/views/widgets/todo/widget.todo.html',
-        restrict: 'E',
-        scope: {
-          data: '=',
-          color: '=',
-          css: '='
-        },
-        controller: function($scope) {
-
-            $scope.addTodo = function () {
-                
-                var modalInstanceCtrl = modalInstanceCtrlFactory();
-                
-                $modal.open({
-                  templateUrl: '/views/widgets/todo/modal.todo.html',
-                  controller: modalInstanceCtrl.controller
-                });
-
-                modalInstanceCtrl.promise.then(function(data){
-                  $scope.todos.reverse().push(data);
-                  $scope.todos.reverse();
-                });
-
-
-              };
-
-            $scope.removeTodo = function (index) {
-                $scope.todos.splice(index, 1);
-              };
-
-            $scope.changeTodo = function (index) {
-                $scope.todos[index].text = 'TEXT GEÄNDERT!';
-              };
-          }
+      $scope.changeTodo = function (index) {
+        $scope.data[index].text = 'TEXT GEÄNDERT!';
       };
-  });
+    }
+  };
+});

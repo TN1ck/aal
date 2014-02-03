@@ -32,6 +32,10 @@ body.modal-open {
     margin-right: 0px;
 }
 
+.modal-content {
+    padding: 2em;
+}
+
 
 .col-xs-1,
 .col-sm-1,
