@@ -6,6 +6,7 @@
 	right: 0px;
 	opacity: 0.95;
 	pointer-events:none;
+	z-index: 999;
 }
 
 .svg-menu {
