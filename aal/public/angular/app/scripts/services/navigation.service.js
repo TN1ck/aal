@@ -22,7 +22,8 @@ app.factory('Navigation', function($rootScope, RadialService, WidgetData){
 
     var selectElem = function() {
       $currentElem = $(widgetList[currentSelected]);
-      var inverted = $currentElem.attr('class').match(/widget-color-\d/)[0] + '-inverted';
+      var inverted = $currentElem.attr('class').match(/widget-color-\d/);
+      inverted = inverted ? inverted[0] + '-inverted' : '';
       console.log('selectElem', $currentElem);
       $('.border').removeClass('border').removeClass(inverted);
       $currentElem
