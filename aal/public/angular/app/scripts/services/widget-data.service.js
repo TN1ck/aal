@@ -90,8 +90,10 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
     {name: 'social', color: '#70BE8A'},
     {name: 'todo', color: '#19806E'}
   ];
-  colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#70BE8A', '#19806E'];
 
+  colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#70BE8A', '#19806E'];
+  // colors = ['#E7E3BE', '#DBE7E5', '#79AFAA', '#E7663E', '#ECAA76'];
+  // colors = ['#588C73', '#F2E394', '#F2AE72', '#D96459', '#8C4646'];
 
   return {
     social: social.promise,
