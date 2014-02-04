@@ -51,7 +51,10 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
           } else if(data.data === 'wrapper.mobile.social'){
             console.log('MobileCtrl received wrapper.mobile.social');
             $state.transitionTo('wrapper.mobile.social');
-          } else {
+          } else if(data.data === 'wrapper.mobile'){
+            $state.transitionTo('wrapper.mobile');
+          }
+          else {
             console.log('unknown state received. we received:' + data.data);
           }
         })

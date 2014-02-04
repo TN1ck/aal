@@ -54,12 +54,12 @@ appControllers.controller('ModalTodoCtrl',
     TextTransmission.fetchTextForWall(function(data) {
       if(data.data === 'ok'){
           $scope.ok();
-        } else if(data.data == 'cancel'){
+      } else if(data.data === 'cancel'){
           $scope.cancel();
-        } else {
-          // data.data is an object
-          $scope.modal = data.data;
-        }
+      } else {
+        // data.data is an object
+        $scope.modal = data.data;
+      }
     });
 
     console.log('We want to send: wrapper.mobile.todo');
@@ -68,15 +68,19 @@ appControllers.controller('ModalTodoCtrl',
     TextTransmission.deliverTextForInputDevice('wrapper.mobile.todo');
 
     $scope.ok = function () {
-      
+      console.log("ModalTodoCtrl is in ok()");
       $modalInstance.close();
+      TextTransmission.deliverTextForInputDevice('wrapper.mobile');
+
       // defered.resolve($scope.modal);
 
     };
 
     $scope.cancel = function () {
-      
+      console.log("ModalTodoCtrl is in cancel()");
       $modalInstance.dismiss('cancel');
+      TextTransmission.deliverTextForInputDevice('wrapper.mobile');
+
       // defered.reject('Canceled');
 
     };

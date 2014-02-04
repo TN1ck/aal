@@ -6,70 +6,6 @@ var app = angular.module('angularApp');
 
 app.directive('widgetSocial', function($q, $modal, $FB) {
 
-  var modalInstanceCtrlFactory = function(){
-
-    // create a new promise
-
-    var defered = $q.defer();
-
-    var modalInstanceCtrl = function ($scope, $modalInstance, TextTransmission, FacebookPost, $FB) {
-
-      $scope.modal = {
-        message: '',
-        type: 'facebook'
-        // from: {
-        //   profilePicture: 'http://www3.math.tu-berlin.de/stoch/nf-stoch/TUB-logo.png'
-        // }
-      };
-
-      TextTransmission.fetchTextForWall(function(data) {
-        if(data.data === 'ok'){
-          $scope.ok();
-        } else if(data.data == 'cancel'){
-          $scope.cancel();
-        } else {
-          $scope.modal.message = data.data;
-        }
-      });
-
-      TextTransmission.deliverTextForInputDevice('wrapper.mobile.social');
-
-
-      $scope.fbpost = FacebookPost.facebookPost;
-
-      $scope.ok = function() {
-
-        if ($scope.modal.type == 'facebook') {
-          var newPost = {message: $scope.modal.message};
-
-          newPost = angular.extend(newPost, $scope.fbpost);
-
-          $FB.api('/me/feed', 'post', newPost, function(data) {
-                console.log(data);
-           });
-        }
-
-        $modalInstance.close();
-        TextTransmission.deliverTextForInputDevice('wrapper.mobile');
-        // defered.resolve($scope.modal);
-
-      };
-
-      $scope.cancel = function () {
-
-        $modalInstance.dismiss('cancel');
-        TextTransmission.deliverTextForInputDevice('wrapper.mobile');
-        // defered.reject('Canceled');
-
-      };
-    };
-
-    return {
-      controller: modalInstanceCtrl,
-      promise: defered.promise
-    };
-
-  };
 
   return {
     templateUrl: '/views/widgets/social/widget.social.html',
@@ -82,16 +18,15 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
     link: function(scope) {
 
       scope.new = function() {
-        var modalInstanceCtrl = modalInstanceCtrlFactory();
 
-        $modal.open({
-          templateUrl: '/views/widgets/social/modal.social.html',
-          controller: modalInstanceCtrl.controller
+        var WidgetModal = $modal.open({
+          templateUrl: '/views/widgets/mobile/mobile.social.html',
+          controller: 'ModalSocialCtrl'
         });
 
         modalInstanceCtrl.promise.then(function(data){
-          scope.social.reverse().push(data);
-          scope.social.reverse();
+          // scope.data.reverse().push(data);
+          // scope.data.reverse();
         });
       };
 
