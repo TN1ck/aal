@@ -18,7 +18,7 @@ appControllers.controller('ModalSocialCtrl', function ($scope, $modalInstance, T
         console.log('Data in fetchTextForWall: ' ,data)
         if(data.data === 'ok'){
           $scope.ok();
-        } else if(data.data == 'cancel'){
+        } else if(data.data === 'cancel'){
           $scope.cancel();
         } else {
           $scope.modal.message = data.data;
@@ -32,7 +32,7 @@ appControllers.controller('ModalSocialCtrl', function ($scope, $modalInstance, T
 
       $scope.ok = function() {
 
-        if ($scope.modal.type == 'facebook') {
+        if ($scope.modal.type === 'facebook') {
           var newPost = {message: $scope.modal.message};
 
           newPost = angular.extend(newPost, $scope.fbpost);
@@ -42,6 +42,7 @@ appControllers.controller('ModalSocialCtrl', function ($scope, $modalInstance, T
            });
         }
 
+        console.log("ModalSocialCtrl is in ok()");
         $modalInstance.close();
         TextTransmission.deliverTextForInputDevice('wrapper.mobile');
         // defered.resolve($scope.modal);
@@ -49,6 +50,7 @@ appControllers.controller('ModalSocialCtrl', function ($scope, $modalInstance, T
       };
 
       $scope.cancel = function () {
+        console.log("ModalSocialCtrl is in cancel()");
 
         $modalInstance.dismiss('cancel');
         TextTransmission.deliverTextForInputDevice('wrapper.mobile');
