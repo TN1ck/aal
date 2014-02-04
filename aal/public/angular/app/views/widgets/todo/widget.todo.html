@@ -1,7 +1,7 @@
 <!-- <widget-title title="'TODOs'"></widget-title> -->
 <div class="row full-height {{css}}">
   <div class="col-md-6 row-md-1 widget {{css}}">
-  	<span style="color: {{color}}" class="label label-default">{{data.length}} Things to do</span>
+  	<span class="label label-default">{{data.length}} Things to do</span>
   	<widget-h1><div ng-click="addTodo()">Todos</div></widget-h1>
   </div>
   <widget-todo-big ng-repeat="todo in data | filter:{type: 'red'}" data="todo" color="color" css="css"></widget-todo-big>
