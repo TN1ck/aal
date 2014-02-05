@@ -5,7 +5,7 @@
 var appControllers = angular.module('appControllers', []);
 
 
-appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, Navigation) {
+appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, Navigation, TextTransmission) {
 
     var $style = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
 
@@ -38,6 +38,8 @@ appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils
     */
 
     $scope.colors = WidgetData.colors;
+
+    $scope.mobileId = TextTransmission.mobileId;
 
     // $rootScope is a hack
     $rootScope.widgets = WidgetData.widgets.map(function(d, i) {
