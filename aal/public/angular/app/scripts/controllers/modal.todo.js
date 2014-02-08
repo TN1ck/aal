@@ -78,6 +78,7 @@ appControllers.controller('ModalTodoCtrl',
 
     $scope.cancel = function () {
       console.log("ModalTodoCtrl is in cancel()");
+      console.log("ModalInstance: " , $modalInstance);
       $modalInstance.dismiss('cancel');
       TextTransmission.deliverTextForInputDevice('wrapper.mobile');
 

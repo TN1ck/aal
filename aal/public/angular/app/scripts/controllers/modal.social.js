@@ -51,7 +51,7 @@ appControllers.controller('ModalSocialCtrl', function ($scope, $modalInstance, T
 
       $scope.cancel = function () {
         console.log("ModalSocialCtrl is in cancel()");
-
+        console.log("ModalInstance: " , $modalInstance);
         $modalInstance.dismiss('cancel');
         TextTransmission.deliverTextForInputDevice('wrapper.mobile');
         // defered.reject('Canceled');

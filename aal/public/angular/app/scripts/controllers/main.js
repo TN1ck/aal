@@ -5,7 +5,8 @@
 var appControllers = angular.module('appControllers', []);
 
 
-appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, Navigation, TextTransmission) {
+appControllers.controller('MainCtrl',
+  function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, Navigation, TextTransmission) {
 
     var $style = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
 
