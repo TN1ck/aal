@@ -24,7 +24,6 @@ app.factory('Navigation', function($rootScope, RadialService, WidgetData){
       $currentElem = $(widgetList[currentSelected]);
       var inverted = $currentElem.attr('class').match(/widget-color-\d/);
       inverted = inverted ? inverted[0] + '-inverted' : '';
-      console.log('selectElem', $currentElem);
       $('.border').removeClass('border').removeClass(inverted);
       $currentElem
         .addClass(inverted)
@@ -48,15 +47,13 @@ app.factory('Navigation', function($rootScope, RadialService, WidgetData){
       }
       if (event.which === 13) {
         toggleScreens();
+        Menu.updateRects(1, $rootScope.widgets);
         $rootScope.$apply();
       }
       if (event.which === 50) {
         widgetList = $('widget');
         currentSelected = -1;
-        Menu = new RadialService.Menu({
-          selector: '#right',
-          data: WidgetData.widgets
-        });
+        Menu = new RadialService.Menu({selector: '#right'});
         Menu.enterMenu();
       }
       if (event.which === 27) {

@@ -18,9 +18,10 @@ app.directive('widget', function($compile) {
         link: function(scope, element) {
 
 
-          
+          console.log(scope.color, scope.css);
+
           scope.$watch('type', function() {
-            var widgetString = '<widget-' + scope.type + ' data="' + scope.data + '" color="' + scope.color + '" css="' + scope.css + '">' + '</widget-' + scope.type + '/>';
+            var widgetString = '<widget-' + scope.type + ' data="' + scope.data + '" color="\'' + scope.color + '\'" css="\'' + scope.css + '\'">' + '</widget-' + scope.type + '/>';
             element.html($compile(widgetString)(scope.$parent));
           });
 

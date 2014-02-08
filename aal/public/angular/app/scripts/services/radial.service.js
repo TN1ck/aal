@@ -18,7 +18,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
         $width = $svg.width(),
         $height = $svg.height(),
         margins = {left: 10, right: 10, top: 10, bottom: 10},
-        data = dict.data,
+        data = $rootScope.widgets,
         transitionTime = 1000;
 
     svg = svg.append('g');
@@ -29,20 +29,28 @@ app.factory('RadialService', function($rootScope, WidgetData) {
     var currentLength = 0;
     var level = 0;
 
-    var updateRects = function(level) {
+    var updateRects = function(level, data) {
 
       var elHeight = ($height - (margins.top + margins.bottom))/(level || 1);
 
+
       for (var i = 1; i <= level; i++) {
+        
         var or = oldRects['.rects-' + i];
         var ot = oldText['.text-' + i];
-        
-        or.transition()
-          .duration(transitionTime)
-          .attr('height', elHeight)
-          .attr('y', elHeight * (i - 1) + margins.top);
+        var x;
+
+        if (data && i === level) {
+          x = d3.scale.linear()
+            .domain([0, data.length])
+            .rangeRound([margins.left, $width - margins.right]);
+
+          or = or.data(data);
+          ot = ot.data(data);
+        }
         
         if (i === level) {
+
           or.style('fill', function(d, j) {
             if (j === currentlySelected) {
               currentElem = d;
@@ -51,10 +59,19 @@ app.factory('RadialService', function($rootScope, WidgetData) {
           });
         }
 
-        ot.transition()
+        var ort = or.transition()
+          .duration(transitionTime)
+          .attr('height', elHeight)
+          .attr('y', elHeight * (i - 1) + margins.top);
+
+        var ott = ot.transition()
           .duration(transitionTime)
           .style('opacity', 1)
+          .text(function(d) {
+            return d.name;
+          })
           .attr('y', elHeight * (i - 1) + margins.top + elHeight - 5);
+
       }
 
       // remove previous level
@@ -63,8 +80,8 @@ app.factory('RadialService', function($rootScope, WidgetData) {
       var otn = oldText['.text-' + (level + 1)];
 
       if (orn && otn) {
-        // TODO
-        currentLength = data.length;
+
+        currentLength = oldRects['.rects-' + level][0].length;
 
         orn.transition()
         .duration(transitionTime)
@@ -130,7 +147,6 @@ app.factory('RadialService', function($rootScope, WidgetData) {
         .attr('y', elHeight * level + margins.top + elHeight - 5)
         .style('fill', 'white');
 
-
       updateRects(level);
 
     };
@@ -145,9 +161,15 @@ app.factory('RadialService', function($rootScope, WidgetData) {
       
       } else if (level === 2) {
 
-        var newData = $('widget-' + currentElem.name).find('.widget').each(function() {
-          return {name: currentElem.name};
+        var newData = $('widget-' + currentElem.name).find('.widget').map(function() {
+          return {
+            jquery: this,
+            color: currentElem.color,
+            name: currentElem.name
+          };
         });
+
+        console.log(newData);
 
         currentElem.data = newData;
 
@@ -155,7 +177,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
       
       } else if (level >= 3) {
         level--;
-        $(currentElem).click();
+        $(currentElem.jquery).click();
       }
 
     };
@@ -174,6 +196,8 @@ app.factory('RadialService', function($rootScope, WidgetData) {
       currentlySelected = (currentlySelected + 1) % currentLength;
       updateRects(level);
     };
+
+    this.updateRects = updateRects;
     
     // d3.select('body')
     //   .on('keydown', function() {

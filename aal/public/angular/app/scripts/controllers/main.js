@@ -21,8 +21,8 @@ appControllers.controller('MainCtrl',
       return {
         name: d.name,
         data: d.name,
-        css: 'css[' + i + ']',
-        color: 'colors[' + i + ']'
+        css: $scope.css[i],
+        color: $scope.colors[i]
       };
     });
 
