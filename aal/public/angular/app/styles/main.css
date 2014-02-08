@@ -164,7 +164,7 @@ body.modal-open {
 }
 
 .border .widget, .border .widget-picture-post, .border {
-    background-color: white !important;
+    background-color: gray !important;
 }
 
 
