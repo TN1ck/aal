@@ -3,12 +3,12 @@ package jiac.messages;
 import jiac.Message;
 import jiac.MessageType;
 
-public class GetFacebookData extends Message{
+public class GetMailData extends Message{
 
     int userID;
 
-    public GetFacebookData(String senderID, String receiverID, int userID){
-        super(senderID, receiverID, MessageType.GET_SOCIAL);
+    public GetMailData(String senderID, String receiverID, int userID){
+        super(senderID, receiverID, MessageType.GET_COMM);
         this.userID = userID;
     }
 
