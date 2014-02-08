@@ -15,11 +15,19 @@ appControllers.controller('ModalSocialCtrl', function ($scope, $modalInstance, T
       };
 
       TextTransmission.fetchTextForWall(function(data) {
-        console.log('Data in fetchTextForWall: ' ,data)
+        console.log('Data in fetchTextForWall: ' ,data);
         if(data.data === 'ok'){
-          $scope.ok();
+          try {
+            $scope.ok();
+          } catch (e) {
+
+          }
         } else if(data.data === 'cancel'){
-          $scope.cancel();
+          try {
+            $scope.cancel();
+          } catch (e) {
+
+          }
         } else {
           $scope.modal.message = data.data;
         }

@@ -3,8 +3,8 @@
 /* global angular */
 
 var app = angular.module('angularApp');
-console.log('APP: ', app);
-app.directive('widgetTodo', function($q, $modal, ModalTodoCtrl) {
+
+app.directive('widgetTodo', function() {
 
   return {
     templateUrl: '/views/widgets/todo/widget.todo.html',
@@ -14,24 +14,23 @@ app.directive('widgetTodo', function($q, $modal, ModalTodoCtrl) {
       color: '=',
       css: '='
     },
-    controller: function($scope,$modal) {
+    controller: function($scope, $modal) {
 
       $scope.addTodo = function () {
         var WidgetModal = $modal.open({
           templateUrl: '/views/widgets/mobile/mobile.todo.html',
-          controller: ModalTodoCtrl.createController()
+          controller: 'ModalTodoCtrl'
         });
 
         WidgetModal.result.then(function(data){
-          $scope.data.reverse().push(data);
-          $scope.data.reverse();
-
+          console.log('Data in TodoWidget: ', data);
+          $scope.data.push({text: data.text, type: data.type});
         });
 
       };
 
       $scope.removeTodo = function (index) {
-          $scope.data.splice(index, 1);
+        $scope.data.splice(index, 1);
       };
 
       $scope.changeTodo = function (index) {
