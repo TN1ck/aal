@@ -40,51 +40,63 @@
 
 /* global angular */
 
-var appControllers = angular.module('appControllers');
+var app = angular.module('angularApp');
 
-appControllers.controller('ModalTodoCtrl', 
-  function ($scope, $modalInstance, TextTransmission) {
+app.factory('ModalTodoCtrl', function () {
+  
+  var createController = function() {
 
-    console.log('I am now in ModalTodoCtrl');
-    $scope.modal = {
-      text: '',
-      type: 'green'
-    };
+    return function ($scope, $modalInstance, TextTransmission) {
 
-    TextTransmission.fetchTextForWall(function(data) {
-      if(data.data === 'ok'){
+      console.log('I am now in ModalTodoCtrl');
+      $scope.modal = {
+        text: '',
+        type: 'green'
+      };
+
+      TextTransmission.fetchTextForWall(function(data) {
+        if(data.data === 'ok') {
           $scope.ok();
-      } else if(data.data === 'cancel'){
-          $scope.cancel();
-      } else {
-        // data.data is an object
-        $scope.modal = data.data;
-      }
-    });
+        } else if (data.data === 'cancel') {
+          try {
+            $scope.cancel();
+          } catch (e) {
+            
+          }
+        } else {
+          // data.data is an object
+          $scope.modal = data.data;
+        }
+      });
 
-    console.log('We want to send: wrapper.mobile.todo');
-    // TextTransmission.code = TextTransmission.mobileId;
-    // TextTransmission.deliverText('wrapper.mobile.todo');
-    TextTransmission.deliverTextForInputDevice('wrapper.mobile.todo');
+      console.log('We want to send: wrapper.mobile.todo');
+      // TextTransmission.code = TextTransmission.mobileId;
+      // TextTransmission.deliverText('wrapper.mobile.todo');
+      TextTransmission.deliverTextForInputDevice('wrapper.mobile.todo');
 
-    $scope.ok = function () {
-      console.log("ModalTodoCtrl is in ok()");
-      $modalInstance.close();
-      TextTransmission.deliverTextForInputDevice('wrapper.mobile');
+      $scope.ok = function () {
+        console.log("ModalTodoCtrl is in ok()");
+        $modalInstance.close();
+        TextTransmission.deliverTextForInputDevice('wrapper.mobile');
 
-      // defered.resolve($scope.modal);
+        // defered.resolve($scope.modal);
 
+      };
+
+      $scope.cancel = function () {
+        console.log("ModalTodoCtrl is in cancel()");
+        console.log("ModalInstance: " , $modalInstance);
+        $modalInstance.dismiss('cancel');
+        TextTransmission.deliverTextForInputDevice('wrapper.mobile');
+
+        // defered.reject('Canceled');
+
+      };
     };
+  };
 
-    $scope.cancel = function () {
-      console.log("ModalTodoCtrl is in cancel()");
-      console.log("ModalInstance: " , $modalInstance);
-      $modalInstance.dismiss('cancel');
-      TextTransmission.deliverTextForInputDevice('wrapper.mobile');
-
-      // defered.reject('Canceled');
-
-    };
-}
-);
+  return {
+    createController: createController
+  };
+});
 

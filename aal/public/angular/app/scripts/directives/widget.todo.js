@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 console.log('APP: ', app);
-app.directive('widgetTodo', function($q, $modal) {
+app.directive('widgetTodo', function($q, $modal, ModalTodoCtrl) {
 
   return {
     templateUrl: '/views/widgets/todo/widget.todo.html',
@@ -19,7 +19,7 @@ app.directive('widgetTodo', function($q, $modal) {
       $scope.addTodo = function () {
         var WidgetModal = $modal.open({
           templateUrl: '/views/widgets/mobile/mobile.todo.html',
-          controller: 'ModalTodoCtrl'
+          controller: ModalTodoCtrl.createController()
         });
 
         WidgetModal.result.then(function(data){

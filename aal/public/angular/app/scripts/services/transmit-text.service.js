@@ -25,12 +25,10 @@ app.factory('TextTransmission', function($rootScope, Websocket) {
 		// 	Websocket.addListener(this.code,func);
 		// }
 		deliverTextForInputDevice: function(text) {
-			console.log('deliverTextForInputDevice received: ' + text + 'and sends it on' + mobileId);
 			Websocket.send('' + mobileId, text);
 		},
 
 		deliverTextForWall: function(data) {
-			console.log('deliverTextForWall received: ' + data.text + 'and sends it on ' + this.code + '1');
 			if (this.code && this.code.length === 4){
 				Websocket.send('' + this.code + '1', data);
 			}
