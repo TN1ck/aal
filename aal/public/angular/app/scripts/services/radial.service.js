@@ -5,13 +5,11 @@
 var app = angular.module('angularApp');
 
 
-app.factory('RadialService', function($rootScope) {
-
-  console.log($rootScope);
+app.factory('RadialService', function($rootScope, WidgetData) {
 
   var Menu = function(dict) {
 
-    var colors = ['#B9DC51', '#D4E995', '#73CCED', '#FF7F7F', '#FFBB33', '#FFD580'];
+    var colors = WidgetData.colors;
 
     // This data won't change
     var selector = dict.selector,
@@ -19,7 +17,7 @@ app.factory('RadialService', function($rootScope) {
         svg = d3.select(selector),
         $width = $svg.width(),
         $height = $svg.height(),
-        margins = {left: 50, right: 50, top: 50, bottom: 50},
+        margins = {left: 10, right: 10, top: 10, bottom: 10},
         data = dict.data,
         transitionTime = 1000;
 
@@ -47,11 +45,6 @@ app.factory('RadialService', function($rootScope) {
         if (i === level) {
           or.style('fill', function(d, j) {
             if (j === currentlySelected) {
-              var newData = $('widget-' + d.name).find('.widget').each(function() {
-                return {name: d.name};
-              });
-              console.log(newData);
-              d.data = newData;
               currentElem = d;
             }
             return j === currentlySelected ? 'gray' : (d.color || colors[i % colors.length]);
@@ -93,7 +86,7 @@ app.factory('RadialService', function($rootScope) {
 
     };
 
-    var currentElem;
+    var currentElem = {};
     var drawRects = function(data) {
 
       currentLength = data.length;
@@ -143,22 +136,28 @@ app.factory('RadialService', function($rootScope) {
     };
 
     this.enterMenu = function() {
+      
       level++;
-      console.log('enter', level, svg, data);
+      
       if (level === 1) {
-        drawRects(data);
-      } else {
         
-        var randData = [];
-        var rand = Math.random() * 4 + 2;
+        drawRects(data);
+      
+      } else if (level === 2) {
 
-        for (var i = 0; i < rand; i++) {
-          randData.push({name: 'test'});
-        }
+        var newData = $('widget-' + currentElem.name).find('.widget').each(function() {
+          return {name: currentElem.name};
+        });
+
+        currentElem.data = newData;
 
         drawRects(currentElem.data);
       
+      } else if (level >= 3) {
+        level--;
+        $(currentElem).click();
       }
+
     };
 
     this.exitMenu = function() {

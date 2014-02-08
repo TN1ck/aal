@@ -92,9 +92,6 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
   ];
 
   colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#70BE8A', '#19806E'];
-  // colors = ['#DDDDDD', '#DDDDDD', '#DDDDDD', '#DDDDDD', '#DDDDDD'];
-  // colors = ['#DDDDDD', '#D1E4CD', '#CADCE0', '#E4E4D4', '#E4D4D4'];
-  // colors = ['#E7E3BE', '#DBE7E5', '#79AFAA', '#E7663E', '#ECAA76'];
 
   return {
     social: social.promise,
