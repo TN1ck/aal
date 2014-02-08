@@ -1,14 +1,15 @@
 <!-- <widget-title title="'Persönliche Daten'"></widget-title> -->
 <div class="row full-height {{css}}">
 	<div class="col-md-12 row-md-1 widget {{css}}"><widget-h1>Hello, {{data.first_name}} {{data.last_name}}</widget-h1></div>
-	<div class="col-lg-6 row-md-2 widget {{css}}" style="background-image: url({{data.picture.url}});background-size: cover;"></div>
-	<div class="col-lg-6 row-md-1 widget-padding">
+	<div class="col-md-6 row-md-2 widget {{css}}" style="background-image: url({{data.picture.url}});background-size: cover;"></div>
+	<div class="col-md-6 row-md-1 widget-padding">
 		<div class="row">
-			<div class="col-lg-12 row-md-1 widget {{css}} {{css}}-1" ui-sref="wrapper.settings">
+			<div class="col-md-12 row-md-1 widget {{css}} {{css}}-1" ui-sref="wrapper.settings">
 				<widget-h1>Settings</widget-h1>
 			</div>
-			<div class="col-lg-12 row-md-1 widget {{css}} {{css}}-2" ui-sref="wrapper.mobile">
+			<div class="col-md-12 row-md-1 widget {{css}} {{css}}-2">
 				<widget-h1>Mobile</widget-h1>
+				<widget-h2 style="margin-top: 1em; float: right;">{{ $parent.mobileId }}</widget-h2>
 			</div>
 		</div>
 	</div>

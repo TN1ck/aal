@@ -5,7 +5,8 @@
 var appControllers = angular.module('appControllers', []);
 
 
-appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, Navigation) {
+appControllers.controller('MainCtrl',
+  function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, Navigation, TextTransmission) {
 
     var $style = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
 
@@ -21,7 +22,7 @@ appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils
       var widgetColorInvertedHover = '.widget-color-'+ i + ':hover { border-color: white; background-color: ' + textColor + '; color: ' + d + '; }';
       var widgetColorInverted = '.widget-color-'+ i + '-inverted { border-color: white !important; background-color: ' + textColor + ' !important; color: ' + d + ' !important; } ';
       var widgetSubColors = [0, 1, 2, 3, 4].map(function(n) {
-        var color = colorUtils.blend(d, '#ffffff', 1 - n/4);
+        var color = colorUtils.blend(d, '#ffffff', 1 - n/9);
         return '.widget-color-' + i + '-' + n + '{ background-color: ' + color + '; }';
       });
       // color-specific selection?
@@ -38,6 +39,8 @@ appControllers.controller('MainCtrl', function ($scope, $q, $timeout, colorUtils
     */
 
     $scope.colors = WidgetData.colors;
+
+    $scope.mobileId = TextTransmission.mobileId;
 
     // $rootScope is a hack
     $rootScope.widgets = WidgetData.widgets.map(function(d, i) {

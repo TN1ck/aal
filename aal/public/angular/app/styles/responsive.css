@@ -1,19 +1,19 @@
 /* 3 1080p screens in a row have 5760 */
 @media (min-width: 5000px) {
 	body {
-		font-size: 50px;
+		font-size: 30px;
 	}
 }
 
 @media (min-width: 4000px) and (max-width: 4999px) {
 	body {
-		font-size: 40px;
+		font-size: 20px;
 	}
 }
 
 @media (min-width: 3000px) and (max-width: 3999px) {
 	body {
-		font-size: 30px;
+		font-size: 20px;
 	}
 }
 

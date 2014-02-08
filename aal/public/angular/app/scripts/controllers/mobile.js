@@ -7,9 +7,6 @@ var appControllers = angular.module('appControllers');
 appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
     function ($scope, TextTransmission, $state) {
 
-      $scope.foo = '';
-      $scope.textinput = '';
-
       // $scope.$watch('mobileIdText', function(newVal, oldVal) {
       //   TextTransmission.code = newVal;
       //   // TextTransmission.mobileId = newVal;
@@ -29,12 +26,6 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
 
       //   console.log("changed code to: "+newVal);
       // });
-
-      $scope.$watch('textinput', function(newVal, oldVal) {
-        if (newVal !== oldVal) {
-          TextTransmission.deliverTextForWall(newVal);
-        }
-      });
 
       $scope.setMobileId = function() {
         //set correct channel for listening
@@ -64,6 +55,11 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
       //     console.log('got', data.data);
       //     $scope.textinput = data.data;
       //   });
+
+      $scope.$watchCollection('modal', function () {
+        console.log('model listener');
+        TextTransmission.deliverTextForWall($scope.modal);
+      });
 
       $scope.cancel = function () {
         TextTransmission.deliverTextForWall('cancel');
