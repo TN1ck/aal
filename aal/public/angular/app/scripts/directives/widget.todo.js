@@ -25,6 +25,7 @@ app.directive('widgetTodo', function() {
         WidgetModal.result.then(function(data){
           console.log('Data in TodoWidget: ', data);
           $scope.data.push({text: data.text, type: data.type});
+          console.log('Whole TodoData: ' , $scope.data);
         });
 
       };

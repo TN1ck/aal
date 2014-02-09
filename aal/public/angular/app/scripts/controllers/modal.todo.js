@@ -78,6 +78,7 @@ appControllers.controller('ModalTodoCtrl', function ($scope, $modalInstance, Tex
   $scope.ok = function () {
     console.log('ModalTodoCtrl is in ok()');
     console.log($scope.modal);
+    // our  promise is resolved and widet.todo adds it
     $modalInstance.close($scope.modal);
     TextTransmission.deliverTextForInputDevice('wrapper.mobile');
 
