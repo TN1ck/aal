@@ -9,7 +9,11 @@ public enum MessageType {
 
 	GET_SOCIAL,
 	GET_COMM,
-	GET_INFO
+	GET_INFO,
+
+	SAVE_SOCIAL,
+	SAVE_INFO,
+	SAVE_COMM
 
 
 
