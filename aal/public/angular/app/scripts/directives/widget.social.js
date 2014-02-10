@@ -4,8 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetSocial', function($q, $modal, $FB) {
-
+app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost) {
 
   return {
     templateUrl: '/views/widgets/social/widget.social.html',
@@ -24,9 +23,14 @@ app.directive('widgetSocial', function($q, $modal, $FB) {
           controller: 'ModalSocialCtrl'
         });
 
-        modalInstanceCtrl.promise.then(function(data){
-          // scope.data.reverse().push(data);
-          // scope.data.reverse();
+        WidgetModal.result.then(function(data){
+          if (data.type === 'facebook') {
+            var newPost = {message: data.message};
+            newPost = angular.extend(newPost, FacebookPost.facebookPost);
+            $FB.api('/me/feed', 'post', newPost, function(data) {
+              console.log(data);
+            });
+          }
         });
       };
 

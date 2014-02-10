@@ -4,16 +4,20 @@
 
 var appControllers = angular.module('appControllers');
 
-appControllers.controller('ModalSocialCtrl',
-  function ($scope, $modalInstance, TextTransmission, FacebookPost) {
+appControllers.controller('ModalCalendarCtrl',
+  function ($scope, $modalInstance, TextTransmission) {
 
     $scope.modal = {
-      message: '',
-      type: 'facebook'
-      // from: {
-      //   profilePicture: 'http://www3.math.tu-berlin.de/stoch/nf-stoch/TUB-logo.png'
-      // }
+      category: '',
+      text: '',
+      location: '',
+      priority: 'green',
+      startDate: new Date(),    //Type DATE?
+      endDate: new Date()      //Type DATE?
     };
+
+    $scope.startTime = new Date();
+    $scope.endTime = new Date();
 
     TextTransmission.fetchTextForWall(function(data) {
       console.log('Data in fetchTextForWall: ' ,data);
@@ -34,10 +38,8 @@ appControllers.controller('ModalSocialCtrl',
       }
     });
 
-    TextTransmission.deliverTextForInputDevice('wrapper.mobile.social');
+    TextTransmission.deliverTextForInputDevice('wrapper.mobile.calendar');
 
-
-    $scope.fbpost = FacebookPost.facebookPost;
 
     $scope.ok = function() {
       console.log('ModalSocialCtrl is in ok()');
