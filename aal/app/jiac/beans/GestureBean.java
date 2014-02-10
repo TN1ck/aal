@@ -34,6 +34,8 @@ public class GestureBean extends AbstractAgentBean {
 	@SuppressWarnings("serial")
 	private class MessageObserver implements SpaceObserver<IFact> {
 
+		Robot r = null;
+
 		@Override
 		public void notify(SpaceEvent<? extends IFact> event) {
 			if(event instanceof WriteCallEvent<?>){
@@ -49,18 +51,14 @@ public class GestureBean extends AbstractAgentBean {
 					log.info("GestureAgent - received Gesture: " + gesture);
 					
 
-					Robot r = null;
-					try {
-						r = new Robot();
-					} catch (AWTException e) {
-						log.info("GestureAgent - ERROR: Can not create Robot for Key Input");
-						e.printStackTrace();
-					}
+					
 
 					switch(gesture) {
 						case "MENU": 
-							r.keyPress(KeyEvent.VK_2);
-							r.keyRelease(KeyEvent.VK_2);
+							pressKey(KeyEvent.VK_2);
+							break;
+						case "ESCAPE": 
+							pressKey(KeyEvent.VK_ESCAPE);
 							break;
 						default:
 							log.info("GestureAgent - received unknown Gesture: ");
@@ -69,12 +67,19 @@ public class GestureBean extends AbstractAgentBean {
 
 
 				}
-				
-//				JiacMessage sendMessage = new JiacMessage();
-//				
-//				invoke(sendAction, new Serializable[]{sendMessage, message.getSender()});
 			}
-			
 		}
+		private void pressKey(int key) {
+			try {
+				r = new Robot();
+			} catch (AWTException e) {
+				log.info("GestureAgent - ERROR: Can not create Robot for Key Input");
+				e.printStackTrace();
+			}
+			r.keyPress(key);
+			r.keyRelease(key);
+		}		
+			
+		
 	}
 }

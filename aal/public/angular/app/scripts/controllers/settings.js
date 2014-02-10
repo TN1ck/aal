@@ -49,7 +49,7 @@ appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission'
 
       $scope.mobileId = TextTransmission.mobileId;
 
-      $scope.buttons = [{disabled: false}, {disabled: false}, {disabled: false}];
+      $scope.buttons = [{disabled: false}, {disabled: false}, {disabled: false},{disabled: false}];
 
       $scope.createTestData = function() {
 
@@ -71,6 +71,13 @@ appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission'
         $scope.buttons[2].disabled = true;
         $http.get('/startjiac').then(function() {
             $scope.buttons[2].disabled = false;
+          });
+      };
+      $scope.exitJiac = function() {
+
+        $scope.buttons[3].disabled = true;
+        $http.get('/stopjiac').then(function() {
+            $scope.buttons[3].disabled = false;
           });
       };
     }

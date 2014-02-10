@@ -237,9 +237,15 @@ public class Application extends Controller {
 
     @Transactional
     public static Result startJiac() {
-        Logger.info("Starting JIAC");
+        Logger.info("Start JIAC");
         BeanStarter.start();
-        Logger.info("JIAC started");
         return ok("started jiac");
+    }
+
+    @Transactional
+    public static Result stopJiac() {
+        Logger.info("Stop JIAC");
+        BeanStarter.stop();
+        return ok("stopped jiac");
     }
 }

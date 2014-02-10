@@ -9,6 +9,7 @@ GET     /websocket                  	controllers.Application.websocket()
 GET	/populateDatabase		controllers.Application.createDemoData()
 DELETE  /populateDatabase		controllers.Application.deleteAllData()
 GET	/startjiac		controllers.Application.startJiac()
+GET	/stopjiac		controllers.Application.stopJiac()
 
 # Routes for RESTful API		
 GET	/todoitems			controllers.Application.getAllTodoItems()
