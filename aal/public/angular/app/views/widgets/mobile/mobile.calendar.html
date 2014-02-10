@@ -10,13 +10,14 @@
     <div class="col-xs-12 modal-col">
         <h4>Startdate</h4>
         <div class="well well-sm col-xs-12 row">
-            <div class="" ng-model="$parent.startTime">
+            <div class="" ng-model="$parent.modal.startTime">
                 <center>
                     <timepicker show-meridian="false"></timepicker>
                 </center>
             </div>
-            <div class="" ng-model="$parent.modal.startDate">
+             <div class="" ng-model="$parent.modal.startDate">
                 <center>
+                    <!-- <input type="text" class="form-control" datepicker-popup="dd MMMM yyyy" ng-model="$parent.modal.startDate" is-open="opened" show-weeks="false" show-button-bar="false" ng-required="true"></input> -->
                     <datepicker show-weeks="false" starting-day="1"></datepicker>
                 </center>
             </div>
@@ -25,16 +26,17 @@
     <div class="col-xs-12 modal-col">
         <h4>Enddate</h4>
         <div class="well well-sm col-xs-12 row">
-            <div class="" ng-model="$parent.endTime">
+            <div class="" ng-model="$parent.modal.endTime">
                 <center>
                     <timepicker show-meridian="false"></timepicker><br>
-                    EndTime: {{$parent.endTime}}<br>
+                    EndTime: {{$parent.modal.endTime}}<br>
                     EndDate: {{$parent.modal.endDate}}<br>
                 </center>
             </div>
             <div class="" ng-model="$parent.modal.endDate">
                 <center>
-                    <datepicker show-weeks="false" starting-day="1"></datepicker>
+                    <!-- <input type="text" class="form-control" datepicker-popup="dd MMMM yyyy" ng-model="$parent.modal.startDate" is-open="opened" show-weeks="false" show-button-bar="false" ng-required="true"></input> -->
+                   <datepicker show-weeks="false" starting-day="1"></datepicker>
                 </center>
             </div>   
         </div>

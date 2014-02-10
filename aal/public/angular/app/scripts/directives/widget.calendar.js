@@ -44,12 +44,12 @@ app.directive('widgetCalendar', function($timeout,$modal) {
       
       // update time every second
       var setTime = function() {
-        scope.time = moment().format('D.M H:mm');
+        $scope.time = moment().format('D.M H:mm');
         $timeout(setTime, 1000);
       };
 
       setTime();
-      scope.moment = moment;
+      $scope.moment = moment;
     }
   };
 });
