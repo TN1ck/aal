@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/AgentNode.xml" />
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/Agent.xml" />
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/JMSMessaging.xml" />
+
+	<bean name="ApplicationNode" parent="NodeWithJMX">
+		<property name="agents">
+			<list>
+				<ref bean="GestureAgent" />
+				<ref bean="GestureTestAgent" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="GestureAgent" parent="SimpleAgent" singleton="false">
+		<property name="agentBeans">
+			<list>
+				<ref bean="GestureBean" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="GestureTestAgent" parent="SimpleAgent" singleton="false">
+		<property name="agentBeans">
+			<list>
+				<ref bean="GestureTestBean" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="GestureBean" class="jiac.beans.GestureBean" singleton="false">
+		<property name="executeInterval" value="10000" />
+		<property name="logLevel" value="INFO" />
+	</bean>
+
+	<bean name="GestureTestBean" class="jiac.beans.GestureTestBean" singleton="false">
+		<property name="executeInterval" value="1000" />
+		<property name="logLevel" value="INFO" />
+	</bean>
+
+</beans>

@@ -36,7 +36,7 @@ import scala.concurrent.duration.FiniteDuration;
 import util.MiscUtils;
 import util.WsPush;
 
-import jiac.pingpong.PingPongStarter;
+import jiac.beans.BeanStarter;
 
 public class Application extends Controller {
      
@@ -238,7 +238,7 @@ public class Application extends Controller {
     @Transactional
     public static Result startJiac() {
         Logger.info("Starting JIAC");
-        PingPongStarter.start();
+        BeanStarter.start();
         Logger.info("JIAC started");
         return ok("started jiac");
     }
