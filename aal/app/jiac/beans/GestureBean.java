@@ -60,8 +60,20 @@ public class GestureBean extends AbstractAgentBean {
 						case "ESCAPE": 
 							pressKey(KeyEvent.VK_ESCAPE);
 							break;
+						case "TAB_Right": 
+							pressKey(KeyEvent.VK_RIGHT);
+							break;
+						case "TAB_LEFT":
+							pressKey(KeyEvent.VK_LEFT);
+							break;
+						case "TAB_DOWN":
+							pressKey(KeyEvent.VK_DOWN);
+							break;
+						case "ENTER":
+							pressKey(KeyEvent.VK_ENTER);
+							break;
 						default:
-							log.info("GestureAgent - received unknown Gesture: ");
+							log.info("GestureAgent - received unknown Gesture");
 
 					}
 

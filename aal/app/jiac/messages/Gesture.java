@@ -6,6 +6,7 @@ import jiac.Message;
 import jiac.MessageType;
 
 public class Gesture implements IFact{
+	private static final long serialVersionUID = 1L;
 
     String gesture;
 
