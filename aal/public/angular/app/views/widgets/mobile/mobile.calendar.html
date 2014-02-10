@@ -1,17 +1,5 @@
 <div class="row separation-border">
     <div class="col-xs-12 modal-col">
-        <h4>Category</h4>
-        <input type="text" class="form-control" placeholder="Category" ng-model="$parent.modal.category">
-    </div>
-    <div class="col-xs-12 modal-col">
-        <h4>Text</h4>
-        <textarea ng-model="$parent.modal.text" class="form-control modal-textarea"></textarea>
-    </div>
-    <div class="col-xs-12 modal-col">
-        <h4>Location</h4>
-        <input type="text" class="form-control" placeholder="Location" ng-model="$parent.modal.location">
-    </div>
-    <div class="col-xs-12 modal-col">
         <h4>Priority</h4>
         <div class="btn-group full-width">
             <button type="button" class="btn third-width btn-success" ng-model="$parent.modal.type" btn-radio="'green'">Low</button>
@@ -50,6 +38,18 @@
                 </center>
             </div>   
         </div>
+    </div>
+    <div class="col-xs-12 modal-col">
+        <h4>Category</h4>
+        <input type="text" class="form-control" placeholder="Category" ng-model="$parent.modal.category">
+    </div>
+        <div class="col-xs-12 modal-col">
+        <h4>Location</h4>
+        <input type="text" class="form-control" placeholder="Location" ng-model="$parent.modal.location">
+    </div>
+    <div class="col-xs-12 modal-col">
+        <h4>Text</h4>
+        <textarea ng-model="$parent.modal.text" class="form-control modal-textarea"></textarea>
     </div>
 </div>
 <div class="modal-footer">

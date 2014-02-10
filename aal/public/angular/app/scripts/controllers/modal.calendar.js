@@ -13,14 +13,17 @@ appControllers.controller('ModalCalendarCtrl',
       location: '',
       priority: 'green',
       startDate: new Date(),    //Type DATE?
-      endDate: new Date()      //Type DATE?
+      endDate: new Date(),      //Type DATE?
+
+      startTime: new Date(),
+      endTime: new Date(),
     };
 
-    $scope.startTime = new Date();
-    $scope.endTime = new Date();
+    // $scope.startTime = new Date();
+    // $scope.endTime = new Date();
 
     TextTransmission.fetchTextForWall(function(data) {
-      console.log('Data in fetchTextForWall: ' ,data);
+      console.log('Data in fetchTextForWall: ', data);
       if(data.data === 'ok'){
         try {
           $scope.ok();
