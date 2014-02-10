@@ -81,7 +81,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
       if (orn && otn) {
 
-        currentLength = oldRects['.rects-' + level][0].length;
+        currentLength = oldRects['.rects-' + level] ? oldRects['.rects-' + level][0].length : 0;
 
         orn.transition()
         .duration(transitionTime)
