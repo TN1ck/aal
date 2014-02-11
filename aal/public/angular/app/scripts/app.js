@@ -6,7 +6,6 @@ var angularApp = angular.module('angularApp', [
     'ngRoute',
     'ngAnimate',
     'ui.bootstrap',
-    '$strap.directives',
     'appControllers',
     'ngResource',
     'google-maps',

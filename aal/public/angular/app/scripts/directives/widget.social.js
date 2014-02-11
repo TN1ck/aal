@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetSocial', function($q, $FB, FacebookPost) {
+app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost) {
 
   return {
     templateUrl: '/views/widgets/social/widget.social.html',
@@ -14,9 +14,9 @@ app.directive('widgetSocial', function($q, $FB, FacebookPost) {
       color: '=',
       css: '='
     },
-    link: function($scope, $modal) {
+    link: function(scope) {
 
-      $scope.new = function() {
+      scope.new = function() {
 
         var WidgetModal = $modal.open({
           templateUrl: '/views/widgets/mobile/mobile.social.html',
@@ -34,7 +34,7 @@ app.directive('widgetSocial', function($q, $FB, FacebookPost) {
         });
       };
 
-      $scope.hangout = function() {
+      scope.hangout = function() {
         gapi.hangout.render('placeholder-div', { 'render': 'createhangout' });
       };
     }
