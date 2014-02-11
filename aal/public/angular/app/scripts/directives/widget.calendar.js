@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetCalendar', function($timeout,$modal) {
+app.directive('widgetCalendar', function($timeout,$modal,RadialService) {
 
   return {
     templateUrl: '/views/widgets/calendar/widget.calendar.html',
@@ -41,10 +41,18 @@ app.directive('widgetCalendar', function($timeout,$modal) {
       };
 
       var testelement = $('#topentry');
-      $scope.showCalendarEntry = function($event,data) {
-        var el1 = angular.element($event.srcElement);
-        var el = $event.target;
-        console.log('El: ', el, 'Evnt: ', $event, 'El1: ', el1);
+      $scope.showCalendarEntry = function(evnt,elem,data) {
+        // $('#topentry').popover({title: 'LOOK', content: 'HELLO'});
+        // $('#topentry').popover('show');
+        var el1 = angular.element(evnt.srcElement);
+        var el = evnt.target;
+        console.log($('#topentry'));
+        console.log(angular.element(elem));
+        console.log($(elem));
+        // angular.element(elem).popover({title: 'LOOK', content: 'HELLO'});
+        // angular.element(elem).popover('show');
+        console.log(evnt.currentTarget);
+        console.log('El: ', el, 'Evnt: ', evnt, 'El1: ', el1);
         el1.popover({
           placement : 'right',
           title : '<div style="text-align:center; color:red; text-decoration:underline; font-size:14px;"> Muah ha ha</div>', //this is the top title bar of the popover. add some basic css
@@ -53,6 +61,7 @@ app.directive('widgetCalendar', function($timeout,$modal) {
         });
         console.log('El: ', el1);
         el1.addClass('red');
+        testelement.addClass('red');
         el1.popover('show');
         console.log('showCalendarEntry: ' , el, testelement, data);
       };
