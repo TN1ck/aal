@@ -40,6 +40,23 @@ app.directive('widgetCalendar', function($timeout,$modal) {
         });
       };
 
+      var testelement = $('#topentry');
+      $scope.showCalendarEntry = function($event,data) {
+        var el1 = angular.element($event.srcElement);
+        var el = $event.target;
+        console.log('El: ', el, 'Evnt: ', $event, 'El1: ', el1);
+        el1.popover({
+          placement : 'right',
+          title : '<div style="text-align:center; color:red; text-decoration:underline; font-size:14px;"> Muah ha ha</div>', //this is the top title bar of the popover. add some basic css
+          html: 'true', //needed to show html of course
+          content : 'CONTENT'
+        });
+        console.log('El: ', el1);
+        el1.addClass('red');
+        el1.popover('show');
+        console.log('showCalendarEntry: ' , el, testelement, data);
+      };
+
       moment.lang('de');
       
       // update time every second

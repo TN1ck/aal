@@ -1,4 +1,4 @@
-<div class="col-md-12 row-md-2 widget calendar-big {{css}}">
+<div id="topentry" class="col-md-12 row-md-2 widget calendar-big {{css}}" ng-click="$parent.showCalendarEntry($event,data)">
 <widget-h2>Nächster Termin beginnt {{$parent.moment(data.startDate).fromNow()}}</widget-h2>
 <br/>
 <b>{{data.text}}</b>
