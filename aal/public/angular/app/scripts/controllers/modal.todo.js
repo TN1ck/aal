@@ -80,7 +80,7 @@ appControllers.controller('ModalTodoCtrl', function ($scope, $modalInstance, Tex
     console.log($scope.modal);
     // our  promise is resolved and widet.todo adds it
     $modalInstance.close($scope.modal);
-    TextTransmission.deliverTextForInputDevice('wrapper.mobile');
+    TextTransmission.deliverTextForInputDevice('wrapper.mobile.navigation');
 
     // defered.resolve($scope.modal);
 
@@ -90,7 +90,7 @@ appControllers.controller('ModalTodoCtrl', function ($scope, $modalInstance, Tex
     console.log('ModalTodoCtrl is in cancel()');
     console.log('ModalInstance: ' , $modalInstance);
     $modalInstance.dismiss('cancel');
-    TextTransmission.deliverTextForInputDevice('wrapper.mobile');
+    TextTransmission.deliverTextForInputDevice('wrapper.mobile.navigation');
 
     // defered.reject('Canceled');
 

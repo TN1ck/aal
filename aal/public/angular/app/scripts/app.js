@@ -52,9 +52,12 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         controller: 'SettingsCtrl'
       })
       .state('wrapper.mobile', {
-        url: '/mobile',
         templateUrl: 'views/mobile.html',
         controller: 'MobileCtrl'
+      })
+      .state('wrapper.mobile.navigation', {
+        url: '/mobile',
+        templateUrl: 'views/widgets/mobile/mobile.navigation.html'
       })
       .state('wrapper.mobile.todo', {
         templateUrl: 'views/widgets/mobile/mobile.todo.html'

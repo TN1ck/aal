@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetTodo', function() {
+app.directive('widgetTodo', function(TextTransmission) {
 
   return {
     templateUrl: '/views/widgets/todo/widget.todo.html',
@@ -15,6 +15,17 @@ app.directive('widgetTodo', function() {
       css: '='
     },
     controller: function($scope, $modal) {
+
+      TextTransmission.fetchTextForWall(function(data) {
+      console.log('Data in fetchTextForWall: ', data);
+      if(data.data === 'addTodo'){
+        try {
+          $scope.addTodo();
+        } catch (e) {
+
+        }
+      }
+    });
 
       $scope.addTodo = function () {
         var WidgetModal = $modal.open({

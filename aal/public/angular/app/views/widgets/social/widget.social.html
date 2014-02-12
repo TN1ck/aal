@@ -1,5 +1,5 @@
 <div class="row full-height {{css}}">
-  <div class="col-md-6 row-md-1 widget {{css}}"><widget-h1><div ng-click="new()">Social</div></widget-h1></div>
+  <div class="col-md-6 row-md-1 widget {{css}}"><widget-h1><div ng-click="addSocialPost()">Social</div></widget-h1></div>
   <widget-social-small data="data.goodPosts[2]" color="color" css="css"></widget-social-small>
   <widget-social-picture ng-repeat="i in [0,1]" data="data.picturePosts[i]" color="color" css="css"></widget-social-picture>
   <widget-social-small ng-repeat="post in data.goodPosts" data="post" color="color" css="css"></widget-social-small>

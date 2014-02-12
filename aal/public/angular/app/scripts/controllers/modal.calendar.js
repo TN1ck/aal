@@ -49,15 +49,19 @@ appControllers.controller('ModalCalendarCtrl',
       console.log($scope.modal);
       // our  promise is resolved and widet.todo adds it
       $modalInstance.close($scope.modal);
-      TextTransmission.deliverTextForInputDevice('wrapper.mobile');
+      TextTransmission.deliverTextForInputDevice('wrapper.mobile.navigation');
     };
 
     $scope.cancel = function () {
       console.log('ModalSocialCtrl is in cancel().');
       console.log('ModalInstance: ' , $modalInstance);
       $modalInstance.dismiss('cancel');
-      TextTransmission.deliverTextForInputDevice('wrapper.mobile');
+      TextTransmission.deliverTextForInputDevice('wrapper.mobile.navigation');
       // defered.reject('Canceled');
+
+    $scope.addCalendarEntry = function() {
+      widgetCalendar.addCalendarEntry();
+    }
 
     };
   }

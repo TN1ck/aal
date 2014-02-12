@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost) {
+app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransmission) {
 
   return {
     templateUrl: '/views/widgets/social/widget.social.html',
@@ -14,9 +14,20 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost) {
       color: '=',
       css: '='
     },
-    link: function(scope) {
+    link: function($scope) {
 
-      scope.new = function() {
+      TextTransmission.fetchTextForWall(function(data) {
+      console.log('Data in fetchTextForWall: ', data);
+      if(data.data === 'addSocialPost'){
+        try {
+          $scope.addSocialPost();
+        } catch (e) {
+
+        }
+      }
+    });
+
+      $scope.addSocialPost = function() {
 
         var WidgetModal = $modal.open({
           templateUrl: '/views/widgets/mobile/mobile.social.html',
@@ -34,7 +45,7 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost) {
         });
       };
 
-      scope.hangout = function() {
+      $scope.hangout = function() {
         gapi.hangout.render('placeholder-div', { 'render': 'createhangout' });
       };
     }

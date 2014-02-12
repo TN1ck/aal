@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetCalendar', function($timeout,$modal) {
+app.directive('widgetCalendar', function($timeout,$modal, TextTransmission) {
 
   return {
     templateUrl: '/views/widgets/calendar/widget.calendar.html',
@@ -17,7 +17,18 @@ app.directive('widgetCalendar', function($timeout,$modal) {
     link: function($scope) {
       console.log('Whole widgetCalendarData: ', $scope.data);
 
-      $scope.new = function() {
+      TextTransmission.fetchTextForWall(function(data) {
+      console.log('Data in fetchTextForWall: ', data);
+      if(data.data === 'addCalendarEntry'){
+        try {
+          $scope.addCalendarEntry();
+        } catch (e) {
+
+        }
+      }
+    });
+
+      $scope.addCalendarEntry = function() {
 
         var WidgetModal = $modal.open({
           templateUrl: '/views/widgets/mobile/mobile.calendar.html',

@@ -2,13 +2,13 @@
  -->    
 <div class="col-xs-12 content">
     <div class="row">
-    <div class="col-xs-6">
-        <input type="text" name="mobileIdInput" placeholder="Mobile code" ng-model="mobileIdText" class="form-control" style="  margin-bottom: 10px"></input>
+        <div class="col-xs-6">
+            <input type="text" name="mobileIdInput" placeholder="Mobile code" ng-model="mobileIdText" class="form-control" style="  margin-bottom: 10px"></input>
+        </div>
+        <div class="col-xs-6">
+            <button class="btn btn-primary full-width" ng-click="setMobileId()" name="mobileIdButton">Confirm</button>
+        </div>
     </div>
-    <div class="col-xs-6">
-        <button class="btn btn-primary full-width" ng-click="setMobileId()" name="mobileIdButton">Confirm</button>
-    </div>
-</div>
     <!--     <div class="col-xs-12">
             <textarea  ng-model="textinput" placeholder="Enter Text here after you entered the mobile code above" name="transmitText" class="form-control" style="margin-bottom: 10px"></textarea>
         </div>

@@ -44,8 +44,8 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
             $state.transitionTo('wrapper.mobile.social');
           } else if(data.data === 'wrapper.mobile.calendar'){
             $state.transitionTo('wrapper.mobile.calendar');
-          } else if(data.data === 'wrapper.mobile'){
-            $state.transitionTo('wrapper.mobile');
+          } else if(data.data === 'wrapper.mobile.navigation'){
+            $state.transitionTo('wrapper.mobile.navigation');
           }
           else {
             console.log('unknown state received. we received:' + data.data);
@@ -65,17 +65,24 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
 
       $scope.cancel = function () {
         TextTransmission.deliverTextForWall('cancel');
-        
-        // defered.reject('Canceled');
-
       };
+
       $scope.ok = function () {
         TextTransmission.deliverTextForWall('ok');
       };
       
 
+      $scope.addTodo = function () {
+        TextTransmission.deliverTextForWall('addTodo');
+      };
+
+      $scope.addCalendarEntry = function () {
+        TextTransmission.deliverTextForWall('addCalendarEntry');
+      };
       
-      
+      $scope.addSocialPost = function () {
+        TextTransmission.deliverTextForWall('addSocialPost');
+      };
 
     }
 ]);
