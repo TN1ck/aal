@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetCalendar', function($timeout,$modal,RadialService) {
+app.directive('widgetCalendar', function($timeout,$modal) {
 
   return {
     templateUrl: '/views/widgets/calendar/widget.calendar.html',
@@ -39,18 +39,28 @@ app.directive('widgetCalendar', function($timeout,$modal,RadialService) {
 
         });
       };
-
+      var popoverToggle = true;
       $scope.showCalendarEntry = function(evnt, data) {
-
-        var $target = $(evnt.target);
-
-        $target.popover({
-          placement : 'right',
-          title : '<div style="text-align:center; color:red; text-decoration:underline; font-size:14px;"> Muah ha ha</div>', //this is the top title bar of the popover. add some basic css
-          html: 'true', // needed to show html of course
-          content : 'CONTENT'
-        });
-
+        var $target = $(evnt.currentTarget);
+        console.log(popoverToggle);
+        //console.log($target.popover);
+        if (popoverToggle){
+          console.log('I am in IF!');
+          var content = '<div class="col-md-12 row" style="font-size: 1.5em; margin-bottom: 0.5em"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Priority:</div><div class="col-md-9">' + data.priority + '</div><div class="col-md-3">Category:</div><div class="col-md-9">' + data.category + '</div></div>';
+          $target.popover({
+            placement : 'bottom',
+            title : data.text, //this is the top title bar of the popover. add some basic css
+            html: 'true', // needed to show html of course
+            content : content
+          });
+          $target.popover('show');
+          popoverToggle = !popoverToggle;
+        } else {
+          console.log('I  am in ELSE!');
+          // $target.popover('toggle');
+          evnt.stopPropagation();
+          //popoverToggle = !popoverToggle;
+        }
       };
 
       moment.lang('de');
