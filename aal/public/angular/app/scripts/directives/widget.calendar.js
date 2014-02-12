@@ -43,30 +43,33 @@ app.directive('widgetCalendar', function($timeout,$modal) {
 
       
       $scope.lastShownCalEntry = null;
+      var $lastPopover = null;
       //maybe not necessary
       $scope.hidePopover = function(el) {
         el.popover('hide');
       };
 
       //Popover shall disappear if the element looses "focus"
-      $scope.$watch($scope.lastShownCalEntry,
-        function(lastShownCalEntry) {
-          if(!lastShownCalEntry.hasClass('border')){
-            lastShownCalEntry.popover('hide');
+      $scope.$watchCollection('$scope.lastShownCalEntry',
+        function(newVal,oldVal) {
+          console.log('Im in the correct watch  method.');
+          if(!(newVal.hasClass('border'))){
+            console.log('IT has NOT the class border');
+            newVal.popover('hide');
           }
         }
       );
 
       $scope.showCalendarEntry = function(evnt, data) {
         var $target = $(evnt.currentTarget);
-        console.log('lastShownCalEntry: ' , $scope.lastShownCalEntry, 'currentTarget: ' , $target, '!==', $scope.lastShownCalEntry !== $target);
-        if ($target !== $scope.lastShownCalEntry && $scope.lastShownCalEntry !== null) {
+        console.log('lastShownCalEntry: ' , $scope.lastShownCalEntry, 'currentTarget: ' , $target, '!=', angular.element($scope.lastShownCalEntry) != angular.element($target), $lastPopover != $target);
+        if ($target != $scope.lastShownCalEntry && $scope.lastShownCalEntry != null) {
           console.log('I am in if case and have to hide the popover of: ', $scope.lastShownCalEntry);
           $scope.lastShownCalEntry.popover('hide');
         }
-        var content = '<div class="col-md-12 row" style="font-size: 1.5em; margin-bottom: 0.5em"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Priority:</div><div class="col-md-9">' + data.priority + '</div><div class="col-md-3">Category:</div><div class="col-md-9">' + data.category + '</div></div>';
+        var content = '<div class="col-md-12 row" style="font-size: 1.5em; margin-bottom: 0.5em"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Priority:</div><div class="col-md-9">' + data.priority + '</div><div class="col-md-3">Category:</div><div class="col-md-9">' + data.category + '</div><div class="col-md-3">Start:</div><div class="col-md-9">' + moment(data.startDate).format('D.M H:mm') + '</div><div class="col-md-3">End:</div><div class="col-md-9">' + moment(data.endDate).format('D.M H:mm') + '</div></div>';
         var placement = function (el) {
-          if (el.position().top < 110){
+          if (el.position().top < 140){
             return 'bottom';
           } else {
             return 'top';
@@ -81,6 +84,7 @@ app.directive('widgetCalendar', function($timeout,$modal) {
         });
         $target.popover('toggle');
         $scope.lastShownCalEntry = $target;
+        $lastPopover = $target;
         // popoverToggle = !popoverToggle;
         // } else {
         //   console.log('I  am in ELSE!');
