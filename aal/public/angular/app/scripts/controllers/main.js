@@ -6,7 +6,7 @@ var appControllers = angular.module('appControllers', []);
 
 
 appControllers.controller('MainCtrl',
-  function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, Navigation, TextTransmission, cssService) {
+  function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService) {
 
     $scope.colors = WidgetData.colors;
     $scope.css = cssService.createCss($scope.colors);
@@ -27,6 +27,8 @@ appControllers.controller('MainCtrl',
         color: $scope.colors[i]
       };
     });
+
+    var Menu = new RadialService.Menu({selector: '#right'});
 
 
   });

@@ -7,7 +7,18 @@ var app = angular.module('angularApp');
 
 app.factory('RadialService', function($rootScope, WidgetData) {
 
+  var KEYMAPPING = {
+    'LEFT': 37,
+    'RIGHT': 39,
+    'UP': 38,
+    'DOWN': 40,
+    'TOGGLE': 50,
+    'SELECT': 13
+  };
+
   var Menu = function(dict) {
+
+    var data = {};
 
     var colors = WidgetData.colors;
 
@@ -18,7 +29,6 @@ app.factory('RadialService', function($rootScope, WidgetData) {
         $width = $svg.width(),
         $height = $svg.height(),
         margins = {left: 10, right: 10, top: 10, bottom: 10},
-        data = $rootScope.widgets,
         transitionTime = 1000;
 
     svg = svg.append('g');
@@ -151,13 +161,16 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     };
 
-    this.enterMenu = function() {
-      
-      level++;
-      
+    var selectData = function() {
+
       if (level === 1) {
         
-        drawRects(data);
+        var $widgets = $('widget');
+
+        data = $rootScope.widgets.map(function(d, i) {
+          d.jquery = $widgets[i];
+          return d;
+        });
       
       } else if (level === 2) {
 
@@ -169,58 +182,113 @@ app.factory('RadialService', function($rootScope, WidgetData) {
           };
         });
 
-        console.log(newData);
-
-        currentElem.data = newData;
-
-        drawRects(currentElem.data);
+        data = newData;
       
-      } else if (level >= 3) {
-        level--;
-        $(currentElem.jquery).click();
+      }
+
+      return data;
+
+    };
+
+    var enterMenu = function() {
+      
+      if (level === 0 || level === 1) {
+        level++;
+        drawRects(selectData());
       }
 
     };
 
-    this.exitMenu = function() {
+    var exitMenu = function() {
+      
       level--;
       updateRects(level);
+      selectData();
+
     };
 
-    this.moveMenuLeft = function() {
+    var moveMenuLeft = function() {
       currentlySelected = currentlySelected === 0 ? (currentLength - 1) : (currentlySelected - 1) % currentLength;
       updateRects(level);
+      if (level === 1 || level === 2) {
+        markElem();
+      }
     };
 
-    this.moveMenuRight = function() {
+    var moveMenuRight = function() {
       currentlySelected = (currentlySelected + 1) % currentLength;
       updateRects(level);
+      if (level === 1 || level === 2) {
+        markElem();
+      }
     };
 
-    this.updateRects = updateRects;
+    var selectElement = function() {
+      
+      if (level === 1) {
+        toggleScreens();
+        updateRects(1, selectData());
+      } else if (level >= 2) {
+        $(currentElem.jquery).click();
+      }
+    };
+
+    var toggleScreens = function () {
+
+      var widgetBig = $rootScope.widgets[2];
+      $rootScope.widgets[2] = $rootScope.widgets[currentlySelected];
+      $rootScope.widgets[currentlySelected] = widgetBig;
+      $rootScope.$apply();
+
+    };
+
+    var markElem = function() {
+      
+      var inverted = $(currentElem.jquery).attr('class').match(/widget-color-\d/);
+      inverted = inverted ? inverted[0] + '-inverted' : '';
+      $('.border').removeClass('border').removeClass(inverted);
+      $(currentElem.jquery)
+        .addClass(inverted)
+        .addClass('border');
+    };
     
-    // d3.select('body')
-    //   .on('keydown', function() {
-      
-    //   switch (d3.event.keyCode) {
-      
-    //   case 13:
-    //     this.enterMenu();
-    //     break;
-    //   case 37:
-    //     this.moveMenuLeft();
-    //     break;
-    //   case 39:
-    //     this.moveMenuRight();
-    //     break;
-    //   case 27:
-    //     this.exitMenu();
-    //     break;
-      
 
-    //   }
+    d3.select('body')
+      .on('keydown', function() {
+      
+      switch (d3.event.keyCode) {
+      
+      case KEYMAPPING.TOGGLE:
+        console.log('TOGGLE key pressed');
+        if (level === 0) {
+          enterMenu();
+        }
+        break;
+      case KEYMAPPING.LEFT:
+        console.log('LEFT key pressed');
+        moveMenuLeft();
+        break;
+      case KEYMAPPING.RIGHT:
+        console.log('RIGHT key pressed');
+        moveMenuRight();
+        break;
+      case KEYMAPPING.UP:
+        console.log('UP key pressed');
+        exitMenu();
+        break;
+      case KEYMAPPING.SELECT:
+        console.log('SELECT key pressed');
+        selectElement();
+        break;
 
-    // });
+      case KEYMAPPING.DOWN:
+        console.log('DOWN key pressed');
+        enterMenu();
+        break;
+
+      }
+
+    });
 
   };
 
