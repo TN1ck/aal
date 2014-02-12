@@ -1,0 +1,19 @@
+.auth.header {
+	font-weight: 300;
+	font-size: 4em;
+}
+
+.auth.main-picture {
+	height: 30em;
+	width: 30em;
+	margin: 5em auto;
+	border-radius: 30em;
+	background-size: cover;
+}
+
+.auth.auth-main {
+}
+
+.auth.explain {
+	font-size: 2em;
+}

@@ -16,6 +16,7 @@ appControllers.controller('MainCtrl',
     */
     // next line is important for displaying mobile id in personal widget
     $scope.mobileId = TextTransmission.mobileId;
+    $rootScope.mobileId = TextTransmission.mobileId;
     $rootScope.widgets = WidgetData.widgets.map(function(d, i) {
       WidgetData[d.name].then(function(data) {
         $scope[d.name] = data;

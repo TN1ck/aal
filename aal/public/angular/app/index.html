@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="styles/sidebar.css">
         <link rel="stylesheet" href="styles/modal.css">
         <link rel="stylesheet" href="styles/radial.css">
+        <link rel="stylesheet" href="styles/auth.css">
         <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
         <!-- endbuild -->
 </head>
@@ -59,6 +60,11 @@
     <!-- Facebook -->
     <script src="bower_components/angular-easyfb/angular-easyfb.js"></script>
 
+    <!-- camera -->
+    <script src="scripts/directives/webcam.js"></script>
+
+
+
     <!-- ui.bootstrap -->
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/d3/d3.js"></script>
@@ -89,16 +95,17 @@
         <script src="scripts/controllers/modal.todo.js"></script>
         <script src="scripts/controllers/modal.social.js"></script>
         <script src="scripts/controllers/modal.calendar.js"></script>
+        <script src="scripts/controllers/auth.js"></script>
         <!-- Script to enable hangout button -->
         <script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
         <script src="scripts/services/color-utils.service.js"></script>
         <script src="scripts/services/widget-data.service.js"></script>
-        <script src="scripts/services/navigation.service.js"></script>
         <script src="scripts/services/websocket.service.js"></script>
         <script src="scripts/services/css.service.js"></script>
         <script src="scripts/services/transmit-text.service.js"></script>
         <script src="scripts/services/facebook-post.service.js"></script>
         <script src="scripts/services/radial.service.js"></script>
+        <script src="scripts/services/user.service.js"></script>
         <script src="scripts/directives/widget.js"></script>
         <script src="scripts/directives/widget.personal.js"></script>
         <script src="scripts/directives/widget.calendar.js"></script>

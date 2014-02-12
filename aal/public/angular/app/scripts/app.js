@@ -10,7 +10,8 @@ var angularApp = angular.module('angularApp', [
     'ngResource',
     'google-maps',
     'ui.router',
-    'ezfb'
+    'ezfb',
+    'webcam'
   ]);
 
 angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
@@ -22,7 +23,7 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
     OAuth.initialize('IQqjfz7Hzomr2m_iZBaIlnAiTBI');
 
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/auth/welcome');
 
     $stateProvider
       .state('wrapper', {
@@ -73,5 +74,27 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         url: '/idle',
         templateUrl: 'views/idle.html',
         controller: 'MainCtrl'
+      })
+      .state('wrapper.auth', {
+        url: '/auth',
+        template: '<div ui-view></div>',
+        abstract: true,
+        controller: 'AuthCtrl'
+      })
+      .state('wrapper.auth.welcome', {
+        url: '/welcome',
+        templateUrl: 'views/auth/welcome.html'
+      })
+      .state('wrapper.auth.unkown', {
+        url: '/unkown',
+        templateUrl: 'views/auth/unkown.html'
+      })
+      .state('wrapper.auth.new', {
+        url: '/new',
+        templateUrl: 'views/auth/new.html'
+      })
+      .state('wrapper.auth.train', {
+        url: '/train',
+        templateUrl: 'views/auth/train.html'
       });
   });

@@ -1,0 +1,33 @@
+<div class="row full-height auth auth-main">
+	<div class="widget-padding col-md-4">
+		<div ng-show="step >= 1" class="row-md-8 overflow text-center padding">
+			<h1 class="auth header row-md-1">Bitte frontal auf die Kamera schauen</h1>
+			<div class="well">
+				<webcam ng-show="step == 1" on-streaming="onSuccess(video)"></webcam>
+				<canvas ng-show="step > 1" id="step1"></canvas>
+			</div>
+			<progressbar class="progress-striped active" max="5" value="step1countdown"><span style="color:black; white-space:nowrap;"></span></progressbar>
+		</div>
+	</div>
+	<div class="widget-padding col-md-4">
+		<div ng-show="step >= 2" class="row-md-8 overflow text-center padding">
+			<h1 class="auth header row-md-1">Bitte leicht schräg in die Kamera schauen</h1>
+			<div class="well">
+				<webcam ng-show="step == 2"></webcam>
+				<canvas ng-show="step > 2" id="step2"></canvas>
+			</div>
+			<progressbar class="progress-striped active" max="5" value="step2countdown"><span style="color:black; white-space:nowrap;"></span></progressbar>
+		</div>
+		<button ui-sref="wrapper.main" ng-show="step >= 4" type="button" class="btn btn-primary btn-lg btn-block">Starte die Living Wall</button>
+	</div>
+	<div class="widget-padding col-md-4">
+		<div ng-show="step >= 3" class="row-md-8 overflow text-center padding">
+			<h1  class="auth header row-md-1">Jetzt nochmal lächeln!<br/>&nbsp</h1>
+			<div class="well">
+				<webcam ng-show="step == 3"></webcam>
+				<canvas ng-show="step > 3" id="step3"></canvas>
+			</div>
+			<progressbar class="progress-striped active" max="5" value="step3countdown"><span style="color:black; white-space:nowrap;"></span></progressbar>
+		</div>
+	</div>
+</div>
