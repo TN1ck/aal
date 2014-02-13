@@ -29,6 +29,16 @@ appControllers.controller('MainCtrl',
       };
     });
 
+    $rootScope.getCssForWidget = function (name) {
+      var wdgt = $rootScope.widgets.filter(
+        function(el) { 
+          return el.name === name; 
+        }
+      )[0];
+      console.log(wdgt.css);
+      return wdgt.css;
+    };
+
     var Menu = new RadialService.Menu({selector: '#right'});
 
 
