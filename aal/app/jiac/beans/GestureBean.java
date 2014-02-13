@@ -11,13 +11,13 @@ import org.sercho.masp.space.event.WriteCallEvent;
 import de.dailab.jiactng.agentcore.comm.message.IJiacMessage;
 import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
-
+import jiac.Message;
 import jiac.messages.*;
+
 import java.awt.*;
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
-public class GestureBean extends AbstractAgentBean {
+public class GestureBean extends AbstractCommunicatingBean {
 
 
 	@Override
@@ -49,9 +49,6 @@ public class GestureBean extends AbstractAgentBean {
 				if(obj instanceof Gesture){
 					String gesture = ((Gesture) obj).getGesture();
 					log.info("GestureAgent - received Gesture: " + gesture);
-					
-
-					
 
 					switch(gesture) {
 						case "MENU": 
@@ -92,6 +89,12 @@ public class GestureBean extends AbstractAgentBean {
 			r.keyRelease(key);
 		}		
 			
+		
+	}
+
+	@Override
+	protected void receiveMessage(Message message) {
+		// TODO Auto-generated method stub
 		
 	}
 }

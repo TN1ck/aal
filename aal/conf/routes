@@ -2,27 +2,27 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET     /                           	controllers.Application.index()
-GET     /websocket                  	controllers.Application.websocket()
+GET     /                               controllers.Application.index()
+GET     /websocket                      controllers.Application.websocket()
 
 # Routes for testing
-GET	/populateDatabase		controllers.Application.createDemoData()
-DELETE  /populateDatabase		controllers.Application.deleteAllData()
-GET	/startjiac		controllers.Application.startJiac()
-GET	/stopjiac		controllers.Application.stopJiac()
+GET     /populateDatabase               controllers.Application.createDemoData()
+DELETE  /populateDatabase               controllers.Application.deleteAllData()
+GET     /startjiac                      controllers.Application.startJiac()
+GET     /stopjiac                       controllers.Application.stopJiac()
 
-# Routes for RESTful API		
-GET	/todoitems			controllers.Application.getAllTodoItems()
-GET	/calendaritems			controllers.Application.getAllCalendarItems()
-GET	/newsitems			controllers.Application.getAllNewsItems()
+# Routes for RESTful API        
+GET     /todoitems                      controllers.Application.getAllTodoItemsJiac()
+GET     /calendaritems                  controllers.Application.getAllCalendarItems()
+GET     /newsitems                      controllers.Application.getAllNewsItems()
 
 # I'm not able to define to asset-directories... sucks
-GET     /assets/*file                	controllers.Assets.at(path="/public", file)
-GET     /bower_components/*file      	controllers.Assets.at(path="/public/angular/app/bower_components", file)
-GET     /fonts/*file                 	controllers.Assets.at(path="/public/angular/app/fonts", file)
-GET     /scripts/*file               	controllers.Assets.at(path="/public/angular/app/scripts", file)
-GET     /styles/*file                	controllers.Assets.at(path="/public/angular/app/styles", file)
-GET     /views/*file                 	controllers.Assets.at(path="/public/angular/app/views", file)
-GET     /index.html                   	controllers.Assets.at(path="/public/angular/app", file="index.html")
+GET     /assets/*file                   controllers.Assets.at(path="/public", file)
+GET     /bower_components/*file         controllers.Assets.at(path="/public/angular/app/bower_components", file)
+GET     /fonts/*file                    controllers.Assets.at(path="/public/angular/app/fonts", file)
+GET     /scripts/*file                  controllers.Assets.at(path="/public/angular/app/scripts", file)
+GET     /styles/*file                   controllers.Assets.at(path="/public/angular/app/styles", file)
+GET     /views/*file                    controllers.Assets.at(path="/public/angular/app/views", file)
+GET     /index.html                     controllers.Assets.at(path="/public/angular/app", file="index.html")
 
 

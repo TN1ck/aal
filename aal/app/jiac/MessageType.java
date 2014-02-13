@@ -13,7 +13,9 @@ public enum MessageType {
 
 	SAVE_SOCIAL,
 	SAVE_INFO,
-	SAVE_COMM
+	SAVE_COMM,
+
+	GET_TODOS
 
 
 
