@@ -184,6 +184,12 @@ body.modal-open {
     z-index: 99;*/
 }
 
+.popovertext {
+    font-size: 1.5em;
+    margin-bottom: .5em;
+    margin-top: .5em;
+}
+
 .toygamer-box{
     min-width: 50%;
     min-height: 50%;

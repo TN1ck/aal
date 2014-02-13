@@ -26,8 +26,3 @@ To run the project just execute `play run`. It normally runs on port 9000. http:
 3. inside `aal/public/angular/` execute `bower install` to install all the needed frontend-packages **you will have to repeat this everytime a new library is added**.
 
 The angular-page is currently at http://localhost:9000/index.html . Play must be running for this ;).
-
-### jiac
-
-1. Create 'lib' folder inside the aal root folder.
-2. Download https://dl.dropboxusercontent.com/u/1188793/agentCore-5.1.4-with-modified-dependencies.jar into this folder.
