@@ -56,7 +56,7 @@ public class TodoBean extends AbstractCommunicatingBean {
 
 							// create the message, get receiver's message box address
 							IMessageBoxAddress receiver = agent.getMessageBoxAddress();
-							receiverID = receiver.toString();
+							receiverID = agent.getAid();
 							JiacMessage message = new JiacMessage(new DatabaseQuery(receiver.toString(), receiverID, "GET_TODOS"));
 
 							// Invoke sendAction
@@ -146,6 +146,7 @@ public class TodoBean extends AbstractCommunicatingBean {
 	@Override
 	protected void receiveMessage(Message message) {
 		// TODO Auto-generated method stub
+		log.info("TodoBean - received receiveMessage");
 		
 	}
 }

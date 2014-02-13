@@ -85,7 +85,6 @@ public abstract class AbstractCommunicatingBean extends AbstractMethodExposingBe
         @SuppressWarnings("unchecked")
         @Override
         public void notify(SpaceEvent<? extends IFact> event) {
-            log.info("received a message");
             if (event instanceof WriteCallEvent) {
                 Object object = ((WriteCallEvent) event).getObject();
                 if (object instanceof JiacMessage) {
