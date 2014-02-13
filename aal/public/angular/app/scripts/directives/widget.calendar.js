@@ -72,9 +72,10 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission) {
       );
 
       $scope.showCalendarEntry = function(evnt, data) {
+
         var $target = $(evnt.currentTarget);
-        console.log('lastShownCalEntry: ' , $scope.lastShownCalEntry, 'currentTarget: ' , $target, '!=', angular.element($scope.lastShownCalEntry) != angular.element($target), $lastPopover != $target);
-        if ($target != $scope.lastShownCalEntry && $scope.lastShownCalEntry != null) {
+
+        if ($scope.lastShownCalEntry !== null && !$target.is($scope.lastShownCalEntry)) {
           console.log('I am in if case and have to hide the popover of: ', $scope.lastShownCalEntry);
           $scope.lastShownCalEntry.popover('hide');
         }
@@ -91,6 +92,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission) {
           title : data.text, //this is the top title bar of the popover. add some basic css
           html: 'true', // needed to show html of course
           content : content,
+          container: 'body',
           trigger: 'manual'
         });
         $target.popover('toggle');
