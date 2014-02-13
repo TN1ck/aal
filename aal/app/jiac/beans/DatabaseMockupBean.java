@@ -1,6 +1,7 @@
 package jiac.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
 import models.TodoItem;
@@ -17,9 +18,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import de.dailab.jiactng.agentcore.action.Action;
 import de.dailab.jiactng.agentcore.comm.ICommunicationBean;
+import de.dailab.jiactng.agentcore.comm.IMessageBoxAddress;
 import de.dailab.jiactng.agentcore.comm.message.IJiacMessage;
 import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
+import de.dailab.jiactng.agentcore.ontology.AgentDescription;
+import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 import jiac.Message;
 import jiac.messages.*;
 
@@ -55,7 +59,22 @@ public class DatabaseMockupBean extends AbstractCommunicatingBean {
 			case "GET_TODOS":
 				JsonNode json = Json.toJson(TodoItem.find.all());
 				JiacMessage result = new JiacMessage(new DatabaseQuery(thisAgent.getAgentId(), message.getSenderID(), "GET_TODOS"));
-				invoke(sendAction, new Serializable[] {result, message.getSenderID() });
+				System.out.println("trying to send: " + thisAgent.getAgentId() + ' ' + message.getSenderID());
+//				invoke(sendAction, new Serializable[] {result, message.getSenderID() });
+				ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
+				for (IAgentDescription agent : agentDescriptions) {
+					System.out.println(agent.getName());
+					if (agent.getName().equals("TodoAgent")) {
+
+						// create the message, get receiver's message box address
+						IMessageBoxAddress receiver = agent.getMessageBoxAddress();
+						JiacMessage test = new JiacMessage(new DatabaseQuery(thisAgent.getAgentId(), agent.getAid(), "GET_TODOS"));
+
+						// Invoke sendAction
+						log.info("DatabaseQuery - sending fuck to: " + receiver);
+						invoke(sendAction, new Serializable[] { test, receiver });
+					}
+				}
 				break;
 			default:
 				log.info("GestureAgent - received unknown Gesture");

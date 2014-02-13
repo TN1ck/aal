@@ -36,6 +36,7 @@ import java.awt.event.KeyEvent;
 public class TodoBean extends AbstractCommunicatingBean {
 
 	private Action sendAction = null;
+	public Message currentMessage = null;
 	
 	public Promise<JsonNode> getTodos() {
 		
@@ -57,7 +58,7 @@ public class TodoBean extends AbstractCommunicatingBean {
 							// create the message, get receiver's message box address
 							IMessageBoxAddress receiver = agent.getMessageBoxAddress();
 							receiverID = agent.getAid();
-							JiacMessage message = new JiacMessage(new DatabaseQuery(receiver.toString(), receiverID, "GET_TODOS"));
+							JiacMessage message = new JiacMessage(new DatabaseQuery(thisAgent.getAgentId(), receiverID, "GET_TODOS"));
 
 							// Invoke sendAction
 							log.info("DatabaseQuery - sending fuck to: " + receiver);
@@ -69,7 +70,7 @@ public class TodoBean extends AbstractCommunicatingBean {
 					
 					Set<IJiacMessage> messages = memory.removeAll(template);
 					
-					while(messages.size() <= 0) {
+					while(currentMessage == null) {
 						try {
 							Thread.sleep(1000);
 						} catch (InterruptedException e) {
@@ -80,7 +81,7 @@ public class TodoBean extends AbstractCommunicatingBean {
 					}
 
 					System.out.println("TodoBean - Found a message! " + messages.toString());
-
+					currentMessage = null;
 					return Json.toJson(TodoItem.find.all());
 
 
@@ -109,43 +110,12 @@ public class TodoBean extends AbstractCommunicatingBean {
 		if (sendAction == null)
 			throw new RuntimeException("Send action not found.");
 
-		memory.attach(new MessageObserver(), new JiacMessage());
-	}
-
-	@SuppressWarnings("serial")
-	private class MessageObserver implements SpaceObserver<IFact> {
-
-		@Override
-		public void notify(SpaceEvent<? extends IFact> event) {
-			if(event instanceof WriteCallEvent<?>){
-				WriteCallEvent<IJiacMessage> wce = (WriteCallEvent<IJiacMessage>) event;
-				
-				log.info("TodoAgent - message received");
-				
-				IJiacMessage message = memory.remove(wce.getObject());
-				IFact obj = message.getPayload();
-				
-				if(obj instanceof Gesture){
-					String gesture = ((Gesture) obj).getGesture();
-					log.info("GestureAgent - received Gesture: " + gesture);
-
-					switch(gesture) {
-						default:
-							log.info("TodoBean - received unknown Gesture");
-
-					}
-
-
-				}
-			}
-		}
-			
-		
 	}
 
 	@Override
 	protected void receiveMessage(Message message) {
 		// TODO Auto-generated method stub
+		currentMessage = message;
 		log.info("TodoBean - received receiveMessage");
 		
 	}
