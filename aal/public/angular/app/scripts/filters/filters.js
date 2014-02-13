@@ -34,5 +34,6 @@ app.filter('reverse', function() {
     if (items) {
       return items.slice().reverse();
     }
-  }
+  };
 });
+
