@@ -17,8 +17,14 @@ import models.TodoItem;
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.annotation.Transactional;
 import com.avaje.ebean.text.json.JsonContext;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import de.dailab.jiactng.agentcore.comm.ICommunicationBean;
+import de.dailab.jiactng.agentcore.ontology.IActionDescription;
+import de.dailab.jiactng.agentcore.action.Action;
+import de.dailab.jiactng.agentcore.action.DoAction;
+import de.dailab.jiactng.agentcore.AbstractAgentBean;
 import akka.actor.ActorRef;
 import akka.actor.Cancellable;
 import akka.actor.Props;
@@ -29,14 +35,14 @@ import play.libs.Json;
 import play.libs.F.*;
 import play.libs.Akka;
 import play.Logger;  
-
 import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
 import scala.concurrent.duration.FiniteDuration;
+import util.ASingleton;
 import util.MiscUtils;
 import util.WsPush;
-
 import jiac.beans.BeanStarter;
+import jiac.beans.TodoBean;
 
 public class Application extends Controller {
      
@@ -44,14 +50,13 @@ public class Application extends Controller {
     public final static HashMap<WebSocket.In<String>, WebSocket.Out<String>> inToOut = new HashMap<WebSocket.In<String>, WebSocket.Out<String>>();
 
     public static Result index() {
+        BeanStarter.start();
         return redirect("index.html");
     }
     
     public static Result getFeeds() {
 		return null;
 		// TODO: Install Netbeans and switch
-//    	SyndFeedInput input = new SyndFeedInput();
-//    	SyndFeed feed = input.build(new XmlReader("feed://www.faz.net/rss/aktuell/"));
     }
     
     /**
@@ -158,10 +163,52 @@ public class Application extends Controller {
         return ok("Deleted all data");
     }
     
-    @Transactional
-    public static Result getAllTodoItems() {
-        return ok(Json.toJson(TodoItem.find.all()));
-    }
+//    @Transactional
+//    public static Result getAllTodoItems() {
+//        return ok(Json.toJson(TodoItem.find.all()));
+//    }
+
+    // This demonstrates how to use promises in play
+    public static Promise<Result> getAllTodoItems() {
+	  Promise<JsonNode> promise = Promise.promise(
+	    new Function0<JsonNode>() {
+	      public JsonNode apply() {
+	    	System.out.println("Resolved promise!");
+	        return Json.toJson(TodoItem.find.all());
+	      }
+	    }
+	  );
+	  
+	  return promise.map(
+	      new Function<JsonNode, Result>() {
+	        public Result apply(JsonNode j) {
+	          return ok(j);
+	        } 
+	      }
+	    );
+	}
+    
+    public static Promise<Result> getAllTodoItemsJiac() {
+    	
+    	Promise<JsonNode> promise = null;
+    	
+    	for(AbstractAgentBean a: ASingleton.agents) {
+    		System.out.println(a.getBeanName());
+    		if (a.getBeanName().equals("TodoBean")) {
+    			promise = ((TodoBean) a).getTodos();
+    		}
+    	}
+	  
+    	Promise<Result> promiseOfResult = promise.map(
+	      new Function<JsonNode, Result>() {
+	        public Result apply(JsonNode j) {
+	          return ok(j);
+	        } 
+	      }
+	    );
+    	
+    	return promiseOfResult;
+  	}
     
     @Transactional
     public static Result getAllCalendarItems() {
