@@ -92,6 +92,8 @@ appControllers.controller('AuthCtrl',
 
     $scope.user = user.get;
 
+    $scope.url = 'http://' + document.location.host + '/index.html#/mobile';
+
 
   });
 
