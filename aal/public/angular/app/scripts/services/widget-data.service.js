@@ -58,7 +58,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
     .get()
     .$promise
     .then(function(data) {
-      data = data.slice(0,16);
+      data = data.slice(0,32);
       todo.resolve(data);
     });
 
