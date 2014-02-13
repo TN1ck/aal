@@ -44,6 +44,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
 
       goodPosts = d3.shuffle(goodPosts);
       posts.goodPosts = goodPosts;
+      posts.goodPosts = posts.goodPosts.slice(0,11);
       social.resolve(posts);
 
     });
@@ -57,6 +58,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
     .get()
     .$promise
     .then(function(data) {
+      data = data.slice(0,16);
       todo.resolve(data);
     });
 
@@ -69,6 +71,10 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
         event.weekday = moment(event.startDate).calendar().split(' ')[0];
         return event;
       });
+      data = data.filter(function(d){
+        return (moment(d.startDate).unix() - moment().unix()) > 0;
+      });
+      data = data.slice(0,19);
       calendar.resolve(data.sort(function(a, b) {
         return a.startDate - b.startDate;
       }));
@@ -79,6 +85,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
     .get()
     .$promise
     .then(function(data) {
+      data = data.slice(0,12);
       news.resolve(data);
     });
 
