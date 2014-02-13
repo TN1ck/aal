@@ -1,4 +1,4 @@
-<div class="col-md-6 row-md-2 widget {{css}}" style="background-image: url({{data.picture}}); background-size: cover;">
+<div class="col-md-6 row-md-2 widget {{css}}" style="background-image: url({{data.picture}}); background-size: cover;"  ng-click="$parent.showPost($event, data)">
 	<div class="widget-picture-post {{css}}">
 		<widget-h4>{{data.from.name}} posted a picture</widget-h4>
 	</div>

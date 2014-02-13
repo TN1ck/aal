@@ -70,7 +70,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
 
         var $target = $(evnt.currentTarget);
         var placement = function (el) {
-          if (el.position().top < 140){
+          if (el.position().top < 240){
             return 'bottom';
           } else {
             return 'top';
@@ -93,7 +93,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
           $scope.lastShownCalEntry.popover('hide');
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Priority:</div><div class="col-md-9">' + priorityFilter(data.priority) + '</div><div class="col-md-3">Category:</div><div class="col-md-9">' + data.category + '</div><div class="col-md-3">Start:</div><div class="col-md-9">' + moment(data.startDate).format('D.M H:mm') + '</div><div class="col-md-3">End:</div><div class="col-md-9">' + moment(data.endDate).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}"class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Priority:</div><div class="col-md-9">' + priorityFilter(data.priority) + '</div><div class="col-md-3">Category:</div><div class="col-md-9">' + data.category + '</div><div class="col-md-3">Start:</div><div class="col-md-9">' + moment(data.startDate).format('D.M H:mm') + '</div><div class="col-md-3">End:</div><div class="col-md-9">' + moment(data.endDate).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
         $target.popover({
           placement : placement($target),
           title : data.text, //this is the top title bar of the popover. add some basic css
