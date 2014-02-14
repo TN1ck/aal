@@ -18,5 +18,6 @@ public enum MessageType {
 	GET_TODOS,
 	SOCIAL_DATA,
     COMM_DATA,
-    INFO_DATA
+    INFO_DATA,
+    GESTURE
 }
