@@ -76,7 +76,7 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
           $scope.lastShownPost.popover('hide');
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><div class="row">{{data.from.name}}</div><div class="row col-md-12">{{data.from.message}}</div><div class="row col-md-3">Likes: {{data.likes.data.length}}</div><div class="row col-md-3">Comments: {{data.comments.data.length}}</div><div class="col-md-12" ng-repeat="comment in [0,1,2,3]"><div class="col-md-12">{{data.comments.data[comment].from.name}}<br>{{data.comments.data[comment].message}}</div></div><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removePost(data)">Remove</button></div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><div class="row">{{data.from.name}}</div><div class="row col-md-12">{{data.message}}</div><div class="row col-md-3">Likes: {{data.likes.data.length}}</div><div class="row col-md-3">Comments: {{data.comments.data.length}}</div><div class="col-md-12" ng-repeat="comment in [0,1,2,3]"><div class="col-md-12">{{data.comments.data[comment].from.name}}<br>{{data.comments.data[comment].message}}</div></div><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removePost(data)">Remove</button></div></div></div>';
         $target.popover({
           placement : placement($target),
           title : 'Post', //this is the top title bar of the popover. add some basic css
