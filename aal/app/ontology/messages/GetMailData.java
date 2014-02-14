@@ -1,4 +1,4 @@
-package jiac.messages;
+package ontology.messages;
 
 import jiac.Message;
 import jiac.MessageType;

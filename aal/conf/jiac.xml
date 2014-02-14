@@ -21,6 +21,7 @@
 				<ref bean="GestureAgent" />
 				<ref bean="TodoAgent"/>
 				<ref bean="DatabaseMockupAgent"/>
+				<ref bean="FacebookAgent" />
 			</list>
 		</property>
 	</bean>
@@ -65,6 +66,14 @@
 		</property>
 	</bean>
 
+	<bean name="FacebookAgent" parent="SimpleAgent" singleton="false">
+		<property name="agentBeans">
+			<list>
+				<ref bean="FacebookBean" />
+			</list>
+		</property>
+	</bean>
+
 	<bean name="GestureBean" class="jiac.beans.GestureBean" singleton="false">
 		<property name="executeInterval" value="10000" />
 		<property name="logLevel" value="INFO" />
@@ -74,6 +83,10 @@
 		<property name="logLevel" value="INFO" />
 	</bean>
 	<bean name="DatabaseMockupBean" class="jiac.beans.DatabaseMockupBean" singleton="false">
+		<property name="executeInterval" value="10000" />
+		<property name="logLevel" value="INFO" />
+	</bean>
+	<bean name="FacebookBean" class="jiac.beans.FacebookBean" singleton="false">
 		<property name="executeInterval" value="10000" />
 		<property name="logLevel" value="INFO" />
 	</bean>

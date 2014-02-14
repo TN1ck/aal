@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package jiac.messages;
+package ontology.messages;
 
 import jiac.Message;
 import jiac.MessageType;

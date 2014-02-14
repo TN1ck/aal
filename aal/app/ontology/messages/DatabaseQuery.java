@@ -1,4 +1,4 @@
-package jiac.messages;
+package ontology.messages;
 
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 

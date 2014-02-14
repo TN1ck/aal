@@ -25,7 +25,7 @@ import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.AgentDescription;
 import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 import jiac.Message;
-import jiac.messages.*;
+import ontology.messages.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -51,8 +51,32 @@ public class DatabaseMockupBean extends AbstractCommunicatingBean {
 
 	@Override
 	protected void receiveMessage(Message message) {
+		if (message instanceof GetTodoData) {
+			JsonNode json = Json.toJson(TodoItem.find.all());
+				JiacMessage result = new JiacMessage(new DatabaseQuery(thisAgent.getAgentId(), message.getSenderID(), "GET_TODOS"));
+				System.out.println("trying to send: " + thisAgent.getAgentId() + ' ' + message.getSenderID());
+				ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
+				for (IAgentDescription agent : agentDescriptions) {
+					System.out.println(agent.getName());
+					if (agent.getName().equals("TodoAgent")) {
+
+						// create the message, get receiver's message box address
+						IMessageBoxAddress receiver = agent.getMessageBoxAddress();
+						JiacMessage test = new JiacMessage(new TodoData(thisAgent.getAgentId(), agent.getAid(), -1, Json.toJson(TodoItem.find.all())));
+
+						// Invoke sendAction
+						log.info("DatabaseQuery - sending fuck to: " + receiver);
+						invoke(sendAction, new Serializable[] { test, receiver });
+					}
+				}
+
+		} else {
+			log.info("received wrong message");
+		}
+
+
 		// TODO Auto-generated method stub
-		String query = ((DatabaseQuery) message).getQuery();
+		/*int query = ((GetTodoData) message).getQuery();
 		log.info("DatabaseMockupBean - Query received: " + query);	
 
 		switch(query) {
@@ -75,10 +99,9 @@ public class DatabaseMockupBean extends AbstractCommunicatingBean {
 						invoke(sendAction, new Serializable[] { test, receiver });
 					}
 				}
-				break;
+				break; 
 			default:
-				log.info("GestureAgent - received unknown Gesture");
+				log.info("GestureAgent - received unknown Gesture"); */
 
-		}
 	}
 }

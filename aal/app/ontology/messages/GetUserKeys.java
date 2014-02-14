@@ -1,13 +1,13 @@
-package jiac.messages;
+package ontology.messages;
 
 import jiac.Message;
 import jiac.MessageType;
 
-public class GetCalendarData extends Message{
-
+public class GetUserKeys extends Message {
+	
     int userID;
 
-    public GetCalendarData(String senderID, String receiverID, int userID){
+    public GetUserKeys(String senderID, String receiverID, int userID) {
     	super(senderID, receiverID, MessageType.GET_INFO);
     	this.userID = userID;
     }
@@ -15,4 +15,5 @@ public class GetCalendarData extends Message{
     public int getUserID() {
         return userID;
     }
+
 }

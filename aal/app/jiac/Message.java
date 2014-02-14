@@ -7,7 +7,7 @@ package jiac;
 
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import java.awt.image.BufferedImage;
-import jiac.messages.TestMessage;
+import ontology.messages.*;
 //import org.opencv.core.Mat;
 import java.awt.*;
 

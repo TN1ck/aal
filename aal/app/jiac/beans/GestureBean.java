@@ -12,7 +12,7 @@ import de.dailab.jiactng.agentcore.comm.message.IJiacMessage;
 import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import jiac.Message;
-import jiac.messages.*;
+import ontology.messages.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

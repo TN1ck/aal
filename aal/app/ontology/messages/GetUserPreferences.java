@@ -1,13 +1,13 @@
-package jiac.messages;
+package ontology.messages;
 
 import jiac.Message;
 import jiac.MessageType;
 
-public class GetUserPic extends Message {
-	
-	int userID;
+public class GetUserPreferences extends Message {
 
-    public GetUserPic(String senderID, String receiverID, int userID) {
+	int userID;
+	
+	public GetUserPreferences(String senderID, String receiverID, int userID) {
     	super(senderID, receiverID, MessageType.GET_INFO);
     	this.userID = userID;
     }
@@ -15,5 +15,4 @@ public class GetUserPic extends Message {
     public int getUserID() {
         return userID;
     }
-
 }

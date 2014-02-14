@@ -13,8 +13,8 @@ import org.sercho.masp.space.event.SpaceObserver;
 import org.sercho.masp.space.event.WriteCallEvent;
 
 import play.libs.Json;
-import play.libs.F.Function0;
 import play.libs.F.Promise;
+import play.libs.F.Function0;
 import util.ASingleton;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -28,7 +28,7 @@ import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.AgentDescription;
 import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 import jiac.Message;
-import jiac.messages.*;
+import ontology.messages.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -58,7 +58,7 @@ public class TodoBean extends AbstractCommunicatingBean {
 							// create the message, get receiver's message box address
 							IMessageBoxAddress receiver = agent.getMessageBoxAddress();
 							receiverID = agent.getAid();
-							JiacMessage message = new JiacMessage(new DatabaseQuery(thisAgent.getAgentId(), receiverID, "GET_TODOS"));
+							JiacMessage message = new JiacMessage(new GetTodoData(thisAgent.getAgentId(), receiverID, -1));
 
 							// Invoke sendAction
 							log.info("DatabaseQuery - sending fuck to: " + receiver);
@@ -66,7 +66,7 @@ public class TodoBean extends AbstractCommunicatingBean {
 						}
 					}
 
-					IJiacMessage template = new JiacMessage(new DatabaseQuery(thisAgent.getAgentId(), receiverID, "GET_TODOS"));
+					IJiacMessage template = new JiacMessage(new GetTodoData(thisAgent.getAgentId(), receiverID, -1));
 					
 					Set<IJiacMessage> messages = memory.removeAll(template);
 					
@@ -81,8 +81,10 @@ public class TodoBean extends AbstractCommunicatingBean {
 					}
 
 					System.out.println("TodoBean - Found a message! " + messages.toString());
+
+					TodoData res = (TodoData) currentMessage;
 					currentMessage = null;
-					return Json.toJson(TodoItem.find.all());
+					return res.getData();
 
 
 				}
