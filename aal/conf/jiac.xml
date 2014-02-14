@@ -8,6 +8,14 @@
 	<import resource="classpath:de/dailab/jiactng/agentcore/conf/JMSMessaging.xml" />
 
 	<bean name="ApplicationNode" parent="NodeWithJMX">
+		<property name="overwriteDiscoveryURI" value="smartmulticast://default?group=aal"/>
+     	<property name="agentNodeBeans">
+			<list>
+				<!-- <ref bean="StandardJMSBroker"/> -->
+				<ref bean="AALWS1314GatewayBroker" />
+				<ref bean="IDirectory" />
+			</list>
+		</property>
 		<property name="agents">
 			<list>
 				<ref bean="GestureAgent" />
@@ -16,6 +24,22 @@
 			</list>
 		</property>
 	</bean>
+
+	<bean name="AALWS1314GatewayBroker" parent="ActiveMQBroker">
+        <property name="persistent" value="false" />
+        <property name="connectors">
+            <set>
+                <ref bean="AALWS1314GatewayConnector" />
+            </set>
+        </property>
+    </bean>
+ 
+    <bean name="AALWS1314GatewayConnector" parent="ActiveMQTransportConnector">
+        <property name="networkURI" value="static:(tcp://130.149.154.19:45678)" />
+        <property name="duplex" value="true" />
+        <property name="networkTTL" value="255" />
+        <property name="transportURI" value="tcp://0.0.0.0:0" />
+    </bean>
 
 	<bean name="GestureAgent" parent="SimpleAgent" singleton="false">
 		<property name="agentBeans">
