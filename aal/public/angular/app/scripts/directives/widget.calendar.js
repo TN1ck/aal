@@ -76,26 +76,26 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
             return 'top';
           }
         };
-        // Replaces the priority with adequate colored square
+        // Replaces the priority with adequate colored circle
         var priorityFilter = function(text) {
           switch (text) {
           case 'red':
-            return '<div style="width: .8em; height: .8em; background-color: red;margin-top: .2em; margin-bottom: .4em"> </div>';
+            return '<div style="width: .8em; height: .8em; background-color: red; margin-top: .2em; margin-bottom: .5em; border-radius: .4em; -webkit-border-radius: .4em; -moz-border-radius: .4em;"> </div>';
           case 'orange':
-            return '<div style="width: .8em; height: .8em; background-color: orange;margin-top: .2em; margin-bottom: .4em"> </div>';
+            return '<div style="width: .8em; height: .8em; background-color: orange; margin-top: .2em; margin-bottom: .5em; border-radius: .4em; -webkit-border-radius: .4em; -moz-border-radius: .4em;"> </div>';
           case 'green':
-            return '<div style="width: .8em; height: .8em; background-color: green;margin-top: .2em; margin-bottom: .4em"> </div>';
+            return '<div style="width: .8em; height: .8em; background-color: green; margin-top: .2em; margin-bottom: .5em; border-radius: .4em; -webkit-border-radius: .4em; -moz-border-radius: .4em;"> </div>';
           }
         };
 
         if ($scope.lastShownCalEntry !== null && !$target.is($scope.lastShownCalEntry)) {
           console.log('I am in if case and have to hide the popover of: ', $scope.lastShownCalEntry);
-          $scope.lastShownCalEntry.popover('hide');
+          $scope.lastShownCalEntry.popover('destroy');
         }
 
         var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Priority:</div><div class="col-md-9">' + priorityFilter(data.priority) + '</div><div class="col-md-3">Category:</div><div class="col-md-9">' + data.category + '</div><div class="col-md-3">Start:</div><div class="col-md-9">' + moment(data.startDate).format('D.M H:mm') + '</div><div class="col-md-3">End:</div><div class="col-md-9">' + moment(data.endDate).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
         $target.popover({
-          placement : placement($target),
+          placement : 'auto bottom',    // previously placement($target)
           title : data.text, //this is the top title bar of the popover. add some basic css
           html: 'true', // needed to show html of course
           content : function() {
@@ -112,7 +112,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
 
       $scope.removeCalendarEntry = function(data) {
         console.log('I am in removeCalendarEntry and this is my data: ', data);
-        $scope.lastShownCalEntry.popover('hide');
+        $scope.lastShownCalEntry.popover('destroy');
         $scope.data.forEach(function (element,index,array) {
           console.log('Current element: ', element);
           if( JSON.stringify(element) === JSON.stringify(data)){

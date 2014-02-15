@@ -35,11 +35,19 @@ app.factory('Persistence', function($resource) {
         }
       });
 
+    var mail = $resource('/mailitems', {}, {
+      get: {
+        method: 'GET',
+        isArray: true
+      }
+    });
+
     return {
       calendar: calendar,
       todo: todo,
       news: news,
-      social: social
+      social: social,
+      mail: mail
     };
 
   });

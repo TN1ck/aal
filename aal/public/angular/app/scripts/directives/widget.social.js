@@ -53,21 +53,30 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
 
         var $target = $(evnt.currentTarget);
         var placement = function (el) {
+          console.log('el.top: ' + el.position().top + 'el.left: ' , el.position() , 'boundingRect.left: ' , $(el).getBoundingClientRect().left , ' window-width: ' + $(window).width());
           if (el.position().top < 240){
-            return 'bottom';
+            if(el.position().left < 50) {
+              return 'right';
+            } else {
+              return 'bottom';
+            }
           } else {
-            return 'top';
+            if (el.position().left > ($(window).width() - 200)) {
+              return 'left';
+            } else {
+              return 'top';
+            }
           }
         };
-        // Replaces the priority with adequate colored square
+        // Replaces the priority with adequate colored circle
         var priorityFilter = function(text) {
           switch (text) {
           case 'red':
-            return '<div style="width: .8em; height: .8em; background-color: red;margin-top: .2em; margin-bottom: .4em"> </div>';
+            return '<div style="width: .8em; height: .8em; background-color: red; margin-top: .2em; margin-bottom: .5em; border-radius: .4em; -webkit-border-radius: .4em; -moz-border-radius: .4em;"> </div>';
           case 'orange':
-            return '<div style="width: .8em; height: .8em; background-color: orange;margin-top: .2em; margin-bottom: .4em"> </div>';
+            return '<div style="width: .8em; height: .8em; background-color: orange; margin-top: .2em; margin-bottom: .5em; border-radius: .4em; -webkit-border-radius: .4em; -moz-border-radius: .4em;"> </div>';
           case 'green':
-            return '<div style="width: .8em; height: .8em; background-color: green;margin-top: .2em; margin-bottom: .4em"> </div>';
+            return '<div style="width: .8em; height: .8em; background-color: green; margin-top: .2em; margin-bottom: .5em; border-radius: .4em; -webkit-border-radius: .4em; -moz-border-radius: .4em;"> </div>';
           }
         };
 
@@ -76,10 +85,9 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
           $scope.lastShownPost.popover('hide');
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><div class="row">{{data.from.name}}</div><div class="row col-md-12">{{data.message}}</div><div class="row col-md-3">Likes: {{data.likes.data.length}}</div><div class="row col-md-3">Comments: {{data.comments.data.length}}</div><div class="col-md-12" ng-repeat="comment in [0,1,2,3]"><div class="col-md-12">{{data.comments.data[comment].from.name}}<br>{{data.comments.data[comment].message}}</div></div><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removePost(data)">Remove</button></div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><div class="row">{{data.from.name}}</div><div class="row col-md-12">{{data.message}}</div><div class="row col-md-6">Likes: {{data.likes.data.length}}</div><div class="row col-md-6">Comments: {{data.comments.data.length}}</div><div class="col-md-12" ng-repeat="comment in [0,1,2,3]"><div class="col-md-12">{{data.comments.data[comment].from.name}}<br>{{data.comments.data[comment].message}}</div></div><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removePost(data)">Remove</button></div></div></div>';
         $target.popover({
-          placement : placement($target),
-          title : 'Post', //this is the top title bar of the popover. add some basic css
+          placement : 'auto bottom',    // previously placement($target)          title : 'Post', //this is the top title bar of the popover. add some basic css
           html: 'true', // needed to show html of course
           content : function() {
                       return $compile($(content).html())($target.scope());
