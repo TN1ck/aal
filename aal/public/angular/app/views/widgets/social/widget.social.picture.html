@@ -1,4 +1,5 @@
 <div class="col-md-6 row-md-2 widget {{css}}" style="background-image: url({{data.picture}}); background-size: cover;"  ng-click="$parent.showPost($event, data)">
+	<ng-include src="'/views/widgets/social/widget.social.like-button.html'"></ng-include>
 	<div class="widget-picture-post {{css}}">
 		<widget-h4>{{data.from.name}} posted a picture</widget-h4>
 	</div>

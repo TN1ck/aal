@@ -37,7 +37,6 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
         });
       };
 
-
       $scope.addSocialPost = function() {
 
         var WidgetModal = $modal.open({
@@ -59,6 +58,8 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
       $scope.lastShownPost = null;
 
       $scope.showPost = function(evnt, data) {
+
+        console.log(data);
 
         var $target = $(evnt.currentTarget);
         var placement = function (el) {
