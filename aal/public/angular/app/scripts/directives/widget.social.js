@@ -12,7 +12,8 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
     scope: {
       data: '=',
       color: '=',
-      css: '='
+      css: '=',
+      socket: '='
     },
     link: function($scope) {
 
@@ -25,7 +26,11 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
 
           }
         }
-      });
+      },$scope.socket);
+
+      TextTransmission.fetchDataForWall(function(data) {
+        $scope.data = data;
+      },$scope.socket);
 
 
 

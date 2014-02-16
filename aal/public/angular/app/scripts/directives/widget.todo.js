@@ -12,7 +12,8 @@ app.directive('widgetTodo', function(TextTransmission, $compile) {
     scope: {
       data: '=',
       color: '=',
-      css: '='
+      css: '=',
+      socket: '='
     },
     controller: function($scope, $modal) {
 
@@ -25,7 +26,12 @@ app.directive('widgetTodo', function(TextTransmission, $compile) {
 
           }
         }
-      });
+      },$scope.socket);
+
+
+      TextTransmission.fetchDataForWall(function(data) {
+        $scope.data = data;
+      },$scope.socket);
 
 
       $scope.lastShownTodo = null;

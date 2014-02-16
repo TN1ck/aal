@@ -28,21 +28,33 @@ app.factory('TextTransmission', function($rootScope, Websocket) {
 			Websocket.send('' + mobileId, text);
 		},
 
-		deliverTextForWall: function(data) {
-			if (this.code && this.code.length === 4){
-				Websocket.send('' + this.code + '1', data);
+		deliverTextForWall: function(data, socketnumber) {
+			if (socketnumber === undefined) {
+				if (this.code && this.code.length === 4){
+					Websocket.send('' + this.code + '1', data);
+				}
+			} else {
+				Websocket.send('' + this.code + '0' + socketnumber, data);
 			}
 		},
 
-		fetchTextForWall: function(func) {
-			console.log('fetchTextForWall listens on: ' + mobileId+1);
-			Websocket.addListener('' + this.mobileId + '1', func);
+		fetchTextForWall: function(func, socketnumber) {
+			if (socketnumber === undefined){
+				console.log('fetchTextForWall listens on: ' + mobileId+1);
+				Websocket.addListener('' + this.mobileId + '1', func);
+			} else {
+				Websocket.addListener('' + this.mobileId + '0' + socketnumber, func);
+			}
 		},
 
 		fetchTextForInputDevice: function(func) {
 			console.log('fetchTextForInputDevice listens on: ' + this.code);
 			Websocket.addListener('' + this.code, func);
+		},
+
+		fetchDataForWall: function(func, socketnumber) {
+			Websocket.addListener('' + socketnumber, func);
 		}
 
-	}
+	};
 });

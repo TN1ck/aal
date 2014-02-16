@@ -4,8 +4,8 @@
 
 var appControllers = angular.module('appControllers');
 
-appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
-    function ($scope, TextTransmission, $state) {
+appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','$rootScope',
+    function ($scope, TextTransmission, $state, $rootScope) {
 
       // $scope.$watch('mobileIdText', function(newVal, oldVal) {
       //   TextTransmission.code = newVal;
@@ -73,15 +73,15 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state',
       
 
       $scope.addTodo = function () {
-        TextTransmission.deliverTextForWall('addTodo');
+        TextTransmission.deliverTextForWall('addTodo', $rootScope.getSocketForWidget('todo'));
       };
 
       $scope.addCalendarEntry = function () {
-        TextTransmission.deliverTextForWall('addCalendarEntry');
+        TextTransmission.deliverTextForWall('addCalendarEntry', $rootScope.getSocketForWidget('calendar'));
       };
       
       $scope.addSocialPost = function () {
-        TextTransmission.deliverTextForWall('addSocialPost');
+        TextTransmission.deliverTextForWall('addSocialPost', $rootScope.getSocketForWidget('social'));
       };
 
     }

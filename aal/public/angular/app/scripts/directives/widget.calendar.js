@@ -12,7 +12,8 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
     scope: {
       data: '=',
       color: '=',
-      css: '='
+      css: '=',
+      socket: '='
     },
     link: function($scope) {
       console.log('Whole widgetCalendarData: ', $scope.data);
@@ -26,7 +27,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
 
           }
         }
-      });
+      },$scope.socket);
 
       $scope.addCalendarEntry = function() {
 

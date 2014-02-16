@@ -13,7 +13,8 @@ app.directive('widget', function($compile) {
           type: '=',
           data: '=',
           css: '=',
-          color: '='
+          color: '=',
+          socket: '='
         },
         link: function(scope, element) {
 
@@ -21,7 +22,7 @@ app.directive('widget', function($compile) {
           console.log(scope.color, scope.css);
 
           scope.$watch('type', function() {
-            var widgetString = '<widget-' + scope.type + ' data="' + scope.data + '" color="\'' + scope.color + '\'" css="\'' + scope.css + '\'">' + '</widget-' + scope.type + '/>';
+            var widgetString = '<widget-' + scope.type + ' data="' + scope.data + '" color="\'' + scope.color + '\'" css="\'' + scope.css + '\'" socket="\'' + scope.socket + '\'">' + '</widget-' + scope.type + '/>';
             element.html($compile(widgetString)(scope.$parent));
           });
 

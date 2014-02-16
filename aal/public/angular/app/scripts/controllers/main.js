@@ -25,7 +25,8 @@ appControllers.controller('MainCtrl',
         name: d.name,
         data: d.name,
         css: $scope.css[i],
-        color: $scope.colors[i]
+        color: $scope.colors[i],
+        socket: d.socket
       };
     });
 
@@ -38,6 +39,17 @@ appControllers.controller('MainCtrl',
       )[0];
       console.log(wdgt.css);
       return wdgt.css;
+    };
+
+    $rootScope.getSocketForWidget = function (name) {
+      console.log('Someone wants the Socket for a certain widget.');
+      var wdgt = $rootScope.widgets.filter(
+        function(el) {
+          return el.name === name;
+        }
+      )[0];
+      console.log(wdgt.socket);
+      return wdgt.socket;
     };
 
     var Menu = new RadialService.Menu({selector: '#right'});

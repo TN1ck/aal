@@ -11,7 +11,8 @@ app.directive('widgetPersonal', function() {
     scope: {
       data: '=',
       color: '=',
-      css: '='
+      css: '=',
+      socket: '='
     }
   };
 });

@@ -11,7 +11,8 @@ app.directive('widgetMail', function() {
     scope: {
       data: '=',
       color: '=',
-      css: '='
+      css: '=',
+      socket: '='
     }
   };
 });
