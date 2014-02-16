@@ -29,6 +29,10 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
         }
       },$scope.socket);
 
+      TextTransmission.fetchDataForWall(function(data) {
+        $scope.data = data;
+      },$scope.socket);
+
       $scope.addCalendarEntry = function() {
 
         var WidgetModal = $modal.open({
