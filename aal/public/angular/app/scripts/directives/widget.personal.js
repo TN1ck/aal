@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetPersonal', function() {
+app.directive('widgetPersonal', function(TextTransmission) {
   return {
     templateUrl: '/views/widgets/widget.personal.html',
     restrict: 'E',
@@ -13,6 +13,11 @@ app.directive('widgetPersonal', function() {
       color: '=',
       css: '=',
       socket: '='
-    }
+    },
+    link: function($scope) {
+			TextTransmission.fetchDataForWall(function(data) {
+				$scope.data = data;
+			},$scope.socket);
+		}
   };
 });
