@@ -25,9 +25,6 @@ public class FacebookBean extends AbstractAgentBean{
 	private IActionDescription sendAction = null;
 	private String accessToken = "CAACEdEose0cBAAF5TiiaZCS7fBez03qUETurZAs0suBnNFo1jK97KbSfZBZCG0uGxOmgLxTis5x3HygbZBHeOwuNwh5w7NrpjzIt001GUfrXCcSXfhDPVEvM4O3NSj1U7dPcDLadezyn7ApBc1rDA3BUGBmUezzfagJeamNAqmxpf5zRvHJ0JZB96BLSkcNiIZD";
 	
-	private String accessTokenValue = "9f511c7f-c2a8-446f-bde8-99f6d16275ac";
-	private String tokenSecretValue = "f9519a5a-902d-4ac6-88f6-e50eb0563c4b";
-	
 	@Override
 	public void doStart() throws Exception{
 		super.doStart();
@@ -52,11 +49,11 @@ public class FacebookBean extends AbstractAgentBean{
 	
 	@Override
 	public void execute(){
-
+		log.info("exec");
 		List<IAgentDescription> agentDescriptions = thisAgent.searchAllAgents(new AgentDescription());
 
 		for(IAgentDescription agent : agentDescriptions){
-			if(agent.getName().equals("SocialMediaAgent")){
+			if(agent.getName().equals("FacebookTestAgent")){
 
 				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
 				JiacMessage message =  new JiacMessage(new GetFacebookData(thisAgent.getAgentId(),agent.getAid(),-1, accessToken));
@@ -77,9 +74,10 @@ public class FacebookBean extends AbstractAgentBean{
 		@Override
 		public void notify(SpaceEvent<? extends IFact> event) {
 			if(event instanceof WriteCallEvent<?>){
+				@SuppressWarnings("unchecked")
 				WriteCallEvent<IJiacMessage> wce = (WriteCallEvent<IJiacMessage>) event;
 				
-				log.info("FacebookAgent - message received");
+				log.info("message received");
 				
 				IJiacMessage message = memory.remove(wce.getObject());
 
@@ -90,8 +88,7 @@ public class FacebookBean extends AbstractAgentBean{
 					if(obj instanceof FacebookData){
 						try {
 							
-							log.info("Success: " +  ((FacebookData) obj).getMe().getName());
-							log.info("pic " +  ((FacebookData) obj).getPicture());
+							log.info("Success: " +  ((FacebookData) obj).getName());
 
 							
 							
