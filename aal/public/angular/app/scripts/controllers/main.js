@@ -18,9 +18,11 @@ appControllers.controller('MainCtrl',
     $scope.mobileId = TextTransmission.mobileId;
     $rootScope.mobileId = TextTransmission.mobileId;
     $rootScope.widgets = WidgetData.widgets.map(function(d, i) {
-      WidgetData[d.name].then(function(data) {
-        $scope[d.name] = data;
-      });
+      if (WidgetData[d.name]) {
+        WidgetData[d.name].then(function(data) {
+          $scope[d.name] = data;
+        });
+      }
       return {
         name: d.name,
         data: d.name,

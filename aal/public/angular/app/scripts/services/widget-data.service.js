@@ -6,12 +6,8 @@ var app = angular.module('angularApp');
 
 app.factory('WidgetData', function(Persistence, $FB, $q) {
 
-  var calendar = $q.defer(),
-      news = $q.defer(),
-      social = $q.defer(),
+  var social = $q.defer(),
       personal = $q.defer(),
-      todo = $q.defer(),
-      mail = $q.defer(),
       colors,
       widgets;
 
@@ -54,51 +50,6 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
   $FB.getLoginStatus()
     .then(updateApiCall);
 
-  Persistence
-    .todo
-    .get()
-    .$promise
-    .then(function(data) {
-      data = data.slice(0,32);
-      todo.resolve(data);
-    });
-
-  Persistence
-    .calendar
-    .get()
-    .$promise
-    .then(function(data) {
-      data = data.map(function(event) {
-        event.weekday = moment(event.startDate).calendar().split(' ')[0];
-        return event;
-      });
-      data = data.filter(function(d){
-        return (moment(d.startDate).unix() - moment().unix()) > 0;
-      });
-      data = data.slice(0,19);
-      calendar.resolve(data.sort(function(a, b) {
-        return a.startDate - b.startDate;
-      }));
-    });
-
-  Persistence
-    .news
-    .get()
-    .$promise
-    .then(function(data) {
-      data = data.slice(0,12);
-      news.resolve(data);
-    });
-
-  Persistence
-    .mail
-    .get()
-    .$promise
-    .then(function(data) {
-      data = data.slice(0,12);
-      mail.resolve(data);
-    });
-
   widgets = [
     {name: 'news', color: '#D65B3C', socket: 'NEWS'},
     {name: 'personal', color: '#D77F47', socket: 'PERSONAL'},
@@ -112,11 +63,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
 
   return {
     social: social.promise,
-    news: news.promise,
-    calendar: calendar.promise,
-    todo: todo.promise,
     personal: personal.promise,
-    mail: mail.promise,
     colors: colors,
     widgets: widgets
   };
