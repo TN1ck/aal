@@ -6,7 +6,7 @@ var appControllers = angular.module('appControllers', []);
 
 
 appControllers.controller('MainCtrl',
-  function ($scope, $q, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService) {
+  function ($scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService) {
 
     $scope.colors = WidgetData.colors;
     $scope.css = cssService.createCss($scope.colors);

@@ -4,6 +4,11 @@ body {
     -webkit-font-smoothing: subpixel-antialiased !important;
 }
 
+.like-button {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+}
 
 /* Add lato as default font */
 
@@ -210,6 +215,11 @@ body.modal-open {
 
 .toygamer-box > a:hover {
     /*color: aquamarine;*/
+}
+
+.num-of-comments {
+    display: inline-block;
+    padding-bottom: 1.5em;
 }
 
 .toygamer-box  a:focus {

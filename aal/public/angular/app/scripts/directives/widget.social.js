@@ -41,7 +41,7 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
             var newPost = {message: data.message};
             newPost = angular.extend(newPost, FacebookPost.facebookPost);
             $FB.api('/me/feed', 'post', newPost, function(data) {
-              console.log(data);
+              // console.log(data);
             });
           }
         });
@@ -85,6 +85,8 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
           $scope.lastShownPost.popover('hide');
         }
 
+        // console.log(data);
+
         var likeSnippet = '<ng-pluralize count="data.likes.data.length" when="{\'0\': \'No one likes this\', \'one\': \'One person likes this\', \'other\': \'{} people like this\'}"></ng-pluralize>';
         try {
           typeof data.likes.data.length;
@@ -97,13 +99,21 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
         } catch (err) {
           commentSnippet = 'No comments so far';
         }
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><b>'+likeSnippet+'</b><hr/></div><div class="row col-md-12"><b>'+commentSnippet+'</b></div><div class="col-md-12" ng-repeat="comment in Array.apply(null, {length: Math.min(data.comments.data.length, 4)}).map(Number.call, Number)"><div class="col-md-12">{{data.comments.data[comment].from.name}}<br>{{data.comments.data[comment].message}}</div></div></div></div>';
-        var message;
-        if (typeof data.message === 'undefined') {
-          message = "";
-        } else {
-          message = " — " + data.message;
+        var maxPostsShown = 4;
+        var arrayOfNumbers;
+        try {
+          arrayOfNumbers = "["+Array.apply(null, {length: Math.min(data.comments.data.length, maxPostsShown)}).map(Number.call, Number).toString()+"]";
+        } catch (err) {
+          arrayOfNumbers = "[]";
         }
+        var individualCommentSnippet = '<div class="col-md-12 well well-sm"><strong>{{data.comments.data[comment].from.name}}</strong><br>{{data.comments.data[comment].message}}</div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><b>'+likeSnippet+'</b><hr/></div><div class="row col-md-12"><b class="num-of-comments">'+commentSnippet+'</b></div><div class="col-md-12" ng-repeat="comment in '+arrayOfNumbers+'">'+individualCommentSnippet+'</div></div></div>';
+        var message = "";
+        try {
+          if (typeof data.message !== 'undefined') {
+            message = " — " + data.message;
+          }
+        } catch (err) {}
         $target.popover({
           placement : 'auto bottom',    // previously placement($target)          title : 'Post', //this is the top title bar of the popover. add some basic css
           html: 'true', // needed to show html of course
@@ -116,9 +126,7 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
         });
         $target.popover('toggle');
         $scope.lastShownPost = $target;
-
       };
-
 
       $scope.removePost = function(data) {
         $scope.lastShownPost.popover('hide');

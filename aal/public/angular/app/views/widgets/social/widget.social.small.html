@@ -1,5 +1,7 @@
 <div class="col-md-6 row-md-1 widget {{css}}" ng-click="$parent.showPost($event, data)">
+	<button ng-click="alert('foo')" id="{{data.id}}" class="btn btn-xs like-button"><span class="glyphicon glyphicon-thumbs-up"></span></button>
 	<widget-h2>{{data.from.name}}</widget-h2>
 	<p>{{data.message}}</p>
-	<div class="footer"><span ng-if="data.likes.data.length === undefined">No one likes this</span><ng-pluralize count="{{data.likes.data.length}}" when="{'0': 'No one likes this', '1': 'One person likes this', 'other': '{} people like this'}"></ng-pluralize> — <span ng-if="data.comments.data.length === undefined">No comments so far</span><ng-pluralize count="{{data.comments.data.length}}" when="{'0': 'No comments so far', '1': 'One comment', 'other': '{} comments'}"></ng-pluralize></div>
+	<div class="footer"><span ng-if="data.likes.data.length === undefined">No one likes this</span><ng-pluralize count="{{data.likes.data.length}}" when="{'0': 'No one likes this', '1': 'One person likes this', 'other': '{} people like this'}"></ng-pluralize> — <span ng-if="data.comments.data.length === undefined">No comments so far</span><ng-pluralize count="{{data.comments.data.length}}" when="{'0': 'No comments so far', '1': 'One comment', 'other': '{} comments'}"></ng-pluralize>
+	</div>
 </div>
