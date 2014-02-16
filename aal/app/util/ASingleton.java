@@ -11,7 +11,7 @@ import de.dailab.jiactng.agentcore.AbstractAgentBean;
 
 public final class ASingleton {
     public static final LinkedList<AbstractAgentBean> agents = new LinkedList<AbstractAgentBean>();
-    public final static HashMap<Integer, Set<WebSocket.Out<String>>> idsToSockets = new HashMap<Integer, Set<WebSocket.Out<String>>>();
+    public final static HashMap<String, Set<WebSocket.Out<String>>> idsToSockets = new HashMap<String, Set<WebSocket.Out<String>>>();
     public final static HashMap<WebSocket.In<String>, WebSocket.Out<String>> inToOut = new HashMap<WebSocket.In<String>, WebSocket.Out<String>>();
     public final static LinkedList<WebSocket.Out<String>> outSockets = new LinkedList<WebSocket.Out<String>>();
     
@@ -20,7 +20,8 @@ public final class ASingleton {
     	SOCIAL,
     	NEWS,
     	MAIL,
-    	CALENDAR
+    	CALENDAR, 
+    	FACEBOOK
     }
     
     public static void sendData(Sockets id, String json) {

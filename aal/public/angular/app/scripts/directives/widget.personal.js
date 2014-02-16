@@ -16,7 +16,7 @@ app.directive('widgetPersonal', function(TextTransmission) {
     },
     link: function($scope) {
 			TextTransmission.fetchDataForWall(function(data) {
-				$scope.data = data;
+				$scope.data = data.data;
 			},$scope.socket);
 		}
   };

@@ -135,7 +135,7 @@ app.factory('Websocket', function($rootScope) {
 
       setTimeout(function() {
         socket.send(toSend);
-        console.log("Sent: ", toSend);
+        console.log('Sent: ', toSend, channel, msg);
       }, timeToWait);
     },
     connectTimeStamps: [],

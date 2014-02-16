@@ -235,8 +235,8 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     var toggleScreens = function () {
 
-      var widgetBig = $rootScope.widgets[2];
-      $rootScope.widgets[2] = $rootScope.widgets[currentlySelected];
+      var widgetBig = $rootScope.widgets[3];
+      $rootScope.widgets[3] = $rootScope.widgets[currentlySelected];
       $rootScope.widgets[currentlySelected] = widgetBig;
       $rootScope.$apply();
 

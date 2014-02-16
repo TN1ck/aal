@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetMail', function(TextTransmission) {
+app.directive('widgetMail', function(TextTransmission, $http) {
   return {
     templateUrl: '/views/widgets/widget.mail.html',
     restrict: 'E',
@@ -17,8 +17,10 @@ app.directive('widgetMail', function(TextTransmission) {
 
     link: function($scope) {
 	    TextTransmission.fetchDataForWall(function(data) {
-				$scope.data = data;
+				$scope.data = data.data;
 	    },$scope.socket);
+
+      $http.get('/mailitems');
 		}
   };
 });
