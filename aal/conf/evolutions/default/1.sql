@@ -14,6 +14,14 @@ create table calendar_item (
   constraint pk_calendar_item primary key (id))
 ;
 
+create table mail_item (
+  id                        bigint not null,
+  text                      TEXT,
+  subject                   varchar(255),
+  received                  timestamp,
+  constraint pk_mail_item primary key (id))
+;
+
 create table news_item (
   id                        bigint not null,
   header                    TEXT,
@@ -45,6 +53,8 @@ create table todo_item (
 
 create sequence calendar_item_seq;
 
+create sequence mail_item_seq;
+
 create sequence news_item_seq;
 
 create sequence social_item_seq;
@@ -58,6 +68,8 @@ create sequence todo_item_seq;
 
 drop table if exists calendar_item cascade;
 
+drop table if exists mail_item cascade;
+
 drop table if exists news_item cascade;
 
 drop table if exists social_item cascade;
@@ -65,6 +77,8 @@ drop table if exists social_item cascade;
 drop table if exists todo_item cascade;
 
 drop sequence if exists calendar_item_seq;
+
+drop sequence if exists mail_item_seq;
 
 drop sequence if exists news_item_seq;
 

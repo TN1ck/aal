@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import models.CalendarItem;
 import models.NewsItem;
 import models.TodoItem;
+import models.MailItem;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.annotation.Transactional;
@@ -149,6 +150,10 @@ public class Application extends Controller {
         new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
         new CalendarItem("business", "Presentation for AAL", "TU Berlin, TEL Building", "red", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3)), new Date(now.getTime() + TimeUnit.HOURS.toMillis(8))).save();
         
+        new MailItem("Spam", "Hello faggot, I want to send me your credit card number instantly. If I am not receiving it until tomorrow your family is going to die. Regards, The Joker", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3))).save();
+        new MailItem("Job offer", "Hello Mr. Wanker, I write you this email to tell you, your qualifications are completely useless. You couldn't even work for the DAI.", new Date(now.getTime() + TimeUnit.HOURS.toMillis(3))).save();
+
+
         return ok("Created test data");
     }
     
@@ -218,6 +223,12 @@ public class Application extends Controller {
     @Transactional
     public static Result getAllNewsItems() {
         return ok(Json.toJson(NewsItem.find.all()));
+    }
+
+    @Transactional
+    public static Result getAllMailItems() {
+        System.out.println("getAllMailItems"+ MailItem.find.all() + " " + NewsItem.find.all());
+        return ok(Json.toJson(MailItem.find.all()));
     }
     
     @Transactional
