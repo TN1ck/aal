@@ -85,7 +85,7 @@ public class TodoBean extends AbstractCommunicatingBean {
 		if(message instanceof TodoData){
 			TodoData todo = ((TodoData) message);
 			log.info("TodoAgent - received Todos");
-			String json = "test test test";
+			String json = "[{}]";
 			ASingleton.sendData(ASingleton.Sockets.TODO, json);
 
 		}

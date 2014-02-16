@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $compile) {
+app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $compile, $http) {
 
   return {
     templateUrl: '/views/widgets/calendar/widget.calendar.html',
@@ -30,8 +30,9 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       },$scope.socket);
 
       TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data;
-      },$scope.socket);
+        $scope.data = data.data;
+      }, $scope.socket);
+      $http.get('/calendaritems', function() { });
 
       $scope.addCalendarEntry = function() {
 

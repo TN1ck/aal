@@ -30,13 +30,14 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
 
           }
         }
-      },$scope.socket);
+      }, $scope.socket);
 
 
       TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data;
-      },$scope.socket);
-
+        $scope.data = data.data;
+      }, $scope.socket);
+      // should be changed later
+      $http.get('/todoitems', function() {});
 
       $scope.lastShownTodo = null;
 

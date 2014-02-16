@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetNews', function(Websocket, TextTransmission) {
+app.directive('widgetNews', function(Websocket, TextTransmission, $http) {
 
   return {
     templateUrl: '/views/widgets/news/widget.news.html',
@@ -17,8 +17,11 @@ app.directive('widgetNews', function(Websocket, TextTransmission) {
     },
     link: function($scope) {
 			TextTransmission.fetchDataForWall(function(data) {
-				$scope.data = data;
-			},$scope.socket);
+				$scope.data = data.data;
+			}, $scope.socket);
+      
+      // should be changed later
+      $http.get('/newsitems', function() {});
 		}
   };
 });
