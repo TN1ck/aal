@@ -102,6 +102,8 @@ public class Application extends Controller {
 
     @Transactional
     public static Result getAllMailItems() {
+        String json = "[{\"subject\": \"Spam\", \"text\": \"Hello faggot, I want to send me your credit card number instantly. If I am not receiving it until tomorrow your family is going to die. Regards, The Joker\", \"received\": \"2014-02-13 14:13\"},{\"subject\": \"Job Offer\", \"text\": \"Hello Mr. Wanker, I write you this email to tell you, your qualifications are completely useless. You couldn't even work for the DAI.\", \"received\": \"2014-02-15 16:11\"}]";
+        ASingleton.sendData(ASingleton.Sockets.MAIL, json);
         return ok("ok");
     }
     
