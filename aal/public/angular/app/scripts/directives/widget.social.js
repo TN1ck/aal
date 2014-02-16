@@ -85,10 +85,29 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
           $scope.lastShownPost.popover('hide');
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><div class="row">{{data.from.name}}</div><div class="row col-md-12">{{data.message}}</div><div class="row col-md-6">Likes: {{data.likes.data.length}}</div><div class="row col-md-6">Comments: {{data.comments.data.length}}</div><div class="col-md-12" ng-repeat="comment in [0,1,2,3]"><div class="col-md-12">{{data.comments.data[comment].from.name}}<br>{{data.comments.data[comment].message}}</div></div><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removePost(data)">Remove</button></div></div></div>';
+        var likeSnippet = '<ng-pluralize count="data.likes.data.length" when="{\'0\': \'No one likes this\', \'one\': \'One person likes this\', \'other\': \'{} people like this\'}"></ng-pluralize>';
+        try {
+          typeof data.likes.data.length;
+        } catch (err) {
+          likeSnippet = 'No one likes this';
+        }
+        var commentSnippet = '<ng-pluralize count="data.comments.data.length" when="{\'0\': \'No comments so far\', \'one\': \'One comment\', \'other\': \'{} comments\'}"></ng-pluralize>';
+        try {
+          typeof data.comments.data.length;
+        } catch (err) {
+          commentSnippet = 'No comments so far';
+        }
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><b>'+likeSnippet+'</b><hr/></div><div class="row col-md-12"><b>'+commentSnippet+'</b></div><div class="col-md-12" ng-repeat="comment in Array.apply(null, {length: Math.min(data.comments.data.length, 4)}).map(Number.call, Number)"><div class="col-md-12">{{data.comments.data[comment].from.name}}<br>{{data.comments.data[comment].message}}</div></div></div></div>';
+        var message;
+        if (typeof data.message === 'undefined') {
+          message = "";
+        } else {
+          message = " — " + data.message;
+        }
         $target.popover({
           placement : 'auto bottom',    // previously placement($target)          title : 'Post', //this is the top title bar of the popover. add some basic css
           html: 'true', // needed to show html of course
+          title: data.from.name + message,
           content : function() {
                       return $compile($(content).html())($target.scope());
                     },
