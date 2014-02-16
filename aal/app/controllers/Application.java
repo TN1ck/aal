@@ -46,7 +46,7 @@ import jiac.beans.TodoBean;
 
 public class Application extends Controller {
      
-    public final static HashMap<Integer, Set<WebSocket.Out<String>>> idsToSockets = ASingleton.idsToSockets;
+    public final static HashMap<String, Set<WebSocket.Out<String>>> idsToSockets = ASingleton.idsToSockets;
     public final static HashMap<WebSocket.In<String>, WebSocket.Out<String>> inToOut = ASingleton.inToOut;
     public final static LinkedList<WebSocket.Out<String>> outSockets = ASingleton.outSockets;
 
@@ -81,23 +81,29 @@ public class Application extends Controller {
     }
     
     public static Result getAllTodoItems() {
-    	String json = "test test test";
+    	String json = "[{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"}]";
 		ASingleton.sendData(ASingleton.Sockets.TODO, json);
         return ok("ok");
   	}
     
     @Transactional
     public static Result getAllCalendarItems() {
+    	String json = "[{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"}]";
+    	ASingleton.sendData(ASingleton.Sockets.CALENDAR, json);
         return ok("ok");
     }
     
     @Transactional
     public static Result getAllNewsItems() {
+    	String json = "[{\"header\": \"woop woop\", \"text\": \"Some Nachrichten, wat wat\"}]";
+    	ASingleton.sendData(ASingleton.Sockets.NEWS, json);
         return ok("ok");
     }
 
     @Transactional
     public static Result getAllMailItems() {
+        String json = "[{\"subject\": \"Spam\", \"text\": \"Hello faggot, I want to send me your credit card number instantly. If I am not receiving it until tomorrow your family is going to die. Regards, The Joker\", \"received\": \"2014-02-13 14:13\"},{\"subject\": \"Job Offer\", \"text\": \"Hello Mr. Wanker, I write you this email to tell you, your qualifications are completely useless. You couldn't even work for the DAI.\", \"received\": \"2014-02-15 16:11\"}]";
+        ASingleton.sendData(ASingleton.Sockets.MAIL, json);
         return ok("ok");
     }
     
@@ -114,7 +120,7 @@ public class Application extends Controller {
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
                     	int index = event.indexOf(":");
-                    	int prefix = Integer.parseInt(event.substring(0, index));
+                    	String prefix = event.substring(0, index);
                     	String message = event.substring(index+1);
 
                         Set<Out<String>> currentSet = idsToSockets.get(prefix);
@@ -138,9 +144,9 @@ public class Application extends Controller {
                 in.onClose(new Callback0() {
                     public void invoke() {
                     	WebSocket.Out<String> relatedOut = inToOut.remove(in);
-                    	Set<Integer> keys = idsToSockets.keySet();
+                    	Set<String> keys = idsToSockets.keySet();
                         
-                    	for (Integer key : keys) {
+                    	for (String key : keys) {
                     		Set<WebSocket.Out<String>> associatedSockets = idsToSockets.get(key);
                     		associatedSockets.remove(relatedOut);
                     		idsToSockets.put(key, associatedSockets);

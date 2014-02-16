@@ -9,6 +9,9 @@ app.factory('Websocket', function($rootScope) {
     var wsURI = 'ws://' + window.location.host + '/websocket',
         socket = new WebSocket(wsURI);
 
+    socket.openedRecently = true;
+    setTimeout(function() {socket.openedRecently = false;}, 250);
+
     socket.onopen = function() {
 
       var args = arguments;
@@ -122,8 +125,18 @@ app.factory('Websocket', function($rootScope) {
 
       var msg = typeof(data) === 'object' ? JSON.stringify(data) : data;
       var toSend = channel + ':' + msg;
-      socket.send(toSend);
-      console.log("Sent: ", toSend);
+
+      var timeToWait;
+      if (socket.openedRecently) {
+        timeToWait = 250;
+      } else {
+        timeToWait = 0;
+      }
+
+      setTimeout(function() {
+        socket.send(toSend);
+        console.log('Sent: ', toSend, channel, msg);
+      }, timeToWait);
     },
     connectTimeStamps: [],
     timesOpened: 0,

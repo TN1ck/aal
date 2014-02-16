@@ -6,12 +6,8 @@ var app = angular.module('angularApp');
 
 app.factory('WidgetData', function(Persistence, $FB, $q) {
 
-  var calendar = $q.defer(),
-      news = $q.defer(),
-      social = $q.defer(),
+  var social = $q.defer(),
       personal = $q.defer(),
-      todo = $q.defer(),
-      mail = $q.defer(),
       colors,
       widgets;
 
@@ -54,69 +50,20 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
   $FB.getLoginStatus()
     .then(updateApiCall);
 
-  Persistence
-    .todo
-    .get()
-    .$promise
-    .then(function(data) {
-      data = data.slice(0,32);
-      todo.resolve(data);
-    });
-
-  Persistence
-    .calendar
-    .get()
-    .$promise
-    .then(function(data) {
-      data = data.map(function(event) {
-        event.weekday = moment(event.startDate).calendar().split(' ')[0];
-        return event;
-      });
-      data = data.filter(function(d){
-        return (moment(d.startDate).unix() - moment().unix()) > 0;
-      });
-      data = data.slice(0,19);
-      calendar.resolve(data.sort(function(a, b) {
-        return a.startDate - b.startDate;
-      }));
-    });
-
-  Persistence
-    .news
-    .get()
-    .$promise
-    .then(function(data) {
-      data = data.slice(0,12);
-      news.resolve(data);
-    });
-
-  Persistence
-    .mail
-    .get()
-    .$promise
-    .then(function(data) {
-      data = data.slice(0,12);
-      mail.resolve(data);
-    });
-
   widgets = [
     {name: 'news', color: '#D65B3C', socket: 'NEWS'},
+    {name: 'mail', color: '#AE8EA7', socket: 'MAIL'},
     {name: 'personal', color: '#D77F47', socket: 'PERSONAL'},
     {name: 'calendar', color: '#D9AA5A', socket: 'CALENDAR'},
     {name: 'social', color: '#70BE8A', socket: 'SOCIAL'},
-    {name: 'todo', color: '#19806E', socket: 'TODO'},
-    {name: 'mail', color: '#AE8EA7', socket: 'MAIL'}
+    {name: 'todo', color: '#19806E', socket: 'TODO'}
   ];
 
-  colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#70BE8A', '#19806E','#AE8EA7'];
+  colors = ['#D65B3C', '#AE8EA7', '#D77F47', '#D9AA5A', '#70BE8A', '#19806E'];
 
   return {
     social: social.promise,
-    news: news.promise,
-    calendar: calendar.promise,
-    todo: todo.promise,
     personal: personal.promise,
-    mail: mail.promise,
     colors: colors,
     widgets: widgets
   };
