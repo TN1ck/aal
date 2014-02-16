@@ -20,7 +20,8 @@ public final class ASingleton {
     	SOCIAL,
     	NEWS,
     	MAIL,
-    	CALENDAR
+    	CALENDAR, 
+    	FACEBOOK
     }
     
     public static void sendData(Sockets id, String json) {
