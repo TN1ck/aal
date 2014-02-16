@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 import models.CalendarItem;
 import models.NewsItem;
 import models.TodoItem;
-import models.MailItem;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.annotation.Transactional;
@@ -47,8 +46,9 @@ import jiac.beans.TodoBean;
 
 public class Application extends Controller {
      
-    public final static HashMap<Integer, Set<WebSocket.Out<String>>> idsToSockets = new HashMap<Integer, Set<WebSocket.Out<String>>>();
-    public final static HashMap<WebSocket.In<String>, WebSocket.Out<String>> inToOut = new HashMap<WebSocket.In<String>, WebSocket.Out<String>>();
+    public final static HashMap<Integer, Set<WebSocket.Out<String>>> idsToSockets = ASingleton.idsToSockets;
+    public final static HashMap<WebSocket.In<String>, WebSocket.Out<String>> inToOut = ASingleton.inToOut;
+    public final static LinkedList<WebSocket.Out<String>> outSockets = ASingleton.outSockets;
 
     public static Result index() {
         BeanStarter.start();
@@ -84,8 +84,10 @@ public class Application extends Controller {
 	   return ok("ok");
 	}
     
-    public static Result getAllTodoItemsJiac() {
-       return ok("ok");
+    public static Result getAllTodoItems() {
+    	String json = "test test test";
+		ASingleton.sendData(ASingleton.Sockets.TODO, json);
+        return ok("ok");
   	}
     
     @Transactional
@@ -100,8 +102,7 @@ public class Application extends Controller {
 
     @Transactional
     public static Result getAllMailItems() {
-        System.out.println("getAllMailItems"+ MailItem.find.all() + " " + NewsItem.find.all());
-        return ok(Json.toJson(MailItem.find.all()));
+        return ok("ok");
     }
     
     @Transactional
@@ -110,6 +111,8 @@ public class Application extends Controller {
             
             // Called when the Websocket Handshake is done.
             public void onReady(final WebSocket.In<String> in, final WebSocket.Out<String> out) {
+ 	
+            	outSockets.add(out); // add to outSockets, this could be changed in the future, used for jiac-stuff
             	inToOut.put(in, out);
 
                 in.onMessage(new Callback<String>() {
