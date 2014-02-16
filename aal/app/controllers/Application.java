@@ -46,7 +46,7 @@ import jiac.beans.TodoBean;
 
 public class Application extends Controller {
      
-    public final static HashMap<Integer, Set<WebSocket.Out<String>>> idsToSockets = ASingleton.idsToSockets;
+    public final static HashMap<String, Set<WebSocket.Out<String>>> idsToSockets = ASingleton.idsToSockets;
     public final static HashMap<WebSocket.In<String>, WebSocket.Out<String>> inToOut = ASingleton.inToOut;
     public final static LinkedList<WebSocket.Out<String>> outSockets = ASingleton.outSockets;
 
@@ -118,7 +118,7 @@ public class Application extends Controller {
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
                     	int index = event.indexOf(":");
-                    	int prefix = Integer.parseInt(event.substring(0, index));
+                    	String prefix = event.substring(0, index);
                     	String message = event.substring(index+1);
 
                         Set<Out<String>> currentSet = idsToSockets.get(prefix);
@@ -142,9 +142,9 @@ public class Application extends Controller {
                 in.onClose(new Callback0() {
                     public void invoke() {
                     	WebSocket.Out<String> relatedOut = inToOut.remove(in);
-                    	Set<Integer> keys = idsToSockets.keySet();
+                    	Set<String> keys = idsToSockets.keySet();
                         
-                    	for (Integer key : keys) {
+                    	for (String key : keys) {
                     		Set<WebSocket.Out<String>> associatedSockets = idsToSockets.get(key);
                     		associatedSockets.remove(relatedOut);
                     		idsToSockets.put(key, associatedSockets);
