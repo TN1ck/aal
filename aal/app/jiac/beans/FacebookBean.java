@@ -80,7 +80,8 @@ public class FacebookBean extends AbstractCommunicatingBean {
 		if(message instanceof FacebookData){
 			FacebookData data = ((FacebookData) message);
 			log.info("received FacebookData");
-			String json = gson.toJson(data);;
+			String json = gson.toJson(data);
+			log.info(json);
 			ASingleton.sendData(ASingleton.Sockets.FACEBOOK, json);
 
 		}
