@@ -68,6 +68,9 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       .state('wrapper.mobile.calendar', {
         templateUrl: 'views/widgets/mobile/mobile.calendar.html'
       })
+      .state('wrapper.mobile.mail', {
+        templateUrl:  'views/widgets/mobile/mobile.mail.html'
+      })
       .state('wrapper.radial', {
         url: '/radial',
         templateUrl: 'views/radial.html',

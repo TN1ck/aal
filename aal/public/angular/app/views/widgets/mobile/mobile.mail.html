@@ -1,0 +1,18 @@
+<div class="row separation-border">
+    <div class="col-xs-12 modal-col">
+        <h4>Receiver</h4>
+        <input type="text" class="form-control" placeholder="Receiver" ng-model="$parent.modal.receiver">
+    </div>
+    <div class="col-xs-12 modal-col">
+        <h4>Subject</h4>
+        <input type="text" class="form-control" placeholder="Subject" ng-model="$parent.modal.subject">
+    </div>
+    <div class="col-xs-12 modal-col">
+        <h4>Text</h4>
+        <textarea ng-model="$parent.modal.text" class="form-control modal-textarea"></textarea>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

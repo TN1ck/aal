@@ -46,6 +46,8 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
             $state.transitionTo('wrapper.mobile.calendar');
           } else if(data.data === 'wrapper.mobile.navigation'){
             $state.transitionTo('wrapper.mobile.navigation');
+          } else if(data.data === 'wrapper.mobile.mail') {
+            $state.transitionTo('wrapper.mobile.mail');
           }
           else {
             console.log('unknown state received. we received:' + data.data);
@@ -74,6 +76,10 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
 
       $scope.addTodo = function () {
         TextTransmission.deliverTextForWall('addTodo', $rootScope.getSocketForWidget('todo'));
+      };
+
+      $scope.newMail = function () {
+        TextTransmission.deliverTextForWall('newMail', $rootScope.getSocketForWidget('mail'));
       };
 
       $scope.addCalendarEntry = function () {
