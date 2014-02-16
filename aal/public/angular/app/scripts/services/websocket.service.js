@@ -10,7 +10,7 @@ app.factory('Websocket', function($rootScope) {
         socket = new WebSocket(wsURI);
 
     socket.openedRecently = true;
-    setTimeout(function() {socket.openedRecently = false}, 250);
+    setTimeout(function() {socket.openedRecently = false;}, 250);
 
     socket.onopen = function() {
 
