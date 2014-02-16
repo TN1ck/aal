@@ -25,6 +25,7 @@ public final class ASingleton {
     
     public static void sendData(Sockets id, String json) {
     	// high security
+    	System.out.println("Trying to send a json per websocket: " + id + " size: " + outSockets.size());
         if (!json.equals("")) {
             for (WebSocket.Out<String> socket : outSockets) {
                 socket.write(""+id+":"+json);

@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetTodo', function(TextTransmission, $compile) {
+app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout) {
 
   return {
     templateUrl: '/views/widgets/todo/widget.todo.html',
@@ -16,6 +16,10 @@ app.directive('widgetTodo', function(TextTransmission, $compile) {
       socket: '='
     },
     controller: function($scope, $modal) {
+
+      $timeout(function() {
+        $http.get('/todoitems');
+      }, 2000);
 
       TextTransmission.fetchTextForWall( function(data) {
         console.log('Data in fetchTextForWall: ', data);

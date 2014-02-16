@@ -79,10 +79,6 @@ public class Application extends Controller {
 
         return ok("ok");
     }
-
-    public static Result getAllTodoItems() {
-	   return ok("ok");
-	}
     
     public static Result getAllTodoItems() {
     	String json = "test test test";
