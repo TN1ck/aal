@@ -11,6 +11,15 @@ appControllers.controller('MainCtrl',
     $scope.colors = WidgetData.colors;
     $scope.css = cssService.createCss($scope.colors);
 
+    $scope.likePost = function(id) {
+      console.log("like function called");
+      $FB.api(id+'/likes', 'post', function(response) {
+        console.log(response);
+        console.log(id);
+        $('#'+id).replaceWith('');
+      });
+    }
+
     /*
     Add the data to the scope, later we should do this directly in the directives
     */
