@@ -1,9 +1,12 @@
 <div class="row full-height {{css}}">
 	<div class="col-md-6 row-md-1 widget {{css}}"><widget-h1>Mails</widget-h1></div>
-	<div class="col-md 12">
-		Betreff: 
-	</div>
-	<div class="col-md 12">
-		Mail: 
+	<div class="col-md-6 row-md-1 widget {{css}}">{{data.length}}</div>
+	<div class="col-md-12 row-md-2 widget {{css}}" ng-repeat="d in data">
+		<div class="col-md 12">
+			Betreff: 
+		</div>
+		<div class="col-md 12">
+			Mail: 
+		</div>
 	</div>
 </div>

@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import models.CalendarItem;
 import models.NewsItem;
 import models.TodoItem;
+import models.MailItem;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.annotation.Transactional;
@@ -95,6 +96,12 @@ public class Application extends Controller {
     @Transactional
     public static Result getAllNewsItems() {
         return ok("ok");
+    }
+
+    @Transactional
+    public static Result getAllMailItems() {
+        System.out.println("getAllMailItems"+ MailItem.find.all() + " " + NewsItem.find.all());
+        return ok(Json.toJson(MailItem.find.all()));
     }
     
     @Transactional
