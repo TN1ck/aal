@@ -133,9 +133,10 @@ app.factory('Websocket', function($rootScope) {
         timeToWait = 0;
       }
 
-      setTimeout(function() {socket.send(toSend);}, timeToWait);
-
-      console.log("Sent: ", toSend);
+      setTimeout(function() {
+        socket.send(toSend);
+        console.log("Sent: ", toSend);
+      }, timeToWait);
     },
     connectTimeStamps: [],
     timesOpened: 0,
