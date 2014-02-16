@@ -1,6 +1,6 @@
 'use strict';
 
-/* global angular, gapi */
+/* global angular, gapi, $ */
 
 var app = angular.module('angularApp');
 
@@ -27,6 +27,15 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
           }
         }
       },$scope.socket);
+
+      $scope.likePost = function(id) {
+        console.log('like function called');
+        $FB.api(id+'/likes', 'post', function(response) {
+          console.log(response);
+          console.log(id);
+          $('#'+id).replaceWith('');
+        });
+      };
 
 
       $scope.addSocialPost = function() {
