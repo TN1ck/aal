@@ -15,7 +15,7 @@ GET     /stopjiac                       controllers.Application.stopJiac()
 GET     /todoitems                      controllers.Application.getAllTodoItemsJiac()
 GET     /calendaritems                  controllers.Application.getAllCalendarItems()
 GET     /newsitems                      controllers.Application.getAllNewsItems()
-GET     /mailitems						controllers.Application.getAllMailItems()
+GET     /mailitems                      controllers.Application.getMails()
 
 # I'm not able to define to asset-directories... sucks
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)

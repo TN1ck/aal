@@ -3,8 +3,8 @@ package ontology.messages;
 import java.sql.Timestamp;
 import java.util.Date;
 
-import jiac.Message;
-import jiac.MessageType;
+import ontology.Message;
+import ontology.MessageType;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import facebook4j.User;
 import facebook4j.internal.org.json.JSONObject;

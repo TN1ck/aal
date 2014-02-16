@@ -1,7 +1,8 @@
 package jiac.beans;
 
 
-import jiac.Message;
+import ontology.Message;
+import ontology.MessageType;
 import de.dailab.jiactng.agentcore.action.AbstractMethodExposingBean;
 import de.dailab.jiactng.agentcore.action.Action;
 import de.dailab.jiactng.agentcore.comm.IGroupAddress;
@@ -93,6 +94,7 @@ public abstract class AbstractCommunicatingBean extends AbstractMethodExposingBe
                     if (msg instanceof Message) {
                         //check whether this message was actually sent by us, otherwise
                         //we would receive our own messages
+                    	System.out.println("Message:" + msg.toString());
                         if (!((Message) msg).getSenderID().equals(AbstractCommunicatingBean.this.thisAgent.getAgentId())) {
                             if ((((Message) msg).getReceiverID() == null) || (((Message) msg).getReceiverID().equals(AbstractCommunicatingBean.this.thisAgent.getAgentId()))) {
                                 AbstractCommunicatingBean.this.receiveMessage((Message) msg);

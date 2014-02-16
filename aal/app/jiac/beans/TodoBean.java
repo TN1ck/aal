@@ -27,7 +27,8 @@ import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.AgentDescription;
 import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
-import jiac.Message;
+import ontology.Message;
+import ontology.MessageType;
 import ontology.messages.*;
 
 import java.awt.*;
@@ -70,15 +71,15 @@ public class TodoBean extends AbstractCommunicatingBean {
 					
 					Set<IJiacMessage> messages = memory.removeAll(template);
 					
-					while(currentMessage == null) {
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						System.out.println("TodoAgent - nothing here");
-					}
+					// while(currentMessage == null) {
+					// 	try {
+					// 		Thread.sleep(1000);
+					// 	} catch (InterruptedException e) {
+					// 		// TODO Auto-generated catch block
+					// 		e.printStackTrace();
+					// 	}
+					// 	System.out.println("TodoAgent - nothing here");
+					// }
 
 					System.out.println("TodoBean - Found a message! " + messages.toString());
 

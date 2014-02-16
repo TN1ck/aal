@@ -5,8 +5,8 @@
 
 package ontology.messages;
 
-import jiac.Message;
-import jiac.MessageType;
+import ontology.Message;
+import ontology.MessageType;
 
 /**
  *

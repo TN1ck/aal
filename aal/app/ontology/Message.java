@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package jiac;
+package ontology;
 
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import java.awt.image.BufferedImage;
