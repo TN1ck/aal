@@ -2,8 +2,8 @@ package ontology.messages;
 
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 
-import jiac.Message;
-import jiac.MessageType;
+import ontology.Message;
+import ontology.MessageType;
 
 public class DatabaseQuery extends Message {
 

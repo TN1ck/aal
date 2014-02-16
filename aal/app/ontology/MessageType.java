@@ -1,4 +1,4 @@
-package jiac;
+package ontology;
 
 public enum MessageType {
 	TEST_MESSAGE,

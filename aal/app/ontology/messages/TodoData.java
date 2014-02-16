@@ -1,7 +1,8 @@
 package ontology.messages;
 
-import jiac.Message;
-import jiac.MessageType;
+import ontology.Message;
+import ontology.MessageType;
+
 import play.libs.Json;
 import play.libs.F.Promise;
 import com.fasterxml.jackson.databind.JsonNode;

@@ -58,6 +58,11 @@ public class Application extends Controller {
 		return null;
 		// TODO: Install Netbeans and switch
     }
+
+    public static Result getMails() {
+        return ok("started jiac");
+        // TODO: Install Netbeans and switch
+    }
     
     /**
      * 

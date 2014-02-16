@@ -24,7 +24,8 @@ import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.AgentDescription;
 import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
-import jiac.Message;
+import ontology.Message;
+import ontology.MessageType;
 import ontology.messages.*;
 
 import java.awt.*;

@@ -2,8 +2,8 @@ package ontology.messages;
 
 import java.util.HashMap;
 
-import jiac.Message;
-import jiac.MessageType;
+import ontology.Message;
+import ontology.MessageType;
 
 public class UpdateUserKeys extends Message {
 	
