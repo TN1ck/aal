@@ -39,60 +39,25 @@ public class TodoBean extends AbstractCommunicatingBean {
 	private Action sendAction = null;
 	public Message currentMessage = null;
 	
-	public Promise<JsonNode> getTodos() {
+	public void getTodos() {
+
+		// Retrieve all DatabaseMockupBeans
+		ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
 		
-		final String senderId = "0";
-		
-		Promise<JsonNode> promise = Promise.promise(
-			new Function0<JsonNode>() {
-				public JsonNode apply() {
+		String receiverID = "0";
+		for (IAgentDescription agent : agentDescriptions) {
+			if (agent.getName().equals("DatabaseMockupAgent")) {
 
-					System.out.println("Resolving promise in Jiac...");
-					// Retrieve all DatabaseMockupBeans
-					ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
-					
-					String receiverID = "0";
-					// Send a 'Ping' to each of the PongAgents
-					for (IAgentDescription agent : agentDescriptions) {
-						if (agent.getName().equals("DatabaseMockupAgent")) {
-
-							// create the message, get receiver's message box address
-							IMessageBoxAddress receiver = agent.getMessageBoxAddress();
-							receiverID = agent.getAid();
-							JiacMessage message = new JiacMessage(new GetTodoData(thisAgent.getAgentId(), receiverID, -1));
-
-							// Invoke sendAction
-							log.info("DatabaseQuery - sending fuck to: " + receiver);
-							invoke(sendAction, new Serializable[] { message, receiver });
-						}
-					}
-
-					IJiacMessage template = new JiacMessage(new GetTodoData(thisAgent.getAgentId(), receiverID, -1));
-					
-					Set<IJiacMessage> messages = memory.removeAll(template);
-					
-					// while(currentMessage == null) {
-					// 	try {
-					// 		Thread.sleep(1000);
-					// 	} catch (InterruptedException e) {
-					// 		// TODO Auto-generated catch block
-					// 		e.printStackTrace();
-					// 	}
-					// 	System.out.println("TodoAgent - nothing here");
-					// }
-
-					System.out.println("TodoBean - Found a message! " + messages.toString());
-
-					TodoData res = (TodoData) currentMessage;
-					currentMessage = null;
-					return res.getData();
-
-
-				}
+				// create the message, get receiver's message box address
+				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
+				receiverID = agent.getAid();
+				JiacMessage message = new JiacMessage(new GetTodoData(thisAgent.getAgentId(), receiverID, -1));
+				// Invoke sendAction
+				log.info("DatabaseQuery - sending GET_TODO to: " + receiver);
+				invoke(sendAction, new Serializable[] { message, receiver });
 			}
-		);
+		}
 		
-		return promise;
 	
 	}
 
@@ -117,9 +82,13 @@ public class TodoBean extends AbstractCommunicatingBean {
 
 	@Override
 	protected void receiveMessage(Message message) {
-		// TODO Auto-generated method stub
-		currentMessage = message;
-		log.info("TodoBean - received receiveMessage");
+		if(message instanceof TodoData){
+			TodoData todo = ((TodoData) message);
+			log.info("TodoAgent - received Todos");
+			String json = "test test test";
+			ASingleton.sendData(ASingleton.Sockets.TODO, json);
+
+		}
 		
 	}
 }

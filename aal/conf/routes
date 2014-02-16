@@ -11,8 +11,8 @@ DELETE  /populateDatabase               controllers.Application.deleteAllData()
 GET     /startjiac                      controllers.Application.startJiac()
 GET     /stopjiac                       controllers.Application.stopJiac()
 
-# Routes for RESTful API        
-GET     /todoitems                      controllers.Application.getAllTodoItemsJiac()
+# Routes for saying JIAC to send the data via Websockets        
+GET     /todoitems                      controllers.Application.getAllTodoItems()
 GET     /calendaritems                  controllers.Application.getAllCalendarItems()
 GET     /newsitems                      controllers.Application.getAllNewsItems()
 GET     /mailitems                      controllers.Application.getMails()
