@@ -8,15 +8,14 @@ appControllers.controller('ModalCalendarCtrl',
   function ($scope, $modalInstance, TextTransmission) {
 
     $scope.modal = {
-      category: '',
-      text: '',
+      name: '',
+      description: '',
       location: '',
-      priority: 'green',
-      startDate: new Date(),    //Type DATE?
-      endDate: new Date(),      //Type DATE?
+      startTime: new Date(),    //Type DATE?
+      endTime: new Date(),      //Type DATE?
 
-      startTime: new Date(),
-      endTime: new Date(),
+      startHours: new Date(),
+      endHours: new Date(),
     };
 
     // $scope.startTime = new Date();

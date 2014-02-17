@@ -16,7 +16,6 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       socket: '='
     },
     link: function($scope) {
-      console.log('Whole widgetCalendarData: ', $scope.data);
 
       TextTransmission.fetchTextForWall(function(data) {
         console.log('Data in fetchTextForWall: ', data);
@@ -30,9 +29,16 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       },$scope.socket);
 
       TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data.data;
+        $scope.data = data.data.entries;
       }, $scope.socket);
       $http.get('/calendaritems', function() { });
+
+      console.log('Whole widgetCalendarData: ', $scope.data);
+
+      $scope.putDataInConsole = function () {
+        console.log($scope.data);
+      };
+
 
       $scope.addCalendarEntry = function() {
 
@@ -44,15 +50,15 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
         WidgetModal.result.then(function(data){
           //TODO: Make new calender entry.
         
-          data.startDate.setHours(data.startTime.getHours());
-          data.startDate.setMinutes(data.startTime.getMinutes());
-          data.startDate.setDate(data.startDate.getDate()+1);
+          data.startTime.setHours(data.startHours.getHours());
+          data.startTime.setMinutes(data.startHours.getMinutes());
+          data.startTime.setDate(data.startTime.getDate()+1);
 
-          data.endDate.setHours(data.endTime.getHours());
-          data.endDate.setMinutes(data.endTime.getMinutes());
-          data.endDate.setDate(data.endDate.getDate()+1);
+          data.endTime.setHours(data.endHours.getHours());
+          data.endTime.setMinutes(data.endHours.getMinutes());
+          data.endTime.setDate(data.endTime.getDate()+1);
 
-          $scope.data.push({category: data.category, text: data.text, location: data.location, priority: data.priority,startDate: data.startDate, endDate: data.endDate});
+          $scope.data.push({name: data.name, description: data.description, location: data.location, startTime: data.startTime, endTime: data.endTime});
 
         });
       };
@@ -99,7 +105,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
           $scope.lastShownCalEntry.popover('destroy');
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Priority:</div><div class="col-md-9">' + priorityFilter(data.priority) + '</div><div class="col-md-3">Category:</div><div class="col-md-9">' + data.category + '</div><div class="col-md-3">Start:</div><div class="col-md-9">' + moment(data.startDate).format('D.M H:mm') + '</div><div class="col-md-3">End:</div><div class="col-md-9">' + moment(data.endDate).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Category:</div><div class="col-md-9">' + data.name + '</div><div class="col-md-3">Start:</div><div class="col-md-9">' + moment(data.startTime).format('D.M H:mm') + '</div><div class="col-md-3">End:</div><div class="col-md-9">' + moment(data.endTime).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
         $target.popover({
           placement : 'auto bottom',    // previously placement($target)
           title : data.text, //this is the top title bar of the popover. add some basic css
