@@ -98,9 +98,9 @@ public class CalendarBean extends AbstractCommunicatingBean {
 			log.warn("Can't send message. " + agentName + " not found!");
 	}
 	
-/*	public void execute() {
+	public void execute() {
 		ArrayList<Entry> bla = new ArrayList<Entry>();
-		CalendarData mess = new CalendarData("from","to",bla);
+		CalendarData mess = new CalendarData("from","to",-1,bla);
 		log.info("exec");
 		
 		//(String discription, String name, Date startTime, Date endTime, String location)
@@ -109,7 +109,7 @@ public class CalendarBean extends AbstractCommunicatingBean {
 		mess.setEntries(bla);
 		log.info("CALENDAR EXAMPLE JSON: " + gson.toJson(mess));
 		ASingleton.sendData(ASingleton.Sockets.CALENDAR, gson.toJson(mess));
-	} */
+	} 
 
 	@Override
 	protected void receiveMessage(Message message) {

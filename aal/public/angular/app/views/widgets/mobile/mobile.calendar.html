@@ -1,21 +1,21 @@
 <div class="row separation-border">
-    <div class="col-xs-12 modal-col">
+   <!--  <div class="col-xs-12 modal-col">
         <h4>Priority</h4>
         <div class="btn-group full-width">
             <button type="button" class="btn third-width btn-success" ng-model="$parent.modal.type" btn-radio="'green'">Low</button>
             <button type="button" class="btn third-width btn-warning" ng-model="$parent.modal.type" btn-radio="'orange'">Middle</button>
             <button type="button" class="btn third-width btn-danger" ng-model="$parent.modal.type" btn-radio="'red'">High</button>
         </div>
-    </div>
+    </div> -->
     <div class="col-xs-12 modal-col">
         <h4>Startdate</h4>
         <div class="well well-sm col-xs-12 row">
-            <div class="" ng-model="$parent.modal.startTime">
+            <div class="" ng-model="$parent.modal.startHours">
                 <center>
                     <timepicker show-meridian="false"></timepicker>
                 </center>
             </div>
-             <div class="" ng-model="$parent.modal.startDate">
+             <div class="" ng-model="$parent.modal.startTime">
                 <center>
                     <!-- <input type="text" class="form-control" datepicker-popup="dd MMMM yyyy" ng-model="$parent.modal.startDate" is-open="opened" show-weeks="false" show-button-bar="false" ng-required="true"></input> -->
                     <datepicker show-weeks="false" starting-day="1"></datepicker>
@@ -26,12 +26,12 @@
     <div class="col-xs-12 modal-col">
         <h4>Enddate</h4>
         <div class="well well-sm col-xs-12 row">
-            <div class="" ng-model="$parent.modal.endTime">
+            <div class="" ng-model="$parent.modal.endHours">
                 <center>
                     <timepicker show-meridian="false"></timepicker>
                 </center>
             </div>
-            <div class="" ng-model="$parent.modal.endDate">
+            <div class="" ng-model="$parent.modal.endTime">
                 <center>
                     <!-- <input type="text" class="form-control" datepicker-popup="dd MMMM yyyy" ng-model="$parent.modal.startDate" is-open="opened" show-weeks="false" show-button-bar="false" ng-required="true"></input> -->
                    <datepicker show-weeks="false" starting-day="1"></datepicker>
@@ -41,7 +41,7 @@
     </div>
     <div class="col-xs-12 modal-col">
         <h4>Category</h4>
-        <input type="text" class="form-control" placeholder="Category" ng-model="$parent.modal.category">
+        <input type="text" class="form-control" placeholder="Category" ng-model="$parent.modal.name">
     </div>
         <div class="col-xs-12 modal-col">
         <h4>Location</h4>
@@ -49,7 +49,7 @@
     </div>
     <div class="col-xs-12 modal-col">
         <h4>Text</h4>
-        <textarea ng-model="$parent.modal.text" class="form-control modal-textarea"></textarea>
+        <textarea ng-model="$parent.modal.description" class="form-control modal-textarea"></textarea>
     </div>
 </div>
 <div class="modal-footer">

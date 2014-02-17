@@ -1,5 +1,5 @@
 <div class="col-md-3 row-md-1 widget {{css}} {{css}}-2" ng-click="$parent.showCalendarEntry($event, data)">
-	<b>{{$parent.moment(data.startDate).format('D.M H:mm')}} - {{$parent.moment(data.endDate).format('d.M H:mm')}}</b>
+	<b>{{$parent.moment(data.starTime).format('D.M H:mm')}} - {{$parent.moment(data.endTime).format('d.M H:mm')}}</b>
 	<br/>
-	{{data.text}}
+	{{data.description}}
 </div>

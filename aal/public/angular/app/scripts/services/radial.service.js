@@ -244,6 +244,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     var markElem = function() {
       
+    
       var inverted = $(currentElem.jquery).attr('class').match(/widget-color-\d/);
       inverted = inverted ? inverted[0] + '-inverted' : '';
       $('.border').removeClass('border').removeClass(inverted);
