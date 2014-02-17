@@ -5,17 +5,25 @@
 GET     /                               controllers.Application.index()
 GET     /websocket                      controllers.Application.websocket()
 
-# Routes for testing
-GET     /populateDatabase               controllers.Application.createDemoData()
-DELETE  /populateDatabase               controllers.Application.deleteAllData()
 GET     /startjiac                      controllers.Application.startJiac()
 GET     /stopjiac                       controllers.Application.stopJiac()
 
 # Routes for saying JIAC to send the data via Websockets        
-GET     /todoitems                      controllers.Application.getAllTodoItems()
-GET     /calendaritems                  controllers.Application.getAllCalendarItems()
-GET     /newsitems                      controllers.Application.getAllNewsItems()
-GET     /mailitems                      controllers.Application.getAllMailItems()
+
+# id is to get even more information page:
+GET     /calendar/:uid              controllers.Application.getCalendar(uid: Int, id: Int ?= 0)
+GET     /news/:uid                  controllers.Application.getNews(uid: Int, id: Int ?= 0)
+GET     /todo/:uid                  controllers.Application.getTodo(uid: Int, id: Int ?= 0)
+GET     /calendar/:uid              controllers.Application.getCalendar(uid: Int, id: Int ?= 0)
+GET     /mail/:uid                  controllers.Application.getMail(uid: Int, id: Int ?= 0)
+
+PUT     /todo/:uid                      controllers.Application.putTodo(uid: Int)
+PUT     /calendar/:uid                  controllers.Application.putCalendar(uid: Int)
+PUT     /mail/:uid                      controllers.Application.putMail(uid: Int)
+
+DELETE  /todo/:uid/:id                  controllers.Application.deleteTodo(uid: Int, id: Int)
+DELETE  /calendar/:uid/:id              controllers.Application.deleteCalendar(uid: Int, id: Int)
+DELETE  /mail/:uid/:id                  controllers.Application.deleteMail(uid: Int, id: Int)
 
 # I'm not able to define to asset-directories... sucks
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)

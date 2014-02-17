@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetNews', function(Websocket, TextTransmission, $http) {
+app.directive('widgetNews', function(Websocket, TextTransmission, $http, $rootScope) {
 
   return {
     templateUrl: '/views/widgets/news/widget.news.html',
@@ -21,7 +21,12 @@ app.directive('widgetNews', function(Websocket, TextTransmission, $http) {
 			}, $scope.socket);
       
       // should be changed later
-      $http.get('/newsitems', function() {});
+      var fetchNews = function(id) {
+        $http.get('/news/' + $rootScope.uid + (id ? '?id=' + id : ''));
+      };
+
+      // initially fetch the data
+      fetchNews();
 		}
   };
 });

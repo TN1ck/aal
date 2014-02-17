@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $compile, $http) {
+app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $compile, $http, $rootScope) {
 
   return {
     templateUrl: '/views/widgets/calendar/widget.calendar.html',
@@ -29,10 +29,6 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
         }
       },$scope.socket);
 
-      TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data.data;
-      }, $scope.socket);
-      $http.get('/calendaritems', function() { });
 
       $scope.addCalendarEntry = function() {
 
@@ -56,6 +52,25 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
 
         });
       };
+
+      TextTransmission.fetchDataForWall(function(data) {
+        $scope.data = data.data;
+      }, $scope.socket);
+
+      var fetchCalendar = function(id) {
+        $http.get('/calendar/' + $rootScope.uid + (id ? '?id=' + id : ''));
+      };
+
+      var putCalendar = function(data) {
+        $http.put('/calendar/' + $rootScope.uid, data);
+      };
+
+      var deleteCalendar = function(id) {
+        $http.delete('/calendar/' + $rootScope.uid + (id ? '/' + id : ''));
+      };
+
+      // initially fetch calendar
+      fetchCalendar();
 
 
       

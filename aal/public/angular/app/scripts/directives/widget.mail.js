@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetMail', function(TextTransmission, $http, $modal) {
+app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope) {
 
   return {
     templateUrl: '/views/widgets/widget.mail.html',
@@ -26,13 +26,26 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal) {
 
           }
         }
-      },$scope.socket);
-
+      }, $scope.socket);
 
 	    TextTransmission.fetchDataForWall(function(data) {
 				$scope.data = data.data;
 	    },$scope.socket);
-      $http.get('/mailitems');
+
+      var fetchMail = function(id) {
+        $http.get('/mail/' + $rootScope.uid + (id ? '?id=' + id : ''));
+      };
+
+      var putMail = function(data) {
+        $http.put('/mail/' + $rootScope.uid, data);
+      };
+
+      var deleteMail = function(id) {
+        $http.delete('/mail/' + $rootScope.uid + (id ? '/' + id : ''));
+      };
+
+      // initially fetch the mails
+      fetchMail();
 
       $scope.newMail = function() {
 
@@ -41,7 +54,7 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal) {
           controller: 'ModalMailCtrl'
         });
 
-        WidgetModal.result.then(function(data){
+        WidgetModal.result.then(function(data) {
           // TODO: Send MAIL
         });
       };

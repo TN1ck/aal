@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout) {
+app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout, $rootScope) {
 
   return {
     templateUrl: '/views/widgets/todo/widget.todo.html',
@@ -16,10 +16,6 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
       socket: '='
     },
     controller: function($scope, $modal) {
-
-      $timeout(function() {
-        $http.get('/todoitems');
-      }, 2000);
 
       TextTransmission.fetchTextForWall( function(data) {
         console.log('Data in fetchTextForWall: ', data);
@@ -37,7 +33,21 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
         $scope.data = data.data;
       }, $scope.socket);
       // should be changed later
-      $http.get('/todoitems', function() {});
+
+      var fetchTodo = function(id) {
+        $http.get('/todo/' + $rootScope.uid + (id ? '?id=' + id : ''));
+      };
+
+      var putTodo = function(data) {
+        $http.put('/todo/' + $rootScope.uid, data);
+      };
+
+      var deleteTodo = function(id) {
+        $http.delete('/todo/' + $rootScope.uid + (id ? '/' + id : ''));
+      };
+
+      // initially fetch todos
+      fetchTodo();
 
       $scope.lastShownTodo = null;
 
