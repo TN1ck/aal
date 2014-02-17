@@ -28,13 +28,6 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
         }
       },$scope.socket);
 
-      // TextTransmission.fetchDataForWall(function(data) {
-      //   $scope.data = data.data.entries;
-      // }, $scope.socket);
-      // $http.get('/calendaritems', function() { });
-
-      // console.log('Whole widgetCalendarData: ', $scope.data);
-
       $scope.putDataInConsole = function () {
         console.log($scope.data);
       };
@@ -64,7 +57,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       };
 
       TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data.data;
+        $scope.data = data.data.entries;
       }, $scope.socket);
 
       var fetchCalendar = function(id) {

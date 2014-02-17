@@ -50,7 +50,7 @@ public class DatabaseMockupBean extends AbstractCommunicatingBean {
 						ArrayList<TodoItem> items = new ArrayList<TodoItem>();
 						TodoData mess = new TodoData(thisAgent.getAgentId(), agent.getAid(), -1,items);
 						
-						TodoItem item = mess.new TodoItem(0,"awesome todo","LOW",new Date());
+						TodoItem item = mess.new TodoItem(0,"awesome todo","green",new Date());
 						items.add(item);
 						mess.setItems(items);
 						JiacMessage test = new JiacMessage(mess);
