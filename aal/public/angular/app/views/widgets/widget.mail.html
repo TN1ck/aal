@@ -1,10 +1,16 @@
 <div class="row full-height {{css}}">
-	<div class="col-md-6 row-md-1 widget {{css}}" ng-click="newMail()"><widget-h1>Mails</widget-h1></div>
-	<div class="col-md-6 row-md-1 widget {{css}}"><widget-h1>{{data.length}}</widget-h1></div>
+	<div class="col-md-12 row-md-1 widget {{css}}" ng-click="newMail()">
+		<widget-h1>Mails</widget-h1>
+		<span class="label label-default">{{data.length}} Mails verfügbar</span>
+	</div>
 	<div ng-repeat="d in data">
 		<div class="col-md-12 row-md-2 widget {{css}}">
-			Betreff: {{d.subject}}<br>
-			Mail: {{d.text}}
+			<div class="col-md-12">
+				From: {{d.from}}
+				<span class="label label-default">{{d.received}}</span>
+			</div>
+			Subject: {{d.subject}}<br>
+			Content: {{d.content}}
 		</div>
 	</div>
 </div>

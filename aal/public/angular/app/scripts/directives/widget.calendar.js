@@ -117,10 +117,10 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
           $scope.lastShownCalEntry.popover('destroy');
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Category:</div><div class="col-md-9">' + data.name + '</div><div class="col-md-3">Start:</div><div class="col-md-9">' + moment(data.startTime).format('D.M H:mm') + '</div><div class="col-md-3">End:</div><div class="col-md-9">' + moment(data.endTime).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Start:</div><div class="col-md-9">' + moment(data.startTime).format('D.M H:mm') + '</div><div class="col-md-3">End:</div><div class="col-md-9">' + moment(data.endTime).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
         $target.popover({
           placement : 'auto bottom',    // previously placement($target)
-          title : data.text, //this is the top title bar of the popover. add some basic css
+          title : data.name, //this is the top title bar of the popover. add some basic css
           html: 'true', // needed to show html of course
           content : function() {
                       return $compile($(content).html())($target.scope());

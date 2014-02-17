@@ -29,7 +29,7 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
       }, $scope.socket);
 
 	    TextTransmission.fetchDataForWall(function(data) {
-				$scope.data = data.data;
+				$scope.data = data.data.mails;
 	    },$scope.socket);
 
       var fetchMail = function(id) {

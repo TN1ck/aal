@@ -235,8 +235,8 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     var toggleScreens = function () {
 
-      var widgetBig = $rootScope.widgets[3];
-      $rootScope.widgets[3] = $rootScope.widgets[currentlySelected];
+      var widgetBig = $rootScope.widgets[2];
+      $rootScope.widgets[2] = $rootScope.widgets[currentlySelected];
       $rootScope.widgets[currentlySelected] = widgetBig;
       $rootScope.$apply();
 
@@ -244,7 +244,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     var markElem = function() {
       
-    
+
       var inverted = $(currentElem.jquery).attr('class').match(/widget-color-\d/);
       inverted = inverted ? inverted[0] + '-inverted' : '';
       $('.border').removeClass('border').removeClass(inverted);
@@ -275,7 +275,9 @@ app.factory('RadialService', function($rootScope, WidgetData) {
         break;
       case KEYMAPPING.UP:
         console.log('UP key pressed');
-        exitMenu();
+        if (level !== 0) {
+          exitMenu();
+        }
         break;
       case KEYMAPPING.SELECT:
         console.log('SELECT key pressed');

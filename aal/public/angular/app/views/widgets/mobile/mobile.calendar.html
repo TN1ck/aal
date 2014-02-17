@@ -8,6 +8,10 @@
         </div>
     </div> -->
     <div class="col-xs-12 modal-col">
+        <h4>Name</h4>
+        <input type="text" class="form-control" placeholder="Name" ng-model="$parent.modal.name">
+    </div>
+    <div class="col-xs-12 modal-col">
         <h4>Startdate</h4>
         <div class="well well-sm col-xs-12 row">
             <div class="" ng-model="$parent.modal.startHours">
@@ -40,16 +44,12 @@
         </div>
     </div>
     <div class="col-xs-12 modal-col">
-        <h4>Category</h4>
-        <input type="text" class="form-control" placeholder="Category" ng-model="$parent.modal.name">
-    </div>
-        <div class="col-xs-12 modal-col">
         <h4>Location</h4>
         <input type="text" class="form-control" placeholder="Location" ng-model="$parent.modal.location">
     </div>
     <div class="col-xs-12 modal-col">
-        <h4>Text</h4>
-        <textarea ng-model="$parent.modal.description" class="form-control modal-textarea"></textarea>
+        <h4>Description</h4>
+        <textarea ng-model="$parent.modal.description" class="form-control modal-textarea"  placeholder="Description"></textarea>
     </div>
 </div>
 <div class="modal-footer">
