@@ -19,5 +19,8 @@ public enum MessageType {
 	SOCIAL_DATA,
     COMM_DATA,
     INFO_DATA,
-    GESTURE
+    GESTURE,
+
+    DELETE_COMM,
+    DELETE_INFO
 }
