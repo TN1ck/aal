@@ -1,36 +1,17 @@
 package jiac.beans;
 
+import static de.dailab.jiactng.agentcore.comm.CommunicationAddressFactory.createGroupAddress;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.Serializable;
 
-import de.dailab.jiactng.agentcore.AbstractAgentBean;
-import de.dailab.jiactng.agentcore.action.Action;
-
-import org.sercho.masp.space.event.SpaceEvent;
-import org.sercho.masp.space.event.SpaceObserver;
-import org.sercho.masp.space.event.WriteCallEvent;
-
-
-
-
-
+import ontology.Message;
+import ontology.messages.Gesture;
 import de.dailab.jiactng.agentcore.action.Action;
 import de.dailab.jiactng.agentcore.comm.ICommunicationBean;
 import de.dailab.jiactng.agentcore.comm.IGroupAddress;
-import de.dailab.jiactng.agentcore.comm.IMessageBoxAddress;
-import de.dailab.jiactng.agentcore.comm.message.IJiacMessage;
-import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
-import de.dailab.jiactng.agentcore.knowledge.IFact;
-import de.dailab.jiactng.agentcore.ontology.AgentDescription;
-import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
-import ontology.Message;
-import ontology.MessageType;
-import ontology.messages.*;
-import ontology.messages.*;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-
-import static de.dailab.jiactng.agentcore.comm.CommunicationAddressFactory.createGroupAddress;
 
 public class GestureBean extends AbstractCommunicatingBean {
 

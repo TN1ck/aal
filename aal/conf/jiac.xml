@@ -19,10 +19,11 @@
 		<property name="agents">
 			<list>
 				<ref bean="GestureAgent" />
-				<ref bean="TodoAgent"/>
-				<ref bean="DatabaseMockupAgent"/>
-				<ref bean="FacebookAgent" />
-				<ref bean="FacebookTestAgent" />
+				<ref bean="SocialMediaAgent" />
+				<ref bean="InformationAgent" />
+				<ref bean="CommunicationAgent" />
+				
+				<ref bean="TestAgent" />
 			</list>
 		</property>
 	</bean>
@@ -50,24 +51,8 @@
 			</list>
 		</property>
 	</bean>
-	
-	<bean name="TodoAgent" parent="SimpleAgent" singleton="false">
-		<property name="agentBeans">
-			<list>
-				<ref bean="TodoBean" />
-			</list>
-		</property>
-	</bean>
 
-	<bean name="DatabaseMockupAgent" parent="SimpleAgent" singleton="false">
-		<property name="agentBeans">
-			<list>
-				<ref bean="DatabaseMockupBean" />
-			</list>
-		</property>
-	</bean>
-
-	<bean name="FacebookAgent" parent="SimpleAgent" singleton="false">
+	<bean name="SocialMediaAgent" parent="SimpleAgent" singleton="false">
 		<property name="agentBeans">
 			<list>
 				<ref bean="FacebookBean" />
@@ -75,10 +60,30 @@
 		</property>
 	</bean>
 	
-	<bean name="FacebookTestAgent" parent="SimpleAgent" singleton="false">
+	<bean name="InformationAgent" parent="SimpleAgent" singleton="false">
+		<property name="agentBeans">
+			<list>
+				<ref bean="CalendarBean" />
+				<ref bean="TodoBean" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="CommunicationAgent" parent="SimpleAgent" singleton="false">
+		<property name="agentBeans">
+			<list>
+				<ref bean="MailBean" />
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<bean name="TestAgent" parent="SimpleAgent" singleton="false">
 		<property name="agentBeans">
 			<list>
 				<ref bean="FacebookTestBean" />
+				<ref bean="DatabaseMockupBean" />
 			</list>
 		</property>
 	</bean>
@@ -91,17 +96,28 @@
 		<property name="executeInterval" value="10000" />
 		<property name="logLevel" value="INFO" />
 	</bean>
-	<bean name="DatabaseMockupBean" class="jiac.beans.DatabaseMockupBean" singleton="false">
-		<property name="executeInterval" value="10000" />
-		<property name="logLevel" value="INFO" />
-	</bean>
 	<bean name="FacebookBean" class="jiac.beans.FacebookBean" singleton="false">
 		<property name="executeInterval" value="10000" />
 		<property name="logLevel" value="INFO" />
 	</bean>
+	<bean name="CalendarBean" class="jiac.beans.CalendarBean" singleton="false">
+		<property name="executeInterval" value="10000" />
+		<property name="logLevel" value="INFO" />
+	</bean>
+	<bean name="MailBean" class="jiac.beans.MailBean" singleton="false">
+		<property name="executeInterval" value="10000" />
+		<property name="logLevel" value="INFO" />
+	</bean>
+	
+	
 	<bean name="FacebookTestBean" class="jiac.beans.FacebookTestBean" singleton="false">
 		<property name="executeInterval" value="1000000" />
 		<property name="logLevel" value="INFO" />
 	</bean>
+	<bean name="DatabaseMockupBean" class="jiac.beans.DatabaseMockupBean" singleton="false">
+		<property name="executeInterval" value="10000" />
+		<property name="logLevel" value="INFO" />
+	</bean>
+	
 
 </beans>

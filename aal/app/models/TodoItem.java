@@ -7,7 +7,7 @@ import play.db.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
-@Entity 
+@Entity
 public class TodoItem extends Model {
 
   @Id
@@ -26,13 +26,13 @@ public class TodoItem extends Model {
   public Date created = new Date();
   
   public TodoItem(String type, String text, Date created) {
-	  this.text = text;
-	  this.type = type;
-	  this.created = created;
+this.text = text;
+this.type = type;
+this.created = created;
   }
   
   public static Finder<Long,TodoItem> find = new Finder<Long,TodoItem>(
     Long.class, TodoItem.class
-  ); 
+  );
 
 }

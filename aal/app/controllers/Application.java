@@ -10,9 +10,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import models.CalendarItem;
-import models.NewsItem;
-import models.TodoItem;
+//import org.eclipse.jetty.util.log.Log;
+
+//import models.CalendarItem;
+//import models.NewsItem;
+//import models.TodoItem;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.annotation.Transactional;
@@ -51,6 +53,7 @@ public class Application extends Controller {
     public final static LinkedList<WebSocket.Out<String>> outSockets = ASingleton.outSockets;
 
     public static Result index() {
+    	//Logger.info("Starting Jiac");
         BeanStarter.start();
         return redirect("index.html");
     }

@@ -2,7 +2,6 @@ package jiac.beans;
 
 
 import ontology.Message;
-import ontology.MessageType;
 import de.dailab.jiactng.agentcore.action.AbstractMethodExposingBean;
 import de.dailab.jiactng.agentcore.action.Action;
 import de.dailab.jiactng.agentcore.comm.IGroupAddress;

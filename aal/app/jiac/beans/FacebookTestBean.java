@@ -90,7 +90,7 @@ public class FacebookTestBean extends AbstractAgentBean{
 							List<IAgentDescription> agentDescriptions = thisAgent.searchAllAgents(new AgentDescription());
 
 							for(IAgentDescription agent : agentDescriptions){
-								if(agent.getName().equals("FacebookAgent")){
+								if(agent.getName().equals("SocialMediaAgent")){
 
 									IMessageBoxAddress receiver = agent.getMessageBoxAddress();
 									

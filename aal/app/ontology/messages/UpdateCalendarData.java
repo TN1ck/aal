@@ -2,14 +2,14 @@ package ontology.messages;
 
 import ontology.Message;
 import ontology.MessageType;
-import jiac.CalendarEntry;
+import ontology.messages.CalendarData.Entry;
 
 public class UpdateCalendarData extends Message {
 	
     int userID;
-    CalendarEntry entry;
+    Entry entry;
 
-    public UpdateCalendarData(String senderID, String receiverID, int userID, CalendarEntry entry) {
+    public UpdateCalendarData(String senderID, String receiverID, int userID, Entry entry) {
     	super(senderID, receiverID, MessageType.SAVE_INFO);
     	this.entry = entry;
     	this.userID = userID;
@@ -19,7 +19,7 @@ public class UpdateCalendarData extends Message {
         return userID;
     }
     
-    public CalendarEntry getEntry() {
+    public Entry getEntry() {
         return entry;
     }
 }

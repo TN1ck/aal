@@ -6,15 +6,7 @@
 package ontology;
 
 import de.dailab.jiactng.agentcore.knowledge.IFact;
-import java.awt.image.BufferedImage;
-import ontology.messages.*;
-//import org.opencv.core.Mat;
-import java.awt.*;
 
-/**
- *
- * @author Administrator
- */
 public class Message implements IFact{
 
     static final long serialVersionUID = -2306690619123356624L;
@@ -48,12 +40,5 @@ public class Message implements IFact{
     public String toString() {
         return "MessageTemp{" + "sender= " + senderID + " Receiver= " + receiverID +
                 " MessageType=" + type + "}";
-    }
-
-    public static Message createTestMessage(String senderID, String receiverID, int userID){
-        Message message = new TestMessage(senderID, receiverID, userID);
-        return message;
-    }
-
-    
+    }    
 }
