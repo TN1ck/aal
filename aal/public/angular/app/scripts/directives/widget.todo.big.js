@@ -1,6 +1,6 @@
 'use strict';
 
-/* global angular */
+/* global angular, moment */
 
 var app = angular.module('angularApp');
 
@@ -13,6 +13,9 @@ app.directive('widgetTodoBig', function() {
       data: '=',
       color: '=',
       css: '='
+    },
+    link: function(scope) {
+      scope.moment = moment;
     }
   };
 });

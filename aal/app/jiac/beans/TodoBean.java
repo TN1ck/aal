@@ -70,9 +70,9 @@ public class TodoBean extends AbstractCommunicatingBean {
 		log.info("exec");
 		
 		//(String discription, String name, Date startTime, Date endTime, String location)
-		bla.add(mess.new TodoItem(0, "weekly presentation", "red", new Date()));
-		bla.add(mess.new TodoItem(0, "Meeting with investors", "red", new Date()));
-		bla.add(mess.new TodoItem(0, "Dinner tonight", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "Finish the weekly presentation for tomorrow", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "Make a prototype of the pitch you have to hold in a month", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "Buy everything for that dinner tonight", "red", new Date()));
 		bla.add(mess.new TodoItem(0, "more data", "red", new Date()));
 		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));
 		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));

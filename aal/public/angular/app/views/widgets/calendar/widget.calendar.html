@@ -4,7 +4,7 @@
 		<widget-h1>Kalendar - {{time}}</widget-h1>
 		<span class="label label-default">{{data.length}} appointments left</span>
 	</div>
-	<widget-calendar-big  ng-repeat="d in data.slice(0,1)" color="color" css="css" data="d"></widget-calendar-big>
-	<widget-calendar-middle ng-repeat="d in data.slice(1,7)" color="color" css="css" data="d"></widget-calendar-middle>
-	<widget-calendar-small ng-repeat="event in data.slice(7,19)" data="event" color="color" css="css"></widget-calendar-small>
+	<widget-calendar-big  ng-repeat="d in data.slice(0,2)" color="color" css="css" data="d"></widget-calendar-big>
+	<widget-calendar-middle ng-repeat="d in data.slice(2,-1)" color="color" css="css" data="d"></widget-calendar-middle><!-- 
+	<widget-calendar-small ng-repeat="event in data.slice(7,19)" data="event" color="color" css="css"></widget-calendar-small> -->
 </div>
