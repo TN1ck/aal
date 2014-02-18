@@ -222,6 +222,11 @@ body.modal-open {
     padding-bottom: 1.5em;
 }
 
+.number-of-likes {
+    display: inline-block;
+    margin-top: 0.45em;
+}
+
 .toygamer-box  a:focus {
     color: red;
     background-color: green;
