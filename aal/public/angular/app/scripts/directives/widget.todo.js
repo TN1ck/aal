@@ -30,7 +30,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
 
 
       TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data.data;
+        $scope.data = data.data.items;
       }, $scope.socket);
       // should be changed later
 

@@ -2,5 +2,10 @@
 	<widget-h3>Termin beginnt {{$parent.moment(data.startTime).fromNow()}}</widget-h3>
 	<br/>
 	<b>{{data.description}}</b>
-	<div class="footer"><b>Ort: {{data.location}}</b></div>
+	<div class="footer">
+		<div style="float: left;">{{data.location}}</div>
+		<div class="pull-right">
+			{{$parent.moment(data.starTime).format('D.M H:mm')}} - {{$parent.moment(data.endTime).format('D.M H:mm')}}
+		</div>
+	</div>
 </div>

@@ -1,20 +1,16 @@
-<!-- <widget-title title="'Persönliche Daten'"></widget-title> -->
-<div class="row full-height {{css}}">
-	<div class="col-md-12 row-md-1 widget {{css}}"><widget-h1>Hello, {{data.first_name}} {{data.last_name}}</widget-h1></div>
+<div class="row full-height" ng-style="{'background-color': color}">
 	<div class="col-md-6 row-md-2 widget {{css}}" style="background-image: url({{data.picture.url}});background-size: cover;"></div>
 	<div class="col-md-6 row-md-1 widget-padding">
 		<div class="row">
-			<div class="col-md-12 row-md-1 widget {{css}} {{css}}-1" ui-sref="wrapper.settings">
-				<widget-h1>Settings</widget-h1>
+			<div class="col-md-12 row-md-1 widget {{css}}" ui-sref="wrapper.settings">
+				<widget-h1>{{data.first_name}} {{data.last_name}}</widget-h1>
 			</div>
-			<div class="col-md-12 row-md-1 widget {{css}} {{css}}-2">
-				<widget-h1>Mobile</widget-h1>
-				<widget-h2 style="margin-top: 1em; float: right;">{{ $parent.mobileId }}</widget-h2>
+			<div class="col-md-12 row-md-1 widget {{css}} {{css}}-1">
+				<widget-h2>Mobile-Code: </widget-h2>
+				<br/>
+				<widget-h1>{{ $parent.mobileId }}</widget-h1>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-12 row-md-1 widget {{css}} {{css}}-3">
-		<widget-h1>Logout</widget-h1>
 	</div>
 </div>
 

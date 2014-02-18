@@ -106,6 +106,10 @@ widget-h4 {
 
 .footer {
 	position: absolute;
+	left: 0;
+	right: 0;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
 	bottom: 0;
 	background-color: transparent;
 	color: inherit;
