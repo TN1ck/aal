@@ -15,8 +15,10 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
       css: '=',
       socket: '='
     },
+
     link: function($scope) {
 
+      // Seems to be useless...
       TextTransmission.fetchTextForWall(function(data) {
         console.log('Data in fetchTextForWall: ', data);
         if(data.data === 'addSocialPost'){
@@ -31,35 +33,34 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
       $scope.likePost = function(id) {
         console.log('like function called');
         $FB.api(id+'/likes', 'post', function(response) {
-          console.log(response);
-          console.log(id);
           $('#'+id).replaceWith('');
         });
       };
 
-      $scope.addSocialPost = function() {
+      // This function seems to be useless too
+      // $scope.addSocialPost = function() {
 
-        var WidgetModal = $modal.open({
-          templateUrl: '/views/widgets/mobile/mobile.social.html',
-          controller: 'ModalSocialCtrl'
-        });
+      //   var WidgetModal = $modal.open({
+      //     templateUrl: '/views/widgets/mobile/mobile.social.html',
+      //     controller: 'ModalSocialCtrl'
+      //   });
 
-        WidgetModal.result.then(function(data){
-          if (data.type === 'facebook') {
-            var newPost = {message: data.message};
-            newPost = angular.extend(newPost, FacebookPost.facebookPost);
-            $FB.api('/me/feed', 'post', newPost, function(data) {
-              // console.log(data);
-            });
-          }
-        });
-      };
+      //   WidgetModal.result.then(function(data){
+      //     if (data.type === 'facebook') {
+      //       var newPost = {message: data.message};
+      //       newPost = angular.extend(newPost, FacebookPost.facebookPost);
+      //       $FB.api('/me/feed', 'post', newPost, function(data) {
+      //       });
+      //     }
+      //   });
+      // };
 
       $scope.lastShownPost = null;
 
       $scope.showPost = function(evnt, data) {
 
-        console.log(data);
+        // console.log(evnt)
+        // console.log(data)
 
         var $target = $(evnt.currentTarget);
         var placement = function (el) {
@@ -94,8 +95,6 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
           console.log('I am in if case and have to hide the popover of: ', $scope.lastShownPost);
           $scope.lastShownPost.popover('hide');
         }
-
-        // console.log(data);
 
         var likeSnippet = '<ng-pluralize count="data.likes.data.length" when="{\'0\': \'No one likes this\', \'one\': \'One person likes this\', \'other\': \'{} people like this\'}"></ng-pluralize>';
         try {
