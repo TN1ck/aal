@@ -47,7 +47,7 @@ public class Application extends Controller {
         for (AbstractAgentBean agent : ASingleton.agents) {
             if (agent instanceof TodoBean) {
             	// currently the agents are not using the correct stuff
-                // ((TodoBean) agent).getTodos(uid);
+                // ((TodoBean) agent).getTodos(uid, id);
             }
         }
         return ok("ok");
@@ -76,14 +76,13 @@ public class Application extends Controller {
     }
     
     public static Result getNews(int uid, int id) {
-      String json = "[{\"header\": \"woop woop\", \"text\": \"Some Nachrichten, wat wat\"}]";
+      String lorem = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+      String json = "[{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \"" + lorem  + "\"}," + "{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \"" + lorem  + "\"}," + "{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \"" + lorem  + "\"}, " + "{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \"" + lorem  + "\"}," + "{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \"" + lorem  + "\"}" + "]";
       ASingleton.sendData(ASingleton.Sockets.NEWS, json);
         return ok("ok");
     }
 
     public static Result getMail(int uid, int id) {
-        String json = "[{\"subject\": \"Spam\", \"text\": \"Hello faggot, I want to send me your credit card number instantly. If I am not receiving it until tomorrow your family is going to die. Regards, The Joker\", \"received\": \"2014-02-13 14:13\"},{\"subject\": \"Job Offer\", \"text\": \"Hello Mr. Wanker, I write you this email to tell you, your qualifications are completely useless. You couldn't even work for the DAI.\", \"received\": \"2014-02-15 16:11\"}]";
-        ASingleton.sendData(ASingleton.Sockets.MAIL, json);
         return ok("ok");
     }
     

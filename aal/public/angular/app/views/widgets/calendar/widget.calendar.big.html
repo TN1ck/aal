@@ -2,5 +2,10 @@
 <widget-h2>Nächster Termin beginnt {{$parent.moment(data.startTime).fromNow()}}</widget-h2>
 <br/>
 <b>{{data.description}}</b>
-<div class="footer"><b>Ort: {{data.location}}</b></div>
+	<div class="footer">
+		<div style="float: left;"><b>{{data.location}}</b></div>
+		<div class="pull-right">
+			<b>{{$parent.moment(data.starTime).format('D.M H:mm')}} - {{$parent.moment(data.endTime).format('D.M H:mm')}}</b>
+		</div>
+	</div>
 </div>

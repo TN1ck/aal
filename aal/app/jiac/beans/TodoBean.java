@@ -2,12 +2,14 @@ package jiac.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.google.gson.Gson;
 
 import ontology.Message;
 import ontology.messages.GetTodoData;
 import ontology.messages.TodoData;
+import ontology.messages.TodoData.TodoItem;
 import util.ASingleton;
 import de.dailab.jiactng.agentcore.action.Action;
 import de.dailab.jiactng.agentcore.comm.ICommunicationBean;
@@ -23,17 +25,13 @@ public class TodoBean extends AbstractCommunicatingBean {
 	private Action sendAction = null;
 	Gson gson = new Gson();
 	
-	public void getTodos(int userID) {
+	public void getTodos(int userID, int ID) {
 		boolean send = false;
-
-		// Retrieve all DatabaseMockupBeans
 		ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
 		
 		String receiverID = null;
 		for (IAgentDescription agent : agentDescriptions) {
 			if (agent.getName().equals(agentName)) {
-
-				// create the message, get receiver's message box address
 				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
 				receiverID = agent.getAid();
 				JiacMessage message = new JiacMessage(new GetTodoData(thisAgent.getAgentId(), receiverID, userID));
@@ -65,6 +63,25 @@ public class TodoBean extends AbstractCommunicatingBean {
 			throw new RuntimeException("Send action not found.");
 
 	}
+
+	public void execute() {
+		ArrayList<TodoItem> bla = new ArrayList<TodoItem>();
+		TodoData mess = new TodoData("from","to",-1,bla);
+		log.info("exec");
+		
+		//(String discription, String name, Date startTime, Date endTime, String location)
+		bla.add(mess.new TodoItem(0, "weekly presentation", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "Meeting with investors", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "Dinner tonight", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "more data", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));
+		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));
+		mess.setItems(bla);
+		log.info("TODO EXAMPLE JSON: " + gson.toJson(mess));
+		ASingleton.sendData(ASingleton.Sockets.TODO, gson.toJson(mess));
+	} 
 
 	@Override
 	protected void receiveMessage(Message message) {
