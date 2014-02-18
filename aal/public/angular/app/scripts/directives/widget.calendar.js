@@ -51,7 +51,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
           data.endTime.setMinutes(data.endHours.getMinutes());
           data.endTime.setDate(data.endTime.getDate()+1);
 
-          $scope.data.push({name: data.name, description: data.description, location: data.location, startTime: data.startTime, endTime: data.endTime});
+          $scope.data.push({name: data.name, description: data.description, location: data.location, persons: data.persons, startTime: data.startTime, endTime: data.endTime});
 
         });
       };
@@ -117,7 +117,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
           $scope.lastShownCalEntry.popover('destroy');
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Location:</div><div class="col-md-9">' + data.location + '</div><div class="col-md-3">Start:</div><div class="col-md-9">' + moment(data.startTime).format('D.M H:mm') + '</div><div class="col-md-3">End:</div><div class="col-md-9">' + moment(data.endTime).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-4">Description:</div><div class="col-md-8">' + data.description + '</div><div class="col-md-4">Location:</div><div class="col-md-8">' + data.location + '</div><div class="col-md-4">Start:</div><div class="col-md-8">' + moment(data.startTime).format('D.M H:mm') + '</div><div class="col-md-4">End:</div><div class="col-md-8">' + moment(data.endTime).format('D.M H:mm') + '</div><div class="col-md-4">Persons:</div><div class="col-md-8">' + data.persons + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
         $target.popover({
           placement : 'auto bottom',    // previously placement($target)
           title : data.name, //this is the top title bar of the popover. add some basic css

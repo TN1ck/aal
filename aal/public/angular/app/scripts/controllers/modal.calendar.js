@@ -13,6 +13,7 @@ appControllers.controller('ModalCalendarCtrl',
       location: '',
       startTime: new Date(),    //Type DATE?
       endTime: new Date(),      //Type DATE?
+      persons: '',
 
       startHours: new Date(),
       endHours: new Date(),
