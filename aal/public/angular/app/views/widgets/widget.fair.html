@@ -1,13 +1,23 @@
 <div class="row full-height {{css}}">
 	<div class="row widget {{css}}">Welcome to the Fair!</div>
 	<div ng-repeat="d in data">
-		<div class="col-md-12 row-md-1 {{css}} widget">
-			<div class="col-md-3">
-				<img src="{{d.logo}}">
+		<div class="col-md-4 row-md-4 {{css}} widget">
+			<div class="col-md-2">
+				<div class="well-img">
+					<div class="square" style="background-image: url({{d.logo}}); background-size: contain;"></div>
+				</div>
+				<center style="font-size: 2em;"><rating value="d.rating" max="5" readonly="false"></rating></center>
 			</div>
-			<div class="col-md-9">
-				{{d.company}}<br>
-				{{d.description}}
+			<div class="col-md-10">
+				<widget-h1>{{d.company}}</widget-h1>
+				<span class="label label-default" style="font-size: 1.5em;">{{d.location}}</span>
+				<div class="col-md-12 margin-tp">
+					{{d.description}}
+				</div>
+				<div class="col-md-12 padding-tp margin-tp separation-border">
+					E-mail: {{d.contact.email}}<br>
+					Phone: {{d.contact.phone}}
+				</div>
 			</div>
 		</div>
 	</div>
