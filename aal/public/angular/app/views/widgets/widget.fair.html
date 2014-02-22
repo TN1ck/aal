@@ -1,0 +1,14 @@
+<div class="row full-height {{css}}">
+	<div class="row widget {{css}}">Welcome to the Fair!</div>
+	<div ng-repeat="d in data">
+		<div class="col-md-12 row-md-1 {{css}} widget">
+			<div class="col-md-3">
+				<img src="{{d.logo}}">
+			</div>
+			<div class="col-md-9">
+				{{d.company}}<br>
+				{{d.description}}
+			</div>
+		</div>
+	</div>
+</div>

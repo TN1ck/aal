@@ -46,6 +46,11 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         templateUrl: 'views/playground.html',
         controller: 'MainCtrl'
       })
+      .state('wrapper.fair', {
+        url: '/fair',
+        templateUrl: 'views/fair.html',
+        controller: 'MainCtrl'
+      })
       .state('wrapper.settings', {
         url: '/settings',
         templateUrl: 'views/settings.html',
