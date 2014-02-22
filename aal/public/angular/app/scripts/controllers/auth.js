@@ -93,17 +93,17 @@ appControllers.controller('AuthCtrl',
     $scope.user = user.get;
 
 
-    $(document).ready( function() {
       $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
         function(data){
+          $scope.displayUrl = 'http://' + data.host + '/index.html#/mobile';
           $scope.url = 'http://' + data.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
         }
       );
-    });
+
     // $scope.url = 'http://' + document.location.host + '/index.html#/mobile';
     $scope.version = 4;
     $scope.level = 'L';
-    $scope.size = 200;
+    $scope.size = $(window).height()/4;
 
 
   });
