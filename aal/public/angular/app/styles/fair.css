@@ -20,6 +20,14 @@
 	margin-top: 1em;
 }
 
+.margin-bt {
+	margin-bottom: 1em;
+}
+
 .padding-tp {
 	padding-top: 1em;
+}
+
+.padding-bt {
+	padding-bottom: 1em;
 }
