@@ -15,7 +15,7 @@ import ontology.MessageType;
 import ontology.messages.Gesture;
 import ontology.messages.NewUser;
 import ontology.messages.RecognizeUser;
-import ontology.messages.StartTraining;
+import ontology.messages.TrainUser;
 import ontology.messages.UserLeft;
 import ontology.messages.UserState;
 import de.dailab.jiactng.agentcore.action.Action;
@@ -60,7 +60,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 	}
 	
 	public void startTraining(int niteID) {
-		sendMessage(new StartTraining(null, null, niteID), this.gestureAddress);
+		sendMessage(new TrainUser(null, null, niteID), this.gestureAddress);
 	}
 	
 	public void recognize(int niteID, boolean qr) {
@@ -110,10 +110,8 @@ public class GestureBean extends AbstractCommunicatingBean {
 					pressKey(KeyEvent.VK_ENTER);					
 				}
 				break;
-			case "blablabla":
-				user.allowed = true;
-			case "blabla":
-				user.allowed = false;
+			case "blocking":
+				user.allowed = !user.allowed;
 				
 			default:
 				log.info("GestureAgent - received unknown Gesture");
