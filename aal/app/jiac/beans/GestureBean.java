@@ -74,6 +74,9 @@ public class GestureBean extends AbstractCommunicatingBean {
 			String gesture = ((Gesture) message).getGesture();
 			int niteID = ((Gesture) message).getNiteID();
 			User user = ASingleton.niteToUser.get(niteID);
+			if (user == null) {
+				user = ASingleton.niteToUser.put(niteID, new User(niteID));
+			}
 			log.info("GestureAgent - received Gesture: " + gesture);
 			ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);
 			switch(gesture) {
@@ -119,6 +122,8 @@ public class GestureBean extends AbstractCommunicatingBean {
 
 		} else if (message instanceof NewUser) {
 
+			log.info("NEW USER");
+
 			NewUser messageUser = (NewUser) message;
 			User user = ASingleton.niteToUser.get(messageUser.getNiteID());
 			// if already existent remove first
@@ -131,6 +136,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 			
 		} else if (message instanceof UserState) {
 			
+			log.info("USER STATE");
 			UserState messageUser = (UserState) message;
 			User user = ASingleton.niteToUser.get(messageUser.getNiteID());
 			if (user == null) {
@@ -142,6 +148,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			
 		} else if (message instanceof UserLeft) {
+			log.info("USER LEFT");
 			UserLeft messageUser = (UserLeft) message;
 			User user = ASingleton.niteToUser.remove(messageUser.getNiteID());
 			String json = gson.toJson(user);
