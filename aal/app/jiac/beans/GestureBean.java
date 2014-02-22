@@ -45,6 +45,8 @@ public class GestureBean extends AbstractCommunicatingBean {
 		log.info("my Node: " + this.thisAgent.getAgentNode().getName());
 
 		invoke(join, new Serializable[] { this.gestureAddress }, this);
+		
+		ASingleton.agents.add(this);
 
 		sendAction = retrieveAction(ICommunicationBean.ACTION_SEND);
 		if (sendAction == null) 
