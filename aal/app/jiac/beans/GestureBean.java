@@ -9,9 +9,13 @@ import java.io.Serializable;
 
 import ontology.Message;
 import ontology.messages.Gesture;
+import ontology.messages.NewUser;
+import ontology.messages.UserLeft;
+import ontology.messages.UserState;
 import de.dailab.jiactng.agentcore.action.Action;
 import de.dailab.jiactng.agentcore.comm.ICommunicationBean;
 import de.dailab.jiactng.agentcore.comm.IGroupAddress;
+import util.ASingleton;
 
 public class GestureBean extends AbstractCommunicatingBean {
 
@@ -49,9 +53,11 @@ public class GestureBean extends AbstractCommunicatingBean {
 
 	@Override
 	protected void receiveMessage(Message message) {
+		
 		if(message instanceof Gesture){
 			String gesture = ((Gesture) message).getGesture();
 			log.info("GestureAgent - received Gesture: " + gesture);
+			ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);
 			switch(gesture) {
 			case "screen_toggle": 
 				pressKey(KeyEvent.VK_2);
@@ -76,6 +82,12 @@ public class GestureBean extends AbstractCommunicatingBean {
 			}
 
 
+		} else if (message instanceof NewUser) {
+			
+		} else if (message instanceof UserState) {
+			
+		} else if (message instanceof UserLeft) {
+			
 		}
 	}
 		

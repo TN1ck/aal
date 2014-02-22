@@ -9,6 +9,7 @@ import play.mvc.*;
 import play.mvc.WebSocket.Out;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
 
+
 public final class ASingleton {
     public static final LinkedList<AbstractAgentBean> agents = new LinkedList<AbstractAgentBean>();
     public final static HashMap<String, Set<WebSocket.Out<String>>> idsToSockets = new HashMap<String, Set<WebSocket.Out<String>>>();
@@ -21,7 +22,8 @@ public final class ASingleton {
     	NEWS,
     	MAIL,
     	CALENDAR, 
-    	FACEBOOK
+        FACEBOOK,
+    	DEBUG_KEYS
     }
     
     public static void sendData(Sockets id, String json) {
