@@ -4,8 +4,8 @@
 
 var appControllers = angular.module('appControllers');
 
-appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','$rootScope',
-    function ($scope, TextTransmission, $state, $rootScope) {
+appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','$rootScope','$location',
+    function ($scope, TextTransmission, $state, $rootScope, $location) {
 
       // $scope.$watch('mobileIdText', function(newVal, oldVal) {
       //   TextTransmission.code = newVal;
@@ -26,6 +26,8 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
 
       //   console.log("changed code to: "+newVal);
       // });
+
+      console.log('Here are the routeParams: ', ($location.search()));
 
       $scope.setMobileId = function() {
         //set correct channel for listening
@@ -55,6 +57,11 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
         });
       };
 
+      if (($location.search()).mobileCode) {
+        console.log('hello i am in mobileControl and should have got a mobile id ', ($location.search()).mobileCode);
+        $scope.mobileIdText = ($location.search()).mobileCode;
+        $scope.setMobileId();
+      }
       // TextTransmission.fetchText(function(data) {
       //     console.log('got', data.data);
       //     $scope.textinput = data.data;
