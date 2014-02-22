@@ -12,7 +12,7 @@ public class StartTraining extends Message {
     int niteID;
 
     public StartTraining(String senderID, String receiverID, int niteID) {
-        super(senderID, receiverID, MessageType.START_TRAINING);
+        super(senderID, receiverID, MessageType.INITIALIZE_TRAINING);
     	this.niteID = niteID;
     }
     

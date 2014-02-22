@@ -56,6 +56,20 @@ appControllers.controller('MainCtrl',
       return wdgt.socket;
     };
 
+    $rootScope.users = [];
+
+    // Listen for user changes, this is important for ALL widgets
+    TextTransmission.fetchDataForWall(function(data) {
+        console.log('ADDED USER', data.data);
+        $rootScope.push(data.data);
+      }, 'ADD_USER');
+
+    TextTransmission.fetchDataForWall(function(data) {
+        console.log('REMOVED USER', data.data);
+        $rootScope.push(data.data);
+      }, 'REMOVE_USER');
+
+
     var Menu = new RadialService.Menu({selector: '#right'});
 
 

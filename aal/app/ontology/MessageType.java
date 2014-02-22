@@ -30,5 +30,5 @@ public enum MessageType {
     
     RECOGNIZE_USER,
     TRAIN_USER,
-    START_TRAINING
+    INITIALIZE_TRAINING
 }

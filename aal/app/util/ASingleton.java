@@ -27,7 +27,10 @@ public final class ASingleton {
     	MAIL,
     	CALENDAR, 
         FACEBOOK,
-    	DEBUG_KEYS
+    	DEBUG_KEYS,
+    	ADD_USER,
+    	REMOVE_USER
+    	
     }
     
     public static void sendData(Sockets id, String json) {

@@ -7,6 +7,8 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.Serializable;
 
+import com.google.gson.Gson;
+
 import models.User;
 import ontology.Message;
 import ontology.MessageType;
@@ -26,6 +28,8 @@ public class GestureBean extends AbstractCommunicatingBean {
 	private Action sendAction = null;
 	private IGroupAddress gestureAddress = null;
 	Robot r = null;
+	
+	Gson gson = new Gson();
 
 	@Override
 	public void doInit() {
@@ -121,7 +125,9 @@ public class GestureBean extends AbstractCommunicatingBean {
 			if (user != null) {
 				ASingleton.niteToUser.remove(messageUser.getNiteID());
 			}
-			ASingleton.niteToUser.put(messageUser.getNiteID(), new User(messageUser.getNiteID()));
+			user = ASingleton.niteToUser.put(messageUser.getNiteID(), new User(messageUser.getNiteID()));
+			String json = gson.toJson(user);
+			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			
 		} else if (message instanceof UserState) {
 			
@@ -132,10 +138,14 @@ public class GestureBean extends AbstractCommunicatingBean {
 			}
 			user.userID = messageUser.getUserID();
 			user.image = messageUser.getImage();
+			String json = gson.toJson(user);
+			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			
 		} else if (message instanceof UserLeft) {
 			UserLeft messageUser = (UserLeft) message;
-			ASingleton.niteToUser.remove(messageUser.getNiteID());
+			User user = ASingleton.niteToUser.remove(messageUser.getNiteID());
+			String json = gson.toJson(user);
+			ASingleton.sendData(ASingleton.Sockets.REMOVE_USER, json);
 		}
 	}
 		

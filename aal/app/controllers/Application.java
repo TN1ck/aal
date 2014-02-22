@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import jiac.beans.BeanStarter;
+import jiac.beans.GestureBean;
 import jiac.beans.TodoBean;
 import play.Logger;
 import play.libs.F.Callback;
@@ -92,6 +93,26 @@ public class Application extends Controller {
     
     public static Result deleteMail(int uid, int id) {
         return ok("ok");
+    }
+    
+    public static Result startTraining(int nid) {
+        
+    	for (AbstractAgentBean agent : ASingleton.agents) {
+            if (agent instanceof GestureBean) {
+                ((GestureBean) agent).startTraining(nid);
+            }
+        }
+    	
+        return ok("ok");
+    }
+    
+    public static Result recognize(int nid) {
+    	for (AbstractAgentBean agent : ASingleton.agents) {
+            if (agent instanceof GestureBean) {
+                ((GestureBean) agent).recognize(nid, false);
+            }
+        }
+    	return ok("ok");
     }
       
     @Transactional

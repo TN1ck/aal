@@ -24,6 +24,11 @@ DELETE  /todo/:uid/:id                  controllers.Application.deleteTodo(uid: 
 DELETE  /calendar/:uid/:id              controllers.Application.deleteCalendar(uid: Int, id: Int)
 DELETE  /mail/:uid/:id                  controllers.Application.deleteMail(uid: Int, id: Int)
 
+# Training
+
+POST 	/starttraining/:nid			controllers.Application.startTraining(nid: Int)
+POST 	/recognize/:nid		    	controllers.Application.recognize(nid: Int)
+
 # I'm not able to define to asset-directories... sucks
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)
 GET     /bower_components/*file         controllers.Assets.at(path="/public/angular/app/bower_components", file)
