@@ -120,7 +120,6 @@ public class GestureBean extends AbstractCommunicatingBean {
 
 		} else if (message instanceof NewUser) {
 
-			log.info("NEW USER");
 
 			NewUser messageUser = (NewUser) message;
 			User user = ASingleton.niteToUser.get(messageUser.getNiteID());
@@ -129,6 +128,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 				ASingleton.niteToUser.remove(messageUser.getNiteID());
 			}
 			user = ASingleton.niteToUser.put(messageUser.getNiteID(), new User(messageUser.getNiteID()));
+			log.info("NEW USER ID: " + user.niteID);
 			String json = gson.toJson(user);
 			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			
