@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
 
 import ontology.Message;
@@ -67,7 +68,42 @@ public class MailBean extends AbstractCommunicatingBean {
 			log.warn("Can't send message. " + agentName + " not found!");
 	}
 	
-	public void writeMail(int userID) {
+	public void writeMail(int userID, JsonNode json) {
+		boolean send = false;
+		
+		// Retrieve all DatabaseMockupBeans
+		ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
+		
+		String receiverID = null;
+		for (IAgentDescription agent : agentDescriptions) {
+			if (agent.getName().equals(agentName)) {
+				// create the message, get receiver's message box address
+				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
+				receiverID = agent.getAid();
+				
+				//create message
+				SendMail newMessage = new SendMail(thisAgent.getAgentId(), receiverID, userID, null,json.findPath("receiver").textValue());
+				
+				String subject = json.findPath("subject").textValue();
+				String content = json.findPath("content").textValue();
+				String type = json.findPath("type").textValue();
+				String from = json.findPath("from").textValue();
+				Date received = new Date();
+				
+				//create new Mail
+				MailData md = new MailData(null,null,0,null);
+				Mail newMail = md.new Mail(subject,content,type,from,received);
+				newMessage.setMail(newMail);
+				JiacMessage message = new JiacMessage(newMessage);
+				// Invoke sendAction
+				log.info("sending GetMailData to: " + receiver);
+				invoke(sendAction, new Serializable[] { message, receiver });
+				send = true;
+			}
+		}
+		
+		if (!send)
+			log.warn("Can't send message. " + agentName + " not found!");
 		// TODO
 	}
 	
