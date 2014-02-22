@@ -20,7 +20,7 @@ public class UserState extends Message {
     	this.image = image;
     }
     
-    public int getNitID() {
+    public int getNiteID() {
     	return niteID;
     }
     

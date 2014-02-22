@@ -26,5 +26,9 @@ public enum MessageType {
     USER_STATE,
 
     DELETE_COMM,
-    DELETE_INFO
+    DELETE_INFO,
+    
+    RECOGNIZE_USER,
+    TRAIN_USER,
+    INITIALIZE_TRAINING
 }

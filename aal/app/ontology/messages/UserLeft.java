@@ -15,7 +15,7 @@ public class UserLeft extends Message {
     	this.niteID = niteID;
     }
     
-    public int getNitID() {
+    public int getNiteID() {
     	return niteID;
     }
 }
