@@ -127,8 +127,9 @@ public class GestureBean extends AbstractCommunicatingBean {
 			if (user != null) {
 				ASingleton.niteToUser.remove(messageUser.getNiteID());
 			}
-			user = ASingleton.niteToUser.put(messageUser.getNiteID(), new User(messageUser.getNiteID()));
-			log.info("NEW USER ID: " + user.niteID);
+			user = new User(messageUser.getNiteID()); 
+			ASingleton.niteToUser.put(messageUser.getNiteID(), user);
+			log.info("NEW USER ID: " + user.getNiteID());
 			String json = gson.toJson(user);
 			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			
