@@ -7,7 +7,7 @@ var appControllers = angular.module('appControllers');
 
 appControllers.controller('AuthCtrl',
   
-  function ($scope, user, $FB, $location, $timeout) {
+  function ($scope, user, $FB, $location, $timeout, $rootScope) {
     
     $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
 
@@ -96,7 +96,7 @@ appControllers.controller('AuthCtrl',
     $(document).ready( function() {
       $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
         function(data){
-          $scope.url = 'http://' + data.host + '/index.html#/mobile';
+          $scope.url = 'http://' + data.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
         }
       );
     });
