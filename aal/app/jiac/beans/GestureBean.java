@@ -15,7 +15,7 @@ import ontology.MessageType;
 import ontology.messages.Gesture;
 import ontology.messages.NewUser;
 import ontology.messages.RecognizeUser;
-import ontology.messages.StartTraining;
+import ontology.messages.TrainUser;
 import ontology.messages.UserLeft;
 import ontology.messages.UserState;
 import de.dailab.jiactng.agentcore.action.Action;
@@ -60,7 +60,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 	}
 	
 	public void startTraining(int niteID) {
-		sendMessage(new StartTraining(null, null, niteID), this.gestureAddress);
+		sendMessage(new TrainUser(null, null, niteID), this.gestureAddress);
 	}
 	
 	public void recognize(int niteID, boolean qr) {
@@ -74,6 +74,9 @@ public class GestureBean extends AbstractCommunicatingBean {
 			String gesture = ((Gesture) message).getGesture();
 			int niteID = ((Gesture) message).getNiteID();
 			User user = ASingleton.niteToUser.get(niteID);
+			if (user == null) {
+				user = ASingleton.niteToUser.put(niteID, new User(niteID));
+			}
 			log.info("GestureAgent - received Gesture: " + gesture);
 			ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);
 			switch(gesture) {
@@ -107,10 +110,8 @@ public class GestureBean extends AbstractCommunicatingBean {
 					pressKey(KeyEvent.VK_ENTER);					
 				}
 				break;
-			case "blablabla":
-				user.allowed = true;
-			case "blabla":
-				user.allowed = false;
+			case "blocking":
+				user.allowed = !user.allowed;
 				
 			default:
 				log.info("GestureAgent - received unknown Gesture");
@@ -119,6 +120,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 
 		} else if (message instanceof NewUser) {
 
+
 			NewUser messageUser = (NewUser) message;
 			User user = ASingleton.niteToUser.get(messageUser.getNiteID());
 			// if already existent remove first
@@ -126,11 +128,13 @@ public class GestureBean extends AbstractCommunicatingBean {
 				ASingleton.niteToUser.remove(messageUser.getNiteID());
 			}
 			user = ASingleton.niteToUser.put(messageUser.getNiteID(), new User(messageUser.getNiteID()));
+			log.info("NEW USER ID: " + user.niteID);
 			String json = gson.toJson(user);
 			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			
 		} else if (message instanceof UserState) {
 			
+			log.info("USER STATE");
 			UserState messageUser = (UserState) message;
 			User user = ASingleton.niteToUser.get(messageUser.getNiteID());
 			if (user == null) {
@@ -142,6 +146,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			
 		} else if (message instanceof UserLeft) {
+			log.info("USER LEFT");
 			UserLeft messageUser = (UserLeft) message;
 			User user = ASingleton.niteToUser.remove(messageUser.getNiteID());
 			String json = gson.toJson(user);

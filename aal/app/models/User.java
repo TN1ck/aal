@@ -12,5 +12,21 @@ public class User {
 	public User (int niteID) {
 		this.niteID = niteID;
 	}
+	
+	public int getNiteID() {
+		return this.niteID;
+	}
+	
+	public int getUserID() {
+		return this.userID;
+	}
+	
+	public boolean getAllowed() {
+		return this.allowed;
+	}
+	
+	public TransportFrame getImage() {
+		return this.image;
+	}
 
 }
