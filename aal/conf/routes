@@ -26,8 +26,8 @@ DELETE  /mail/:uid/:id                  controllers.Application.deleteMail(uid: 
 
 # Training
 
-POST 	/starttraining/:nid			controllers.Application.startTraining(nid: Int)
-POST 	/recognize/:nid		    	controllers.Application.recognize(nid: Int)
+GET 	/starttraining/:nid			controllers.Application.startTraining(nid: Int)
+GET 	/recognize/:nid		    	controllers.Application.recognize(nid: Int)
 
 # I'm not able to define to asset-directories... sucks
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)

@@ -61,11 +61,16 @@ appControllers.controller('MainCtrl',
     // Listen for user changes, this is important for ALL widgets
     TextTransmission.fetchDataForWall(function(data) {
         console.log('ADDED USER', data.data);
-        $rootScope.users.push(data.data);
+        if (data.data.niteID === 0 || data.data.niteID) {
+          $rootScope.users.push(data.data);
+        }
       }, 'ADD_USER');
 
     TextTransmission.fetchDataForWall(function(data) {
         console.log('REMOVED USER', data.data);
+        $rootScope.users = $rootScope.users.filter(function(d) {
+          return d.niteID !== data.data.niteID;
+        });
       }, 'REMOVE_USER');
 
 
