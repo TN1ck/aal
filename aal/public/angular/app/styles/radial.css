@@ -9,6 +9,10 @@
 	z-index: 999;
 }
 
+#right {
+	position: absolute;
+}
+
 .svg-menu {
 	stroke: white;
 	stroke-width: 0.6em;

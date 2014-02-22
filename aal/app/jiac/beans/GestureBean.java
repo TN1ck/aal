@@ -45,6 +45,8 @@ public class GestureBean extends AbstractCommunicatingBean {
 		log.info("my Node: " + this.thisAgent.getAgentNode().getName());
 
 		invoke(join, new Serializable[] { this.gestureAddress }, this);
+		
+		ASingleton.agents.add(this);
 
 		sendAction = retrieveAction(ICommunicationBean.ACTION_SEND);
 		if (sendAction == null) 
@@ -60,11 +62,11 @@ public class GestureBean extends AbstractCommunicatingBean {
 	}
 	
 	public void startTraining(int niteID) {
-		sendMessage(new TrainUser(null, null, niteID), this.gestureAddress);
+		sendMessage(new TrainUser(thisAgent.getAgentId(), null, niteID), this.gestureAddress);
 	}
 	
 	public void recognize(int niteID, boolean qr) {
-		sendMessage(new RecognizeUser(null, null, niteID, qr), this.gestureAddress);
+		sendMessage(new RecognizeUser(thisAgent.getAgentId(), null, niteID, qr), this.gestureAddress);
 	}
 
 	@Override
@@ -120,7 +122,6 @@ public class GestureBean extends AbstractCommunicatingBean {
 
 		} else if (message instanceof NewUser) {
 
-			log.info("NEW USER");
 
 			NewUser messageUser = (NewUser) message;
 			User user = ASingleton.niteToUser.get(messageUser.getNiteID());
@@ -128,7 +129,9 @@ public class GestureBean extends AbstractCommunicatingBean {
 			if (user != null) {
 				ASingleton.niteToUser.remove(messageUser.getNiteID());
 			}
-			user = ASingleton.niteToUser.put(messageUser.getNiteID(), new User(messageUser.getNiteID()));
+			user = new User(messageUser.getNiteID()); 
+			ASingleton.niteToUser.put(messageUser.getNiteID(), user);
+			log.info("NEW USER ID: " + user.getNiteID());
 			String json = gson.toJson(user);
 			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			

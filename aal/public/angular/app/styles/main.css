@@ -285,3 +285,19 @@ body.modal-open {
 .modal {
     display: block !important;
 }
+
+.main-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.main-footer .item {
+    text-align: center;
+    width: 20em;
+    font-size: 2em;
+    margin: 0.5em auto;
+    background-color: white;
+    padding: 1em;
+}

@@ -17,17 +17,20 @@ app.directive('widgetDebug', function(TextTransmission, $rootScope) {
     },
     link: function($scope) {
 
+      $scope.r = $rootScope;
+
       $scope.keys = ['R', 'B', 'SPACE'];
       $scope.gestureCounter = 0;
 
       // used to show off the pressed keys aka the gestures
       TextTransmission.fetchTextForWall(function(data) {
+        console.log('key received: ', data.data);
         $scope.keys.push(data.data);
         $scope.gestureCounter++;
-        if ($scope.keys.length > 20) {
+        if ($scope.keys.length > 5) {
           $scope.keys.shift();
         }
-      }, $scope.socket + '_KEYS');
+      }, 'DEBUG_KEYS');
 
 		}
   };

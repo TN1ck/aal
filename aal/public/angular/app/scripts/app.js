@@ -11,7 +11,8 @@ var angularApp = angular.module('angularApp', [
     'google-maps',
     'ui.router',
     'ezfb',
-    'webcam'
+    'webcam',
+    'monospaced.qrcode'
   ]);
 
 angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {

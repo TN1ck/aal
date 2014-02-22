@@ -9,17 +9,17 @@
 		<br/>
 		<b>Erkannte Benutzer:</b> 8
 	</div>
-	<ng-repeat="d in [0,1]">
+	<div ng-repeat="user in r.users">
 		<div class="col-md-3 row-md-1 widget {{css}} widget-padding">
 			<div class="footer">
-				id: 23492390
+				niteID: {{user.niteID}}
 				<br/>
-				type: known
+				userID: {{user.userID}}
 				<br/>
-				name: something
+				allowed; {{user.allowed}}
 			</div>
 		</div>
-	</ng-repeat>
+	</div ng-repeat>
 	<div class="col-md-12 row-md-1 widget {{css}} text-center">
 		<h1>
 			<span style="{{$last && 'color: black'}};" ng-repeat="key in keys">{{key}}&nbsp</span>
