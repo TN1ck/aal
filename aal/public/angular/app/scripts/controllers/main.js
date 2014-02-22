@@ -58,12 +58,20 @@ appControllers.controller('MainCtrl',
 
     $rootScope.users = [];
 
+    $scope.alerts = [];
+
     // Listen for user changes, this is important for ALL widgets
     TextTransmission.fetchDataForWall(function(data) {
         console.log('ADDED USER', data.data);
-        if (data.data.niteID === 0 || data.data.niteID) {
-          $rootScope.users.push(data.data);
-        }
+        $rootScope.users.push(data.data);
+        $scope.alerts.push({
+          msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+        });
+
+        $timeout(function() {
+          $scope.alerts.shift();
+        }, 10000);
+
       }, 'ADD_USER');
 
     TextTransmission.fetchDataForWall(function(data) {
@@ -72,6 +80,8 @@ appControllers.controller('MainCtrl',
           return d.niteID !== data.data.niteID;
         });
       }, 'REMOVE_USER');
+
+
 
 
     var Menu = new RadialService.Menu({selector: '#right'});
