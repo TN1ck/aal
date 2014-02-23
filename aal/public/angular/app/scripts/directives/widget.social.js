@@ -31,7 +31,7 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
       },$scope.socket);
 
       $scope.likePost = function(id) {
-        console.log('like function called');
+        // console.log('like function called');
         $FB.api(id+'/likes', 'post', function(response) {
           $('#'+id).replaceWith('');
         });
