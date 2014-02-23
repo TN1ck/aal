@@ -109,6 +109,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
           if( JSON.stringify(element) === JSON.stringify(data)){
             console.log('I can now remove');
             $scope.data.splice(index, 1);
+            deleteTodo(element.id);
           }
         });
       };
