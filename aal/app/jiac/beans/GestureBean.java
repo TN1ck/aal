@@ -60,6 +60,12 @@ public class GestureBean extends AbstractCommunicatingBean {
 		}
 
 	}
+
+	public void execute() {
+		Double niteID = new Double(Math.random() * 100);
+		User user = new User(niteID.intValue());
+		ASingleton.sendData(ASingleton.Sockets.ADD_USER, gson.toJson(user));
+	} 
 	
 	public void startTraining(int niteID) {
 		sendMessage(new TrainUser(thisAgent.getAgentId(), null, niteID), this.gestureAddress);
