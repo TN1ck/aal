@@ -17,6 +17,8 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
     },
     link: function($scope) {
 
+      $scope.data = $rootScope.mailData;
+
       TextTransmission.fetchTextForWall(function(data) {
         console.log('Data in fetchTextForWall: ', data);
         if(data.data === 'newMail'){
@@ -29,7 +31,11 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
       }, $scope.socket);
 
 	    TextTransmission.fetchDataForWall(function(data) {
-				$scope.data = data.data.mails;
+        // the length is a hack
+        if (!$rootScope.mailData || $rootScope.mailData.length !== data.data.mails.length) {
+          $rootScope.mailData = data.data.mails;
+          $scope.data = data.data.mails;
+        }
 	    },$scope.socket);
 
       var fetchMail = function(id) {
