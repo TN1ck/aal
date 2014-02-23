@@ -92,13 +92,13 @@ appControllers.controller('AuthCtrl',
       });
     };
 
-    $rootScope.$watch('currentUser', function() {
-      if ($rootScope.currentUser && $rootScope.currentUser.userID > 0) {
-        $state.transitionTo('wrapper.auth.welcome');
-      } else if ($rootScope.currentUser && $rootScope.currentUser.userID === -1) {
-        $state.transitionTo('wrapper.auth.unknown');
-      }
-    });
+    // $rootScope.$watch('currentUser', function() {
+    //   if ($rootScope.currentUser && $rootScope.currentUser.userID > 0) {
+    //     $state.transitionTo('wrapper.auth.welcome');
+    //   } else if ($rootScope.currentUser && $rootScope.currentUser.userID === -1) {
+    //     $state.transitionTo('wrapper.auth.unknown');
+    //   }
+    // });
 
     $scope.onSuccess = function (videoElem) {
       // The video element contains the captured camera data

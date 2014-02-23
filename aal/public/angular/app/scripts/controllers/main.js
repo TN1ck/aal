@@ -91,6 +91,7 @@ appControllers.controller('MainCtrl',
             console.log('DELETED ALERT');
           }, 15000);
 
+
         } else {
           
           $rootScope.users = filteredUsers;
@@ -104,6 +105,12 @@ appControllers.controller('MainCtrl',
             $scope.alerts.shift();
             console.log('DELETED ALERT');
           }, 15000);
+        }
+
+        if (data.data.userID && $rootScope.currentUser.userID > 0) {
+          $state.transitionTo('wrapper.auth.welcome');
+        } else if (data.data.userID && $rootScope.currentUser.userID === -1) {
+          $state.transitionTo('wrapper.auth.unknown');
         }
 
 
