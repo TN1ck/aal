@@ -80,6 +80,8 @@ public class NewsBean extends AbstractCommunicatingBean {
 		news2.setDescription("The sun is shining");
 		
 		ArrayList<NewsFeedMessage> news = new ArrayList<NewsFeedMessage>();
+		news.add(news1);
+		news.add(news2);
 		testMess.setNewsFeed(news);
 		receiveMessage(testMess);
 		

@@ -48,10 +48,3 @@
     -webkit-transform: perspective(10em) rotateX(-180deg) rotateY(-179.9deg);
   }
 }
-
-.greyout {
-	width: 100%;
-	height: 100%;
-	background-color: grey;
-	margin: auto;
-}
