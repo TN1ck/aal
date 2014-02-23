@@ -1,15 +1,54 @@
 'use strict';
 
-/* global angular */
+/* global angular, $ */
 
 var appControllers = angular.module('appControllers');
 
 
 appControllers.controller('AuthCtrl',
   
-  function ($scope, user, $FB, $location, $timeout) {
+  function ($scope, user, $FB, $location, $timeout, $rootScope, $state) {
     
     $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
+
+    var KEYMAPPING = {
+      ENTER: 57,
+      UP: 56,
+      DOWN: 55
+    };
+
+    var currentSelection = 0;
+
+    $(document).on('keypress', function(e) {
+
+      var $buttons = $('.buttons').find('.btn');
+
+      switch(e.keyCode) {
+        
+      case KEYMAPPING.DOWN:
+        $buttons = $('.buttons').find('.btn');
+        currentSelection = (currentSelection === ($buttons.length - 1)) ? 0 : currentSelection + 1;
+        $buttons.removeClass('btn-primary');
+        $($buttons[currentSelection]).addClass('btn-primary');
+        break;
+
+      case KEYMAPPING.UP:
+        $buttons = $('.buttons').find('.btn');
+        currentSelection = (currentSelection === 0) ? ($buttons.length - 1) : currentSelection - 1;
+        $buttons.removeClass('btn-primary');
+        $($buttons[currentSelection]).addClass('btn-primary');
+        break;
+      
+      case KEYMAPPING.ENTER:
+        $buttons = $('.buttons').find('.btn');
+        $('.buttons').find('.btn-primary').click();
+        var nextLocation = $('.buttons').find('.btn-primary').attr('ui-sref');
+        $state.transitionTo(nextLocation);
+        break;
+
+      }
+
+    });
 
     var getVideoData = function getVideoData(x, y, w, h) {
       var hiddenCanvas = document.createElement('canvas');
@@ -53,6 +92,14 @@ appControllers.controller('AuthCtrl',
       });
     };
 
+    $rootScope.$watch('currentUser', function() {
+      if ($rootScope.currentUser && $rootScope.currentUser.userID > 0) {
+        $state.transitionTo('wrapper.auth.welcome');
+      } else if ($rootScope.currentUser && $rootScope.currentUser.userID === -1) {
+        $state.transitionTo('wrapper.auth.unknown');
+      }
+    });
+
     $scope.onSuccess = function (videoElem) {
       // The video element contains the captured camera data
       _video = videoElem;
@@ -92,7 +139,20 @@ appControllers.controller('AuthCtrl',
 
     $scope.user = user.get;
 
-    $scope.url = 'http://' + document.location.host + '/index.html#/mobile';
+
+    // Get IP of Mobile site and generate Data for QR-Code
+
+      $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
+        function(data){
+          $scope.displayUrl = 'http://' + data.host + '/index.html#/mobile';
+          $scope.url = 'http://' + data.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
+        }
+      );
+
+    // $scope.url = 'http://' + document.location.host + '/index.html#/mobile';
+    $scope.version = 4;
+    $scope.level = 'L';
+    $scope.size = $(window).height()/3;
 
 
   });

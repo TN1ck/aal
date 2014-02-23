@@ -20,7 +20,15 @@ public enum MessageType {
     COMM_DATA,
     INFO_DATA,
     GESTURE,
+    
+    NEW_USER,
+    USER_LEFT,
+    USER_STATE,
 
     DELETE_COMM,
-    DELETE_INFO
+    DELETE_INFO,
+    
+    RECOGNIZE_USER,
+    TRAIN_USER,
+    INITIALIZE_TRAINING
 }

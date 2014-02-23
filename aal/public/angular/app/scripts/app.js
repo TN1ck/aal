@@ -11,7 +11,8 @@ var angularApp = angular.module('angularApp', [
     'google-maps',
     'ui.router',
     'ezfb',
-    'webcam'
+    'webcam',
+    'monospaced.qrcode'
   ]);
 
 angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
@@ -44,6 +45,11 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       .state('wrapper.playground',{
         url: '/playground',
         templateUrl: 'views/playground.html',
+        controller: 'MainCtrl'
+      })
+      .state('wrapper.fair', {
+        url: '/fair',
+        templateUrl: 'views/fair.html',
         controller: 'MainCtrl'
       })
       .state('wrapper.settings', {
@@ -83,7 +89,7 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       })
       .state('wrapper.auth', {
         url: '/auth',
-        template: '<div ui-view></div>',
+        template: '<div class="auth" ui-view></div>',
         abstract: true,
         controller: 'AuthCtrl'
       })
@@ -92,12 +98,16 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         templateUrl: 'views/auth/welcome.html'
       })
       .state('wrapper.auth.unkown', {
-        url: '/unkown',
-        templateUrl: 'views/auth/unkown.html'
+        url: '/unknown',
+        templateUrl: 'views/auth/unknown.html'
       })
       .state('wrapper.auth.new', {
         url: '/new',
         templateUrl: 'views/auth/new.html'
+      })
+      .state('wrapper.auth.loading', {
+        url: '/loading',
+        templateUrl: 'views/auth/loading.html'
       })
       .state('wrapper.auth.train', {
         url: '/train',

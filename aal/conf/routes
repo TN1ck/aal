@@ -14,7 +14,6 @@ GET     /stopjiac                       controllers.Application.stopJiac()
 GET     /calendar/:uid              controllers.Application.getCalendar(uid: Int, id: Int ?= 0)
 GET     /news/:uid                  controllers.Application.getNews(uid: Int, id: Int ?= 0)
 GET     /todo/:uid                  controllers.Application.getTodo(uid: Int, id: Int ?= 0)
-GET     /calendar/:uid              controllers.Application.getCalendar(uid: Int, id: Int ?= 0)
 GET     /mail/:uid                  controllers.Application.getMail(uid: Int, id: Int ?= 0)
 
 PUT     /todo/:uid                      controllers.Application.putTodo(uid: Int)
@@ -24,6 +23,11 @@ PUT     /mail/:uid                      controllers.Application.putMail(uid: Int
 DELETE  /todo/:uid/:id                  controllers.Application.deleteTodo(uid: Int, id: Int)
 DELETE  /calendar/:uid/:id              controllers.Application.deleteCalendar(uid: Int, id: Int)
 DELETE  /mail/:uid/:id                  controllers.Application.deleteMail(uid: Int, id: Int)
+
+# Training
+
+GET 	/starttraining/:nid			controllers.Application.startTraining(nid: Int)
+GET 	/recognize/:nid		    	controllers.Application.recognize(nid: Int)
 
 # I'm not able to define to asset-directories... sucks
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)

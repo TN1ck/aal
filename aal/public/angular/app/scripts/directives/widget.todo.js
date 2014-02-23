@@ -30,7 +30,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
 
 
       TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data.data;
+        $scope.data = data.data.items;
       }, $scope.socket);
       // should be changed later
 
@@ -86,7 +86,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
           $scope.lastShownTodo.popover('hide');
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Priority: </div><div class="col-md-9">' + priorityFilter(data.type) + '</div><div class="col-md-3">created: </div><div class="col-md-9">' + moment(data.created).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeTodo(data)">Remove</button></div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Priority: </div><div class="col-md-9">' + priorityFilter(data.prio) + '</div><div class="col-md-3">created: </div><div class="col-md-9">' + moment(data.created).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeTodo(data)">Remove</button></div></div></div>';
         $target.popover({
           placement : 'auto bottom',    // previously placement($target)          title : data.text, //this is the top title bar of the popover. add some basic css
           html: 'true', // needed to show html of course
@@ -109,6 +109,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
           if( JSON.stringify(element) === JSON.stringify(data)){
             console.log('I can now remove');
             $scope.data.splice(index, 1);
+            deleteTodo(element.id);
           }
         });
       };

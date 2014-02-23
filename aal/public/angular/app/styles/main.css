@@ -10,15 +10,38 @@ body {
     top: 0.3em;
 }
 
+.stick-bottom {
+    bottom: 0;
+    position: absolute;
+}
+
 /* Add lato as default font */
 
 body, h1, h2, h3, h4, h5 {
   font-family: 'Lato', sans-serif;
 }
 
+h2 {
+    font-size: 3em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+h3 {
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 0.6em;
+}
+
+h4 {
+    font-size: 1.3em;
+    margin: 0.7em 0;
+}
+
 .padding {
     padding: 2em !important;
 }
+
 
 .full-height {
 	min-height: 100%;
@@ -288,4 +311,20 @@ body.modal-open {
 
 .modal {
     display: block !important;
+}
+
+.main-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.main-footer .item {
+    text-align: center;
+    width: 20em;
+    font-size: 2em;
+    margin: 0.5em auto;
+    background-color: white;
+    padding: 1em;
 }

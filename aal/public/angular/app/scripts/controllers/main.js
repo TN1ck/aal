@@ -6,7 +6,7 @@ var appControllers = angular.module('appControllers', []);
 
 
 appControllers.controller('MainCtrl',
-  function ($scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService) {
+  function ($scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
 
     $scope.colors = WidgetData.colors;
     $scope.css = cssService.createCss($scope.colors);
@@ -55,6 +55,77 @@ appControllers.controller('MainCtrl',
       console.log(wdgt.socket);
       return wdgt.socket;
     };
+
+    $rootScope.users = [];
+    $rootScope.currentUser = false;
+
+    $scope.alerts = [];
+
+    // Listen for user changes, this is important for ALL widgets
+    TextTransmission.fetchDataForWall(function(data) {
+
+        if (!$rootScope.currentUser) {
+          console.log('NEW USER!');
+          $rootScope.currentUser = data.data;
+          $state.transitionTo('wrapper.auth.loading');
+        }
+
+        console.log('ADDED USER', data.data);
+        var filteredUsers = $rootScope.users.filter(function(d) {
+          return d.niteID !== data.data.niteID;
+        });
+        if (filteredUsers.length === $rootScope.users.length) {
+          $rootScope.users.push(data.data);
+          
+          $scope.alerts.push({
+            msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+          });
+
+          $timeout(function() {
+            $scope.alerts.shift();
+            console.log('DELETED ALERT');
+          }, 15000);
+
+        } else {
+          
+          $rootScope.users = filteredUsers;
+          $rootScope.users.push(data.data);
+          
+          $scope.alerts.push({
+            msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+          });
+
+          $timeout(function() {
+            $scope.alerts.shift();
+            console.log('DELETED ALERT');
+          }, 15000);
+        }
+
+
+      }, 'ADD_USER');
+
+
+    TextTransmission.fetchDataForWall(function(data) {
+        console.log('REMOVED USER', data.data);
+
+        if ($rootScope.currentUser.niteID === data.data.niteID && $rootScope.users.length >= 1) {
+          $rootScope.currentUser = $rootScope.users.shift();
+          $state.transitionTo('wrapper.main');
+        }
+
+        $rootScope.users = $rootScope.users.filter(function(d) {
+          return d.niteID !== data.data.niteID;
+        });
+
+        if ($rootScope.users.length === 0) {
+          $rootScope.currentUser = false;
+          $state.transitionTo('wrapper.main');
+        }
+
+      }, 'REMOVE_USER');
+
+
+
 
     var Menu = new RadialService.Menu({selector: '#right'});
 

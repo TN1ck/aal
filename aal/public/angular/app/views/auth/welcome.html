@@ -2,21 +2,28 @@
 	<div class="widget-padding col-md-4">
 		<div class="row-md-8 overflow padding">
 			<h1 class="auth header">Mobile-Code: {{mobileId}}</h1>
-			<p class="auth explain">Gib diesen Code unter {{url}} ein und du kannst dein Smartphone als Eingabe benutzen.</h3>
+			<div class="auth explain">Gib diesen Code unter <div class="well well-sm margin-tp margin-bt">{{displayUrl}}</div> auf deinem Smartphone ein und du kannst es zur Texteingabe benutzen.</div>	
 		</div>
 	</div>
 	<div class="widget-padding col-md-4">
-		<div class="row-md-8 overflow text-center padding">
+		<div class="row-md-8 overflow text-center padding buttons">
 			<h1 class="auth header">Willkommen {{user.firstName}} {{user.lastName}}!</h1>
 			<div class="auth main-picture" style="background-image: url({{user.picture}});"></div>
-			<button type="button" class="btn btn-primary btn-lg btn-block">Login</button>
-			<button ui-sref="wrapper.main" type="button" class="btn btn-default btn-lg btn-block">Demo Modus</button>
+			<button type="button" class="btn btn-default btn-primary btn-lg btn-block">Start!</button>
 			<button type="button" class="btn btn-default btn-lg btn-block">Anderer User</button>
-			<button ui-sref="wrapper.auth.new" type="button" class="btn btn-default btn-lg btn-block">Neuer User</button>
 		</div>
 	</div>
 	<div class="widget-padding col-md-4">
-		<div class="row-md-8 overflow">
+		<div class="row-md-8 overflow padding">
+			<h1 class="auth header">QR-Code</h1>
+			<div class="auth explain">
+				Zur Mobilseite kommst du auch, indem du diesen QR-Code scannst.
+				<div class="margin-tp">
+					<div class="well text-center">
+						<qrcode version="{{version}}" error-correction-level="{{level}}" size="{{size}}" data="{{url}}"></qrcode>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

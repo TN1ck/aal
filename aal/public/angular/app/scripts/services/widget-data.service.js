@@ -92,15 +92,16 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
 
   widgets = [
     {name: 'news', color: '#D65B3C', socket: 'NEWS'},
-    {name: 'personal', color: '#D77F47', socket: 'PERSONAL'},
+    {name: 'mail', color: '#AE8EA7', socket: 'MAIL'},
     {name: 'calendar', color: '#D9AA5A', socket: 'CALENDAR'},
+    {name: 'personal', color: '#D77F47', socket: 'PERSONAL'},
     {name: 'social', color: '#70BE8A', socket: 'SOCIAL'},
     {name: 'todo', color: '#19806E', socket: 'TODO'},
-    {name: 'mail', color: '#AE8EA7', socket: 'MAIL'},
+    {name: 'debug', color: '#D77F47', socket: 'DEBUG'}
 
   ];
 
-  colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#70BE8A', '#19806E', '#AE8EA7'];
+  colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#2980b9', '#19806E', '#AE8EA7', '#bdc3c7'];
 
   return {
     social: social.promise,

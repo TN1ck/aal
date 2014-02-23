@@ -204,6 +204,9 @@ app.factory('RadialService', function($rootScope, WidgetData) {
       level--;
       updateRects(level);
       selectData();
+      if (level === 0) {
+        $('.border').removeClass('border');
+      }
 
     };
 

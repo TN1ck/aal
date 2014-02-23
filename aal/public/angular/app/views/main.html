@@ -4,28 +4,37 @@
 			<widget  type="widgets[0].name" data="widgets[0].data" css="widgets[0].css" color="widgets[0].color" socket="widgets[0].socket"></widget>
 		</div>
 		<div class="row-md-4 overflow">
-			<widget  type="widgets[1].name" data="widgets[1].data" css="widgets[1].css" color="widgets[1].color" socket="widgets[1].socket">
-	        </widget>
+			<widget type="widgets[1].name" data="widgets[1].data" css="widgets[1].css" color="widgets[1].color" socket="widgets[1].socket"></widget>
 		</div>
 	</div>
 	<div class="widget-padding col-md-4">
-		<div class="row-md-8 overflow">
+		<div class="row-md-6 overflow">
 			<widget  type="widgets[2].name" data="widgets[2].data" css="widgets[2].css" color="widgets[2].color" socket="widgets[2].socket">
-	        </widget>
+			</widget>
+		</div>
+		<div class="row-md-2 overflow">
+			<widget  type="widgets[3].name" data="widgets[3].data" css="widgets[3].css" color="widgets[3].color" socket="widgets[3].socket">
+			</widget>
 		</div>
 	</div>
 	<div class="widget-padding col-md-4">
 		<div class="row-md-4 overflow">
-			<widget  type="widgets[3].name" data="widgets[3].data" css="widgets[3].css" color="widgets[3].color" socket="widgets[3].socket">
-			</widget>
-		</div>
-		<div class="row-md-2 overflow">
 			<widget  type="widgets[4].name" data="widgets[4].data" css="widgets[4].css" color="widgets[4].color" socket="widgets[4].socket">
 			</widget>
 		</div>
 		<div class="row-md-2 overflow">
-			<widget type="widgets[5].name" data="widgets[5].data" css="widgets[5].css" color="widgets[5].color" socket="widgets[5].socket"></widget>
+			<widget  type="widgets[5].name" data="widgets[5].data" css="widgets[5].css" color="widgets[5].color" socket="widgets[5].socket">
+			</widget>
 		</div>
+		<div class="row-md-2 overflow">
+			<widget  type="widgets[6].name" data="widgets[6].data" css="widgets[6].css" color="widgets[6].color" socket="widgets[6].socket">
+			</widget>
+		</div>
+	</div>
+</div>
+<div class="main-footer">
+	<div class="alerts">
+		<div class="item" ng-repeat="alert in alerts">{{alert.msg}}</div>
 	</div>
 </div>
 <svg id="right" class="radial"></svg>

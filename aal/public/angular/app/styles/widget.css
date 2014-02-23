@@ -37,6 +37,10 @@ widget-h4 {
 	font-size: 1em;
 }
 
+widget {
+	position: relative;
+}
+
 .widget {
 	box-sizing: border-box;
 	border: 0.2em solid #73CCED;
@@ -63,7 +67,7 @@ widget-h4 {
 	top: 0.5em;
 	right: 0.5em;
 	position: absolute;
-	color: white;
+	color: inherit;
 	background-color: inherit;
 }
 
@@ -106,6 +110,10 @@ widget-h4 {
 
 .footer {
 	position: absolute;
+	left: 0;
+	right: 0;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
 	bottom: 0;
 	background-color: transparent;
 	color: inherit;

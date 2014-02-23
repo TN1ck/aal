@@ -1,16 +1,18 @@
-<div class="row full-height {{css}}">
+<div class="row full-height" ng-style="{'background-color': color}">
 	<div class="col-md-12 row-md-1 widget {{css}}" ng-click="newMail()">
-		<widget-h1>Mails</widget-h1>
+		<widget-h1 class="stick-bottom">Mails</widget-h1>
 		<span class="label label-default">{{data.length}} Mails verfügbar</span>
 	</div>
 	<div ng-repeat="d in data">
-		<div class="col-md-12 row-md-2 widget {{css}}">
-			<div class="col-md-12">
-				From: {{d.from}}
-				<span class="label label-default">{{d.received}}</span>
+		<div class="col-md-12 row-md-1 widget {{css}} widget-padding">
+			<div>
+				<widget-h2>{{d.from | uppercase}} - {{d.subject}}</widget-h2>
+				<widget-h2 class="pull-right">{{d.received}}</widget-h2>
 			</div>
-			Subject: {{d.subject}}<br>
-			Content: {{d.content}}
+			<p class="widget-padding">
+			{{d.content | truncate:450}}	
+			</p>
 		</div>
 	</div>
+	<div ng-hide="data" class="spinner"></div>
 </div>

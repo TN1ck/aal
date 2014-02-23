@@ -1,4 +1,10 @@
 <div class="col-md-6 row-md-1 widget {{css}} todo-big" ng-click="$parent.showTodo($event, data)">
 	<!-- <span style="color: {{color}}" class="label label-default">Important</span> -->
 	<b>{{data.text}}</b>
+	<div class="footer">
+		<div style="float: left;">HIGH PRIORITY</div>
+		<div class="pull-right">
+			{{moment(data.created).format('D.M H:mm')}}
+		</div>
+	</div>
 </div>

@@ -1,11 +1,11 @@
 <!-- <widget-title title="'Kalender - ' + moment().format('LL')"></widget-title> -->
-<div class="row full-height {{css}}">
+<div class="row full-height" ng-style="{'background-color': color}">
 	<div class="col-md-12 row-md-1 widget {{css}}" ng-click="addCalendarEntry()">
-		<widget-h1>Kalendar - {{time}}</widget-h1>
+		<widget-h1 class="stick-bottom">Kalender - {{time}}</widget-h1>
 		<span class="label label-default">{{data.length}} appointments left</span>
 	</div>
-	<widget-calendar-big color="color" css="css" data="data[0]"></widget-calendar-big>
-	<widget-calendar-middle color="color" css="css" data="data[1]"></widget-calendar-middle>
-	<widget-calendar-middle color="color" css="css" data="data[2]"></widget-calendar-middle>
-	<widget-calendar-small ng-repeat="event in data.slice(3,19)" data="event" color="color" css="css"></widget-calendar-small>
+	<widget-calendar-big  ng-repeat="d in data.slice(0,2)" color="color" css="css" data="d"></widget-calendar-big>
+	<widget-calendar-middle ng-repeat="d in data.slice(2,-1)" color="color" css="css" data="d"></widget-calendar-middle><!-- 
+	<widget-calendar-small ng-repeat="event in data.slice(7,19)" data="event" color="color" css="css"></widget-calendar-small> -->
+	<div ng-hide="data" class="spinner"></div>
 </div>

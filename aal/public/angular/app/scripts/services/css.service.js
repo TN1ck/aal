@@ -9,7 +9,27 @@ app.factory('cssService', function(colorUtils) {
 
   var createCss = function(colors) {
     
-    var $style = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
+    var $styleColors = $('#colors').length === 0 ? $('<style id="colors" type="text/css">').appendTo('head') : $('#colors');
+
+    var windowHeight = $(window).height(),
+        $styleHeights = $('#row-mds').length === 0 ? $('<style id="row-mds" type="text/css">').appendTo('head') : $('#row-mds');
+
+    // console.log(paddingVert, paddingHor, windowWidth, windowHeight, $outerDiv);
+
+    var setHeights = function () {
+
+      var css =
+          ['@media (min-width: 1000px) { .row-md-8 { ', 'height: ', windowHeight,'px; } }',
+           '@media (min-width: 1000px) { .row-md-6 { ', 'height: ', windowHeight/2 + windowHeight/4,'px; } }',
+           '@media (min-width: 1000px) { .row-md-4 { ', 'height: ', windowHeight/2,'px; } }',
+           '@media (min-width: 1000px) { .row-md-2 { ', 'height: ', windowHeight/4, 'px; } }',
+           '@media (min-width: 1000px) { .row-md-1 { ', 'height: ', windowHeight/8, 'px; } }'].join('');
+
+      $styleHeights.html(css);
+
+    };
+
+    setHeights();
 
     var css = colors.map(function(d, i) {
 
@@ -31,7 +51,7 @@ app.factory('cssService', function(colorUtils) {
       return widgetColor + ' ' + widgetColorInvertedHover + ' ' + widgetColorInverted + widgetSubColors.join(' ');
     }).join(' ');
     
-    $style.html(css);
+    $styleColors.html(css);
 
     var cssClasses = colors.map(function(d, i) {return 'widget-color-' + i; });
 
