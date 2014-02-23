@@ -7,7 +7,7 @@ var appControllers = angular.module('appControllers');
 
 appControllers.controller('AuthCtrl',
   
-  function ($scope, user, $FB, $location, $timeout, $rootScope, $state) {
+  function ($scope, user, $FB, $location, $timeout, $rootScope, $state, $http) {
     
     $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
 
@@ -15,6 +15,13 @@ appControllers.controller('AuthCtrl',
       ENTER: 57,
       UP: 56,
       DOWN: 55
+    };
+
+    $scope.startTraining = function () {
+      $http.get('/starttraining/' + $rootScope.currentUser.niteID, function () {
+
+      });
+      $state.transitionTo('wrapper.auth.train');
     };
 
     var currentSelection = 0;
