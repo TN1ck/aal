@@ -102,7 +102,6 @@ public class CalendarBean extends AbstractCommunicatingBean {
 	public void execute() {
 		ArrayList<Entry> bla = new ArrayList<Entry>();
 		CalendarData mess = new CalendarData("from","to",-1,bla);
-		log.info("exec");
 		
 		//(String discription, String name, Date startTime, Date endTime, String location)
 		bla.add(mess.new Entry("weekly presentation in aal. Present Jiac-integeration, login-screens, gesture-integration.", "aal", date, date, "tel 11xx",0));
@@ -114,7 +113,6 @@ public class CalendarBean extends AbstractCommunicatingBean {
 		bla.add(mess.new Entry("so much more", "aal2", date, date, "tel 14xx",0));
 		bla.add(mess.new Entry("so much more", "aal2", date, date, "tel 14xx",0));
 		mess.setEntries(bla);
-		log.info("CALENDAR EXAMPLE JSON: " + gson.toJson(mess));
 		ASingleton.sendData(ASingleton.Sockets.CALENDAR, gson.toJson(mess));
 	} 
 
