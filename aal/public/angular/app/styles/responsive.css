@@ -5,7 +5,7 @@
 	}
 
 	.popover {
-	  max-width: 23em;
+	  max-width: 28em;
 	  padding: 1px;
 	  border-radius: .5em;
 	  -webkit-box-shadow: 0 .5em 1em rgba(0, 0, 0, 0.2);
@@ -28,7 +28,7 @@
 	.popover-title {
 	  margin: 0;
 	  padding: .75em 1.1em;
-	  font-size: 1em;
+	  font-size: 2em;
 	  font-weight: normal;
 	  line-height: 1.3em;
 	  background-color: #f7f7f7;
@@ -159,7 +159,7 @@
 	  display: inline-block;
 	  padding: .5em 1em;
 	  margin-bottom: 0;
-	  font-size: 1.2em;
+	  font-size: 1.4em;		/*orig: 1.2em;*/
 	  font-weight: normal;
 	  line-height: 1.428571429;
 	  text-align: center;
@@ -189,7 +189,7 @@
 
 	.btn-lg, .btn-group-lg > .btn {
 	  padding: .8em 1.3em;
-	  font-size: 1.5em;
+	  font-size: 1.8em;		/*orig: 1.5em;*/
 	  line-height: 1.33;
 	  border-radius: .5em;
 	}
@@ -312,6 +312,31 @@
 	  background-color: white;
 	  border: 1px solid #cccccc;
 	  border-radius: .3em;
+	}
+
+	.well {
+	  min-height: 1.6em;
+	  padding: 1.5em;
+	  margin-bottom: 1.65em;
+	  background-color: whitesmoke;
+	  border: 1px solid #e3e3e3;
+	  border-radius: .3em;
+	  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	}
+	.well blockquote {
+	  border-color: #ddd;
+	  border-color: rgba(0, 0, 0, 0.15);
+	}
+
+	.well-lg {
+	  padding: 2em;
+	  border-radius: .5em;
+	}
+
+	.well-sm {
+	  padding: .75em;
+	  border-radius: .25em;
 	}
 
 }

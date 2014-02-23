@@ -35,13 +35,15 @@ public class CalendarData extends Message {
 		private Date startTime;
 		private Date endTime;
 		private String location;
+		private int id;		// falls wir eins löschen wollen
 		
-		public Entry(String description, String name, Date startTime, Date endTime, String location){
+		public Entry(String description, String name, Date startTime, Date endTime, String location, int id){
 			this.setDescription(description);
 			this.setName(name);
 			this.setStartTime(startTime);
 			this.setEndTime(endTime);
 			this.setLocation(location);
+			this.id = id;
 			}
 		
 		public String getDescription() {
@@ -82,6 +84,14 @@ public class CalendarData extends Message {
 
 		public void setLocation(String location) {
 			this.location = location;
+		}
+		
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
 		}
 
 		@Override

@@ -82,7 +82,7 @@ public class CalendarBean extends AbstractCommunicatingBean {
 				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
 				receiverID = agent.getAid();
 				CalendarData c = new CalendarData("","",-1,null);
-				Entry newEntry = c.new Entry("","",new Date(), new Date(),"");
+				Entry newEntry = c.new Entry("","",new Date(), new Date(),"",0);
 				
 				// TODO: fill new entry
 				
@@ -104,14 +104,14 @@ public class CalendarBean extends AbstractCommunicatingBean {
 		log.info("exec");
 		
 		//(String discription, String name, Date startTime, Date endTime, String location)
-		bla.add(mess.new Entry("weekly presentation in aal. Present Jiac-integeration, login-screens, gesture-integration.", "aal", new Date(), new Date(), "tel 11xx"));
-		bla.add(mess.new Entry("Meeting with investors - be nice to them, we need them.", "aal2", new Date(), new Date(), "ER 270"));
-		bla.add(mess.new Entry("Dinner tonight", "aal2", new Date(), new Date(), "fancy restaurant"));
-		bla.add(mess.new Entry("more data", "aal2", new Date(), new Date(), "tel 14xx"));
-		bla.add(mess.new Entry("so much more", "aal2", new Date(), new Date(), "tel 14xx"));
-		bla.add(mess.new Entry("so much more", "aal2", new Date(), new Date(), "tel 14xx"));
-		bla.add(mess.new Entry("so much more", "aal2", new Date(), new Date(), "tel 14xx"));
-		bla.add(mess.new Entry("so much more", "aal2", new Date(), new Date(), "tel 14xx"));
+		bla.add(mess.new Entry("weekly presentation in aal. Present Jiac-integeration, login-screens, gesture-integration.", "aal", new Date(), new Date(), "tel 11xx",0));
+		bla.add(mess.new Entry("Meeting with investors - be nice to them, we need them.", "aal2", new Date(), new Date(), "ER 270",0));
+		bla.add(mess.new Entry("Dinner tonight", "aal2", new Date(), new Date(), "fancy restaurant",0));
+		bla.add(mess.new Entry("more data", "aal2", new Date(), new Date(), "tel 14xx",0));
+		bla.add(mess.new Entry("so much more", "aal2", new Date(), new Date(), "tel 14xx",0));
+		bla.add(mess.new Entry("so much more", "aal2", new Date(), new Date(), "tel 14xx",0));
+		bla.add(mess.new Entry("so much more", "aal2", new Date(), new Date(), "tel 14xx",0));
+		bla.add(mess.new Entry("so much more", "aal2", new Date(), new Date(), "tel 14xx",0));
 		mess.setEntries(bla);
 		log.info("CALENDAR EXAMPLE JSON: " + gson.toJson(mess));
 		ASingleton.sendData(ASingleton.Sockets.CALENDAR, gson.toJson(mess));

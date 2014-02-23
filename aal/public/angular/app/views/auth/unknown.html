@@ -2,13 +2,13 @@
 	<div class="widget-padding col-md-4">
 		<div class="row-md-8 overflow padding">
 			<h1 class="auth header">Mobile-Code: {{mobileId}}</h1>
-			<p class="auth explain">Gebe diesen Code unter http://192.144.0.1:9000/mobile ein und du kannst dein Smartphone als Eingabe benutzen.</p>
+			<div class="auth explain">Gib diesen Code unter <div class="well well-sm margin-tp margin-bt">{{displayUrl}}</div> auf deinem Smartphone ein und du kannst es zur Texteingabe benutzen.</div>
 		</div>
 	</div>
 	<div class="widget-padding col-md-4">
 		<div class="row-md-8 overflow text-center padding">
 			<h1 class="auth header">Du scheinst neu zu sein!</h1>
-			<h4 class="">Tipp: du kannst diese Wand mit dem Handy benutzen, per Touchscreen und Kinect-Gesten.</h4>
+			<h4 class="auth explain">Tipp: Du kannst diese Wand mit dem Handy, per Touchscreen und Kinect-Gesten benutzen.</h4>
 			<div class="well">
 				<webcam></webcam>
 			</div>
@@ -18,7 +18,16 @@
 		</div>
 	</div>
 	<div class="widget-padding col-md-4">
-		<div class="row-md-8 overflow">
+		<div class="row-md-8 overflow padding">
+			<h1 class="auth header">QR-Code</h1>
+			<div class="auth explain">
+				Zur Mobilseite kommst du auch, indem du diesen QR-Code scannst.
+				<div class="margin-tp">
+					<div class="well text-center">
+						<qrcode version="{{version}}" error-correction-level="{{level}}" size="{{size}}" data="{{url}}"></qrcode>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -140,6 +140,8 @@ appControllers.controller('AuthCtrl',
     $scope.user = user.get;
 
 
+    // Get IP of Mobile site and generate Data for QR-Code
+
       $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
         function(data){
           $scope.displayUrl = 'http://' + data.host + '/index.html#/mobile';
@@ -150,7 +152,7 @@ appControllers.controller('AuthCtrl',
     // $scope.url = 'http://' + document.location.host + '/index.html#/mobile';
     $scope.version = 4;
     $scope.level = 'L';
-    $scope.size = $(window).height()/4;
+    $scope.size = $(window).height()/3;
 
 
   });
