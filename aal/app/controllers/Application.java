@@ -112,6 +112,18 @@ public class Application extends Controller {
 		}
 	}
 
+	public static Result getUser(int uid, String token) {
+		if(token != null && token != "") {
+			for (AbstractAgentBean agent : ASingleton.agents) {
+				if (agent instanceof FacebookBean) {
+					((FacebookBean) agent).getFacebookData(uid,token);
+				}
+			}
+			return ok("ok");
+		}
+		return badRequest("Token is not given");
+	}
+
 	public static Result deleteMail(int uid, int id) {
 		return ok("ok");
 	}

@@ -4,21 +4,13 @@
 
 var app = angular.module('angularApp');
 
-app.factory('WidgetData', function(Persistence, $FB, $q) {
+app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
 
   var social = $q.defer(),
-      personal = $q.defer(),
       colors,
       widgets;
 
   var updateApiCall = function updateApiCall () {
-
-    $FB.api('/me').then(function(data) {
-      $FB.api('/me/picture?type=large').then(function(picture) {
-        data.picture = picture.data;
-        personal.resolve(data);
-      });
-    });
 
     $FB.api('/me/home').then(function(posts) {
       
@@ -26,7 +18,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
       
       var picturePosts = posts.data.filter(function(d) {
         return d.type === 'photo';
-      });
+      });   
 
       picturePosts = d3.shuffle(picturePosts);
 
@@ -54,7 +46,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
     {name: 'news', color: '#D65B3C', socket: 'NEWS'},
     {name: 'mail', color: '#AE8EA7', socket: 'MAIL'},
     {name: 'calendar', color: '#D9AA5A', socket: 'CALENDAR'},
-    {name: 'personal', color: '#D77F47', socket: 'PERSONAL'},
+    {name: 'personal', color: '#D77F47', socket: 'FACEBOOK'},
     {name: 'social', color: '#70BE8A', socket: 'SOCIAL'},
     {name: 'todo', color: '#19806E', socket: 'TODO'},
     {name: 'debug', color: '#D77F47', socket: 'DEBUG'}
@@ -65,7 +57,6 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
 
   return {
     social: social.promise,
-    personal: personal.promise,
     colors: colors,
     widgets: widgets
   };

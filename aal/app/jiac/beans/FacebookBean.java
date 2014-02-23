@@ -20,7 +20,27 @@ public class FacebookBean extends AbstractCommunicatingBean {
 	String agentName = "TestAgent";
 	private Action sendAction = null;
 	Gson gson = new Gson();
+
+
+	@Override
+	public void doStart() throws Exception {
+		super.doStart();
+		log.info("starting....");
+		log.info("my ID: " + this.thisAgent.getAgentId());
+		log.info("my Name: " + this.thisAgent.getAgentName());
+		log.info("my Node: " + this.thisAgent.getAgentNode().getName());
+
+		sendAction = retrieveAction(ICommunicationBean.ACTION_SEND);
+		
+		// yeeaaaah
+		ASingleton.agents.add(this);
+
+		if (sendAction == null)
+			throw new RuntimeException("Send action not found.");
+
+	}
 	
+
 	public void getFacebookData(int userID, String accessToken) {
 		boolean send = false;
 		// Retrieve all DatabaseMockupBeans
@@ -46,25 +66,6 @@ public class FacebookBean extends AbstractCommunicatingBean {
 	public void execute() {
 	//	log.info("exec");
 	//	getFacebookData(-1,"CAAE37iCgdwwBAJVwB7jwa3oK25qK0vJ05dscGzKEbu97VxmmZAEnvD0B7Amz2yFIiW6ZCz9TAlJ4ToekzbBQGb7RWaQe5JK22v4KGGDavKLI84XzKLG3ju7qk7ZCwzYyje7DoJqGGHsKTzdY1G27Ajyx8n6gZBxBStc9ZC7uWuCHiLwmUCwF7B6NjSrbJWTgZD");
-	}
-
-
-	@Override
-	public void doStart() throws Exception {
-		super.doStart();
-		log.info("starting....");
-		log.info("my ID: " + this.thisAgent.getAgentId());
-		log.info("my Name: " + this.thisAgent.getAgentName());
-		log.info("my Node: " + this.thisAgent.getAgentNode().getName());
-
-		sendAction = retrieveAction(ICommunicationBean.ACTION_SEND);
-		
-		// yeeaaaah
-		ASingleton.agents.add(this);
-
-		if (sendAction == null)
-			throw new RuntimeException("Send action not found.");
-
 	}
 
 	@Override
