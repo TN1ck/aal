@@ -33,13 +33,15 @@ public class MailData extends Message {
 		private String type;
 		private String from;
 		private Date received;
+		private int id;
 
-		public Mail(String subject, String content, String type, String from, Date received) {
+		public Mail(String subject, String content, String type, String from, Date received, int id) {
 			setSubject(subject);
 			setContent(content);
 			setType(type);
 			setFrom(from);
 			setReceived(received);
+			setId(id);
 		}
 
 		public String getSubject() {
@@ -72,6 +74,14 @@ public class MailData extends Message {
 
 		public void setReceived(Date received) {
 			this.received = received;
+		}
+		
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
 		}
 
 		@Override
