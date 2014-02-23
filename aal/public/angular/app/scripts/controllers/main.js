@@ -109,7 +109,7 @@ appControllers.controller('MainCtrl',
           }, 15000);
         }
 
-        if (data.data.userID && $rootScope.currentUser.userID > 0) {
+        if (data.data.userID && $rootScope.currentUser.userID >= 0) {
           $state.transitionTo('wrapper.auth.welcome');
         } else if (data.data.userID && $rootScope.currentUser.userID === -1) {
           $state.transitionTo('wrapper.auth.unknown');
