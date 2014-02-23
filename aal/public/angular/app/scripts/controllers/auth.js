@@ -105,7 +105,7 @@ appControllers.controller('AuthCtrl',
     // $scope.url = 'http://' + document.location.host + '/index.html#/mobile';
     $scope.version = 4;
     $scope.level = 'L';
-    $scope.size = $(window).height()/4;
+    $scope.size = $(window).height()/3;
 
 
   });
