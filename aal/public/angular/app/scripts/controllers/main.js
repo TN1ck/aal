@@ -63,15 +63,16 @@ appControllers.controller('MainCtrl',
 
     // Listen for user changes, this is important for ALL widgets
     TextTransmission.fetchDataForWall(function(data) {
+        
+        console.log('ADD USER!');
 
         if (!$rootScope.currentUser) {
-          console.log('NEW USER!');
+          console.log('NO CURRENT_USER, GO TO LOADING SCREEN');
           $rootScope.currentUser = data.data;
           $rootScope.users.push(data.data);
           $state.transitionTo('wrapper.auth.loading');
         }
 
-        console.log('ADDED USER', data.data);
         var filteredUsers = $rootScope.users.filter(function(d) {
           if ($rootScope.currentUser.niteID === data.data.niteID) {
             $rootScope.currentUser = data.data;
@@ -79,7 +80,7 @@ appControllers.controller('MainCtrl',
           return d.niteID !== data.data.niteID;
         });
 
-        if (filteredUsers.length === $rootScope.users.length) {
+        if ($rootScope.currentUser && filteredUsers.length === $rootScope.users.length) {
           $rootScope.users.push(data.data);
           
           $scope.alerts.push({
@@ -92,7 +93,7 @@ appControllers.controller('MainCtrl',
           }, 15000);
 
 
-        } else {
+        } else if ($rootScope.currentUser) {
           
           $rootScope.users = filteredUsers;
           $rootScope.users.push(data.data);
