@@ -19,7 +19,7 @@ app.directive('widgetDebug', function(TextTransmission, $rootScope) {
 
       $scope.r = $rootScope;
 
-      $scope.keys = ['R', 'B', 'SPACE'];
+      $scope.keys = [];
       $scope.gestureCounter = 0;
 
       // used to show off the pressed keys aka the gestures

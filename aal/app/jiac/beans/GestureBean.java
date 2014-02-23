@@ -118,10 +118,21 @@ public class GestureBean extends AbstractCommunicatingBean {
 					pressKey(KeyEvent.VK_ENTER);					
 				}
 				break;
+			case "tab_down!hand_left":
+				pressKey(KeyEvent.VK_7);
+				break;
+			case "tab_up!hand_left":
+				pressKey(KeyEvent.VK_8);
+				break;
+			case "push!hand_left":
+				pressKey(KeyEvent.VK_9);
+				break;
+				
 			case "blocking":
 				user.allowed = !user.allowed;
 				log.info("BLOCKING: " + user.allowed + " NITEID: " + user.niteID);
 				break;
+				
 				
 			default:
 				log.info("GestureAgent - received unknown Gesture");
