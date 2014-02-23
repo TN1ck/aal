@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import ontology.Message;
 import ontology.messages.*;
 import ontology.messages.CalendarData.Entry;
+//import ontology.messages.objects.NewsFeedMessage;
 import ontology.messages.NewsFeedData.NewsFeedMessage;
 import util.ASingleton;
 import de.dailab.jiactng.agentcore.action.Action;
@@ -78,9 +79,8 @@ public class NewsBean extends AbstractCommunicatingBean {
 		news2.setTitle("Breaking News");
 		news2.setDescription("The sun is shining");
 		
-		testMess.addFeedMessage(news1);
-		testMess.addFeedMessage(news2);
-		
+		ArrayList<NewsFeedMessage> news = new ArrayList<NewsFeedMessage>();
+		testMess.setNewsFeed(news);
 		receiveMessage(testMess);
 		
 		

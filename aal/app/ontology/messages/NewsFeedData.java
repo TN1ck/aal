@@ -4,10 +4,10 @@ import java.util.List;
 
 import ontology.Message;
 import ontology.MessageType;
-import de.dailab.jiactng.agentcore.knowledge.IFact;
 
 public class NewsFeedData extends Message {
-
+	
+	private static final long serialVersionUID = 4382748121224794885L;
 	private long id;
 	List<NewsFeedMessage> news;
 
@@ -34,10 +34,6 @@ public class NewsFeedData extends Message {
 		this.news = news;
 	}
 	
-	public void addFeedMessage(NewsFeedMessage feed) {
-		this.news.add(feed);
-	}
-
 	public class NewsFeedMessage {
 		String title;
 		String description;
@@ -84,7 +80,7 @@ public class NewsFeedData extends Message {
 					+ description + ", LINK=" + link + ", ENCLOSURE="
 					+ enclosure + "]";
 		}
-
+		
 	}
 
 }
