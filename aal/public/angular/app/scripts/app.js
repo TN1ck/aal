@@ -24,7 +24,7 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
     OAuth.initialize('IQqjfz7Hzomr2m_iZBaIlnAiTBI');
 
     $urlRouterProvider
-      .otherwise('/auth/welcome');
+      .otherwise('/');
 
     $stateProvider
       .state('wrapper', {

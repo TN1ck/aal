@@ -67,7 +67,6 @@ public class TodoBean extends AbstractCommunicatingBean {
 	public void execute() {
 		ArrayList<TodoItem> bla = new ArrayList<TodoItem>();
 		TodoData mess = new TodoData("from","to",-1,bla);
-		log.info("exec");
 		
 		//(String discription, String name, Date startTime, Date endTime, String location)
 		bla.add(mess.new TodoItem(0, "Finish the weekly presentation for tomorrow", "red", new Date()));
@@ -79,7 +78,6 @@ public class TodoBean extends AbstractCommunicatingBean {
 		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));
 		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));
 		mess.setItems(bla);
-		log.info("TODO EXAMPLE JSON: " + gson.toJson(mess));
 		ASingleton.sendData(ASingleton.Sockets.TODO, gson.toJson(mess));
 	} 
 

@@ -20,7 +20,6 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       $scope.data = $rootScope.calendarData;
 
       TextTransmission.fetchTextForWall(function(data) {
-        console.log('Data in fetchTextForWall: ', data);
         if(data.data === 'addCalendarEntry'){
           try {
             $scope.addCalendarEntry();
