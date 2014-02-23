@@ -123,7 +123,7 @@ appControllers.controller('MainCtrl',
 
         if ($rootScope.currentUser.niteID === data.data.niteID && $rootScope.users.length >= 1) {
           $rootScope.currentUser = $rootScope.users.shift();
-          $state.transitionTo('wrapper.main');
+          $state.transitionTo('wrapper.loading');
         }
 
         $rootScope.users = $rootScope.users.filter(function(d) {
