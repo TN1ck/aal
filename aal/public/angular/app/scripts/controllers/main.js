@@ -56,8 +56,9 @@ appControllers.controller('MainCtrl',
       return wdgt.socket;
     };
 
-    $rootScope.users = [];
-    $rootScope.currentUser = false;
+    $rootScope.users = $rootScope.users || [];
+
+    $rootScope.currentUser = $rootScope.currentUser || false;
 
     $scope.alerts = [];
 
@@ -67,7 +68,7 @@ appControllers.controller('MainCtrl',
         console.log('ADD USER!');
 
         if (!$rootScope.currentUser) {
-          console.log('NO CURRENT_USER, GO TO LOADING SCREEN');
+          console.log('NO CURRENT_USER, GO TO LOADING SCREEN', $rootScope.currentUser);
           $rootScope.currentUser = data.data;
           $rootScope.users.push(data.data);
           $state.transitionTo('wrapper.auth.loading');
