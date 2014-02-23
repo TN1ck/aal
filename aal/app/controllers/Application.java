@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import jiac.beans.*;
+import ontology.messages.*;
+import ontology.messages.NewsFeedData.NewsFeedMessage;
 import play.Logger;
 import play.libs.F.Callback;
 import play.libs.F.Callback0;
@@ -73,8 +75,16 @@ public class Application extends Controller {
 		return ok("ok");
 	}
 
-	public static Result getNews(int uid, int id) {
-		String lorem = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+	public static Result getNews() {
+		
+		
+		for (AbstractAgentBean agent : ASingleton.agents) {
+			if (agent instanceof NewsBean) {
+				((NewsBean) agent).getNewsData();
+			}
+		}
+		
+	/*	String lorem = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
 		String json = "[{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \""
 				+ lorem + "\"},"
 				+ "{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \""
@@ -86,6 +96,7 @@ public class Application extends Controller {
 				+ "{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \""
 				+ lorem + "\"}" + "]";
 		ASingleton.sendData(ASingleton.Sockets.NEWS, json);
+		*/
 		return ok("ok");
 	}
 
