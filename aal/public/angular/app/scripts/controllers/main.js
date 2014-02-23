@@ -56,8 +56,9 @@ appControllers.controller('MainCtrl',
       return wdgt.socket;
     };
 
-    $rootScope.users = [];
-    $rootScope.currentUser = false;
+    $rootScope.users = $rootScope.users || [];
+
+    $rootScope.currentUser = $rootScope.currentUser || false;
 
     $scope.alerts = [];
 
