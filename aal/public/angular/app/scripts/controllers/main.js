@@ -65,7 +65,7 @@ appControllers.controller('MainCtrl',
     // Listen for user changes, this is important for ALL widgets
     TextTransmission.fetchDataForWall(function(data) {
         
-        console.log('ADD USER!', $rootScope.currentUser);
+        console.log('ADD USER!', $rootScope.currentUser, data.data);
 
         if (!$rootScope.currentUser) {
           console.log('NO CURRENT_USER, GO TO LOADING SCREEN', $rootScope.currentUser);
@@ -109,7 +109,7 @@ appControllers.controller('MainCtrl',
           }, 15000);
         }
 
-        if (data.data.userID && $rootScope.currentUser.userID > 0) {
+        if (data.data.userID && $rootScope.currentUser.userID >= 0) {
           $state.transitionTo('wrapper.auth.welcome');
         } else if (data.data.userID && $rootScope.currentUser.userID === -1) {
           $state.transitionTo('wrapper.auth.unknown');

@@ -11,6 +11,7 @@ public class User {
 	
 	public User (int niteID) {
 		this.niteID = niteID;
+		this.userID = -2;
 	}
 	
 	public int getNiteID() {
