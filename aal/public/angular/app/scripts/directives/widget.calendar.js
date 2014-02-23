@@ -20,7 +20,6 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       $scope.data = $rootScope.calendarData;
 
       TextTransmission.fetchTextForWall(function(data) {
-        console.log('Data in fetchTextForWall: ', data);
         if(data.data === 'addCalendarEntry'){
           try {
             $scope.addCalendarEntry();
@@ -59,7 +58,6 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       };
 
       TextTransmission.fetchDataForWall(function(data) {
-        console.log('Data situation: ', JSON.stringify($rootScope.calendarData), JSON.stringify(data.data.entries));
         // the length is a hack
         if (!$rootScope.calendarData || $rootScope.calendarData.length !== data.data.entries.length) {
           $rootScope.calendarData = data.data.entries;

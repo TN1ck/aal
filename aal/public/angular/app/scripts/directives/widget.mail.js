@@ -20,7 +20,6 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
       $scope.data = $rootScope.mailData;
 
       TextTransmission.fetchTextForWall(function(data) {
-        console.log('Data in fetchTextForWall: ', data);
         if(data.data === 'newMail'){
           try {
             $scope.newMail();

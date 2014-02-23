@@ -20,7 +20,6 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
       $scope.data = $rootScope.todoData;
 
       TextTransmission.fetchTextForWall( function(data) {
-        console.log('Data in fetchTextForWall: ', data);
         if(data.data === 'addTodo'){
           try {
             $scope.addTodo();
