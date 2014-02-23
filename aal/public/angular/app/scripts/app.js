@@ -24,7 +24,7 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
     OAuth.initialize('IQqjfz7Hzomr2m_iZBaIlnAiTBI');
 
     $urlRouterProvider
-      .otherwise('/auth/welcome');
+      .otherwise('/');
 
     $stateProvider
       .state('wrapper', {
@@ -89,7 +89,7 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       })
       .state('wrapper.auth', {
         url: '/auth',
-        template: '<div ui-view></div>',
+        template: '<div class="auth" ui-view></div>',
         abstract: true,
         controller: 'AuthCtrl'
       })
@@ -97,13 +97,17 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         url: '/welcome',
         templateUrl: 'views/auth/welcome.html'
       })
-      .state('wrapper.auth.unkown', {
+      .state('wrapper.auth.unknown', {
         url: '/unknown',
         templateUrl: 'views/auth/unknown.html'
       })
       .state('wrapper.auth.new', {
         url: '/new',
         templateUrl: 'views/auth/new.html'
+      })
+      .state('wrapper.auth.loading', {
+        url: '/loading',
+        templateUrl: 'views/auth/loading.html'
       })
       .state('wrapper.auth.train', {
         url: '/train',

@@ -60,6 +60,12 @@ public class GestureBean extends AbstractCommunicatingBean {
 		}
 
 	}
+
+//	public void execute() {
+//		Double niteID = new Double(Math.random() * 100);
+//		User user = new User(niteID.intValue());
+//		ASingleton.sendData(ASingleton.Sockets.ADD_USER, gson.toJson(user));
+//	} 
 	
 	public void startTraining(int niteID) {
 		sendMessage(new TrainUser(thisAgent.getAgentId(), null, niteID), this.gestureAddress);
@@ -79,7 +85,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 			if (user == null) {
 				user = ASingleton.niteToUser.put(niteID, new User(niteID));
 			}
-			log.info("GestureAgent - received Gesture: " + gesture);
+			log.info("ALLOWED: " + user.allowed + " GestureAgent - received Gesture: " + gesture);
 			ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);
 			switch(gesture) {
 			case "screen_toggle":
@@ -92,12 +98,22 @@ public class GestureBean extends AbstractCommunicatingBean {
 					pressKey(KeyEvent.VK_UP);
 				}
 				break;
+			case "scroll_right!hand_right":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_RIGHT);					
+				}
+				break;
+			case "scroll_left!hand_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_LEFT);					
+				}
+				break;
 			case "tab_right!hand_right":
 				if (user.allowed) {
 					pressKey(KeyEvent.VK_RIGHT);					
 				}
 				break;
-			case "tab_left!hand_right":
+			case "tab_left!hand_left":
 				if (user.allowed) {
 					pressKey(KeyEvent.VK_LEFT);					
 				}
@@ -112,8 +128,27 @@ public class GestureBean extends AbstractCommunicatingBean {
 					pressKey(KeyEvent.VK_ENTER);					
 				}
 				break;
+			case "tab_down!hand_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_7);					
+				}
+				break;
+			case "tab_up!hand_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_8);					
+				}
+				break;
+			case "push|hand_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_9);					
+				}
+				break;
+				
 			case "blocking":
 				user.allowed = !user.allowed;
+				log.info("BLOCKING: " + user.allowed + " NITEID: " + user.niteID);
+				break;
+				
 				
 			default:
 				log.info("GestureAgent - received unknown Gesture");

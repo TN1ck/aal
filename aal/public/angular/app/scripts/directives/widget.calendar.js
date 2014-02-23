@@ -17,8 +17,9 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
     },
     link: function($scope) {
 
+      $scope.data = $rootScope.calendarData;
+
       TextTransmission.fetchTextForWall(function(data) {
-        console.log('Data in fetchTextForWall: ', data);
         if(data.data === 'addCalendarEntry'){
           try {
             $scope.addCalendarEntry();
@@ -57,7 +58,11 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       };
 
       TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data.data.entries;
+        // the length is a hack
+        if (!$rootScope.calendarData || $rootScope.calendarData.length !== data.data.entries.length) {
+          $rootScope.calendarData = data.data.entries;
+          $scope.data = $rootScope.calendarData;
+        }
       }, $scope.socket);
 
       var fetchCalendar = function(id) {
@@ -140,8 +145,9 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
         $scope.data.forEach(function (element,index,array) {
           console.log('Current element: ', element);
           if( JSON.stringify(element) === JSON.stringify(data)){
-            console.log('I can now remove');
+            console.log('I can now remove. Element: ', element);
             $scope.data.splice(index, 1);
+            deleteCalendar(element.id);
           }
         });
       };

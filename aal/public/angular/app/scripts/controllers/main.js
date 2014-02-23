@@ -6,7 +6,7 @@ var appControllers = angular.module('appControllers', []);
 
 
 appControllers.controller('MainCtrl',
-  function ($scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService) {
+  function ($scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
 
     $scope.colors = WidgetData.colors;
     $scope.css = cssService.createCss($scope.colors);
@@ -56,29 +56,86 @@ appControllers.controller('MainCtrl',
       return wdgt.socket;
     };
 
-    $rootScope.users = [];
+    $rootScope.users = $rootScope.users || [];
+
+    $rootScope.currentUser = $rootScope.currentUser || false;
 
     $scope.alerts = [];
 
     // Listen for user changes, this is important for ALL widgets
     TextTransmission.fetchDataForWall(function(data) {
-        console.log('ADDED USER', data.data);
-        $rootScope.users.push(data.data);
-        $scope.alerts.push({
-          msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+        
+        console.log('ADD USER!', $rootScope.currentUser, data.data);
+
+        if (!$rootScope.currentUser) {
+          console.log('NO CURRENT_USER, GO TO LOADING SCREEN', $rootScope.currentUser);
+          $rootScope.currentUser = data.data;
+          $rootScope.users.push(data.data);
+          $state.transitionTo('wrapper.auth.loading');
+        }
+
+        var filteredUsers = $rootScope.users.filter(function(d) {
+          if ($rootScope.currentUser.niteID === data.data.niteID) {
+            $rootScope.currentUser = data.data;
+          }
+          return d.niteID !== data.data.niteID;
         });
 
-        $timeout(function() {
-          $scope.alerts.shift();
-        }, 10000);
+        if ($rootScope.currentUser && filteredUsers.length === $rootScope.users.length) {
+          $rootScope.users.push(data.data);
+          
+          $scope.alerts.push({
+            msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+          });
+
+          $timeout(function() {
+            $scope.alerts.shift();
+            console.log('DELETED ALERT');
+          }, 15000);
+
+
+        } else if ($rootScope.currentUser) {
+          
+          $rootScope.users = filteredUsers;
+          $rootScope.users.push(data.data);
+          
+          $scope.alerts.push({
+            msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+          });
+
+          $timeout(function() {
+            $scope.alerts.shift();
+            console.log('DELETED ALERT');
+          }, 15000);
+        }
+
+        if (data.data.userID && $rootScope.currentUser.userID >= 0) {
+          $state.transitionTo('wrapper.auth.welcome');
+        } else if (data.data.userID && $rootScope.currentUser.userID === -1) {
+          $state.transitionTo('wrapper.auth.unknown');
+        }
+
 
       }, 'ADD_USER');
 
+
     TextTransmission.fetchDataForWall(function(data) {
         console.log('REMOVED USER', data.data);
+
+        if ($rootScope.currentUser.niteID === data.data.niteID && $rootScope.users.length >= 1) {
+          $rootScope.currentUser = $rootScope.users.shift();
+          $state.transitionTo('wrapper.auth.loading');
+        }
+
         $rootScope.users = $rootScope.users.filter(function(d) {
           return d.niteID !== data.data.niteID;
         });
+
+        if ($rootScope.users.length === 0) {
+          $rootScope.currentUser = false;
+          $state.transitionTo('wrapper.main');
+        }
+
       }, 'REMOVE_USER');
 
 

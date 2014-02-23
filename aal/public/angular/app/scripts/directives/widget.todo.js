@@ -17,8 +17,9 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
     },
     controller: function($scope, $modal) {
 
+      $scope.data = $rootScope.todoData;
+
       TextTransmission.fetchTextForWall( function(data) {
-        console.log('Data in fetchTextForWall: ', data);
         if(data.data === 'addTodo'){
           try {
             $scope.addTodo();
@@ -30,7 +31,11 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
 
 
       TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data.data.items;
+        // the length is a hack
+        if (!$rootScope.todoData || $rootScope.todoData.length !== data.data.items.length) {
+          $rootScope.todoData = data.data.items;
+          $scope.data = data.data.items;
+        }
       }, $scope.socket);
       // should be changed later
 
@@ -109,6 +114,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
           if( JSON.stringify(element) === JSON.stringify(data)){
             console.log('I can now remove');
             $scope.data.splice(index, 1);
+            deleteTodo(element.id);
           }
         });
       };

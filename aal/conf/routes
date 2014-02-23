@@ -12,7 +12,7 @@ GET     /stopjiac                       controllers.Application.stopJiac()
 
 # id is to get even more information page:
 GET     /calendar/:uid              controllers.Application.getCalendar(uid: Int, id: Int ?= 0)
-GET     /news/:uid                  controllers.Application.getNews(uid: Int, id: Int ?= 0)
+GET     /news/                 		controllers.Application.getNews()
 GET     /todo/:uid                  controllers.Application.getTodo(uid: Int, id: Int ?= 0)
 GET     /mail/:uid                  controllers.Application.getMail(uid: Int, id: Int ?= 0)
 GET 	/user/:uid/:token			controllers.Application.getUser(uid: Int, token: String)

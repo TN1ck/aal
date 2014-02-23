@@ -1,3 +1,3 @@
-<button ng-click="$parent.$parent.likePost(data.id)" id="{{data.id}}" class="{{$parent.css}} btn btn-xs like-button">
+<button ng-show="!$parent.$parent.data.mapping[data.id]" ng-click="$parent.$parent.likePost(data.id)" id="{{data.id}}" class="{{$parent.css}} btn btn-xs like-button">
 	<span class="glyphicon glyphicon-thumbs-up"></span>
 </button>

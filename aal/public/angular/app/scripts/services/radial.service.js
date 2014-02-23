@@ -201,6 +201,12 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     var exitMenu = function() {
       
+      $('.popover').remove();
+      if (level !== 1) {
+        var inverted = $(currentElem.jquery).attr('class').match(/widget-color-\d/);
+        inverted = inverted ? inverted[0] + '-inverted' : '';
+        $('.border').removeClass('border').removeClass(inverted);
+      }
       level--;
       updateRects(level);
       selectData();
@@ -247,7 +253,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     var markElem = function() {
       
-
+      $('.popover').remove();
       var inverted = $(currentElem.jquery).attr('class').match(/widget-color-\d/);
       inverted = inverted ? inverted[0] + '-inverted' : '';
       $('.border').removeClass('border').removeClass(inverted);

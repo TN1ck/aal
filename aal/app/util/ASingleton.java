@@ -29,8 +29,7 @@ public final class ASingleton {
         FACEBOOK,
     	DEBUG_KEYS,
     	ADD_USER,
-    	REMOVE_USER
-    	
+    	REMOVE_USER    	
     }
     
     public static void sendData(Sockets id, String json) {

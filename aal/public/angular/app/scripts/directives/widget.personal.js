@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $FB) {
+app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http) {
   return {
     templateUrl: '/views/widgets/widget.personal.html',
     restrict: 'E',

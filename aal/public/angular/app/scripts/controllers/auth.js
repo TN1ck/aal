@@ -1,15 +1,61 @@
 'use strict';
 
-/* global angular */
+/* global angular, $ */
 
 var appControllers = angular.module('appControllers');
 
 
 appControllers.controller('AuthCtrl',
   
-  function ($scope, user, $FB, $location, $timeout, $rootScope) {
+  function ($scope, user, $FB, $location, $timeout, $rootScope, $state, $http) {
     
     $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
+
+    var KEYMAPPING = {
+      ENTER: 57,
+      UP: 56,
+      DOWN: 55
+    };
+
+    $scope.startTraining = function () {
+      $http.get('/starttraining/' + $rootScope.currentUser.niteID, function () {
+
+      });
+      $state.transitionTo('wrapper.auth.train');
+    };
+
+    var currentSelection = 0;
+
+    $(document).on('keypress', function(e) {
+
+      var $buttons = $('.buttons').find('.btn');
+
+      switch(e.keyCode) {
+        
+      case KEYMAPPING.DOWN:
+        $buttons = $('.buttons').find('.btn');
+        currentSelection = (currentSelection === ($buttons.length - 1)) ? 0 : currentSelection + 1;
+        $buttons.removeClass('btn-primary');
+        $($buttons[currentSelection]).addClass('btn-primary');
+        break;
+
+      case KEYMAPPING.UP:
+        $buttons = $('.buttons').find('.btn');
+        currentSelection = (currentSelection === 0) ? ($buttons.length - 1) : currentSelection - 1;
+        $buttons.removeClass('btn-primary');
+        $($buttons[currentSelection]).addClass('btn-primary');
+        break;
+      
+      case KEYMAPPING.ENTER:
+        $buttons = $('.buttons').find('.btn');
+        $('.buttons').find('.btn-primary').click();
+        var nextLocation = $('.buttons').find('.btn-primary').attr('ui-sref');
+        $state.transitionTo(nextLocation);
+        break;
+
+      }
+
+    });
 
     var getVideoData = function getVideoData(x, y, w, h) {
       var hiddenCanvas = document.createElement('canvas');
@@ -52,6 +98,14 @@ appControllers.controller('AuthCtrl',
         });
       });
     };
+
+    // $rootScope.$watch('currentUser', function() {
+    //   if ($rootScope.currentUser && $rootScope.currentUser.userID > 0) {
+    //     $state.transitionTo('wrapper.auth.welcome');
+    //   } else if ($rootScope.currentUser && $rootScope.currentUser.userID === -1) {
+    //     $state.transitionTo('wrapper.auth.unknown');
+    //   }
+    // });
 
     $scope.onSuccess = function (videoElem) {
       // The video element contains the captured camera data
@@ -105,7 +159,7 @@ appControllers.controller('AuthCtrl',
     // $scope.url = 'http://' + document.location.host + '/index.html#/mobile';
     $scope.version = 4;
     $scope.level = 'L';
-    $scope.size = $(window).height()/4;
+    $scope.size = $(window).height()/3;
 
 
   });
