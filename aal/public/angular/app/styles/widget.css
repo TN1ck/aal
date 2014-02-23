@@ -63,7 +63,7 @@ widget-h4 {
 	top: 0.5em;
 	right: 0.5em;
 	position: absolute;
-	color: white;
+	color: inherit;
 	background-color: inherit;
 }
 

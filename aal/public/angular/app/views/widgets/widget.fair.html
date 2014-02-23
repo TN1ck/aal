@@ -6,16 +6,16 @@
 				<div class="well-img">
 					<div class="square" style="background-image: url({{d.logo}}); background-size: contain;"></div>
 				</div>
-				<center style="font-size: 2em;"><rating value="d.rating" max="5" readonly="false"></rating></center>
+				<center style="font-size: 1.6em; margin-top: 1em;"><rating value="d.rating" max="5" readonly="false"></rating></center>
 			</div>
 			<div class="col-md-10">
 				<widget-h1>{{d.company}}</widget-h1>
 				<span class="label label-default" style="font-size: 1.5em;">{{d.location}}</span>
-				<div class="col-md-12 margin-tp">
+				<div class="col-md-12 margin-tp auth explain">
 					{{d.description}}
 				</div>
-				<div class="col-md-12 padding-tp margin-tp separation-border">
-					E-mail: {{d.contact.mail}}<br>
+				<div class="col-md-12 padding-tp margin-tp separation-border" style="font-size: 1.7em;">
+					Email: {{d.contact.mail}}<br>
 					Phone: {{d.contact.phone}}
 				</div>
 			</div>

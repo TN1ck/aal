@@ -93,6 +93,8 @@ appControllers.controller('AuthCtrl',
     $scope.user = user.get;
 
 
+    // Get IP of Mobile site and generate Data for QR-Code
+
       $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
         function(data){
           $scope.displayUrl = 'http://' + data.host + '/index.html#/mobile';
