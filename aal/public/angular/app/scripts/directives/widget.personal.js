@@ -15,10 +15,10 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http) {
       socket: '='
     },
     link: function($scope) {
-			
+      
       TextTransmission.fetchDataForWall(function(data) {
         $scope.data = data.data;
-			}, $scope.socket);
+      }, $scope.socket);
 
       var fetchPersonal = function(id) {
         $http.get('/user/' + $rootScope.uid + (id ? '/' + id : ''));
@@ -32,6 +32,6 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http) {
         $http.put('/user/' + $rootScope.uid + (id ? '/' + id : ''));
       };
 
-		}
+    }
   };
 });

@@ -65,7 +65,7 @@ appControllers.controller('MainCtrl',
     // Listen for user changes, this is important for ALL widgets
     TextTransmission.fetchDataForWall(function(data) {
         
-        console.log('ADD USER!');
+        console.log('ADD USER!', $rootScope.currentUser);
 
         if (!$rootScope.currentUser) {
           console.log('NO CURRENT_USER, GO TO LOADING SCREEN', $rootScope.currentUser);
