@@ -33,6 +33,10 @@ public class NewsFeedData extends Message {
 	public void setNewsFeed(List<NewsFeedMessage> news) {
 		this.news = news;
 	}
+	
+	public void addFeedMessage(NewsFeedMessage feed) {
+		this.news.add(feed);
+	}
 
 	public class NewsFeedMessage {
 		String title;

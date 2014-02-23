@@ -3,6 +3,7 @@
 	<div class="col-md-6 row-md-1 widget {{css}}">
 		<widget-h1 class="stick-bottom">News</widget-h1>
 	</div>
+	{{data}}
 	<widget-news-small ng-repeat="news in data.slice(0,1)" data="news" color="color" css="css"></widget-news-small>
 	<widget-news-big ng-repeat="news in data.slice(1,2)" data="news" color="color" css="css"></widget-news-big>
 	<widget-news-small ng-repeat="n in data.slice(2,-1)" data="n" color="color" css="css"></widget-news-small>

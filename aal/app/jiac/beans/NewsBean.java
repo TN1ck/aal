@@ -3,6 +3,7 @@ package jiac.beans;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.google.gson.Gson;
 
@@ -76,6 +77,9 @@ public class NewsBean extends AbstractCommunicatingBean {
 		NewsFeedMessage news2 = testMess.new NewsFeedMessage();
 		news2.setTitle("Breaking News");
 		news2.setDescription("The sun is shining");
+		
+		testMess.addFeedMessage(news1);
+		testMess.addFeedMessage(news2);
 		
 		receiveMessage(testMess);
 		
