@@ -67,13 +67,18 @@ appControllers.controller('MainCtrl',
         if (!$rootScope.currentUser) {
           console.log('NEW USER!');
           $rootScope.currentUser = data.data;
+          $rootScope.users.push(data.data);
           $state.transitionTo('wrapper.auth.loading');
         }
 
         console.log('ADDED USER', data.data);
         var filteredUsers = $rootScope.users.filter(function(d) {
+          if ($rootScope.currentUser.niteID === data.data.niteID) {
+            $rootScope.currentUser = data.data;
+          }
           return d.niteID !== data.data.niteID;
         });
+
         if (filteredUsers.length === $rootScope.users.length) {
           $rootScope.users.push(data.data);
           
