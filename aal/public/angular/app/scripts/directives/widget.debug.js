@@ -23,7 +23,7 @@ app.directive('widgetDebug', function(TextTransmission, $rootScope) {
       $scope.gestureCounter = 0;
 
       // used to show off the pressed keys aka the gestures
-      TextTransmission.fetchTextForWall(function(data) {
+      TextTransmission.fetchDataforWall(function(data) {
         console.log('key received: ', data.data);
         $scope.keys.push(data.data);
         $scope.gestureCounter++;
