@@ -98,12 +98,12 @@ public class GestureBean extends AbstractCommunicatingBean {
 					pressKey(KeyEvent.VK_UP);
 				}
 				break;
-			case "tab_right!hand_right":
+			case "scroll_right!hand_right":
 				if (user.allowed) {
 					pressKey(KeyEvent.VK_RIGHT);					
 				}
 				break;
-			case "tab_left!hand_right":
+			case "scroll_left!hand_left":
 				if (user.allowed) {
 					pressKey(KeyEvent.VK_LEFT);					
 				}
