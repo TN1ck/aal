@@ -97,7 +97,7 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         url: '/welcome',
         templateUrl: 'views/auth/welcome.html'
       })
-      .state('wrapper.auth.unkown', {
+      .state('wrapper.auth.unknown', {
         url: '/unknown',
         templateUrl: 'views/auth/unknown.html'
       })
