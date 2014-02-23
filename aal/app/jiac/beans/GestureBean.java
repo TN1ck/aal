@@ -85,7 +85,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 			if (user == null) {
 				user = ASingleton.niteToUser.put(niteID, new User(niteID));
 			}
-			log.info("GestureAgent - received Gesture: " + gesture);
+			log.info("ALLOWED: " + user.allowed + " GestureAgent - received Gesture: " + gesture);
 			ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);
 			switch(gesture) {
 			case "screen_toggle":
