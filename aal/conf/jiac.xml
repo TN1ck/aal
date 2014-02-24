@@ -63,7 +63,6 @@
 	<bean name="InformationAgent" parent="SimpleAgent" singleton="false">
 		<property name="agentBeans">
 			<list>
-				<ref bean="CalendarBean" />
 				<ref bean="TodoBean" />
 				<ref bean="NewsBean" />
 			</list>
@@ -74,6 +73,7 @@
 		<property name="agentBeans">
 			<list>
 				<ref bean="MailBean" />
+				<ref bean="CalendarBean" />
 			</list>
 		</property>
 	</bean>

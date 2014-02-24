@@ -127,8 +127,8 @@ public class MailBean extends AbstractCommunicatingBean {
 	protected void receiveMessage(Message message) {
 		if(message instanceof MailData){
 			MailData mail = ((MailData) message);
-			log.info("received Mail Data");
 			String json = gson.toJson(mail);
+			log.info("received Mail Data: " + json);
 			ASingleton.sendData(ASingleton.Sockets.MAIL, json);
 		}
 	}
