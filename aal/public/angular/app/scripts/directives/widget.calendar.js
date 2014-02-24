@@ -66,15 +66,15 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       }, $scope.socket);
 
       var fetchCalendar = function(id) {
-        $http.get('/calendar/' + $rootScope.uid + (id ? '?id=' + id : ''));
+        $http.get('/calendar/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
       };
 
       var putCalendar = function(data) {
-        $http.put('/calendar/' + $rootScope.uid, data);
+        $http.put('/calendar/' + $rootScope.currentUser.userID, data);
       };
 
       var deleteCalendar = function(id) {
-        $http.delete('/calendar/' + $rootScope.uid + (id ? '/' + id : ''));
+        $http.delete('/calendar/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
       // initially fetch calendar

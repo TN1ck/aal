@@ -40,15 +40,15 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
       // should be changed later
 
       var fetchTodo = function(id) {
-        $http.get('/todo/' + $rootScope.uid + (id ? '?id=' + id : ''));
+        $http.get('/todo/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
       };
 
       var putTodo = function(data) {
-        $http.put('/todo/' + $rootScope.uid, data);
+        $http.put('/todo/' + $rootScope.currentUser.userID, data);
       };
 
       var deleteTodo = function(id) {
-        $http.delete('/todo/' + $rootScope.uid + (id ? '/' + id : ''));
+        $http.delete('/todo/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
       // initially fetch todos
