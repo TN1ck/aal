@@ -91,7 +91,6 @@ public class GestureBean extends AbstractCommunicatingBean {
 				user = ASingleton.niteToUser.put(niteID, new User(niteID));
 			}
 			log.info("ALLOWED: " + user.allowed + " GestureAgent - received Gesture: " + gesture);
-			ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);
 			switch(gesture) {
 			case "screen_toggle":
 				if (user.allowed) {
@@ -158,6 +157,11 @@ public class GestureBean extends AbstractCommunicatingBean {
 			default:
 				log.info("GestureAgent - received unknown Gesture");
 			}
+			try {
+				ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);				
+			} catch (Exception e) {
+				
+			}
 
 
 		} else if (message instanceof NewUser) {
@@ -185,8 +189,8 @@ public class GestureBean extends AbstractCommunicatingBean {
 			}
 			try {
 			    BufferedImage bi = messageUser.getImage().getFrame();
-			    File outputfile = new File("user-" + messageUser.getNiteID() + ".png");
-			    user.setImage("user-" + messageUser.getNiteID() + ".png");
+			    File outputfile = new File("./public/images/user-" + messageUser.getNiteID() + ".png");
+			    user.setImage("./public/images/user-" + messageUser.getNiteID() + ".png");
 			    ImageIO.write(bi, "png", outputfile);
 			} catch (IOException e) {
 			}

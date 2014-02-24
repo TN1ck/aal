@@ -22,16 +22,16 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
 			}, $scope.socket);
 
       var fetchPersonal = function(token) {
-        $http.get('/user/' + $rootScope.uid + '/' + token);
+        $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
         console.log(token);
       };
 
       var putPersonal = function(data) {
-        $http.put('/user/' + $rootScope.uid, data);
+        $http.put('/user/' + $rootScope.currentUser.userID, data);
       };
 
       var deletePersonal = function(id) {
-        $http.put('/user/' + $rootScope.uid + (id ? '/' + id : ''));
+        $http.put('/user/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
       $FB.getLoginStatus().then(function(response) {
