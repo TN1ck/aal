@@ -12,34 +12,35 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
 
   var updateApiCall = function updateApiCall (token) {
 
-    console.log('BIN DRIN1111111111111111111');
+    console.log('BIN DRIN1111111111111111111 with token: ' ,token);
 
     $FB.api('/me/home' + (token ? '?access_token=' + token : '')).then(function(posts) {
 
       console.log('BIN DRIN', posts);
 
-      
-      posts.picturePosts = [];
-      
-      var picturePosts = posts.data.filter(function(d) {
-        return d.type === 'photo';
-      });
+      if (posts) {
+        posts.picturePosts = [];
+        
+        var picturePosts = posts.data.filter(function(d) {
+          return d.type === 'photo';
+        });
 
-      picturePosts = d3.shuffle(picturePosts);
+        picturePosts = d3.shuffle(picturePosts);
 
-      picturePosts.forEach(function(d) {
-        d.picture = d.picture.replace('_s', '_n');
-        posts.picturePosts.push(d);
-      });
+        picturePosts.forEach(function(d) {
+          d.picture = d.picture.replace('_s', '_n');
+          posts.picturePosts.push(d);
+        });
 
-      var goodPosts = posts.data.filter(function(d) {
-        return d.status_type === 'wall_post' || d.status_type === 'mobile_status_update';
-      });
+        var goodPosts = posts.data.filter(function(d) {
+          return d.status_type === 'wall_post' || d.status_type === 'mobile_status_update';
+        });
 
-      goodPosts = d3.shuffle(goodPosts);
-      posts.goodPosts = goodPosts;
-      posts.goodPosts = posts.goodPosts.slice(0,11);
-      social.resolve(posts);
+        goodPosts = d3.shuffle(goodPosts);
+        posts.goodPosts = goodPosts;
+        posts.goodPosts = posts.goodPosts.slice(0,11);
+        social.resolve(posts);
+      }
 
     });
   };
