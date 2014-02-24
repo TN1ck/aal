@@ -64,28 +64,49 @@ appControllers.controller('MainCtrl',
 
     $scope.alerts = [];
 
+    $(document).on('keypress', function(e) {
+
+      switch(e.keyCode) {
+        
+      case 48:
+        $rootScope.currentUser = false;
+        $state.transitionTo('wrapper.auth.loading');
+      }
+
+    });
+
 
     // Listen for user changes, this is important for ALL widgets
     TextTransmission.fetchDataForWall(function(data) {
         
         console.log('ADD USER!', $rootScope.currentUser, data.data);
 
+        // okay, first check if a currentUser is set
+
+        // if not, set it and go to loading screen
         if (!$rootScope.currentUser) {
           console.log('NO CURRENT_USER, GO TO LOADING SCREEN', $rootScope.currentUser);
           $rootScope.currentUser = data.data;
           $rootScope.users.push(data.data);
           $state.transitionTo('wrapper.auth.loading');
-        } else if (data.data.niteID === $rootScope.currentUser.niteID) {
+        
+        // if a currentUser is set, check his niteID is equal to the incoming message and go to welcome/unkown
+        // if he does not have a userID (-2)
+        } else if (data.data.niteID === $rootScope.currentUser.niteID && $rootScope.currentUser.userID === -2) {
+          
           $rootScope.currentUser = data.data;
-
+          
+          // The user is known to the system
           if ($rootScope.currentUser.userID >= 0) {
             $state.transitionTo('wrapper.auth.welcome');
+          // user is unknown
           } else if ($rootScope.currentUser.userID === -1) {
             $state.transitionTo('wrapper.auth.unknown');
           }
 
         }
 
+        // filter the current user and drop wthe ones with the same id
         var filteredUsers = $rootScope.users.filter(function(d) {
           if ($rootScope.currentUser.niteID === data.data.niteID) {
             $rootScope.currentUser = data.data;
@@ -93,6 +114,7 @@ appControllers.controller('MainCtrl',
           return d.niteID !== data.data.niteID;
         });
 
+        // check if the current message is currently in the alerts messages
         var alertsFilter = $scope.alerts.filter(function(d) {
           return d.niteID === data.data.niteID;
         });
