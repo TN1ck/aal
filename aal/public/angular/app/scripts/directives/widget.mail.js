@@ -38,15 +38,15 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
 	    },$scope.socket);
 
       var fetchMail = function(id) {
-        $http.get('/mail/' + $rootScope.uid + (id ? '?id=' + id : ''));
+        $http.get('/mail/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
       };
 
       var putMail = function(data) {
-        $http.put('/mail/' + $rootScope.uid, data);
+        $http.put('/mail/' + $rootScope.currentUser.userID, data);
       };
 
       var deleteMail = function(id) {
-        $http.delete('/mail/' + $rootScope.uid + (id ? '/' + id : ''));
+        $http.delete('/mail/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
       // initially fetch the mails
