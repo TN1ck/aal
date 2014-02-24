@@ -87,11 +87,11 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
         // Replaces the priority with adequate colored circle
         var priorityFilter = function(text) {
           switch (text) {
-          case 'red':
+          case 'HIGH':
             return '<div style="width: .8em; height: .8em; background-color: red; margin-top: .2em; margin-bottom: .5em; border-radius: .4em; -webkit-border-radius: .4em; -moz-border-radius: .4em;"> </div>';
-          case 'orange':
+          case 'MIDDLE':
             return '<div style="width: .8em; height: .8em; background-color: orange; margin-top: .2em; margin-bottom: .5em; border-radius: .4em; -webkit-border-radius: .4em; -moz-border-radius: .4em;"> </div>';
-          case 'green':
+          case 'LOW':
             return '<div style="width: .8em; height: .8em; background-color: green; margin-top: .2em; margin-bottom: .5em; border-radius: .4em; -webkit-border-radius: .4em; -moz-border-radius: .4em;"> </div>';
           }
         };
