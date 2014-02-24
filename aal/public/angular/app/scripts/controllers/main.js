@@ -69,8 +69,8 @@ appControllers.controller('MainCtrl',
       switch(e.keyCode) {
         
       case 48:
-        $rootScope.currentUser = false;
-        $state.transitionTo('wrapper.auth.loading');
+        // $rootScope.currentUser = false;
+        // $state.transitionTo('wrapper.auth.loading');
       }
 
     });
