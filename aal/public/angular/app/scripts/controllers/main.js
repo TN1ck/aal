@@ -93,17 +93,24 @@ appControllers.controller('MainCtrl',
           return d.niteID !== data.data.niteID;
         });
 
+        var alertsFilter = $scope.alerts.filter(function(d) {
+          return d.niteID === data.data.niteID;
+        });
+
         if ($rootScope.currentUser && filteredUsers.length === $rootScope.users.length) {
           $rootScope.users.push(data.data);
           
-          $scope.alerts.push({
-            msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
-          });
+          if (alertsFilter.length === 0) {
+            $scope.alerts.push({
+              data: data.data,
+              msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+            });
+          }
 
           $timeout(function() {
             $scope.alerts.shift();
             console.log('DELETED ALERT');
-          }, 15000);
+          }, 5000);
 
 
         } else if ($rootScope.currentUser) {
@@ -111,14 +118,17 @@ appControllers.controller('MainCtrl',
           $rootScope.users = filteredUsers;
           $rootScope.users.push(data.data);
           
-          $scope.alerts.push({
-            msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
-          });
+          if (alertsFilter.length === 0) {
+            $scope.alerts.push({
+              data: data.data,
+              msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+            });
+          }
 
           $timeout(function() {
             $scope.alerts.shift();
             console.log('DELETED ALERT');
-          }, 15000);
+          }, 5000);
         }
 
 
