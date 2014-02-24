@@ -128,15 +128,18 @@ appControllers.controller('MainCtrl',
         if (data.data.niteID === $rootScope.currentUser.niteID) {
           $rootScope.currentUser = false;
         }
+        
+        $rootScope.users = $rootScope.users.filter(function(d) {
+          return d.niteID !== data.data.niteID;
+        });
 
-        if ($rootScope.currentUser.niteID === data.data.niteID && $rootScope.users.length >= 1) {
+
+        if (!$rootScope.currentUser && $rootScope.users.length >= 1) {
+          console.log('FUCK THIS, TRANSITION TO LOADING');
           $rootScope.currentUser = $rootScope.users.shift();
           $state.transitionTo('wrapper.auth.loading');
         }
 
-        $rootScope.users = $rootScope.users.filter(function(d) {
-          return d.niteID !== data.data.niteID;
-        });
 
         if (!$rootScope.currentUser) {
           $state.transitionTo('wrapper.main');
