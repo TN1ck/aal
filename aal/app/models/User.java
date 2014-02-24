@@ -1,12 +1,10 @@
 package models;
 
-import ontology.TransportFrame;
-
 public class User {
 	
 	public int niteID;
 	public int userID;
-	public TransportFrame image;
+	public String image;
 	public boolean allowed = false;
 	
 	public User (int niteID) {
@@ -25,13 +23,13 @@ public class User {
 	public boolean getAllowed() {
 		return this.allowed;
 	}
-	
-	public TransportFrame getImage() {
-		return this.image;
-	}
-
 	public void setAllowed(boolean b) {
 		this.allowed = b;
+		
+	}
+
+	public void setImage(String string) {
+		this.image = string;
 		
 	}
 

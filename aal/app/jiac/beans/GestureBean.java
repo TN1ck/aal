@@ -186,6 +186,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 			try {
 			    BufferedImage bi = messageUser.getImage().getFrame();
 			    File outputfile = new File("user-" + messageUser.getNiteID() + ".png");
+			    user.setImage("user-" + messageUser.getNiteID() + ".png");
 			    ImageIO.write(bi, "png", outputfile);
 			} catch (IOException e) {
 			}
