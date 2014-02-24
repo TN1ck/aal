@@ -42,12 +42,13 @@ public class Application extends Controller {
 	 */
 
 	public static Result getTodo(int uid, int id) {
-		String json = "[{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"}]";
-		ASingleton.sendData(ASingleton.Sockets.TODO, json);
+		Logger.info("GetCalendar   uid: " + uid + " id: " + id);
+		//String json = "[{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"}]";
+		//ASingleton.sendData(ASingleton.Sockets.TODO, json);
 		for (AbstractAgentBean agent : ASingleton.agents) {
 			if (agent instanceof TodoBean) {
 				// currently the agents are not using the correct stuff
-				// ((TodoBean) agent).getTodos(uid, id);
+				((TodoBean) agent).getTodos(uid, id);
 			}
 		}
 		return ok("ok");
@@ -177,6 +178,16 @@ public class Application extends Controller {
 		return ok("ok");
 	}
 
+	public static Result putGoogleAcc(int userID, String name, String password) {
+		for (AbstractAgentBean agent : ASingleton.agents) {
+			if (agent instanceof MailBean) {
+				((MailBean) agent).putGoogleAcc(userID, name, password);
+			}
+		}
+		
+		return ok("ok");
+	}
+	
 	@Transactional
 	public static WebSocket<String> websocket() {
 		return new WebSocket<String>() {
