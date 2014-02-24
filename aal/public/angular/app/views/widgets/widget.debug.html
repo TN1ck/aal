@@ -1,4 +1,4 @@
-<div class="row full-height" ng-style="{'background-color': color}">
+<div class="row full-height">
 	<div class="col-md-6 row-md-1 widget {{css}}">
 		<widget-h1 class="stick-bottom">Debug</widget-h1>
 	</div>
@@ -21,9 +21,9 @@
 		</div>
 	</div ng-repeat>
 	<div class="col-md-12 row-md-1 widget {{css}} text-center">
-		<widget-h1>
-			<span style="{{$last && 'color: black'}};" ng-repeat="key in keys">{{key}}&nbsp</span>
-		</widget-h1>
+		<h3>
+			<span style="{{$last && 'color: black'}};" ng-repeat="key in keys track by $index">{{key}}&nbsp</span>
+		</h3>
 		<div class="footer">
 			Zuletzt erkannte Gesten
 		</div>

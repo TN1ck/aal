@@ -30,4 +30,9 @@ public class User {
 		return this.image;
 	}
 
+	public void setAllowed(boolean b) {
+		this.allowed = b;
+		
+	}
+
 }

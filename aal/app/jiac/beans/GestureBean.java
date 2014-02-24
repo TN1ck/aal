@@ -145,7 +145,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 				break;
 				
 			case "blocking":
-				user.allowed = !user.allowed;
+				user.setAllowed(!user.allowed);
 				log.info("BLOCKING: " + user.allowed + " NITEID: " + user.niteID);
 				break;
 				
