@@ -88,12 +88,12 @@ appControllers.controller('MainCtrl',
           console.log('NO CURRENT_USER, GO TO LOADING SCREEN', $rootScope.currentUser);
           $rootScope.currentUser = data.data;
           $rootScope.users.push(data.data);
-          // let's give them 20s
+          // let's give them 60s
           $timeout(function() {
             if($rootScope.currentUser && $rootScope.currentUser.userID === -2) {
               $state.transitionTo('wrapper.main');
             }
-          }, 20000);
+          }, 60000);
           $state.transitionTo('wrapper.auth.loading');
         
         // if a currentUser is set, check his niteID is equal to the incoming message and go to welcome/unkown
