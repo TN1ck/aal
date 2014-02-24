@@ -37,9 +37,7 @@ public class TodoData extends Message {
 	}
 
 	public class TodoItem implements Serializable {
-		/**
-		 * 
-		 */
+		
 		private static final long serialVersionUID = 1964635806393082000L;
 		public int id; // falls wir eins löschen wollen
 		public String text;

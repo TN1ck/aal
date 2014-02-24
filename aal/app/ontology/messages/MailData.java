@@ -1,5 +1,6 @@
 package ontology.messages;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,12 +8,17 @@ import ontology.Message;
 import ontology.MessageType;
 
 public class MailData extends Message {
-	
+
 	private static final long serialVersionUID = -145889621738741918L;
 	int userID;
 	private ArrayList<Mail> mails;
 
-	public MailData(String senderID, String receiverID, int userID, ArrayList<Mail> mails) {
+	public MailData() {
+
+	}
+
+	public MailData(String senderID, String receiverID, int userID,
+			ArrayList<Mail> mails) {
 		super(senderID, receiverID, MessageType.COMM_DATA);
 		this.userID = userID;
 		this.mails = mails;
@@ -26,22 +32,25 @@ public class MailData extends Message {
 		this.mails = mails;
 	}
 
-	public class Mail {
+	public class Mail implements Serializable {
 
+		/**
+*
+*/
+		private static final long serialVersionUID = -3698655994164024994L;
 		private String subject;
 		private String content;
 		private String type;
 		private String from;
 		private Date received;
-		private int id;
 
-		public Mail(String subject, String content, String type, String from, Date received, int id) {
+		public Mail(String subject, String content, String type, String from,
+				Date received) {
 			setSubject(subject);
 			setContent(content);
 			setType(type);
 			setFrom(from);
 			setReceived(received);
-			setId(id);
 		}
 
 		public String getSubject() {
@@ -74,14 +83,6 @@ public class MailData extends Message {
 
 		public void setReceived(Date received) {
 			this.received = received;
-		}
-		
-		public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
 		}
 
 		@Override

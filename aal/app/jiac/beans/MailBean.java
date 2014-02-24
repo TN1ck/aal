@@ -90,9 +90,10 @@ public class MailBean extends AbstractCommunicatingBean {
 				String from = json.findPath("from").textValue();
 				Date received = new Date();
 				
+				
 				//create new Mail
 				MailData md = new MailData(null,null,0,null);
-				Mail newMail = md.new Mail(subject,content,type,from,received,0);
+				Mail newMail = md.new Mail(subject,content,type,from,received);
 				newMessage.setMail(newMail);
 				JiacMessage message = new JiacMessage(newMessage);
 				// Invoke sendAction
