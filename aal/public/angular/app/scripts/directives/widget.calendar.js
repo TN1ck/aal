@@ -120,6 +120,8 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
         if ($scope.lastShownCalEntry !== null && !$target.is($scope.lastShownCalEntry)) {
           console.log('I am in if case and have to hide the popover of: ', $scope.lastShownCalEntry);
           $scope.lastShownCalEntry.popover('destroy');
+          $('.popover').remove();
+
         }
 
         var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-4">Description:</div><div class="col-md-8">' + data.description + '</div><div class="col-md-4">Location:</div><div class="col-md-8">' + data.location + '</div><div class="col-md-4">Start:</div><div class="col-md-8">' + moment(data.startTime).format('D.M H:mm') + '</div><div class="col-md-4">End:</div><div class="col-md-8">' + moment(data.endTime).format('D.M H:mm') + '</div><div class="col-md-4">Persons:</div><div class="col-md-8">' + data.persons + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext margin-bt {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
@@ -142,6 +144,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       $scope.removeCalendarEntry = function(data) {
         console.log('I am in removeCalendarEntry and this is my data: ', data);
         $scope.lastShownCalEntry.popover('destroy');
+        $('.popover').remove();
         $scope.data.forEach(function (element,index,array) {
           console.log('Current element: ', element);
           if( JSON.stringify(element) === JSON.stringify(data)){
