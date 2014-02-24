@@ -51,18 +51,18 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
   //   }
   // });
 // Usage
-
+  $rootScope.fbToken.promise.then(function (token) {
+    $FB._authResponse = { 'accessToken': token };
+    console.log('FB._authResponse did well!');
+    updateApiCall(token);
+  });
   $FB.getLoginStatus()
     .then(function(response) {
       if (response.status === 'connected') {
         updateApiCall();
       } else {
         console.log('Else case of getLoginStatus');
-        $rootScope.fbToken.promise.then(function (token) {
-            $FB._authResponse = { 'accessToken': token };
-            console.log('FB._authResponse did well!');
-            updateApiCall(token);
-          });
+        
       }
     });
 
