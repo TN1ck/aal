@@ -24,7 +24,7 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
     OAuth.initialize('IQqjfz7Hzomr2m_iZBaIlnAiTBI');
 
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/nouser');
 
     $stateProvider
       .state('wrapper', {
@@ -35,6 +35,11 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       .state('wrapper.main', {
         url: '/',
         templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .state('wrapper.nouser', {
+        url: '/nouser',
+        templateUrl: 'views/nouser.html',
         controller: 'MainCtrl'
       })
       .state('wrapper.toygamer', {
