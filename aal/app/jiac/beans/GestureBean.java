@@ -147,6 +147,10 @@ public class GestureBean extends AbstractCommunicatingBean {
 					pressKey(KeyEvent.VK_9);					
 				}
 				break;
+			case "both_top!hand_both":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_0);
+				}
 				
 			case "blocking":
 				user.setAllowed(!user.allowed);
@@ -190,7 +194,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 			try {
 			    BufferedImage bi = messageUser.getImage().getFrame();
 			    File outputfile = new File("./public/images/user-" + messageUser.getNiteID() + ".png");
-			    user.setImage("./public/images/user-" + messageUser.getNiteID() + ".png");
+			    user.setImage("/assets/images/user-" + messageUser.getNiteID() + ".png");
 			    ImageIO.write(bi, "png", outputfile);
 			} catch (IOException e) {
 			}
