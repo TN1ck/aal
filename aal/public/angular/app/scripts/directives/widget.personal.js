@@ -34,11 +34,12 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
         $http.put('/user/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
-      $FB.getLoginStatus().then(function(response) {
+      $rootScope.fbToken.promise.then(fetchPersonal);
+      /*$FB.getLoginStatus().then(function(response) {
         if(response.authResponse.accessToken) {
           fetchPersonal(response.authResponse.accessToken);
         }
-      });
+      });*/
 
 		}
   };

@@ -193,6 +193,18 @@ appControllers.controller('MainCtrl',
       }, 'REMOVE_USER');
 
 
+    $rootScope.fbToken = $q.defer();
+
+    TextTransmission.fetchTextForWall(function(data) {
+        try {
+          console.log('DATEN EMPFANGEN');
+          $rootScope.fbToken.resolve(data.data);
+        } catch (e) {
+          console.log(e);
+        }
+      },'FBAUTH');
+
+
 
 
     var Menu = new RadialService.Menu({selector: '#right'});
