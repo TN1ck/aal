@@ -168,7 +168,7 @@ appControllers.controller('MainCtrl',
 
 
     TextTransmission.fetchDataForWall(function(data) {
-        console.log('REMOVED USER', data.data);
+        console.log('REMOVED USER', $rootScope.users, $rootScope.currentUser);
 
         if ($rootScope.currentUser && data.data.niteID === $rootScope.currentUser.niteID) {
           $rootScope.currentUser = false;
@@ -180,12 +180,14 @@ appControllers.controller('MainCtrl',
 
 
         if (!$rootScope.currentUser && $rootScope.users.length === 0) {
+          console.log('nouser');
           $state.transitionTo('wrapper.nouser');
         }
 
 
-        if (!$rootScope.currentUser && $rootScope.users.length >= 0) {
+        if (!$rootScope.currentUser && $rootScope.users.length > 0) {
           $rootScope.currentUser = $rootScope.users.shift();
+          console.log('user');
           $state.transitionTo('wrapper.main');
         }
 
@@ -198,6 +200,7 @@ appControllers.controller('MainCtrl',
         try {
           console.log('DATEN EMPFANGEN');
           $rootScope.fbToken.resolve(data.data);
+          WidgetData.updateApiCall(data.data);
         } catch (e) {
           console.log(e);
         }

@@ -51,18 +51,13 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
   //   }
   // });
 // Usage
-
   $FB.getLoginStatus()
     .then(function(response) {
       if (response.status === 'connected') {
         updateApiCall();
       } else {
         console.log('Else case of getLoginStatus');
-        $rootScope.fbToken.promise.then(function (token) {
-            $FB._authResponse = { 'accessToken': token };
-            console.log('FB._authResponse did well!');
-            updateApiCall(token);
-          });
+        
       }
     });
 
@@ -80,6 +75,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
   colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#2980b9', '#19806E', '#AE8EA7', '#bdc3c7'];
 
   return {
+    updateApiCall: updateApiCall,
     social: social.promise,
     colors: colors,
     widgets: widgets
