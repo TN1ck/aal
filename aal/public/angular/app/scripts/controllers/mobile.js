@@ -107,7 +107,11 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
 
       $scope.sendGoogleLogin = function(name, pw) {
         pw = btoa(pw);
-        $http.get('/google/' + $rootScope.currentUser.userID + '/' + name + '/' + pw);
+        if (!$rootScope.currentUser.userID) {
+          $http.get('/google/' + 1337 + '/' + name + '/' + pw);
+        } else {
+          $http.get('/google/' + $rootScope.currentUser.userID + '/' + name + '/' + pw);
+        }
         $state.transitionTo('wrapper.mobile.navigation');
       };
 
