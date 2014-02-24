@@ -38,11 +38,11 @@ public class Application extends Controller {
 	}
 
 	/*
-	 * JIAC COMMUNICATION VIA HTTP STARTS HERE
+	 * JI97AC COMMUNICATION VIA HTTP STARTS HERE
 	 */
 
 	public static Result getTodo(int uid, int id) {
-		Logger.info("GetCalendar   uid: " + uid + " id: " + id);
+		Logger.info("GetTodo78777   uid: " + uid + " id: " + id);
 		//String json = "[{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"}]";
 		//ASingleton.sendData(ASingleton.Sockets.TODO, json);
 		for (AbstractAgentBean agent : ASingleton.agents) {
