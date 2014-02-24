@@ -39,9 +39,9 @@ app.factory('cssService', function(colorUtils) {
 
       var textColor = (yiq >= 200) ? '#4b4b57' : 'white';
 
-      var widgetColor = '.widget-color-'+ i + ' { border-color: rgba(255,255,255,1); background-color: ' + d  + '; color: ' + textColor + '; }';
-      var widgetColorInvertedHover = '.widget-color-'+ i + ':hover { border-color: white; background-color: ' + textColor + '; color: ' + d + '; }';
-      var widgetColorInverted = '.widget-color-'+ i + '-inverted { border-color: white !important; background-color: ' + textColor + ' !important; color: ' + d + ' !important; } ';
+      var widgetColor = '.widget-color-'+ i + ' { background-color: ' + d  + '; color: ' + textColor + '; }';
+      var widgetColorInvertedHover = '.widget-color-'+ i + ':hover { background-color: ' + textColor + '; color: ' + d + '; }';
+      var widgetColorInverted = '.widget-color-'+ i + '-inverted {!important; background-color: ' + textColor + ' !important; color: ' + d + ' !important; } ';
       var widgetSubColors = [0, 1, 2, 3, 4].map(function(n) {
         var color = colorUtils.blend(d, '#ffffff', 1 - n/9);
         return '.widget-color-' + i + '-' + n + '{ background-color: ' + color + '; }';
