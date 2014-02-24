@@ -42,6 +42,7 @@ public class FacebookBean extends AbstractCommunicatingBean {
 	
 
 	public void getFacebookData(int userID, String accessToken) {
+		log.info("get facebook - token: " + accessToken);
 		boolean send = false;
 		// Retrieve all DatabaseMockupBeans
 		ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
