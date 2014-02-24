@@ -38,11 +38,19 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
 	    },$scope.socket);
 
       var fetchMail = function(id) {
-        $http.get('/mail/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
+        if (!$rootScope.currentUser.userID) {
+          $http.get('/mail/' + 1337 + (id ? '?id=' + id : ''));
+        } else {
+          $http.get('/mail/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
+        }
       };
 
       var putMail = function(data) {
-        $http.put('/mail/' + $rootScope.currentUser.userID, data);
+        if (!$rootScope.currentUser.userID) {
+          $http.put('/mail/' + 1337, data);
+        } else {
+          $http.put('/mail/' + $rootScope.currentUser.userID, data);
+        }
       };
 
       var deleteMail = function(id) {
