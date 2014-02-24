@@ -152,11 +152,6 @@ public class Application extends Controller {
 		return ok("ok");
 	}
 
-	public static Result putGoogleAcc(int uid, String name, String pw) {
-
-		// TODO: logic;
-		return ok("ok");
-	}
 
 	public static Result startTraining(int nid) {
 
