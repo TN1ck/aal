@@ -111,6 +111,10 @@ appControllers.controller('MainCtrl',
           if ($rootScope.currentUser.niteID === data.data.niteID) {
             $rootScope.currentUser = data.data;
           }
+          if (d.niteID === data.data.niteID) {
+            d.userID = data.data.userID;
+            d.image = data.data.image;
+          }
           return d.niteID !== data.data.niteID;
         });
 
