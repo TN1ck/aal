@@ -68,7 +68,7 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
         });
 
         WidgetModal.result.then(function(data) {
-          // TODO: Send MAIL
+          putMail(data);
         });
       };
 
@@ -80,7 +80,7 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
           templateUrl: '/views/widgets/modals/modal.mail.html',
           scope: $target.scope()
         });
-      }
+      };
 		}
   };
 });

@@ -22,7 +22,11 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
 			}, $scope.socket);
 
       var fetchPersonal = function(token) {
-        $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
+        if (!$rootScope.currentUser.userID) {
+          $http.get('/user/' + 1337 + '/' + token);
+        } else {
+          $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
+        }
         console.log(token);
       };
 

@@ -124,7 +124,7 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
               TextTransmission.deliverTextForWall(response.authResponse.accessToken, 'FBAUTH');
             }
           }
-        })  
+        });
       };
 
     }
