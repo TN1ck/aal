@@ -18,12 +18,20 @@ app.factory('cssService', function(colorUtils) {
 
     var setHeights = function () {
 
+      var $border = Number($('.widget-outer').css('border-width').slice(0, -2));
+      var windowHeightInner = windowHeight - ($border * 2);
+
       var css =
           ['@media (min-width: 1000px) { .row-md-8 { ', 'height: ', windowHeight,'px; } }',
-           '@media (min-width: 1000px) { .row-md-6 { ', 'height: ', windowHeight/2 + windowHeight/4,'px; } }',
+           '@media (min-width: 1000px) { .row-md-6 { ', 'height: ', windowHeight/1.33333,'px; } }',
            '@media (min-width: 1000px) { .row-md-4 { ', 'height: ', windowHeight/2,'px; } }',
            '@media (min-width: 1000px) { .row-md-2 { ', 'height: ', windowHeight/4, 'px; } }',
-           '@media (min-width: 1000px) { .row-md-1 { ', 'height: ', windowHeight/8, 'px; } }'].join('');
+           '@media (min-width: 1000px) { .row-md-1 { ', 'height: ', windowHeight/8, 'px; } }',
+           '@media (min-width: 1000px) { .row-md-6.widget { ', 'height: ', windowHeightInner/1.33333,'px; } }',
+           '@media (min-width: 1000px) { .row-md-4.widget { ', 'height: ', windowHeightInner/2,'px; } }',
+           '@media (min-width: 1000px) { .row-md-2.widget { ', 'height: ', windowHeightInner/4, 'px; } }',
+           '@media (min-width: 1000px) { .row-md-1.widget { ', 'height: ', windowHeightInner/8, 'px; } }'
+           ].join('');
 
       $styleHeights.html(css);
 
