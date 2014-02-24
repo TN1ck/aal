@@ -12,7 +12,11 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
 
   var updateApiCall = function updateApiCall () {
 
+    console.log('BIN DRIN1111111111111111111');
+
     $FB.api('/me/home').then(function(posts) {
+
+      console.log('BIN DRIN');
       
       posts.picturePosts = [];
       
@@ -40,7 +44,13 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
   };
 
   $FB.getLoginStatus()
-    .then(updateApiCall);
+    .then(function(response) {
+      if (response.status === 'connected') {
+        updateApiCall();
+      } else {
+
+      }
+    });
 
   widgets = [
     {name: 'news', color: '#D65B3C', socket: 'NEWS'},

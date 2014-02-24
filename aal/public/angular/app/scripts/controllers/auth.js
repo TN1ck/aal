@@ -90,13 +90,13 @@ appControllers.controller('AuthCtrl',
       // if ($scope.step === 0) {
       //   return;
       // }
-      $scope.countDown(5, 100, 'step1countdown', function() {
+      $scope.countDown(2, 100, 'step1countdown', function() {
         $scope.step++;
         // makeSnapshot('step1');
-        $scope.countDown(5, 100, 'step2countdown', function() {
+        $scope.countDown(2, 100, 'step2countdown', function() {
           $scope.step++;
           // makeSnapshot('step2');
-          $scope.countDown(5, 100, 'step3countdown', function() {
+          $scope.countDown(2, 100, 'step3countdown', function() {
             $scope.step++;
             // makeSnapshot('step3');
           });
