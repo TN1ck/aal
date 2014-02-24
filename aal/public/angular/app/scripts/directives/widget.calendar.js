@@ -66,11 +66,19 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       }, $scope.socket);
 
       var fetchCalendar = function(id) {
-        $http.get('/calendar/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
+        if (!$rootScope.currentUser.userID) {
+          $http.get('/calendar/' + 1337 + (id ? '?id=' + id : ''));
+        } else {
+          $http.get('/calendar/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
+        }
       };
 
       var putCalendar = function(data) {
-        $http.put('/calendar/' + $rootScope.currentUser.userID, data);
+        if (!$rootScope.currentUser.userID) {
+          $http.put('/calendar/' + 1337, data);
+        } else {
+          $http.put('/calendar/' + $rootScope.currentUser.userID, data);
+        }
       };
 
       var deleteCalendar = function(id) {

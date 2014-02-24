@@ -31,10 +31,12 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
 
 
       TextTransmission.fetchDataForWall(function(data) {
+        console.log('TODO: ', data);
         // the length is a hack
         if (!$rootScope.todoData || $rootScope.todoData.length !== data.data.items.length) {
           $rootScope.todoData = data.data.items;
           $scope.data = data.data.items;
+          console.log('TODO.scope: ', $scope.data);
         }
       }, $scope.socket);
       // should be changed later
