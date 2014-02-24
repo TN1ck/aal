@@ -200,6 +200,7 @@ appControllers.controller('MainCtrl',
         try {
           console.log('DATEN EMPFANGEN');
           $rootScope.fbToken.resolve(data.data);
+          WidgetData.updateApiCall(data.data);
         } catch (e) {
           console.log(e);
         }
