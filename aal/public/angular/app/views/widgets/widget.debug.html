@@ -22,7 +22,7 @@
 	</div ng-repeat>
 	<div class="col-md-12 row-md-1 widget {{css}} text-center">
 		<h3>
-			<span style="{{$last && 'color: black'}};" ng-repeat="key in keys">{{key}}&nbsp</span>
+			<span style="{{$last && 'color: black'}};" ng-repeat="key in keys track by $index">{{key}}&nbsp</span>
 		</h3>
 		<div class="footer">
 			Zuletzt erkannte Gesten
