@@ -1,4 +1,4 @@
-<div class="col-lg-6 widget row-md-1 {{css}}">
+<div class="col-lg-6 widget row-md-1 {{css}}" ng-click="$parent.displayNews($event, data)">
 	<widget-h3>{{data.title | truncate:38}}</widget-h3>
 	<p>{{data.description | truncate:150 }}</p>
 </div>
