@@ -4,8 +4,8 @@
 
 var appControllers = angular.module('appControllers');
 
-appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','$rootScope','$location',
-    function ($scope, TextTransmission, $state, $rootScope, $location) {
+appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','$rootScope','$location', '$FB',
+    function ($scope, TextTransmission, $state, $rootScope, $location, $FB) {
 
       // $scope.$watch('mobileIdText', function(newVal, oldVal) {
       //   TextTransmission.code = newVal;
@@ -95,6 +95,18 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
       
       $scope.addSocialPost = function () {
         TextTransmission.deliverTextForWall('addSocialPost', $rootScope.getSocketForWidget('social'));
+      };
+
+      $scope.fbLogin = function () {
+        $FB.login(null, {
+          scope: 'email, user_likes, read_stream, publish_actions, publish_stream'
+        }).then(function(response) {
+          if (response.authResponse) {
+            if (response.status === 'connected') {
+              TextTransmission.deliverTextForWall(response.authResponse.accessToken, 'FBAUTH');
+            }
+          }
+        })  
       };
 
     }

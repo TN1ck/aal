@@ -22,8 +22,8 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
 			}, $scope.socket);
 
       var fetchPersonal = function(token) {
+        console.log('LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOS');
         $http.get('/user/' + $rootScope.uid + '/' + token);
-        console.log(token);
       };
 
       var putPersonal = function(data) {
@@ -34,11 +34,12 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
         $http.put('/user/' + $rootScope.uid + (id ? '/' + id : ''));
       };
 
-      $FB.getLoginStatus().then(function(response) {
+      $rootScope.fbToken.promise.then(fetchPersonal);
+      /*$FB.getLoginStatus().then(function(response) {
         if(response.authResponse.accessToken) {
           fetchPersonal(response.authResponse.accessToken);
         }
-      });
+      });*/
 
 		}
   };
