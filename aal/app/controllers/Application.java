@@ -38,11 +38,11 @@ public class Application extends Controller {
 	}
 
 	/*
-	 * JIAC COMMUNICATION VIA HTTP STARTS HERE
+	 * JI97AC COMMUNICATION VIA HTTP STARTS HERE
 	 */
 
 	public static Result getTodo(int uid, int id) {
-		Logger.info("GetCalendar   uid: " + uid + " id: " + id);
+		Logger.info("GetTodo78777   uid: " + uid + " id: " + id);
 		//String json = "[{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"}]";
 		//ASingleton.sendData(ASingleton.Sockets.TODO, json);
 		for (AbstractAgentBean agent : ASingleton.agents) {
@@ -55,6 +55,7 @@ public class Application extends Controller {
 	}
 
 	public static Result putTodo(int uid) {
+		Logger.info("putTodo   uid: " + uid );
 		JsonNode json = request().body().asJson();
 		if(json == null) {
 			return badRequest("Expecting Json data");
@@ -64,10 +65,16 @@ public class Application extends Controller {
 			if(text == null || type == null) {
 				return badRequest("Missing parameter [text, type]");
 			} else {
+				for (AbstractAgentBean agent : ASingleton.agents) {
+					if (agent instanceof TodoBean) {
+						// currently the agents are not using the correct stuff
+						((TodoBean) agent).saveTodo(uid, text, type);
+					}
+				}
+				return ok("ok");
 				// return TodoBean.putTodo(text, type);
 			}
 		}
-		return ok("ok");
 	}
 
 	public static Result deleteTodo(int uid, int id) {

@@ -6,7 +6,7 @@ import ontology.Message;
 import ontology.MessageType;
 import ontology.messages.TodoData.TodoItem;
 
-public class SaveTodo extends Message implements Serializable{
+public class SaveTodo extends Message {
 
    int userID;
    TodoItem todo;
