@@ -75,6 +75,15 @@ appControllers.controller('MainCtrl',
           $rootScope.currentUser = data.data;
           $rootScope.users.push(data.data);
           $state.transitionTo('wrapper.auth.loading');
+        } else if (data.data.niteID === $rootScope.currentUser.niteID) {
+          $rootScope.currentUser = data.data;
+
+          if ($rootScope.currentUser.userID >= 0) {
+            $state.transitionTo('wrapper.auth.welcome');
+          } else if ($rootScope.currentUser.userID === -1) {
+            $state.transitionTo('wrapper.auth.unknown');
+          }
+
         }
 
         var filteredUsers = $rootScope.users.filter(function(d) {
@@ -110,12 +119,6 @@ appControllers.controller('MainCtrl',
             $scope.alerts.shift();
             console.log('DELETED ALERT');
           }, 15000);
-        }
-
-        if (data.data.userID && $rootScope.currentUser.userID >= 0) {
-          $state.transitionTo('wrapper.auth.welcome');
-        } else if (data.data.userID && $rootScope.currentUser.userID === -1) {
-          $state.transitionTo('wrapper.auth.unknown');
         }
 
 
