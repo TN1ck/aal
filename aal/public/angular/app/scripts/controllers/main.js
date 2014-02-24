@@ -170,7 +170,7 @@ appControllers.controller('MainCtrl',
     TextTransmission.fetchDataForWall(function(data) {
         console.log('REMOVED USER', data.data);
 
-        if (data.data.niteID === $rootScope.currentUser.niteID) {
+        if ($rootScope.currentUser && data.data.niteID === $rootScope.currentUser.niteID) {
           $rootScope.currentUser = false;
         }
         
