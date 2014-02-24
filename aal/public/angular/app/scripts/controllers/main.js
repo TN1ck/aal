@@ -125,6 +125,10 @@ appControllers.controller('MainCtrl',
     TextTransmission.fetchDataForWall(function(data) {
         console.log('REMOVED USER', data.data);
 
+        if (data.data.niteID === $rootScope.currentUser.niteID) {
+          $rootScope.currentUser = false;
+        }
+
         if ($rootScope.currentUser.niteID === data.data.niteID && $rootScope.users.length >= 1) {
           $rootScope.currentUser = $rootScope.users.shift();
           $state.transitionTo('wrapper.auth.loading');
@@ -134,8 +138,7 @@ appControllers.controller('MainCtrl',
           return d.niteID !== data.data.niteID;
         });
 
-        if ($rootScope.users.length === 0) {
-          $rootScope.currentUser = false;
+        if (!$rootScope.currentUser) {
           $state.transitionTo('wrapper.main');
         }
 
