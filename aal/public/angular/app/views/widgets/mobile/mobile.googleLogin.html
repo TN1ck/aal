@@ -1,0 +1,12 @@
+<div class="row separation-border">
+        <div class="col-xs-12 modal-col">
+            <h4>Username</h4>
+            <input type="text" class="form-control" placeholder="Username" ng-model="name">
+            <h4>Passwort</h4>
+            <input type="password" class="form-control" placeholder="Username" ng-model="password">
+        </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="sendGoogleLogin(name,password)">OK</button>
+    <button class="btn btn-warning" ng-click="$state.transitionTo('wrapper.mobile.navigation')">Cancel</button>
+</div>
