@@ -129,13 +129,12 @@ widget {
 	font-weight: 300;
 }
 
-/*.widget-outer {
+.widget-outer {
 	height: 100%;
-	border: 0.3em solid black;
-	box-shadow: inset #222222 -0.1em -0.1em 0 0;
+	box-shadow: inset white -0.3em -0.3em 0 0;
 }
 
 .widget-inner {
 	height: 100%;
-	box-shadow: inset #222222 0.1em 0.1em 0 0;
-}*/
+	box-shadow: inset white 0.3em 0.3em 0 0;
+}

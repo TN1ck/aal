@@ -4,6 +4,11 @@
 		font-size: 30px;
 	}
 
+	.spinner {
+		-webkit-animation: none;
+  		animation: none;
+	}
+
 	.popover {
 	  max-width: 40em;
 	  padding: .1em;
