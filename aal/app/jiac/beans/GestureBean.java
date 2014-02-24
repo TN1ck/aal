@@ -5,7 +5,12 @@ import static de.dailab.jiactng.agentcore.comm.CommunicationAddressFactory.creat
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+
+import javax.imageio.ImageIO;
 
 import com.google.gson.Gson;
 
@@ -86,7 +91,6 @@ public class GestureBean extends AbstractCommunicatingBean {
 				user = ASingleton.niteToUser.put(niteID, new User(niteID));
 			}
 			log.info("ALLOWED: " + user.allowed + " GestureAgent - received Gesture: " + gesture);
-			ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);
 			switch(gesture) {
 			case "screen_toggle":
 				if (user.allowed) {
@@ -153,6 +157,11 @@ public class GestureBean extends AbstractCommunicatingBean {
 			default:
 				log.info("GestureAgent - received unknown Gesture");
 			}
+			try {
+				ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);				
+			} catch (Exception e) {
+				
+			}
 
 
 		} else if (message instanceof NewUser) {
@@ -178,8 +187,14 @@ public class GestureBean extends AbstractCommunicatingBean {
 			if (user == null) {
 				user = ASingleton.niteToUser.put(messageUser.getNiteID(), new User(messageUser.getNiteID()));
 			}
+			try {
+			    BufferedImage bi = messageUser.getImage().getFrame();
+			    File outputfile = new File("user-" + messageUser.getNiteID() + ".png");
+			    user.setImage("user-" + messageUser.getNiteID() + ".png");
+			    ImageIO.write(bi, "png", outputfile);
+			} catch (IOException e) {
+			}
 			user.userID = messageUser.getUserID();
-			user.image = messageUser.getImage();
 			String json = gson.toJson(user);
 			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			

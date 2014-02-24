@@ -16,8 +16,8 @@ import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 
 public class FacebookBean extends AbstractCommunicatingBean {
 
-//	String agentName = "SocialMediaAgent";
-	String agentName = "TestAgent";
+	String agentName = "SocialMediaAgent";
+//	String agentName = "TestAgent";
 	private Action sendAction = null;
 	Gson gson = new Gson();
 

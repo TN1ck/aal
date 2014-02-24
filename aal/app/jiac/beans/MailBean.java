@@ -107,7 +107,7 @@ public class MailBean extends AbstractCommunicatingBean {
 		// TODO
 	}
 	
-	public void execute() {
+	/*public void execute() {
 		MailData newMailMessage = new MailData("","",-1,null);
 		ArrayList<Mail> mails = new ArrayList<Mail>();
 		String lorem = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
@@ -120,7 +120,7 @@ public class MailBean extends AbstractCommunicatingBean {
 		mails.add(newMailMessage.new Mail("easy money", lorem,"private","Nigerian Prince", new Date(),0));
 		newMailMessage.setMails(mails);
 		receiveMessage(newMailMessage);
-	}
+	}*/
 	
 
 	@Override
@@ -131,6 +131,35 @@ public class MailBean extends AbstractCommunicatingBean {
 			String json = gson.toJson(mail);
 			ASingleton.sendData(ASingleton.Sockets.MAIL, json);
 		}
+	}
+
+	public void putGoogleAcc(int userID, String name, String password) {
+		boolean send = false;
+		
+		// Retrieve all DatabaseMockupBeans
+		ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
+		
+		String receiverID = null;
+		for (IAgentDescription agent : agentDescriptions) {
+			if (agent.getName().equals(agentName)) {
+				// create the message, get receiver's message box address
+				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
+				receiverID = agent.getAid();
+				
+				//create message
+				SaveGmailData newMessage = new SaveGmailData(thisAgent.getAgentId(), receiverID, userID, name, password);
+				
+				JiacMessage message = new JiacMessage(newMessage);
+				// Invoke sendAction
+				log.info("sending SaveGmailData to: " + receiver);
+				invoke(sendAction, new Serializable[] { message, receiver });
+				send = true;
+			}
+		}
+		
+		if (!send)
+			log.warn("Can't send message. " + agentName + " not found!");
+		
 	}
 }
 
