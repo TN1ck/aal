@@ -56,11 +56,14 @@ appControllers.controller('MainCtrl',
       return wdgt.socket;
     };
 
+    console.log($rootScope.users, $rootScope.currentUser);
+
     $rootScope.users = $rootScope.users || [];
 
     $rootScope.currentUser = $rootScope.currentUser || false;
 
     $scope.alerts = [];
+
 
     // Listen for user changes, this is important for ALL widgets
     TextTransmission.fetchDataForWall(function(data) {
