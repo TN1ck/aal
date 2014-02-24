@@ -139,6 +139,12 @@ public class Application extends Controller {
 		return ok("ok");
 	}
 
+	public static Result putGoogleAcc(String name, String pw) {
+
+		// TODO: logic;
+		return ok("ok");
+	}
+
 	public static Result startTraining(int nid) {
 
 		for (AbstractAgentBean agent : ASingleton.agents) {
