@@ -63,6 +63,16 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
           // TODO: Send MAIL
         });
       };
+
+      $scope.displayMail = function (evnt, data) {
+        var $target = $(evnt.currentTarget);
+
+        console.log('Data in displayNews: ' , data);
+        var WidgetModal = $modal.open({
+          templateUrl: '/views/widgets/modals/modal.mail.html',
+          scope: $target.scope()
+        });
+      }
 		}
   };
 });
