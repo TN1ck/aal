@@ -43,7 +43,7 @@ widget {
 
 .widget {
 	box-sizing: border-box;
-	border: 0.2em solid black;
+	border: 0.3em solid white;
 	padding: 0.6em;
 	background-color: white;
 	overflow: hidden;
@@ -129,13 +129,13 @@ widget {
 	font-weight: 300;
 }
 
-.widget-outer {
+/*.widget-outer {
 	height: 100%;
 	border: 0.3em solid black;
-	/*box-shadow: inset #222222 -0.1em -0.1em 0 0;*/
+	box-shadow: inset #222222 -0.1em -0.1em 0 0;
 }
 
 .widget-inner {
 	height: 100%;
-	/*box-shadow: inset #222222 0.1em 0.1em 0 0;*/
-}
+	box-shadow: inset #222222 0.1em 0.1em 0 0;
+}*/
