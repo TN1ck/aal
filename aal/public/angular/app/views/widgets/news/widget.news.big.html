@@ -1,4 +1,4 @@
-<div class="col-md-12 row-md-2 widget {{css}}" style="background-image: url(http://cdn2.spiegel.de/images/image-642629-breitwandaufmacher-gxoh.jpg); background-size: cover;">
+<div class="col-md-12 row-md-2 widget {{css}}" style="background-image: url({{data.enclosure}}); background-size: cover;" ng-click="$parent.displayNews($event, data)">
 	<div class="widget-picture-post {{css}}">
 		<widget-h3>{{data.title | truncate:38}}</widget-h3>
 		<p>{{data.description | truncate:300 }}</p>
