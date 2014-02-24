@@ -4,19 +4,14 @@
 
 var app = angular.module('angularApp');
 
-app.factory('WidgetData', function(Persistence, $FB, $q) {
+app.factory('WidgetData', function($FB, $q, SocialComparison) {
 
   var checkIfPostHasBeenLiked = function(myFacebookId, post) {
-    // console.log("In check function")
     if (post.likes === undefined) {
       return false;
     }
-    // console.log("My facebook id: " + myFacebookId)
-    // debugger
     for (var i=0; i<post.likes.data.length; i++) {
-      // console.log("Post's id: " + post.likes.data[i].id)
       if (post.likes.data[i].id == myFacebookId) {
-        // console.log('matched!')
         return true;
       }
     }
@@ -24,10 +19,8 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
   }
 
   var iterateThroughPosts = function(myFacebookId, posts) {
-    // console.log("In iterate function")
     for (var i=0; i<posts.length; i++) {
       posts[i].alreadyLiked = checkIfPostHasBeenLiked(myFacebookId, posts[i]);
-      // console.log(checkIfPostHasBeenLiked(myFacebookId, posts[i]));
     }
     return posts;
   }
@@ -85,6 +78,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q) {
 
       });
     });
+    SocialComparison.compareTwoPersons('maximilian.bachl', 'tom.lehmann.98');
   };
 
   $FB.getLoginStatus()

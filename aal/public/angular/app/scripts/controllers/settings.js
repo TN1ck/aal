@@ -33,7 +33,7 @@ appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission'
 
       $scope.login = function () {
         $FB.login(null, {
-          scope: 'email, user_likes, read_stream, publish_actions, publish_stream'
+          scope: 'email, user_likes, read_stream, publish_actions, publish_stream, user_actions.music, friends_actions.music, user_actions.video, friends_actions.video, friends_actions.video, user_actions.books, friends_actions.books, user_checkins, friends_checkins, user_events, friends_events'
         });
       };
 

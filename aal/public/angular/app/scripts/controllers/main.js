@@ -6,7 +6,7 @@ var appControllers = angular.module('appControllers', []);
 
 
 appControllers.controller('MainCtrl',
-  function ($scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
+  function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
 
     $scope.colors = WidgetData.colors;
     $scope.css = cssService.createCss($scope.colors);
@@ -76,7 +76,7 @@ appControllers.controller('MainCtrl',
         });
         if (filteredUsers.length === $rootScope.users.length) {
           $rootScope.users.push(data.data);
-          
+
           $scope.alerts.push({
             msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
           });
@@ -87,10 +87,10 @@ appControllers.controller('MainCtrl',
           }, 15000);
 
         } else {
-          
+
           $rootScope.users = filteredUsers;
           $rootScope.users.push(data.data);
-          
+
           $scope.alerts.push({
             msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
           });
@@ -128,7 +128,6 @@ appControllers.controller('MainCtrl',
 
 
     var Menu = new RadialService.Menu({selector: '#right'});
-
 
   });
 
