@@ -173,14 +173,14 @@ appControllers.controller('MainCtrl',
         });
 
 
-        if (!$rootScope.currentUser && $rootScope.users.length >= 1) {
+        if (!$rootScope.currentUser && $rootScope.users.length === 0) {
           console.log('FUCK THIS, TRANSITION TO LOADING');
-          $rootScope.currentUser = $rootScope.users.shift();
           $state.transitionTo('wrapper.auth.loading');
         }
 
 
-        if (!$rootScope.currentUser) {
+        if (!$rootScope.currentUser && $rootScope.users.length >= 0) {
+          $rootScope.currentUser = $rootScope.users.shift();
           $state.transitionTo('wrapper.main');
         }
 
