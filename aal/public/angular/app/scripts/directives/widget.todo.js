@@ -139,6 +139,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
         WidgetModal.result.then(function(data){
           console.log('Data in TodoWidget: ', data);
           $scope.data.push({text: data.text, type: data.type});
+          putTodo(data);
           console.log('Whole TodoData: ' , $scope.data);
         });
 

@@ -23,7 +23,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
       
       var picturePosts = posts.data.filter(function(d) {
         return d.type === 'photo';
-      });   
+      });
 
       picturePosts = d3.shuffle(picturePosts);
 
