@@ -42,7 +42,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
       // should be changed later
 
       var fetchTodo = function(id) {
-        if (!$rootScope.currentUser.userID) {
+        if (!$rootScope.currentUser) {
           $http.get('/todo/' + 1337 + (id ? '?id=' + id : ''));
         } else {
           $http.put('/todo/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
@@ -50,7 +50,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
       };
 
       var putTodo = function(data) {
-        if (!$rootScope.currentUser.userID) {
+        if (!$rootScope.currentUser) {
           $http.put('/todo/' + 1337, data);
         } else {
           $http.put('/todo/' + $rootScope.currentUser.userID, data);

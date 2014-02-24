@@ -38,7 +38,7 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
 	    },$scope.socket);
 
       var fetchMail = function(id) {
-        if (!$rootScope.currentUser.userID) {
+        if (!$rootScope.currentUser) {
           $http.get('/mail/' + 1337 + (id ? '?id=' + id : ''));
         } else {
           $http.get('/mail/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));

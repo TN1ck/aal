@@ -66,7 +66,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       }, $scope.socket);
 
       var fetchCalendar = function(id) {
-        if (!$rootScope.currentUser.userID) {
+        if (!$rootScope.currentUser) {
           $http.get('/calendar/' + 1337 + (id ? '?id=' + id : ''));
         } else {
           $http.get('/calendar/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
@@ -74,7 +74,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       };
 
       var putCalendar = function(data) {
-        if (!$rootScope.currentUser.userID) {
+        if (!$rootScope.currentUser) {
           $http.put('/calendar/' + 1337, data);
         } else {
           $http.put('/calendar/' + $rootScope.currentUser.userID, data);
