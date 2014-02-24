@@ -40,15 +40,15 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
       // should be changed later
 
       var fetchTodo = function(id) {
-        $http.get('/todo/' + $rootScope.uid + (id ? '?id=' + id : ''));
+        $http.get('/todo/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
       };
 
       var putTodo = function(data) {
-        $http.put('/todo/' + $rootScope.uid, data);
+        $http.put('/todo/' + $rootScope.currentUser.userID, data);
       };
 
       var deleteTodo = function(id) {
-        $http.delete('/todo/' + $rootScope.uid + (id ? '/' + id : ''));
+        $http.delete('/todo/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
       // initially fetch todos
@@ -91,7 +91,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
           $scope.lastShownTodo.popover('hide');
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Priority: </div><div class="col-md-9">' + priorityFilter(data.prio) + '</div><div class="col-md-3">created: </div><div class="col-md-9">' + moment(data.created).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeTodo(data)">Remove</button></div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-3">Priority: </div><div class="col-md-9">' + priorityFilter(data.prio) + '</div><div class="col-md-3">created: </div><div class="col-md-9">' + moment(data.created).format('D.M H:mm') + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext margin-bt {{css}}" ng-click="$parent.removeTodo(data)">Remove</button></div></div></div>';
         $target.popover({
           placement : 'auto bottom',    // previously placement($target)          title : data.text, //this is the top title bar of the popover. add some basic css
           html: 'true', // needed to show html of course

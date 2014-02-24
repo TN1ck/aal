@@ -69,7 +69,7 @@ public class NewsBean extends AbstractCommunicatingBean {
 		if (!send)
 			log.warn("Can't send message. " + agentName + " not found!");
 		
-		// sending some test data
+	/*	// sending some test data
 		NewsFeedData testMess = new NewsFeedData(0l,"","",null);
 		NewsFeedMessage news1 = testMess.new NewsFeedMessage();
 		news1.setTitle("I am a Header");
@@ -85,7 +85,7 @@ public class NewsBean extends AbstractCommunicatingBean {
 		testMess.setNewsFeed(news);
 		receiveMessage(testMess);
 		
-		
+		*/
 	}
 	
 	

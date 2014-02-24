@@ -27,10 +27,10 @@ app.factory('cssService', function(colorUtils) {
            '@media (min-width: 1000px) { .row-md-4 { ', 'height: ', windowHeight/2,'px; } }',
            '@media (min-width: 1000px) { .row-md-2 { ', 'height: ', windowHeight/4, 'px; } }',
            '@media (min-width: 1000px) { .row-md-1 { ', 'height: ', windowHeight/8, 'px; } }',
-           '@media (min-width: 1000px) { .row-md-6.widget { ', 'height: ', windowHeightInner/1.33333,'px; } }',
-           '@media (min-width: 1000px) { .row-md-4.widget { ', 'height: ', windowHeightInner/2,'px; } }',
-           '@media (min-width: 1000px) { .row-md-2.widget { ', 'height: ', windowHeightInner/4, 'px; } }',
-           '@media (min-width: 1000px) { .row-md-1.widget { ', 'height: ', windowHeightInner/8, 'px; } }'
+           '@media (min-width: 1000px) { .row-md-6.widget { ', 'height: ', Math.ceil(windowHeightInner/1.33333),'px; } }',
+           '@media (min-width: 1000px) { .row-md-4.widget { ', 'height: ', Math.ceil(windowHeightInner/2),'px; } }',
+           '@media (min-width: 1000px) { .row-md-2.widget { ', 'height: ', Math.ceil(windowHeightInner/4), 'px; } }',
+           '@media (min-width: 1000px) { .row-md-1.widget { ', 'height: ', Math.ceil(windowHeightInner/8), 'px; } }'
            ].join('');
 
       $styleHeights.html(css);

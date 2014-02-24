@@ -7,9 +7,11 @@ var appControllers = angular.module('appControllers');
 
 appControllers.controller('AuthCtrl',
   
-  function ($scope, user, $FB, $location, $timeout, $rootScope, $state, $http) {
+  function ($scope, user, $FB, $location, $timeout, $rootScope, $state, $http, cssService, WidgetData) {
     
     $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
+
+    cssService.createCss(WidgetData.colors);
 
     var KEYMAPPING = {
       ENTER: 57,
@@ -84,7 +86,10 @@ appControllers.controller('AuthCtrl',
 
     $scope.step = 1;
     var _video;
-    var step1 = function() {
+    $scope.step1 = function() {
+      // if ($scope.step === 0) {
+      //   return;
+      // }
       $scope.countDown(5, 100, 'step1countdown', function() {
         $scope.step++;
         makeSnapshot('step1');

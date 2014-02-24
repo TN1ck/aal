@@ -5,10 +5,11 @@
 			<div class="auth explain">Gib diesen Code unter <div class="well well-sm margin-tp margin-bt">{{displayUrl}}</div> auf deinem Smartphone ein und du kannst es zur Texteingabe benutzen.</div>
 		</div>
 	</div>
-	<div class="widget-padding col-md-4">
+	<div class="widget-padding col-md-4 buttons">
 		<div class="row-md-8 overflow text-center padding">
 			<h1 class="auth header">OK. Wir müssen jetzt ein paar Fotos machen und Personalien aufnehmen.</h1>
 			<div class="auth explain">Verbinde dich per Facebook:</div><button class="btn btn-primary" ng-click="login()" ng-disabled="loginStatus.status == 'connected'">connect</button>
+			<div class="auth explain">Oder erstmal nicht:</div><button class="btn btn-primary" ng-click="startTraining()">weiter ohne Facebook</button>
 			<h4 class="auth explain">Tipp: Du kannst diese Wand mit dem Handy, per Touchscreen und Kinect-Gesten benutzen.</h4>
 		</div>
 	</div>

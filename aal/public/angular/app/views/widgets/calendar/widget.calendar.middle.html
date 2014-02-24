@@ -1,6 +1,7 @@
 <div class="col-md-6 row-md-1 widget {{css}} {{css}}-1 calendar-middle" ng-click="$parent.showCalendarEntry($event, data)">
 	<widget-h3>Termin beginnt {{$parent.moment(data.startTime).fromNow()}}</widget-h3>
 	<br/>
+	<b>{{data.name}}</b><br/>
 	<b>{{data.description}}</b>
 	<div class="footer">
 		<div style="float: left;">{{data.location}}</div>
