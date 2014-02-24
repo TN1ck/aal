@@ -10,13 +10,14 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
       colors,
       widgets;
 
-  var updateApiCall = function updateApiCall () {
+  var updateApiCall = function updateApiCall (token) {
 
     console.log('BIN DRIN1111111111111111111');
 
-    $FB.api('/me/home').then(function(posts) {
+    $FB.api('/me/home' + (token ? '?access_token=' + token : '')).then(function(posts) {
 
-      console.log('BIN DRIN');
+      console.log('BIN DRIN', posts);
+
       
       posts.picturePosts = [];
       
@@ -43,12 +44,24 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
     });
   };
 
+  // $FB.provide('', {
+  //   'setAccessToken': function(a) {
+  //     this._authResponse = { 'accessToken': a };
+  //   }
+  // });
+// Usage
+
   $FB.getLoginStatus()
     .then(function(response) {
       if (response.status === 'connected') {
         updateApiCall();
       } else {
-
+        console.log('Else case of getLoginStatus');
+        $rootScope.fbToken.promise.then(function (token) {
+            $FB._authResponse = { 'accessToken': token };
+            console.log('FB._authResponse did well!');
+            updateApiCall(token);
+          });
       }
     });
 
