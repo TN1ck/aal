@@ -42,13 +42,13 @@ public class Application extends Controller {
 	 */
 
 	public static Result getTodo(int uid, int id) {
-		Logger.info("GetTodo78777   uid: " + uid + " id: " + id);
+		Logger.info("GetTodo   uid: " + uid + " id: " + id);
 		//String json = "[{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"}]";
 		//ASingleton.sendData(ASingleton.Sockets.TODO, json);
 		for (AbstractAgentBean agent : ASingleton.agents) {
 			if (agent instanceof TodoBean) {
 				// currently the agents are not using the correct stuff
-				((TodoBean) agent).getTodos(uid, id);
+				//((TodoBean) agent).getTodos(uid, id);
 			}
 		}
 		return ok("ok");
@@ -82,6 +82,7 @@ public class Application extends Controller {
 	}
 
 	public static Result getCalendar(int uid, int id) {
+		Logger.info("get cal uid: " + uid);
 		String json = "[{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"}]";
 		ASingleton.sendData(ASingleton.Sockets.CALENDAR, json);
 		return ok("ok");
@@ -100,7 +101,7 @@ public class Application extends Controller {
 		
 		for (AbstractAgentBean agent : ASingleton.agents) {
 			if (agent instanceof NewsBean) {
-				((NewsBean) agent).getNewsData();
+				//((NewsBean) agent).getNewsData();
 			}
 		}
 		
@@ -121,6 +122,7 @@ public class Application extends Controller {
 	}
 
 	public static Result getMail(int uid, int id) {
+		Logger.info("get mail uid: " + uid);
 		for (AbstractAgentBean agent : ASingleton.agents) {
 			if (agent instanceof MailBean) {
 				((MailBean) agent).getMailData(uid);
@@ -181,6 +183,7 @@ public class Application extends Controller {
 	}
 
 	public static Result putGoogleAcc(int userID, String name, String password) {
+		Logger.info("put google id: " + userID + "  name: " + name + "  pass: " + password);
 		for (AbstractAgentBean agent : ASingleton.agents) {
 			if (agent instanceof MailBean) {
 				((MailBean) agent).putGoogleAcc(userID, name, password);

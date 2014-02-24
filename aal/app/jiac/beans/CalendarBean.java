@@ -23,7 +23,7 @@ import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 public class CalendarBean extends AbstractCommunicatingBean {
 
 	private Action sendAction = null;
-	private String agentName = "InformationAgent";
+	private String agentName = "CommunicationAgent";
 	Gson gson = new Gson();
 	Date date = new Date();
 	
