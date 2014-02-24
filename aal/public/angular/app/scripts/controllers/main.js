@@ -88,6 +88,12 @@ appControllers.controller('MainCtrl',
           console.log('NO CURRENT_USER, GO TO LOADING SCREEN', $rootScope.currentUser);
           $rootScope.currentUser = data.data;
           $rootScope.users.push(data.data);
+          // let's give them 20s
+          $timeout(function() {
+            if($rootScope.currentUser && $rootScope.currentUser.userID === -2) {
+              $state.transitionTo('wrapper.main');
+            }
+          }, 20000);
           $state.transitionTo('wrapper.auth.loading');
         
         // if a currentUser is set, check his niteID is equal to the incoming message and go to welcome/unkown
@@ -174,8 +180,8 @@ appControllers.controller('MainCtrl',
 
 
         if (!$rootScope.currentUser && $rootScope.users.length === 0) {
-          console.log('FUCK THIS, TRANSITION TO LOADING');
-          $state.transitionTo('wrapper.auth.loading');
+          console.log('FUCK THIS, TRANSITION TO MAIN');
+          $state.transitionTo('wrapper.main');
         }
 
 
