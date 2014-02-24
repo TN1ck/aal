@@ -5,7 +5,12 @@ import static de.dailab.jiactng.agentcore.comm.CommunicationAddressFactory.creat
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+
+import javax.imageio.ImageIO;
 
 import com.google.gson.Gson;
 
@@ -178,8 +183,13 @@ public class GestureBean extends AbstractCommunicatingBean {
 			if (user == null) {
 				user = ASingleton.niteToUser.put(messageUser.getNiteID(), new User(messageUser.getNiteID()));
 			}
+			try {
+			    BufferedImage bi = messageUser.getImage().getFrame();
+			    File outputfile = new File("user-" + messageUser.getNiteID() + ".png");
+			    ImageIO.write(bi, "png", outputfile);
+			} catch (IOException e) {
+			}
 			user.userID = messageUser.getUserID();
-			user.image = messageUser.getImage();
 			String json = gson.toJson(user);
 			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			
