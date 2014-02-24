@@ -54,6 +54,18 @@ public class Application extends Controller {
 	}
 
 	public static Result putTodo(int uid) {
+		JsonNode json = request().body().asJson();
+		if(json == null) {
+			return badRequest("Expecting Json data");
+		} else {
+			String text = json.findPath("text").asText();
+			String type = json.findPath("type").asText();
+			if(text == null || type == null) {
+				return badRequest("Missing parameter [text, type]");
+			} else {
+				// return TodoBean.putTodo(text, type);
+			}
+		}
 		return ok("ok");
 	}
 
