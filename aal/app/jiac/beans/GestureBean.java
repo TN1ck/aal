@@ -5,7 +5,12 @@ import static de.dailab.jiactng.agentcore.comm.CommunicationAddressFactory.creat
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+
+import javax.imageio.ImageIO;
 
 import com.google.gson.Gson;
 
@@ -85,8 +90,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 			if (user == null) {
 				user = ASingleton.niteToUser.put(niteID, new User(niteID));
 			}
-			log.info("GestureAgent - received Gesture: " + gesture);
-			ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);
+			log.info("ALLOWED: " + user.allowed + " GestureAgent - received Gesture: " + gesture);
 			switch(gesture) {
 			case "screen_toggle":
 				if (user.allowed) {
@@ -98,12 +102,22 @@ public class GestureBean extends AbstractCommunicatingBean {
 					pressKey(KeyEvent.VK_UP);
 				}
 				break;
+			case "scroll_right!hand_right":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_RIGHT);					
+				}
+				break;
+			case "scroll_left!hand_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_LEFT);					
+				}
+				break;
 			case "tab_right!hand_right":
 				if (user.allowed) {
 					pressKey(KeyEvent.VK_RIGHT);					
 				}
 				break;
-			case "tab_left!hand_right":
+			case "tab_left!hand_left":
 				if (user.allowed) {
 					pressKey(KeyEvent.VK_LEFT);					
 				}
@@ -118,11 +132,39 @@ public class GestureBean extends AbstractCommunicatingBean {
 					pressKey(KeyEvent.VK_ENTER);					
 				}
 				break;
+			case "tab_down!hand_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_7);					
+				}
+				break;
+			case "tab_up!hand_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_8);					
+				}
+				break;
+			case "push|hand_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_9);					
+				}
+				break;
+			case "both_top!hand_both":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_0);
+				}
+				
 			case "blocking":
-				user.allowed = !user.allowed;
+				user.setAllowed(!user.allowed);
+				log.info("BLOCKING: " + user.allowed + " NITEID: " + user.niteID);
+				break;
+				
 				
 			default:
 				log.info("GestureAgent - received unknown Gesture");
+			}
+			try {
+				ASingleton.sendData(ASingleton.Sockets.DEBUG_KEYS, gesture);				
+			} catch (Exception e) {
+				
 			}
 
 
@@ -149,8 +191,14 @@ public class GestureBean extends AbstractCommunicatingBean {
 			if (user == null) {
 				user = ASingleton.niteToUser.put(messageUser.getNiteID(), new User(messageUser.getNiteID()));
 			}
+			try {
+			    BufferedImage bi = messageUser.getImage().getFrame();
+			    File outputfile = new File("./public/images/user-" + messageUser.getNiteID() + ".png");
+			    user.setImage("/assets/images/user-" + messageUser.getNiteID() + ".png");
+			    ImageIO.write(bi, "png", outputfile);
+			} catch (IOException e) {
+			}
 			user.userID = messageUser.getUserID();
-			user.image = messageUser.getImage();
 			String json = gson.toJson(user);
 			ASingleton.sendData(ASingleton.Sockets.ADD_USER, json);
 			

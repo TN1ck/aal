@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.factory('WidgetData', function($FB, $q, SocialComparison) {
+app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
 
   var checkIfPostHasBeenLiked = function(myFacebookId, post) {
     if (post.likes === undefined) {
@@ -34,27 +34,20 @@ app.factory('WidgetData', function($FB, $q, SocialComparison) {
   }
 
   var social = $q.defer(),
-      personal = $q.defer(),
       colors,
       widgets;
 
-  var updateApiCall = function updateApiCall () {
+  var updateApiCall = function updateApiCall (token) {
 
-    $FB.api('/me').then(function(data) {
-      $FB.api('/me/picture?type=large').then(function(picture) {
-        data.picture = picture.data;
-        // save my id in order to determine if post is already liked
-        personal.resolve(data);
-      });
+    console.log('BIN DRIN1111111111111111111 with token: ' ,token);
 
-      $FB.api('/me/home').then(function(posts) {
+    $FB.api('/me/home' + (token ? '?access_token=' + token : '')).then(function(posts) {
 
-        posts.myFacebookId = data.id;
-        posts.data = iterateThroughPosts(posts.myFacebookId, posts.data);
-        posts.mapping = createMapFromPostToAlreadyLiked(posts.data);
+      console.log('BIN DRIN', posts);
 
+      if (posts) {
         posts.picturePosts = [];
-
+        
         var picturePosts = posts.data.filter(function(d) {
           return d.type === 'photo';
         });
@@ -73,22 +66,34 @@ app.factory('WidgetData', function($FB, $q, SocialComparison) {
         goodPosts = d3.shuffle(goodPosts);
         posts.goodPosts = goodPosts;
         posts.goodPosts = posts.goodPosts.slice(0,11);
-
         social.resolve(posts);
+      }
 
-      });
     });
     SocialComparison.compareTwoPersons('maximilian.bachl', 'tom.lehmann.98');
   };
 
+  // $FB.provide('', {
+  //   'setAccessToken': function(a) {
+  //     this._authResponse = { 'accessToken': a };
+  //   }
+  // });
+// Usage
   $FB.getLoginStatus()
-    .then(updateApiCall);
+    .then(function(response) {
+      if (response.status === 'connected') {
+        updateApiCall();
+      } else {
+        console.log('Else case of getLoginStatus');
+        
+      }
+    });
 
   widgets = [
     {name: 'news', color: '#D65B3C', socket: 'NEWS'},
     {name: 'mail', color: '#AE8EA7', socket: 'MAIL'},
     {name: 'calendar', color: '#D9AA5A', socket: 'CALENDAR'},
-    {name: 'personal', color: '#D77F47', socket: 'PERSONAL'},
+    {name: 'personal', color: '#D77F47', socket: 'FACEBOOK'},
     {name: 'social', color: '#70BE8A', socket: 'SOCIAL'},
     {name: 'todo', color: '#19806E', socket: 'TODO'},
     {name: 'debug', color: '#D77F47', socket: 'DEBUG'}
@@ -98,8 +103,8 @@ app.factory('WidgetData', function($FB, $q, SocialComparison) {
   colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#2980b9', '#19806E', '#AE8EA7', '#bdc3c7'];
 
   return {
+    updateApiCall: updateApiCall,
     social: social.promise,
-    personal: personal.promise,
     colors: colors,
     widgets: widgets
   };

@@ -1,9 +1,9 @@
-<div class="row full-height" ng-style="{'background-color': color}">
-	<div class="col-md-6 row-md-2 widget {{css}}" style="background-image: url({{data.picture.url}});background-size: cover;"></div>
+<div class="row full-height">
+	<div class="col-md-6 row-md-2 widget {{css}}" style="background-image: url({{data.picture}}); background-size: cover;"></div>
 	<div class="col-md-6 row-md-1 widget-padding">
 		<div class="row">
 			<div class="col-md-12 row-md-1 widget {{css}}" ui-sref="wrapper.settings">
-				<widget-h1 class="stick-bottom">{{data.first_name}} {{data.last_name}}</widget-h1>
+				<widget-h1 class="stick-bottom">{{data.me.firstName}} {{data.me.lastName}}</widget-h1>
 			</div>
 			<div class="col-md-12 row-md-1 widget {{css}} {{css}}-1">
 				<widget-h2>Mobile-Code: </widget-h2>

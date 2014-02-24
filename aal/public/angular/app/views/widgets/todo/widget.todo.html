@@ -1,11 +1,11 @@
 <!-- <widget-title title="'TODOs'"></widget-title> -->
-<div class="row full-height" ng-style="{'background-color': color}">
+<div class="row full-height">
   <div class="col-md-6 row-md-1 widget {{css}}" ng-click="addTodo()">
   	<span class="label label-default">{{data.length}} Things to do</span>
   	<widget-h1 class="stick-bottom">Todos</widget-h1>
   </div>
-  <widget-todo-big ng-repeat="todo in data | filter:{prio: 'red'}" data="todo" color="color" css="css"></widget-todo-big>
-  <widget-todo-middle ng-repeat="todo in data | filter:{prio: 'orange'}" data="todo" color="color" css="css"></widget-todo-middle>
-  <widget-todo-small ng-repeat="todo in data | filter:{prio: 'green'}" data="todo" color="color" css="css"></widget-todo-small>
+  <widget-todo-big ng-repeat="todo in data | filter:{prio: 'HIGH'}" data="todo" color="color" css="css"></widget-todo-big>
+  <widget-todo-middle ng-repeat="todo in data | filter:{prio: 'MIDDLE'}" data="todo" color="color" css="css"></widget-todo-middle>
+  <widget-todo-small ng-repeat="todo in data | filter:{prio: 'LOW'}" data="todo" color="color" css="css"></widget-todo-small>
   <div ng-hide="data" class="spinner"></div>
 </div>

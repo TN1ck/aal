@@ -63,8 +63,8 @@
 	<bean name="InformationAgent" parent="SimpleAgent" singleton="false">
 		<property name="agentBeans">
 			<list>
-				<ref bean="CalendarBean" />
 				<ref bean="TodoBean" />
+				<ref bean="NewsBean" />
 			</list>
 		</property>
 	</bean>
@@ -73,6 +73,7 @@
 		<property name="agentBeans">
 			<list>
 				<ref bean="MailBean" />
+				<ref bean="CalendarBean" />
 			</list>
 		</property>
 	</bean>
@@ -105,6 +106,10 @@
 		<property name="logLevel" value="INFO" />
 	</bean>
 	<bean name="MailBean" class="jiac.beans.MailBean" singleton="false">
+		<property name="executeInterval" value="10000" />
+		<property name="logLevel" value="INFO" />
+	</bean>
+	<bean name="NewsBean" class="jiac.beans.NewsBean" singleton="false">
 		<property name="executeInterval" value="10000" />
 		<property name="logLevel" value="INFO" />
 	</bean>

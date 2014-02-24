@@ -1,10 +1,12 @@
 package ontology.messages;
 
+import java.io.Serializable;
+
 import ontology.Message;
 import ontology.MessageType;
 import ontology.messages.TodoData.TodoItem;
 
-public class SaveTodo extends Message{
+public class SaveTodo extends Message {
 
    int userID;
    TodoItem todo;

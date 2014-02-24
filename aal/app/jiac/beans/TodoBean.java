@@ -7,8 +7,7 @@ import java.util.Date;
 import com.google.gson.Gson;
 
 import ontology.Message;
-import ontology.messages.GetTodoData;
-import ontology.messages.TodoData;
+import ontology.messages.*;
 import ontology.messages.TodoData.TodoItem;
 import util.ASingleton;
 import de.dailab.jiactng.agentcore.action.Action;
@@ -20,12 +19,32 @@ import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 
 public class TodoBean extends AbstractCommunicatingBean {
 
-	String agentName = "TestAgent";
-//	String agentName = "InformationAgent";
+//	String agentName = "TestAgent";
+	String agentName = "InformationAgent";
 	private Action sendAction = null;
 	Gson gson = new Gson();
 	
+	private void sendDummyTodo(int userID) {
+		ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
+		
+		String receiverID = null;
+		for (IAgentDescription agent : agentDescriptions) {
+			if (agent.getName().equals(agentName)) {
+				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
+				receiverID = agent.getAid();
+			
+				log.info("sending SaveTodo to: " + receiver);
+				// sending a test todo
+				TodoData n = new TodoData("","",0,null);
+				TodoItem newTodo = n.new TodoItem(1,"i am a new todo","HIGH",new Date());
+				JiacMessage messageTodo = new JiacMessage(new SaveTodo(thisAgent.getAgentId(), receiverID, userID,newTodo));
+				invoke(sendAction, new Serializable[] { messageTodo, receiver });
+			}
+		}	
+	}
+	
 	public void getTodos(int userID, int ID) {
+		//sendDummyTodo(userID);
 		boolean send = false;
 		ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
 		
@@ -34,6 +53,7 @@ public class TodoBean extends AbstractCommunicatingBean {
 			if (agent.getName().equals(agentName)) {
 				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
 				receiverID = agent.getAid();
+	
 				JiacMessage message = new JiacMessage(new GetTodoData(thisAgent.getAgentId(), receiverID, userID));
 				// Invoke sendAction
 				log.info("sending GetTodoData to: " + receiver);
@@ -43,6 +63,26 @@ public class TodoBean extends AbstractCommunicatingBean {
 		}
 		if (!send)
 			log.warn("Can't send message. " + agentName + " not found!");	
+	}
+	
+	//SaveTodo(String senderID, String receiverID, int userID, TodoItem todo)
+	public void saveTodo(int userID, String text, String type) {
+		ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
+		
+		String receiverID = null;
+		for (IAgentDescription agent : agentDescriptions) {
+			if (agent.getName().equals(agentName)) {
+				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
+				receiverID = agent.getAid();
+			
+				log.info("sending SaveTodo to: " + receiver);
+				// sending a test todo
+				TodoData n = new TodoData("","",0,null);
+				TodoItem newTodo = n.new TodoItem(userID,text,type,new Date());
+				JiacMessage messageTodo = new JiacMessage(new SaveTodo(thisAgent.getAgentId(), receiverID, userID,newTodo));
+				invoke(sendAction, new Serializable[] { messageTodo, receiver });
+			}
+		}	
 	}
 
 
@@ -64,10 +104,9 @@ public class TodoBean extends AbstractCommunicatingBean {
 
 	}
 
-	public void execute() {
+	/*public void execute() {
 		ArrayList<TodoItem> bla = new ArrayList<TodoItem>();
 		TodoData mess = new TodoData("from","to",-1,bla);
-		log.info("exec");
 		
 		//(String discription, String name, Date startTime, Date endTime, String location)
 		bla.add(mess.new TodoItem(0, "Finish the weekly presentation for tomorrow", "red", new Date()));
@@ -79,16 +118,15 @@ public class TodoBean extends AbstractCommunicatingBean {
 		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));
 		bla.add(mess.new TodoItem(0, "so much more", "red", new Date()));
 		mess.setItems(bla);
-		log.info("TODO EXAMPLE JSON: " + gson.toJson(mess));
 		ASingleton.sendData(ASingleton.Sockets.TODO, gson.toJson(mess));
-	} 
+	} */
 
 	@Override
 	protected void receiveMessage(Message message) {
 		if(message instanceof TodoData){
 			TodoData todo = ((TodoData) message);
-			log.info("TodoAgent - received Todos");
 			String json = gson.toJson(todo);
+			log.info("TodoAgent - received Todos: " + json);
 			ASingleton.sendData(ASingleton.Sockets.TODO, json);
 
 		}

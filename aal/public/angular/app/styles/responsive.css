@@ -4,9 +4,14 @@
 		font-size: 30px;
 	}
 
+	.spinner {
+		-webkit-animation: none;
+  		animation: none;
+	}
+
 	.popover {
-	  max-width: 28em;
-	  padding: 1px;
+	  max-width: 40em;
+	  padding: .1em;
 	  border-radius: .5em;
 	  -webkit-box-shadow: 0 .5em 1em rgba(0, 0, 0, 0.2);
 	  box-shadow: 0 .5em 1em rgba(0, 0, 0, 0.2);
@@ -32,7 +37,7 @@
 	  font-weight: normal;
 	  line-height: 1.3em;
 	  background-color: #f7f7f7;
-	  border-bottom: 1px solid #ebebeb;
+	  border-bottom: .1em solid #ebebeb;
 	  border-radius: .5em .5em 0 0;
 	}
 
@@ -59,7 +64,7 @@
 	}
 	.popover.top .arrow:after {
 	  content: " ";
-	  bottom: 1px;
+	  bottom: .1em;
 	  margin-left: -0.8em;
 	  border-bottom-width: 0;
 	}
@@ -73,7 +78,7 @@
 	}
 	.popover.right .arrow:after {
 	  content: " ";
-	  left: 1px;
+	  left: .1em;
 	  bottom: -0.8em;
 	  border-left-width: 0;
 	  border-right-color: white;
@@ -88,7 +93,7 @@
 	}
 	.popover.bottom .arrow:after {
 	  content: " ";
-	  top: 1px;
+	  top: .1em;
 	  margin-left: -0.8em;
 	  border-top-width: 0;
 	  border-bottom-color: white;
@@ -103,7 +108,7 @@
 	}
 	.popover.left .arrow:after {
 	  content: " ";
-	  right: 1px;
+	  right: .1em;
 	  border-right-width: 0;
 	  border-left-color: white;
 	  bottom: -0.8em;

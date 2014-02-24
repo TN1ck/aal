@@ -7,8 +7,8 @@
 	</div>
 	<div class="widget-padding col-md-4">
 		<div class="row-md-8 overflow text-center padding buttons">
-			<h1 class="auth header">Willkommen {{user.firstName}} {{user.lastName}}!</h1>
-			<div class="auth main-picture" style="background-image: url({{user.picture}});"></div>
+			<h1 class="auth header">Willkommen User mit User-ID {{currentUser.userID}}!</h1>
+			<div class="auth main-picture" style="background-image: url({{currentUser.image}});"></div>
 			<button ui-sref="wrapper.main" type="button" class="btn btn-default btn-primary btn-lg btn-block">Start!</button>
 			<button ng-click="recognize()" type="button" class="btn btn-default btn-lg btn-block">Anderer User</button>
 		</div>

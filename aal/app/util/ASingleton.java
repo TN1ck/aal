@@ -29,13 +29,10 @@ public final class ASingleton {
         FACEBOOK,
     	DEBUG_KEYS,
     	ADD_USER,
-    	REMOVE_USER
-    	
+    	REMOVE_USER    	
     }
     
     public static void sendData(Sockets id, String json) {
-    	// high security
-    	System.out.println("Trying to send a json per websocket: " + id + " size: " + outSockets.size());
         if (!json.equals("")) {
             for (WebSocket.Out<String> socket : outSockets) {
                 socket.write(""+id+":"+json);

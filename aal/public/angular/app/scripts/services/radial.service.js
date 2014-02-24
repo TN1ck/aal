@@ -35,7 +35,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     var oldRects = {};
     var oldText = {};
-    var currentlySelected = -1;
+    var currentlySelected = 0;
     var currentLength = 0;
     var level = 0;
 
@@ -184,6 +184,15 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
         data = newData;
       
+      } else if (level === 3) {
+        data = $('.popover').find('button').map(function() {
+          return {
+            jquery: this,
+            color: currentElem.color,
+            name: $(this).html()
+          };
+        });
+
       }
 
       return data;
@@ -201,6 +210,12 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     var exitMenu = function() {
       
+      $('.popover').remove();
+      if (level !== 1) {
+        var inverted = $(currentElem.jquery).attr('class').match(/widget-color-\d/);
+        inverted = inverted ? inverted[0] + '-inverted' : '';
+        $('.border').removeClass('border').removeClass(inverted);
+      }
       level--;
       updateRects(level);
       selectData();
@@ -213,7 +228,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
     var moveMenuLeft = function() {
       currentlySelected = currentlySelected === 0 ? (currentLength - 1) : (currentlySelected - 1) % currentLength;
       updateRects(level);
-      if (level === 1 || level === 2) {
+      if (level === 1 || level === 2 || level === 3) {
         markElem();
       }
     };
@@ -221,7 +236,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
     var moveMenuRight = function() {
       currentlySelected = (currentlySelected + 1) % currentLength;
       updateRects(level);
-      if (level === 1 || level === 2) {
+      if (level === 1 || level === 2 || level === 3) {
         markElem();
       }
     };
@@ -231,9 +246,20 @@ app.factory('RadialService', function($rootScope, WidgetData) {
       if (level === 1) {
         toggleScreens();
         updateRects(1, selectData());
-      } else if (level >= 2) {
+      } else if (level === 2) {
+        $(currentElem.jquery).click();
+        level++;
+        if (selectData().length > 0) {
+          drawRects(selectData());
+          markElem();
+        } else {
+          level--;
+        }
+      } else if (level === 3) {
+        console.log('selecting popup');
         $(currentElem.jquery).click();
       }
+
     };
 
     var toggleScreens = function () {
@@ -247,7 +273,9 @@ app.factory('RadialService', function($rootScope, WidgetData) {
 
     var markElem = function() {
       
-
+      if (level !== 3) {
+        $('.popover').remove();
+      }
       var inverted = $(currentElem.jquery).attr('class').match(/widget-color-\d/);
       inverted = inverted ? inverted[0] + '-inverted' : '';
       $('.border').removeClass('border').removeClass(inverted);
@@ -266,6 +294,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
         console.log('TOGGLE key pressed');
         if (level === 0) {
           enterMenu();
+          markElem();
         }
         break;
       case KEYMAPPING.LEFT:
@@ -290,6 +319,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
       case KEYMAPPING.DOWN:
         console.log('DOWN key pressed');
         enterMenu();
+        markElem();
         break;
 
       }

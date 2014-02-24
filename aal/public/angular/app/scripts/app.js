@@ -24,7 +24,7 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
     OAuth.initialize('IQqjfz7Hzomr2m_iZBaIlnAiTBI');
 
     $urlRouterProvider
-      .otherwise('/auth/welcome');
+      .otherwise('/nouser');
 
     $stateProvider
       .state('wrapper', {
@@ -35,6 +35,11 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       .state('wrapper.main', {
         url: '/',
         templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .state('wrapper.nouser', {
+        url: '/nouser',
+        templateUrl: 'views/nouser.html',
         controller: 'MainCtrl'
       })
       .state('wrapper.toygamer', {
@@ -77,6 +82,9 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       .state('wrapper.mobile.mail', {
         templateUrl:  'views/widgets/mobile/mobile.mail.html'
       })
+      .state('wrapper.mobile.googleLogin', {
+        templateUrl: 'views/widgets/mobile/mobile.googleLogin.html'
+      })
       .state('wrapper.radial', {
         url: '/radial',
         templateUrl: 'views/radial.html',
@@ -97,7 +105,7 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         url: '/welcome',
         templateUrl: 'views/auth/welcome.html'
       })
-      .state('wrapper.auth.unkown', {
+      .state('wrapper.auth.unknown', {
         url: '/unknown',
         templateUrl: 'views/auth/unknown.html'
       })

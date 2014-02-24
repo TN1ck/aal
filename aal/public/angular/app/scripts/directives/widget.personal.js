@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http) {
+app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $FB) {
   return {
     templateUrl: '/views/widgets/widget.personal.html',
     restrict: 'E',
@@ -17,20 +17,33 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http) {
     link: function($scope) {
 			
       TextTransmission.fetchDataForWall(function(data) {
+        console.log('Facebookdaten bekommen!', data);
         $scope.data = data.data;
 			}, $scope.socket);
 
-      var fetchPersonal = function(id) {
-        $http.get('/user/' + $rootScope.uid + (id ? '/' + id : ''));
+      var fetchPersonal = function(token) {
+        if (!$rootScope.currentUser) {
+          $http.get('/user/' + 1337 + '/' + token);
+        } else {
+          $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
+        }
+        console.log(token);
       };
 
       var putPersonal = function(data) {
-        $http.put('/user/' + $rootScope.uid, data);
+        $http.put('/user/' + $rootScope.currentUser.userID, data);
       };
 
       var deletePersonal = function(id) {
-        $http.put('/user/' + $rootScope.uid + (id ? '/' + id : ''));
+        $http.put('/user/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
+
+      $rootScope.fbToken.promise.then(fetchPersonal);
+      /*$FB.getLoginStatus().then(function(response) {
+        if(response.authResponse.accessToken) {
+          fetchPersonal(response.authResponse.accessToken);
+        }
+      });*/
 
 		}
   };

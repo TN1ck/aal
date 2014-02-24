@@ -17,8 +17,9 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
     },
     link: function($scope) {
 
+      $scope.data = $rootScope.calendarData;
+
       TextTransmission.fetchTextForWall(function(data) {
-        console.log('Data in fetchTextForWall: ', data);
         if(data.data === 'addCalendarEntry'){
           try {
             $scope.addCalendarEntry();
@@ -57,19 +58,31 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       };
 
       TextTransmission.fetchDataForWall(function(data) {
-        $scope.data = data.data.entries;
+        // the length is a hack
+        if (!$rootScope.calendarData || $rootScope.calendarData.length !== data.data.entries.length) {
+          $rootScope.calendarData = data.data.entries;
+          $scope.data = $rootScope.calendarData;
+        }
       }, $scope.socket);
 
       var fetchCalendar = function(id) {
-        $http.get('/calendar/' + $rootScope.uid + (id ? '?id=' + id : ''));
+        if (!$rootScope.currentUser) {
+          $http.get('/calendar/' + 1337 + (id ? '?id=' + id : ''));
+        } else {
+          $http.get('/calendar/' + $rootScope.currentUser.userID + (id ? '?id=' + id : ''));
+        }
       };
 
       var putCalendar = function(data) {
-        $http.put('/calendar/' + $rootScope.uid, data);
+        if (!$rootScope.currentUser) {
+          $http.put('/calendar/' + 1337, data);
+        } else {
+          $http.put('/calendar/' + $rootScope.currentUser.userID, data);
+        }
       };
 
       var deleteCalendar = function(id) {
-        $http.delete('/calendar/' + $rootScope.uid + (id ? '/' + id : ''));
+        $http.delete('/calendar/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
       // initially fetch calendar
@@ -115,9 +128,11 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
         if ($scope.lastShownCalEntry !== null && !$target.is($scope.lastShownCalEntry)) {
           console.log('I am in if case and have to hide the popover of: ', $scope.lastShownCalEntry);
           $scope.lastShownCalEntry.popover('destroy');
+          $('.popover').remove();
+
         }
 
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-4">Description:</div><div class="col-md-8">' + data.description + '</div><div class="col-md-4">Location:</div><div class="col-md-8">' + data.location + '</div><div class="col-md-4">Start:</div><div class="col-md-8">' + moment(data.startTime).format('D.M H:mm') + '</div><div class="col-md-4">End:</div><div class="col-md-8">' + moment(data.endTime).format('D.M H:mm') + '</div><div class="col-md-4">Persons:</div><div class="col-md-8">' + data.persons + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-4">Description:</div><div class="col-md-8">' + data.description + '</div><div class="col-md-4">Location:</div><div class="col-md-8">' + data.location + '</div><div class="col-md-4">Start:</div><div class="col-md-8">' + moment(data.startTime).format('D.M H:mm') + '</div><div class="col-md-4">End:</div><div class="col-md-8">' + moment(data.endTime).format('D.M H:mm') + '</div><div class="col-md-4">Persons:</div><div class="col-md-8">' + data.persons + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext margin-bt {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
         $target.popover({
           placement : 'auto bottom',    // previously placement($target)
           title : data.name, //this is the top title bar of the popover. add some basic css
@@ -137,6 +152,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       $scope.removeCalendarEntry = function(data) {
         console.log('I am in removeCalendarEntry and this is my data: ', data);
         $scope.lastShownCalEntry.popover('destroy');
+        $('.popover').remove();
         $scope.data.forEach(function (element,index,array) {
           console.log('Current element: ', element);
           if( JSON.stringify(element) === JSON.stringify(data)){

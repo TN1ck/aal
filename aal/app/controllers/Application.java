@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import jiac.beans.*;
+import ontology.messages.*;
+import ontology.messages.NewsFeedData.NewsFeedMessage;
 import play.Logger;
 import play.libs.F.Callback;
 import play.libs.F.Callback0;
@@ -36,23 +38,43 @@ public class Application extends Controller {
 	}
 
 	/*
-	 * JIAC COMMUNICATION VIA HTTP STARTS HERE
+	 * JI97AC COMMUNICATION VIA HTTP STARTS HERE
 	 */
 
 	public static Result getTodo(int uid, int id) {
-		String json = "[{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"}]";
-		ASingleton.sendData(ASingleton.Sockets.TODO, json);
+		Logger.info("GetTodo   uid: " + uid + " id: " + id);
+		//String json = "[{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"orange\", \"text\": \"bla bla\"},{\"type\": \"red\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"},{\"type\": \"green\", \"text\": \"bla bla\"}]";
+		//ASingleton.sendData(ASingleton.Sockets.TODO, json);
 		for (AbstractAgentBean agent : ASingleton.agents) {
 			if (agent instanceof TodoBean) {
 				// currently the agents are not using the correct stuff
-				// ((TodoBean) agent).getTodos(uid, id);
+				((TodoBean) agent).getTodos(uid, id);
 			}
 		}
 		return ok("ok");
 	}
 
 	public static Result putTodo(int uid) {
-		return ok("ok");
+		Logger.info("putTodo   uid: " + uid );
+		JsonNode json = request().body().asJson();
+		if(json == null) {
+			return badRequest("Expecting Json data");
+		} else {
+			String text = json.findPath("text").asText();
+			String type = json.findPath("type").asText();
+			if(text == null || type == null) {
+				return badRequest("Missing parameter [text, type]");
+			} else {
+				for (AbstractAgentBean agent : ASingleton.agents) {
+					if (agent instanceof TodoBean) {
+						// currently the agents are not using the correct stuff
+						((TodoBean) agent).saveTodo(uid, text, type);
+					}
+				}
+				return ok("ok");
+				// return TodoBean.putTodo(text, type);
+			}
+		}
 	}
 
 	public static Result deleteTodo(int uid, int id) {
@@ -60,8 +82,15 @@ public class Application extends Controller {
 	}
 
 	public static Result getCalendar(int uid, int id) {
-		String json = "[{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"}]";
-		ASingleton.sendData(ASingleton.Sockets.CALENDAR, json);
+	//	String json = "[{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"},{\"location\": \"Berlin\", \"startDate\": \"2014-02-29 14:00\", \"startDate\": \"2014-02-29 15:00\", \"text\": \"test test test\"}]";
+	//	ASingleton.sendData(ASingleton.Sockets.CALENDAR, json);
+		
+		Logger.info("get calendar uid: " + uid);
+		for (AbstractAgentBean agent : ASingleton.agents) {
+			if (agent instanceof CalendarBean) {
+				((CalendarBean) agent).getCalendarData(uid);
+			}
+		}
 		return ok("ok");
 	}
 
@@ -73,8 +102,16 @@ public class Application extends Controller {
 		return ok("ok");
 	}
 
-	public static Result getNews(int uid, int id) {
-		String lorem = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+	public static Result getNews() {
+		
+		
+		for (AbstractAgentBean agent : ASingleton.agents) {
+			if (agent instanceof NewsBean) {
+				((NewsBean) agent).getNewsData();
+			}
+		}
+		
+	/*	String lorem = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
 		String json = "[{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \""
 				+ lorem + "\"},"
 				+ "{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \""
@@ -86,10 +123,12 @@ public class Application extends Controller {
 				+ "{\"header\": \"Lorem ipsum dolor sit.\", \"text\": \""
 				+ lorem + "\"}" + "]";
 		ASingleton.sendData(ASingleton.Sockets.NEWS, json);
+		*/
 		return ok("ok");
 	}
 
 	public static Result getMail(int uid, int id) {
+		Logger.info("get mail uid: " + uid);
 		for (AbstractAgentBean agent : ASingleton.agents) {
 			if (agent instanceof MailBean) {
 				((MailBean) agent).getMailData(uid);
@@ -112,9 +151,22 @@ public class Application extends Controller {
 		}
 	}
 
+	public static Result getUser(int uid, String token) {
+		if(token != null && token != "") {
+			for (AbstractAgentBean agent : ASingleton.agents) {
+				if (agent instanceof FacebookBean) {
+					((FacebookBean) agent).getFacebookData(uid,token);
+				}
+			}
+			return ok("ok");
+		}
+		return badRequest("Token is not given");
+	}
+
 	public static Result deleteMail(int uid, int id) {
 		return ok("ok");
 	}
+
 
 	public static Result startTraining(int nid) {
 
@@ -136,6 +188,17 @@ public class Application extends Controller {
 		return ok("ok");
 	}
 
+	public static Result putGoogleAcc(int userID, String name, String password) {
+		Logger.info("put google id: " + userID + "  name: " + name + "  pass: " + password);
+		for (AbstractAgentBean agent : ASingleton.agents) {
+			if (agent instanceof MailBean) {
+				((MailBean) agent).putGoogleAcc(userID, name, password);
+			}
+		}
+		
+		return ok("ok");
+	}
+	
 	@Transactional
 	public static WebSocket<String> websocket() {
 		return new WebSocket<String>() {

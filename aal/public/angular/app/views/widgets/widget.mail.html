@@ -1,10 +1,10 @@
-<div class="row full-height" ng-style="{'background-color': color}">
+<div class="row full-height">
 	<div class="col-md-12 row-md-1 widget {{css}}" ng-click="newMail()">
 		<widget-h1 class="stick-bottom">Mails</widget-h1>
 		<span class="label label-default">{{data.length}} Mails verfügbar</span>
 	</div>
 	<div ng-repeat="d in data">
-		<div class="col-md-12 row-md-1 widget {{css}} widget-padding">
+		<div class="col-md-12 row-md-1 widget {{css}} widget-padding" ng-click="displayMail($event, d)">
 			<div>
 				<widget-h2>{{d.from | uppercase}} - {{d.subject}}</widget-h2>
 				<widget-h2 class="pull-right">{{d.received}}</widget-h2>

@@ -19,7 +19,8 @@ app.directive('widget', function($compile) {
         link: function(scope, element) {
 
           scope.$watch('type', function() {
-            var widgetString = '<widget-' + scope.type + ' data="' + scope.data + '" color="\'' + scope.color + '\'" css="\'' + scope.css + '\'" socket="\'' + scope.socket + '\'">' + '</widget-' + scope.type + '/>';
+            var pre = '<div class="widget-outer" style="background-color: ' + scope.color + ';"><div class="widget-inner">';
+            var widgetString = pre + '<widget-' + scope.type + ' data="' + scope.data + '" color="\'' + scope.color + '\'" css="\'' + scope.css + '\'" socket="\'' + scope.socket + '\'">' + '</widget-' + scope.type + '/>' + '</div></div>';
             element.html($compile(widgetString)(scope.$parent));
           });
         },
