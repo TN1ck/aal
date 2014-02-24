@@ -91,7 +91,7 @@ appControllers.controller('MainCtrl',
           // let's give them 60s
           $timeout(function() {
             if($rootScope.currentUser && $rootScope.currentUser.userID === -2) {
-              $state.transitionTo('wrapper.main');
+              $state.transitionTo('wrapper.nouser');
             }
           }, 60000);
           $state.transitionTo('wrapper.auth.loading');
@@ -180,8 +180,7 @@ appControllers.controller('MainCtrl',
 
 
         if (!$rootScope.currentUser && $rootScope.users.length === 0) {
-          console.log('FUCK THIS, TRANSITION TO MAIN');
-          $state.transitionTo('wrapper.main');
+          $state.transitionTo('wrapper.nouser');
         }
 
 
