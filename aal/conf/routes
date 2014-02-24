@@ -16,6 +16,8 @@ GET     /news/                 		controllers.Application.getNews()
 GET     /todo/:uid                  controllers.Application.getTodo(uid: Int, id: Int ?= 0)
 GET     /mail/:uid                  controllers.Application.getMail(uid: Int, id: Int ?= 0)
 GET 	/user/:uid/:token			controllers.Application.getUser(uid: Int, token: String)
+GET		/google/:username/:password	controllers.Application.putGoogleAcc(username: String, password: String)	
+
 
 PUT     /todo/:uid                      controllers.Application.putTodo(uid: Int)
 PUT     /calendar/:uid                  controllers.Application.putCalendar(uid: Int)

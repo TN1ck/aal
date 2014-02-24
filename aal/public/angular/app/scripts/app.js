@@ -77,6 +77,9 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       .state('wrapper.mobile.mail', {
         templateUrl:  'views/widgets/mobile/mobile.mail.html'
       })
+      .state('wrapper.mobile.googleLogin', {
+        templateUrl: 'views/widgets/mobile/mobile.googleLogin.html'
+      })
       .state('wrapper.radial', {
         url: '/radial',
         templateUrl: 'views/radial.html',

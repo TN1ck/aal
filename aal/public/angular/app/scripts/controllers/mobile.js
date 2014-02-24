@@ -4,8 +4,8 @@
 
 var appControllers = angular.module('appControllers');
 
-appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','$rootScope','$location',
-    function ($scope, TextTransmission, $state, $rootScope, $location) {
+appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','$rootScope','$location','$http',
+    function ($scope, TextTransmission, $state, $rootScope, $location, $http) {
 
       // $scope.$watch('mobileIdText', function(newVal, oldVal) {
       //   TextTransmission.code = newVal;
@@ -95,6 +95,15 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
       
       $scope.addSocialPost = function () {
         TextTransmission.deliverTextForWall('addSocialPost', $rootScope.getSocketForWidget('social'));
+      };
+
+      $scope.googleLogin = function () {
+        $state.transitionTo('wrapper.mobile.googleLogin');
+      };
+
+      $scope.sendGoogleLogin = function(name, pw) {
+        pw = btoa(pw);
+        $http.get('/google/' + name + '/' + pw);
       };
 
     }
