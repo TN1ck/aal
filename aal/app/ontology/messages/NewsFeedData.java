@@ -1,5 +1,6 @@
 package ontology.messages;
 
+import java.io.Serializable;
 import java.util.List;
 
 import ontology.Message;
@@ -8,22 +9,12 @@ import ontology.MessageType;
 public class NewsFeedData extends Message {
 	
 	private static final long serialVersionUID = 4382748121224794885L;
-	private long id;
 	List<NewsFeedMessage> news;
 
-	public NewsFeedData(long id, String senderID, String receiverID,
+	public NewsFeedData(String senderID, String receiverID,
 			List<NewsFeedMessage> news) {
 		super(senderID, receiverID, MessageType.INFO_DATA);
-		this.id = id;
 		this.news = news;
-	}
-
-	public long getID() {
-		return id;
-	}
-
-	public void setID(long id) {
-		this.id = id;
 	}
 
 	public List<NewsFeedMessage> getNewsFeed() {
@@ -34,7 +25,7 @@ public class NewsFeedData extends Message {
 		this.news = news;
 	}
 	
-	public class NewsFeedMessage {
+	public class NewsFeedMessage implements Serializable{
 		String title;
 		String description;
 		String link;
