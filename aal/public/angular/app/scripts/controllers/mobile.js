@@ -101,6 +101,10 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
         $state.transitionTo('wrapper.mobile.googleLogin');
       };
 
+      $scope.changeStateToNavigation = function () {
+        $state.transitionTo('wrapper.mobile.navigation');
+      }
+
       $scope.sendGoogleLogin = function(name, pw) {
         pw = btoa(pw);
         $http.get('/google/' + name + '/' + pw);
