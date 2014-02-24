@@ -55,6 +55,7 @@ public class Application extends Controller {
 	}
 
 	public static Result putTodo(int uid) {
+		Logger.info("putTodo   uid: " + uid );
 		JsonNode json = request().body().asJson();
 		if(json == null) {
 			return badRequest("Expecting Json data");
@@ -64,10 +65,16 @@ public class Application extends Controller {
 			if(text == null || type == null) {
 				return badRequest("Missing parameter [text, type]");
 			} else {
+				for (AbstractAgentBean agent : ASingleton.agents) {
+					if (agent instanceof TodoBean) {
+						// currently the agents are not using the correct stuff
+						((TodoBean) agent).saveTodo(uid, text, type);
+					}
+				}
+				return ok("ok");
 				// return TodoBean.putTodo(text, type);
 			}
 		}
-		return ok("ok");
 	}
 
 	public static Result deleteTodo(int uid, int id) {
