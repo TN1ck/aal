@@ -23,18 +23,6 @@ app.directive('widgetFair', function(TextTransmission, $rootScope, $http) {
       console.log('I am the fair widget!');
 
 
-      var fetchPersonal = function(id) {
-        $http.get('/user/' + $rootScope.uid + (id ? '/' + id : ''));
-      };
-
-      var putPersonal = function(data) {
-        $http.put('/user/' + $rootScope.uid, data);
-      };
-
-      var deletePersonal = function(id) {
-        $http.put('/user/' + $rootScope.uid + (id ? '/' + id : ''));
-      };
-
 		}
   };
 });
