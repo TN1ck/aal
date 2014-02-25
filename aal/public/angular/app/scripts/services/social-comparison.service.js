@@ -12,6 +12,8 @@ app.factory('SocialComparison', function($FB, $q) {
   // console.log(things);
   // console.log(otherThings);
   var grouping = ['movies','music','books','friends','other'];
+  var colorMapping = {movies: 'red', music: 'yellow',
+    books: 'green', friends: 'blue', other: 'orange'};
 
   var createNewMapping = function() {
     var mapping = {};
@@ -103,6 +105,7 @@ app.factory('SocialComparison', function($FB, $q) {
   };
 
   return {
-    compareTwoPersons: compareTwoPersons
+    compareTwoPersons: compareTwoPersons,
+    colorMapping: colorMapping
   };
 });

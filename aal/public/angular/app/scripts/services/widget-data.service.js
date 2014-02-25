@@ -70,7 +70,7 @@ app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
       }
 
     });
-    SocialComparison.compareTwoPersons('maximilian.bachl', 'tom.lehmann.98');
+    // SocialComparison.compareTwoPersons('maximilian.bachl', 'tom.lehmann.98');
   };
 
   // $FB.provide('', {
