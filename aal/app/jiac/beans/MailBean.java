@@ -56,7 +56,7 @@ public class MailBean extends AbstractCommunicatingBean {
 				// create the message, get receiver's message box address
 				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
 				receiverID = agent.getAid();
-				JiacMessage message = new JiacMessage(new GetMailData(thisAgent.getAgentId(), receiverID, userID));
+				JiacMessage message = new JiacMessage(new GetMailData(thisAgent.getAgentId(), receiverID, /*userID*/1337));
 				// Invoke sendAction
 				log.info("sending GetMailData to: " + receiver);
 				invoke(sendAction, new Serializable[] { message, receiver });
@@ -148,7 +148,7 @@ public class MailBean extends AbstractCommunicatingBean {
 				receiverID = agent.getAid();
 				
 				//create message
-				SaveGmailData newMessage = new SaveGmailData(thisAgent.getAgentId(), receiverID, userID, name, password);
+				SaveGmailData newMessage = new SaveGmailData(thisAgent.getAgentId(), receiverID, /*userID*/1337, name, password);
 				
 				JiacMessage message = new JiacMessage(newMessage);
 				// Invoke sendAction

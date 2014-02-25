@@ -3,6 +3,7 @@ package jiac.beans;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.google.gson.Gson;
 
@@ -125,6 +126,14 @@ public class TodoBean extends AbstractCommunicatingBean {
 	protected void receiveMessage(Message message) {
 		if(message instanceof TodoData){
 			TodoData todo = ((TodoData) message);
+			
+			
+			List<TodoItem> items = todo.getItems();
+			
+			for (TodoItem i : items) {
+				log.info("Todo: " + i.text + " p: " + i.prio);
+			}
+			
 			String json = gson.toJson(todo);
 			log.info("TodoAgent - received Todos: " + json);
 			ASingleton.sendData(ASingleton.Sockets.TODO, json);
