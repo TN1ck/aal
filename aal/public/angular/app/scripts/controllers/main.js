@@ -83,6 +83,23 @@ appControllers.controller('MainCtrl',
 
         // filter the current user and drop wthe ones with the same id
         var filteredUsers = $rootScope.users.filter(function(d) {
+          if ($rootScope.currentUser.niteID === data.data.niteID) {
+            if (data.data.niteID === $rootScope.currentUser.niteID && $rootScope.currentUser.userID === -2) {
+                
+              $rootScope.currentUser = data.data;
+              
+              // The user is known to the system
+              if ($rootScope.currentUser.userID >= 0) {
+                $state.transitionTo('wrapper.auth.welcome');
+              // user is unknown
+              } else if ($rootScope.currentUser.userID === -1) {
+                $state.transitionTo('wrapper.auth.unknown');
+              }
+
+            } else {
+              $rootScope.currentUser = data.data;
+            }
+          }
           if (d.niteID === data.data.niteID) {
             d.userID = data.data.userID;
             d.image = data.data.image;
@@ -109,18 +126,6 @@ appControllers.controller('MainCtrl',
         
         // if a currentUser is set, check his niteID is equal to the incoming message and go to welcome/unkown
         // if he does not have a userID (-2)
-        } else if (data.data.niteID === $rootScope.currentUser.niteID && $rootScope.currentUser.userID === -2) {
-          
-          $rootScope.currentUser = data.data;
-          
-          // The user is known to the system
-          if ($rootScope.currentUser.userID >= 0) {
-            $state.transitionTo('wrapper.auth.welcome');
-          // user is unknown
-          } else if ($rootScope.currentUser.userID === -1) {
-            $state.transitionTo('wrapper.auth.unknown');
-          }
-
         }
 
 
