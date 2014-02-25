@@ -35,7 +35,7 @@ appControllers.controller('MainCtrl',
     });
 
     $rootScope.getCssForWidget = function (name) {
-      console.log('Someone wants the Css for a certain widget.');
+      console.log('Someone wants the Css for a certain widget.' ,name);
       var wdgt = $rootScope.widgets.filter(
         function(el) {
           return el.name === name;
