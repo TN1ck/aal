@@ -81,6 +81,19 @@ appControllers.controller('MainCtrl',
         
         console.log('ADD USER!', $rootScope.currentUser, data.data);
 
+        // filter the current user and drop wthe ones with the same id
+        var filteredUsers = $rootScope.users.filter(function(d) {
+          if ($rootScope.currentUser.niteID === data.data.niteID) {
+            $rootScope.currentUser = data.data;
+          }
+          if (d.niteID === data.data.niteID) {
+            d.userID = data.data.userID;
+            d.image = data.data.image;
+          }
+          return d.niteID !== data.data.niteID;
+        });
+        
+
         // okay, first check if a currentUser is set
 
         // if not, set it and go to loading screen
@@ -113,17 +126,6 @@ appControllers.controller('MainCtrl',
 
         }
 
-        // filter the current user and drop wthe ones with the same id
-        var filteredUsers = $rootScope.users.filter(function(d) {
-          if ($rootScope.currentUser.niteID === data.data.niteID) {
-            $rootScope.currentUser = data.data;
-          }
-          if (d.niteID === data.data.niteID) {
-            d.userID = data.data.userID;
-            d.image = data.data.image;
-          }
-          return d.niteID !== data.data.niteID;
-        });
 
         // check if the current message is currently in the alerts messages
         var alertsFilter = $scope.alerts.filter(function(d) {
