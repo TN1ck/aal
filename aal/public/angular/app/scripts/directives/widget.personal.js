@@ -31,7 +31,11 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
       };
 
       var putPersonal = function(data) {
-        $http.put('/user/' + $rootScope.currentUser.userID, data);
+        if (!$rootScope.currentUser) {
+          $http.put('/user/' + 1337, data);
+        } else {
+          $http.put('/user/' + $rootScope.currentUser.userID, data);
+        }
       };
 
       var deletePersonal = function(id) {
