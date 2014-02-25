@@ -133,12 +133,10 @@ appControllers.controller('MainCtrl',
         if ($rootScope.currentUser && filteredUsers.length === $rootScope.users.length) {
           $rootScope.users.push(data.data);
           
-          if (alertsFilter.length === 0) {
-            $scope.alerts.push({
-              data: data.data,
-              msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
-            });
-          }
+          $scope.alerts.push({
+            data: data.data,
+            msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+          });
 
           $timeout(function() {
             $scope.alerts.shift();
