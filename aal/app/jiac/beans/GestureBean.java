@@ -149,7 +149,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 				break;
 			case "both_top!hand_both":
 				if (user.allowed) {
-					pressKey(KeyEvent.VK_0);
+					pressKey(KeyEvent.VK_ESCAPE);
 				}
 				
 			case "blocking":
