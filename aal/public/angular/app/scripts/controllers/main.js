@@ -77,6 +77,8 @@ appControllers.controller('MainCtrl',
 
 
     // Listen for user changes, this is important for ALL widgets
+
+    if ($(window).width() > 1000) {
     TextTransmission.fetchDataForWall(function(data) {
         
         console.log('ADD USER!', $rootScope.currentUser, data.data);
@@ -195,7 +197,7 @@ appControllers.controller('MainCtrl',
         }
 
       }, 'REMOVE_USER');
-
+    }
 
     $rootScope.fbToken = $q.defer();
 
