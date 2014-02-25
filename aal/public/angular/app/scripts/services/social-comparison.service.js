@@ -62,14 +62,22 @@ app.factory('SocialComparison', function($FB, $q) {
   };
 
   var filterDifferences = function(dataSets) {
+    // console.log(dataSets);
     var commonObjects = createNewMapping();
     // Iterate over all categories of information
     for (var currentCategory in dataSets[0]) {
       for (var i=0; i<dataSets[0][currentCategory].length; i++) {
         var currentObject = dataSets[0][currentCategory][i];
-        var bothHaveIt = $.inArray(currentObject, dataSets[1][currentCategory]);
-        if (bothHaveIt) {
-          commonObjects[currentCategory].push(currentObject);
+        if (typeof currentObject === 'undefined')
+          continue;
+        for (var j=0; j<dataSets[1][currentCategory].length; j++) {
+          // debugger;
+          if (typeof dataSets[1][currentCategory][j] === 'undefined')
+            continue;
+          if (currentObject.id == dataSets[1][currentCategory][j].id) {
+            // console.log(currentObject);
+            commonObjects[currentCategory].push(currentObject);
+          }
         }
       }
     }

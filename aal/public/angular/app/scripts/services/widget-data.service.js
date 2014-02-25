@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
+app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
 
   var checkIfPostHasBeenLiked = function(myFacebookId, post) {
     if (post.likes === undefined) {
@@ -39,15 +39,15 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
 
   var updateApiCall = function updateApiCall (token) {
 
-    console.log('BIN DRIN1111111111111111111 with token: ' ,token);
+    // console.log('BIN DRIN1111111111111111111 with token: ' ,token);
 
     $FB.api('/me/home' + (token ? '?access_token=' + token : '')).then(function(posts) {
 
-      console.log('BIN DRIN', posts);
+      // console.log('BIN DRIN', posts);
 
       if (posts) {
         posts.picturePosts = [];
-        
+
         var picturePosts = posts.data.filter(function(d) {
           return d.type === 'photo';
         });
@@ -85,7 +85,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
         updateApiCall();
       } else {
         console.log('Else case of getLoginStatus');
-        
+
       }
     });
 
