@@ -6,7 +6,7 @@ var appControllers = angular.module('appControllers', []);
 
 
 appControllers.controller('MainCtrl',
-  function ($scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
+  function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
 
     $scope.colors = WidgetData.colors;
     $scope.css = cssService.createCss($scope.colors);
@@ -94,6 +94,7 @@ appControllers.controller('MainCtrl',
               $state.transitionTo('wrapper.nouser');
             }
           }, 60000);
+          
           $state.transitionTo('wrapper.auth.loading');
         
         // if a currentUser is set, check his niteID is equal to the incoming message and go to welcome/unkown
@@ -145,23 +146,23 @@ appControllers.controller('MainCtrl',
           }, 5000);
 
 
-        } else if ($rootScope.currentUser) {
+        } // else if ($rootScope.currentUser) {
           
-          $rootScope.users = filteredUsers;
-          $rootScope.users.push(data.data);
+        //   $rootScope.users = filteredUsers;
+        //   $rootScope.users.push(data.data);
           
-          if (alertsFilter.length === 0) {
-            $scope.alerts.push({
-              data: data.data,
-              msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
-            });
-          }
+        //   if (alertsFilter.length === 0) {
+        //     $scope.alerts.push({
+        //       data: data.data,
+        //       msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+        //     });
+        //   }
 
-          $timeout(function() {
-            $scope.alerts.shift();
-            console.log('DELETED ALERT');
-          }, 5000);
-        }
+          // $timeout(function() {
+          //   $scope.alerts.shift();
+          //   console.log('DELETED ALERT');
+          // }, 5000);
+        // }
 
 
       }, 'ADD_USER');
@@ -210,7 +211,6 @@ appControllers.controller('MainCtrl',
 
 
     var Menu = new RadialService.Menu({selector: '#right'});
-
 
   });
 

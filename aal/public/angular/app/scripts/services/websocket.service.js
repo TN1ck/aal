@@ -4,13 +4,16 @@ var app = angular.module('angularApp');
 
 app.factory('Websocket', function($rootScope) {
 
+  var timeOffset = 1000;
+  timeOffset = timeOffset/2;
+
   var createSocket = function() {
 
     var wsURI = 'ws://' + window.location.host + '/websocket',
         socket = new WebSocket(wsURI);
 
     socket.openedRecently = true;
-    setTimeout(function() {socket.openedRecently = false;}, 250);
+    setTimeout(function() {socket.openedRecently = false;}, timeOffset);
 
     socket.onopen = function() {
 
@@ -88,8 +91,8 @@ app.factory('Websocket', function($rootScope) {
 
       this.listeners.push([channel, func]);
       var thisOuter = this;
-      setTimeout(function() {thisOuter.send(channel, '');}, 250);
-      console.log('Added Listener at ' + channel);
+      setTimeout(function() {thisOuter.send(channel, '');}, timeOffset);
+      // console.log('Added Listener at ' + channel);
     },
 
     removeListener: function(channelAndFunc) {
@@ -128,14 +131,14 @@ app.factory('Websocket', function($rootScope) {
 
       var timeToWait;
       if (socket.openedRecently) {
-        timeToWait = 250;
+        timeToWait = timeOffset;
       } else {
         timeToWait = 0;
       }
 
       setTimeout(function() {
         socket.send(toSend);
-        console.log('Sent: ', toSend, channel, msg);
+        // console.log('Sent: ', toSend, channel, msg);
       }, timeToWait);
     },
     connectTimeStamps: [],

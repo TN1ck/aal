@@ -6,6 +6,33 @@ var app = angular.module('angularApp');
 
 app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
 
+  var checkIfPostHasBeenLiked = function(myFacebookId, post) {
+    if (post.likes === undefined) {
+      return false;
+    }
+    for (var i=0; i<post.likes.data.length; i++) {
+      if (post.likes.data[i].id == myFacebookId) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  var iterateThroughPosts = function(myFacebookId, posts) {
+    for (var i=0; i<posts.length; i++) {
+      posts[i].alreadyLiked = checkIfPostHasBeenLiked(myFacebookId, posts[i]);
+    }
+    return posts;
+  }
+
+  var createMapFromPostToAlreadyLiked = function(posts) {
+    var mappingOfLikedPosts = {};
+    for (var i=0; i<posts.length; i++) {
+      mappingOfLikedPosts[posts[i].id] = posts[i].alreadyLiked;
+    }
+    return mappingOfLikedPosts;
+  }
+
   var social = $q.defer(),
       colors,
       widgets;
@@ -43,6 +70,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
       }
 
     });
+    SocialComparison.compareTwoPersons('maximilian.bachl', 'tom.lehmann.98');
   };
 
   // $FB.provide('', {

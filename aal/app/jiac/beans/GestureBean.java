@@ -154,6 +154,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 				
 			case "blocking":
 				user.setAllowed(!user.allowed);
+				ASingleton.sendData(ASingleton.Sockets.ADD_USER, gson.toJson(user));
 				log.info("BLOCKING: " + user.allowed + " NITEID: " + user.niteID);
 				break;
 				
