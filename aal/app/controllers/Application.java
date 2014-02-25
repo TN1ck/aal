@@ -78,6 +78,13 @@ public class Application extends Controller {
 	}
 
 	public static Result deleteTodo(int uid, int id) {
+		Logger.info("deleteTodo   uid: " + uid + " id: " + id);
+		for (AbstractAgentBean agent : ASingleton.agents) {
+			if (agent instanceof TodoBean) {
+				// currently the agents are not using the correct stuff
+				((TodoBean) agent).deleteTodo(/*uid*/1337, id);
+			}
+		}
 		return ok("ok");
 	}
 
