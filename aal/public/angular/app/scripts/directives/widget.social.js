@@ -116,7 +116,7 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
           arrayOfNumbers = "[]";
         }
         var individualCommentSnippet = '<div class="col-md-12 well well-sm" style="margin-bottom: 0.3em;"><strong>{{data.comments.data[comment].from.name}}</strong><br>{{data.comments.data[comment].message}}</div>';
-        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><b class="number-of-likes" style="float: left;">'+likeSnippet+'</b><b class="num-of-comments pull-right">'+commentSnippet+'</b></div><div class="col-md-12" ng-repeat="comment in '+arrayOfNumbers+'">'+individualCommentSnippet+'</div></div></div>';
+        var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-12"><b class="number-of-likes" style="float: left;">'+likeSnippet+'</b><b class="num-of-comments pull-right">'+commentSnippet+'</b></div><div class="col-md-12" style="overflow: hidden;" ng-repeat="comment in '+arrayOfNumbers+'">'+individualCommentSnippet+'</div></div></div>';
         var message = "";
         try {
           if (typeof data.message !== 'undefined') {

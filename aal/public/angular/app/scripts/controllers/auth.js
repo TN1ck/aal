@@ -154,14 +154,16 @@ appControllers.controller('AuthCtrl',
 
     // Get IP of Mobile site and generate Data for QR-Code
 
-      $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
-        function(data){
-          $scope.displayUrl = 'http://' + data.host + '/index.html#/mobile';
-          $scope.url = 'http://' + data.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
-        }
-      );
+      // $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
+      //   function(data){
+      //     $scope.displayUrl = 'http://' + data.host + '/index.html#/mobile';
+      //     $scope.url = 'http://' + data.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
+      //   }
+      // );
 
-    // $scope.url = 'http://' + document.location.host + '/index.html#/mobile';
+    $scope.url = 'http://' + document.location.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
+    $scope.displayUrl = 'http://' + document.location.host + '/index.html#/mobile';
+
     $scope.version = 4;
     $scope.level = 'L';
     $scope.size = $(window).height()/3;
