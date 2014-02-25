@@ -1,5 +1,6 @@
 <div class="row full-height">
-	<div class="col-md-6 row-md-2 widget {{css}}" style="background-image: url({{data.picture}}); background-size: cover;"></div>
+	<div class="col-md-3 row-md-2 widget {{css}}" style="background-image: url({{data.picture}}); background-size: cover;"></div>
+	<div class="col-md-3 row-md-2 widget {{css}}"><qrcode version="{{version}}" error-correction-level="{{level}}" size="{{size}}" data="{{url}}"></qrcode></div>
 	<div class="col-md-6 row-md-1 widget-padding">
 		<div class="row">
 			<div class="col-md-12 row-md-1 widget {{css}}" ui-sref="wrapper.settings">

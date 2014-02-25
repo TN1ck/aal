@@ -120,5 +120,10 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       .state('wrapper.auth.train', {
         url: '/train',
         templateUrl: 'views/auth/train.html'
+      })
+      .state('test', {
+        url: '/test',
+        templateUrl: 'views/test.html',
+        controller: 'TestCtrl'
       });
   });

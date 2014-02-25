@@ -78,9 +78,9 @@ appControllers.controller('MainCtrl',
 
     // Listen for user changes, this is important for ALL widgets
 
-    if ($(window).width() > 1000) {
-    TextTransmission.fetchDataForWall(function(data) {
-        
+    if ($(window).width() > 1100) {
+      TextTransmission.fetchDataForWall(function(data) {
+          
         console.log('ADD USER!', $rootScope.currentUser, data.data);
 
         // filter the current user and drop wthe ones with the same id
@@ -172,7 +172,7 @@ appControllers.controller('MainCtrl',
       }, 'ADD_USER');
 
 
-    TextTransmission.fetchDataForWall(function(data) {
+      TextTransmission.fetchDataForWall(function(data) {
         console.log('REMOVED USER', $rootScope.users, $rootScope.currentUser);
 
         if ($rootScope.currentUser && data.data.niteID === $rootScope.currentUser.niteID) {
@@ -197,24 +197,22 @@ appControllers.controller('MainCtrl',
         }
 
       }, 'REMOVE_USER');
+
+      $rootScope.fbToken = $q.defer();
+
+      TextTransmission.fetchTextForWall(function(data) {
+          try {
+            console.log('DATEN EMPFANGEN');
+            $rootScope.fbToken.resolve(data.data);
+            WidgetData.updateApiCall(data.data);
+          } catch (e) {
+            console.log(e);
+          }
+        },'FBAUTH');
+
+
+      var Menu = new RadialService.Menu({selector: '#right'});
     }
-
-    $rootScope.fbToken = $q.defer();
-
-    TextTransmission.fetchTextForWall(function(data) {
-        try {
-          console.log('DATEN EMPFANGEN');
-          $rootScope.fbToken.resolve(data.data);
-          WidgetData.updateApiCall(data.data);
-        } catch (e) {
-          console.log(e);
-        }
-      },'FBAUTH');
-
-
-
-
-    var Menu = new RadialService.Menu({selector: '#right'});
 
   });
 

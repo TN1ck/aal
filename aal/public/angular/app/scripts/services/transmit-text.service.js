@@ -54,6 +54,11 @@ app.factory('TextTransmission', function($rootScope, Websocket) {
 
 		fetchDataForWall: function(func, socketnumber) {
 			Websocket.addListener('' + socketnumber, func);
+		},
+
+		//only need for the testController
+		deliverDataForWall: function(data, socketnumber) {
+			Websocket.send('' + socketnumber, data);
 		}
 
 	};

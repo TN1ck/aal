@@ -162,12 +162,12 @@ appControllers.controller('AuthCtrl',
       //   }
       // );
 
-    $scope.url = 'https://' + document.location.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
-    $scope.displayUrl = 'https://' + document.location.host + '/index.html#/mobile';
+    $rootScope.url = 'https://' + document.location.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
+    $rootScope.displayUrl = 'https://' + document.location.host + '/index.html#/mobile';
 
-    $scope.version = 4;
-    $scope.level = 'L';
-    $scope.size = $(window).height()/3;
+    $rootScope.version = 4;
+    $rootScope.level = 'L';
+    $rootScope.size = $(window).height()/3;
 
 
   });
