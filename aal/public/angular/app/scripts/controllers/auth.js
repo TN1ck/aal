@@ -98,6 +98,7 @@ appControllers.controller('AuthCtrl',
           // makeSnapshot('step2');
           $scope.countDown(2, 100, 'step3countdown', function() {
             $scope.step++;
+            $state.transitionTo('wrapper.main');
             // makeSnapshot('step3');
           });
         });

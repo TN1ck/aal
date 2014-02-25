@@ -81,6 +81,33 @@ appControllers.controller('MainCtrl',
         
         console.log('ADD USER!', $rootScope.currentUser, data.data);
 
+        // filter the current user and drop wthe ones with the same id
+        var filteredUsers = $rootScope.users.filter(function(d) {
+          if ($rootScope.currentUser.niteID === data.data.niteID) {
+            if (data.data.niteID === $rootScope.currentUser.niteID && $rootScope.currentUser.userID === -2) {
+                
+              $rootScope.currentUser = data.data;
+              
+              // The user is known to the system
+              if ($rootScope.currentUser.userID >= 0) {
+                $state.transitionTo('wrapper.auth.welcome');
+              // user is unknown
+              } else if ($rootScope.currentUser.userID === -1) {
+                $state.transitionTo('wrapper.auth.unknown');
+              }
+
+            } else {
+              $rootScope.currentUser = data.data;
+            }
+          }
+          if (d.niteID === data.data.niteID) {
+            d.userID = data.data.userID;
+            d.image = data.data.image;
+          }
+          return d.niteID !== data.data.niteID;
+        });
+        
+
         // okay, first check if a currentUser is set
 
         // if not, set it and go to loading screen
@@ -99,31 +126,8 @@ appControllers.controller('MainCtrl',
         
         // if a currentUser is set, check his niteID is equal to the incoming message and go to welcome/unkown
         // if he does not have a userID (-2)
-        } else if (data.data.niteID === $rootScope.currentUser.niteID && $rootScope.currentUser.userID === -2) {
-          
-          $rootScope.currentUser = data.data;
-          
-          // The user is known to the system
-          if ($rootScope.currentUser.userID >= 0) {
-            $state.transitionTo('wrapper.auth.welcome');
-          // user is unknown
-          } else if ($rootScope.currentUser.userID === -1) {
-            $state.transitionTo('wrapper.auth.unknown');
-          }
-
         }
 
-        // filter the current user and drop wthe ones with the same id
-        var filteredUsers = $rootScope.users.filter(function(d) {
-          if ($rootScope.currentUser.niteID === data.data.niteID) {
-            $rootScope.currentUser = data.data;
-          }
-          if (d.niteID === data.data.niteID) {
-            d.userID = data.data.userID;
-            d.image = data.data.image;
-          }
-          return d.niteID !== data.data.niteID;
-        });
 
         // check if the current message is currently in the alerts messages
         var alertsFilter = $scope.alerts.filter(function(d) {
@@ -133,12 +137,10 @@ appControllers.controller('MainCtrl',
         if ($rootScope.currentUser && filteredUsers.length === $rootScope.users.length) {
           $rootScope.users.push(data.data);
           
-          if (alertsFilter.length === 0) {
-            $scope.alerts.push({
-              data: data.data,
-              msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
-            });
-          }
+          $scope.alerts.push({
+            data: data.data,
+            msg: 'Neuer User wurde erkannt! Bewegen sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+          });
 
           $timeout(function() {
             $scope.alerts.shift();
