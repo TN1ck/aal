@@ -83,9 +83,6 @@ appControllers.controller('MainCtrl',
 
         // filter the current user and drop wthe ones with the same id
         var filteredUsers = $rootScope.users.filter(function(d) {
-          if ($rootScope.currentUser.niteID === data.data.niteID) {
-            $rootScope.currentUser = data.data;
-          }
           if (d.niteID === data.data.niteID) {
             d.userID = data.data.userID;
             d.image = data.data.image;
