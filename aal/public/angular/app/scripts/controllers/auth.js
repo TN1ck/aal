@@ -162,8 +162,8 @@ appControllers.controller('AuthCtrl',
       //   }
       // );
 
-    $scope.url = 'http://' + document.location.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
-    $scope.displayUrl = 'http://' + document.location.host + '/index.html#/mobile';
+    $scope.url = 'https://' + document.location.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
+    $scope.displayUrl = 'https://' + document.location.host + '/index.html#/mobile';
 
     $scope.version = 4;
     $scope.level = 'L';

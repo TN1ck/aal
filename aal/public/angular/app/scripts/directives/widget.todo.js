@@ -122,7 +122,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
         $scope.data.forEach(function (element,index,array) {
           console.log('Current element: ', element);
           if( JSON.stringify(element) === JSON.stringify(data)){
-            console.log('I can now remove');
+            console.log('I can now remove', element.id);
             $scope.data.splice(index, 1);
             deleteTodo(element.id);
           }
