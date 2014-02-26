@@ -58,6 +58,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       };
 
       TextTransmission.fetchDataForWall(function(data) {
+        console.log('Calendar got: ', data);
         // the length is a hack
         if (!$rootScope.calendarData || $rootScope.calendarData.length !== data.data.entries.length) {
           $rootScope.calendarData = data.data.entries;
