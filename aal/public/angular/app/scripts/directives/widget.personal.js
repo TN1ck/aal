@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $FB) {
+app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $FB, $modal) {
   return {
     templateUrl: '/views/widgets/widget.personal.html',
     restrict: 'E',
@@ -43,6 +43,20 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
       };
 
       $rootScope.fbToken.promise.then(fetchPersonal);
+
+
+      $scope.displayPersonal = function (evnt, data) {
+        var $target = $(evnt.currentTarget);
+
+        console.log('Data in displayPersonal: ' , data);
+        var WidgetModal = $modal.open({
+          templateUrl: '/views/widgets/modals/modal.qrcode.html',
+          scope: $target.scope()
+        });
+      };
+
+      $scope.qrSizeModal = $(window).height()/2;
+      $scope.qrSizeWidget =  $(window).height()/5;
       /*$FB.getLoginStatus().then(function(response) {
         if(response.authResponse.accessToken) {
           fetchPersonal(response.authResponse.accessToken);

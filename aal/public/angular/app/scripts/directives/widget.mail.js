@@ -1,6 +1,6 @@
 'use strict';
 
-/* global angular */
+/* global angular, moment */
 
 var app = angular.module('angularApp');
 
@@ -81,6 +81,10 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
           scope: $target.scope()
         });
       };
+
+      moment.lang('de');
+      $scope.moment = moment;
+
 		}
   };
 });

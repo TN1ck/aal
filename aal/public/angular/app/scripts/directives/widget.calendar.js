@@ -42,8 +42,9 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
         });
 
         WidgetModal.result.then(function(data){
-          //TODO: Make new calender entry.
-        
+          //TODO: Make new calender entry in Backend
+          console.log("ResultCalendarData: ", data);
+
           data.startTime.setHours(data.startHours.getHours());
           data.startTime.setMinutes(data.startHours.getMinutes());
           data.startTime.setDate(data.startTime.getDate()+1);
