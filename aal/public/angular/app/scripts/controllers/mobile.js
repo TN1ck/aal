@@ -48,6 +48,7 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
             $state.transitionTo('wrapper.mobile.calendar');
           } else if(data.data === 'wrapper.mobile.navigation'){
             $state.transitionTo('wrapper.mobile.navigation');
+            console.log('CurrentState: ', $state);
           } else if(data.data === 'wrapper.mobile.mail') {
             $state.transitionTo('wrapper.mobile.mail');
           }

@@ -8,24 +8,24 @@ appControllers.controller('TestCtrl', ['$scope', 'TextTransmission','$state','$r
   function ($scope, TextTransmission, $state, $rootScope, $location, $FB, $http, $timeout) {
 
     $scope.newKnownUser = function (uid) {
-      TextTransmission.deliverDataForWall({niteID: 312, userID: -2},'ADD_USER');
+      TextTransmission.deliverDataForWall({niteID: uid+1, userID: -2},'ADD_USER');
       $timeout(function() {
-        TextTransmission.deliverDataForWall({niteID: 312, userID: uid},'ADD_USER');
+        TextTransmission.deliverDataForWall({niteID: uid+1, userID: uid},'ADD_USER');
       }, 500);
 
     };
     $scope.newUnknownUser = function () {
-      TextTransmission.deliverDataForWall({niteID: 312, userID: -2}, 'ADD_USER');
+      TextTransmission.deliverDataForWall({niteID: 13, userID: -2}, 'ADD_USER');
       $timeout(function() {
-        TextTransmission.deliverDataForWall({niteID: 312, userID: -1},'ADD_USER');
+        TextTransmission.deliverDataForWall({niteID: 13, userID: -1},'ADD_USER');
       }, 500);
     };
 
     $scope.removeKnownUser = function (uid) {
-      TextTransmission.deliverDataForWall({niteID: 312, userID: uid}, 'REMOVE_USER');
+      TextTransmission.deliverDataForWall({niteID: uid+1, userID: uid}, 'REMOVE_USER');
     };
     $scope.removeUnknownUser = function () {
-      TextTransmission.deliverDataForWall({niteID: 312, userID: -1}, 'REMOVE_USER');
+      TextTransmission.deliverDataForWall({niteID: 13, userID: -1}, 'REMOVE_USER');
     };
 
 

@@ -37,9 +37,19 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .state('wrapper.social', {
+        url: '/socialgraph',
+        templateUrl: 'views/socialgraph.html',
+        controller: 'MainCtrl'
+      })
       .state('wrapper.nouser', {
         url: '/nouser',
         templateUrl: 'views/nouser.html',
+        controller: 'MainCtrl'
+      })
+      .state('wrapper.waiting', {
+        url: '/waiting',
+        templateUrl: 'views/waiting.html',
         controller: 'MainCtrl'
       })
       .state('wrapper.toygamer', {

@@ -51,8 +51,8 @@ appControllers.controller('AuthCtrl',
       case KEYMAPPING.ENTER:
         $buttons = $('.buttons').find('.btn');
         $('.buttons').find('.btn-primary').click();
-        var nextLocation = $('.buttons').find('.btn-primary').attr('ui-sref');
-        $state.transitionTo(nextLocation);
+        // var nextLocation = $('.buttons').find('.btn-primary').attr('ui-sref');
+        // $state.transitionTo(nextLocation);
         break;
 
       }
@@ -98,7 +98,7 @@ appControllers.controller('AuthCtrl',
           // makeSnapshot('step2');
           $scope.countDown(2, 100, 'step3countdown', function() {
             $scope.step++;
-            $state.transitionTo('wrapper.main');
+            $state.transitionTo('wrapper.waiting');
             // makeSnapshot('step3');
           });
         });
