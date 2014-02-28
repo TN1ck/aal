@@ -183,6 +183,9 @@ appControllers.controller('MainCtrl',
                   }
                 }
                 $rootScope.unknownUsers.splice(index,1);
+                if ($state.current.name === 'wrapper.waiting') {
+                  $state.transitionTo('wrapper.main');
+                }
               }
             }
           } else if (data.data.userID === -1) {
