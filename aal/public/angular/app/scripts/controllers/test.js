@@ -28,6 +28,10 @@ appControllers.controller('TestCtrl', ['$scope', 'TextTransmission','$state','$r
       TextTransmission.deliverDataForWall({niteID: 13, userID: -1}, 'REMOVE_USER');
     };
 
+    $scope.recogniceFormerUnknownUser = function () {
+      TextTransmission.deliverDataForWall({niteID: 13, userID: 12}, 'ADD_USER');
+    };
+
 
     moment.lang('de');
 

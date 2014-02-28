@@ -307,15 +307,24 @@ appControllers.controller('MainCtrl',
             $state.transitionTo('wrapper.nouser');
           } else if ($state.current.name === 'wrapper.main' && $rootScope.currentUser.niteID === data.data.niteID) {
             if ($rootScope.knownUsers.length > 0) {
+              $FB.logout();
               $rootScope.currentUser = $rootScope.knownUsers[0];
+              $state.reload();
             } else if ($rootScope.unknownUsers.length > 0) {
+              $FB.logout();
               $rootScope.currentUser = $rootScope.unknownUser[0];
               $state.transitionTo('wrapper.auth.unkown');
             }
-          } else if ($state.current.name === 'wrapper.social') {
+          } else if ($state.current.name === 'wrapper.social' && $rootScope.currentUser.niteID === data.data.niteID) {
             if ($rootScope.knownUsers.length >= 2) {
+              $FB.logout();
+              $rootScope.currentUser = $rootScope.knownUsers[0];
               // UPDATE SOCIAL
             } else if ($rootScope.knownUsers.length === 1) {
+              console.log($FB);
+              $FB.logout();
+              console.log($FB);
+              $rootScope.currentUser = $rootScope.knownUsers[0];
               $state.transitionTo('wrapper.main');
             } else {
               console.log('Else case in REMOVE_USER. Should not happen!');
@@ -382,7 +391,20 @@ appControllers.controller('MainCtrl',
 
 
 
+      $rootScope.fbToken = $q.defer();
 
+      TextTransmission.fetchTextForWall(function(data) {
+          try {
+            console.log('DATEN EMPFANGEN');
+            $rootScope.fbToken.resolve(data.data);
+            WidgetData.updateApiCall(data.data);
+          } catch (e) {
+            console.log(e);
+          }
+        },'FBAUTH');
+
+
+      var Menu = new RadialService.Menu({selector: '#right'});
 
 
 
