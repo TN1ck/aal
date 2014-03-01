@@ -56,6 +56,15 @@ appControllers.controller('MainCtrl',
       return wdgt.socket;
     };
 
+    $rootScope.clearAllWidgetData = function () {
+      console.log('Clear all widget Data!');
+      for (var i = 0; i < $rootScope.widgets.length; i++) {
+        $rootScope.widgets[i].data = {};
+      }
+      $state.reload();
+
+    };
+
     console.log($rootScope.users, $rootScope.currentUser);
 
     $rootScope.users = $rootScope.users || [];
@@ -307,22 +316,30 @@ appControllers.controller('MainCtrl',
             $state.transitionTo('wrapper.nouser');
           } else if ($state.current.name === 'wrapper.main' && $rootScope.currentUser.niteID === data.data.niteID) {
             if ($rootScope.knownUsers.length > 0) {
-              $FB.logout();
+              // do the fb Logout
+              $FB.getLoginStatus(WidgetData.logoutFB);
+              $rootScope.clearAllWidgetData();
               $rootScope.currentUser = $rootScope.knownUsers[0];
               $state.reload();
             } else if ($rootScope.unknownUsers.length > 0) {
-              $FB.logout();
+              // do the fb Logout
+              $FB.getLoginStatus(WidgetData.logoutFB);
+              $rootScope.clearAllWidgetData();
               $rootScope.currentUser = $rootScope.unknownUser[0];
               $state.transitionTo('wrapper.auth.unkown');
             }
           } else if ($state.current.name === 'wrapper.social' && $rootScope.currentUser.niteID === data.data.niteID) {
             if ($rootScope.knownUsers.length >= 2) {
-              $FB.logout();
+              // do the fb Logout
+              $FB.getLoginStatus(WidgetData.logoutFB);
+              $rootScope.clearAllWidgetData();
               $rootScope.currentUser = $rootScope.knownUsers[0];
               // UPDATE SOCIAL
             } else if ($rootScope.knownUsers.length === 1) {
               console.log($FB);
-              $FB.logout();
+              // do the fb Logout
+              $FB.getLoginStatus(WidgetData.logoutFB);
+              $rootScope.clearAllWidgetData();
               console.log($FB);
               $rootScope.currentUser = $rootScope.knownUsers[0];
               $state.transitionTo('wrapper.main');

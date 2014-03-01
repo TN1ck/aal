@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
+app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialComparison) {
 
   var checkIfPostHasBeenLiked = function(myFacebookId, post) {
     if (post.likes === undefined) {
@@ -16,14 +16,14 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
       }
     }
     return false;
-  }
+  };
 
   var iterateThroughPosts = function(myFacebookId, posts) {
     for (var i=0; i<posts.length; i++) {
       posts[i].alreadyLiked = checkIfPostHasBeenLiked(myFacebookId, posts[i]);
     }
     return posts;
-  }
+  };
 
   var createMapFromPostToAlreadyLiked = function(posts) {
     var mappingOfLikedPosts = {};
@@ -31,7 +31,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
       mappingOfLikedPosts[posts[i].id] = posts[i].alreadyLiked;
     }
     return mappingOfLikedPosts;
-  }
+  };
 
   var social = $q.defer(),
       colors,
@@ -73,6 +73,17 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
     SocialComparison.compareTwoPersons('maximilian.bachl', 'tom.lehmann.98');
   };
 
+  var logoutFB = function (response) {
+    // we are not logged in so we cant log out
+    if (!response.session) {
+      console.log('NOW we are logged out!');
+      social.resolve({});
+      return;
+    }
+    // we have to do this loop to make sure fb really destroys our session
+    $FB.logout(logoutFB);
+  };
+
   // $FB.provide('', {
   //   'setAccessToken': function(a) {
   //     this._authResponse = { 'accessToken': a };
@@ -103,6 +114,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope) {
   colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#2980b9', '#19806E', '#AE8EA7', '#bdc3c7'];
 
   return {
+    logoutFB: logoutFB,
     updateApiCall: updateApiCall,
     social: social.promise,
     colors: colors,
