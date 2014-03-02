@@ -6,7 +6,7 @@ var app = angular.module('angularApp');
 
 app.factory('SocialComparison', function($FB, $q) {
 
-  var token;
+  var token = null;
   var things = ['movies','video.watches','music','music.listens','books','books.reads','friends'];
   var otherThings = ['games','likes','links','interests'];
   things = things.concat(otherThings);
@@ -31,7 +31,6 @@ app.factory('SocialComparison', function($FB, $q) {
     // console.log(mapping)
     for (var i=0; i<array.length; i++) {
       if ($.inArray(things[i], otherThings) != -1) {
-        // console.log(things[i])
         mapping['other'] = mapping['other'].concat(array[i].data);
       } else if (things[i] == 'video.watches') {
         mapping['movies'] = mapping['movies'].concat(array[i].data.map(function(entry) {return entry.data.movie;}));
@@ -52,7 +51,8 @@ app.factory('SocialComparison', function($FB, $q) {
     for (var i=0; i<persons.length; i++) {
       array[i] = [];
       for (var j=0; j<things.length; j++) {
-        array[i].push('$FB.api("'+persons[i]+'/'+things[j]+'")');
+        var fbStr = '$FB.api("'+persons[i]+'/'+things[j]+(token ? '?access_token=' + token : '')+'")';
+        array[i].push(fbStr);
       }
     }
     return array;
@@ -66,9 +66,7 @@ app.factory('SocialComparison', function($FB, $q) {
   };
 
   var filterDifferences = function(dataSets) {
-    // console.log(dataSets);
     var commonObjects = createNewMapping();
-    // Iterate over all categories of information
     for (var currentCategory in dataSets[0]) {
       for (var i=0; i<dataSets[0][currentCategory].length; i++) {
         var currentObject = dataSets[0][currentCategory][i];
@@ -79,20 +77,48 @@ app.factory('SocialComparison', function($FB, $q) {
           if (typeof dataSets[1][currentCategory][j] === 'undefined')
             continue;
           if (currentObject.id == dataSets[1][currentCategory][j].id) {
-            // console.log(currentObject);
             commonObjects[currentCategory].push(currentObject);
           }
         }
       }
+      for (var j=0; j<commonObjects[currentCategory].length; j++) {
+        if (typeof commonObjects[currentCategory][j].title !== "undefined") {
+          commonObjects[currentCategory][j].name = commonObjects[currentCategory][j].title;
+        }
+      }
     }
+
+    // console.log(commonObjects)
+    for (var currentCategory in commonObjects) {
+      var newArray = [];
+      for (var j=0; j<commonObjects[currentCategory].length; j++) {
+        var currentObject = commonObjects[currentCategory][j];
+        var currentName = currentObject.name;
+        var alreadyExists = false;
+        for (var k=j+1; k<commonObjects[currentCategory].length; k++) {
+          if (currentName === commonObjects[currentCategory][k].name) {
+            alreadyExists = true;
+            break;
+          }
+        }
+        if (!alreadyExists) {
+          newArray.push(currentObject);
+        }
+      }
+      commonObjects[currentCategory] = newArray;
+      // console.log(currentCategory)
+      // console.log(newArray)
+    }
+
+    // console.log(commonObjects)
     return commonObjects;
   }
 
-  var setToken = function(token) {
-    token = token;
+  var setToken = function(tok) {
+    token = tok;
   }
 
-  var compareTwoPersons = function(person1, person2) {
+  var compareTwoPersons = function(person1, person2, cb) {
     var persons = [person1, person2];
     var arrayOfStrings = constructStringsForApi(persons);
     // console.log(arrayOfStrings)
@@ -105,14 +131,16 @@ app.factory('SocialComparison', function($FB, $q) {
         data1 = semanticallyGroupThings(data1);
         data2 = semanticallyGroupThings(data2);
         var commonObjects = filterDifferences([data1, data2]);
-        console.log(commonObjects);
+        for (var category in commonObjects) {
+          commonObjects[category].color = colorMapping[category];
+        }
+        cb(commonObjects);
       });
     });
   };
 
   return {
     compareTwoPersons: compareTwoPersons,
-    colorMapping: colorMapping,
     setToken: setToken
   };
 });

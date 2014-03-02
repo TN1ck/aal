@@ -38,7 +38,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
       widgets,
       compareTwoPersons = $q.defer();
 
-  var updateApiCall = function updateApiCall (token) {
+  var updateApiCall = function updateApiCall(token) {
 
     console.log("updateApiCall called!")
 
@@ -70,8 +70,13 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
         posts.goodPosts = goodPosts;
         posts.goodPosts = posts.goodPosts.slice(0,11);
         social.resolve(posts);
-        compareTwoPersons.resolve(SocialComparison.getCompareFunctionWithToken(token));
       }
+
+      $FB.getLoginStatus(function(response) {
+        token = response.authResponse.accessToken;
+        SocialComparison.setToken(token);
+        compareTwoPersons.resolve(SocialComparison.compareTwoPersons);
+      });
     });
   };
 

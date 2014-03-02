@@ -2,8 +2,9 @@
   <div class="col-md-6 row-md-1 widget {{css}}"><widget-h1 class="stick-bottom">
   	Social Graph</widget-h1>
   </div>
-  <div ng-repeat="category in data">
-  	{{data[category]}}
+  <div ng-repeat="(category, things) in data">
+  	<h2>{{category}}</h2>
+  	<span ng-repeat="commonThing in things track by $index">{{commonThing.name}}</span>
   </div>
   <div ng-hide="data" class="spinner"></div>
 </div>
