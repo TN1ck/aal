@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransmission, $compile) {
+app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransmission, $compile, WidgetData) {
 
   return {
     templateUrl: '/views/widgets/social/widget.social.html',
@@ -17,6 +17,31 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
     },
 
     link: function($scope) {
+
+      WidgetData.updateApiCall();
+
+      TextTransmission.fetchDataForWall(function(data) {
+        console.log('SOCIAL: ', data);
+        // the length is a hack
+        if (!$scope.data || $scope.data.length !== data.data.length) {
+          $scope.data = data.data;
+          console.log('SOCIAL.scope: ', $scope.data);
+        }
+      }, $scope.socket);
+
+      $scope.$watch('data', function (newVal,oldVal) {
+        console.log('My social data changed from to:',newVal,oldVal);
+      },function(a,b) { console.log(a,b); return a !== b;});
+
+      // $rootScope.setSocialData = function (data) {
+      //   $scope.data = data;
+      // };
+
+      // $rootScope.clearSocialData = function () {
+      //   console.log('clearSocialData: ', $scope.data);
+      //   $scope.data = undefined;
+      //   console.log('clearedSocialData: ', $scope.data);
+      // };
 
       // Seems to be useless...
       TextTransmission.fetchTextForWall(function(data) {

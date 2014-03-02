@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialComparison) {
+app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialComparison, TextTransmission) {
 
   var checkIfPostHasBeenLiked = function(myFacebookId, post) {
     if (post.likes === undefined) {
@@ -38,7 +38,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
       widgets,
       compareTwoPersons = $q.defer();
 
-  var updateApiCall = function updateApiCall(token) {
+  var updateApiCall = function (token) {
 
     console.log("updateApiCall called!")
 
@@ -48,7 +48,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
 
       // console.log('BIN DRIN', posts);
 
-      if (posts) {
+      if (!posts.error) {
         posts.picturePosts = [];
 
         var picturePosts = posts.data.filter(function(d) {
@@ -69,7 +69,13 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
         goodPosts = d3.shuffle(goodPosts);
         posts.goodPosts = goodPosts;
         posts.goodPosts = posts.goodPosts.slice(0,11);
-        social.resolve(posts);
+        console.log('We now resolve the promise again in WidgetData.', token);
+        $rootScope.posts = posts;
+        // social.resolve(posts);
+        TextTransmission.deliverDataForWall(posts,'SOCIAL');
+        // $rootScope.setSocialData(posts);
+      } else {
+        TextTransmission.deliverDataForWall($rootScope.posts,'SOCIAL');
       }
 
       $FB.getLoginStatus(function(response) {
@@ -81,14 +87,35 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
   };
 
   var logoutFB = function (response) {
+    // $FB.getLoginStatus( function (response) {
+    console.log('LoginStatus before Logout:', response);
+    // });
     // we are not logged in so we cant log out
     if (!response.session) {
-      console.log('NOW we are logged out!');
-      social.reject('test');
+      $rootScope.fbToken = undefined;
+      console.log('NOW we are logged out!', response);
+      // social.reject('test');
       return;
     }
     // we have to do this loop to make sure fb really destroys our session
+    // $FB.getLoginStatus( function (response) {
+    // console.log('LoginStatus after Logout:', response);
+    // });
     $FB.logout(logoutFB);
+
+  };
+
+  var logoutFB2nd = function () {
+    $FB.logout(function(response) {
+      console.log('This is current $FB', $FB);
+      $FB.Auth.setAuthResponse(null, 'unknown');
+      console.log('2nd logout done', response);
+    });
+
+    $FB.getLoginStatus( function (response) {
+      console.log('LoginStatus after 2ndLogout:', response);
+    });
+
   };
 
   // $FB.provide('', {
@@ -121,6 +148,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
 
   return {
     logoutFB: logoutFB,
+    logoutFB2nd: logoutFB2nd,
     updateApiCall: updateApiCall,
     social: social.promise,
     colors: colors,

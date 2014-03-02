@@ -9,7 +9,7 @@ appControllers.controller('MainCtrl',
   function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
 
     WidgetData.compareTwoPersons.then(function(result) {
-      $rootScope.comparedData = result.call(this, 'maximilian.bachl', 'tom.lehmann.98', function(data) {
+      $rootScope.comparedData = result.call(this, 'maximilian.bachl', 'nyelkenci', function(data) {
         $rootScope.comparedData = data;
       });
     });
@@ -25,21 +25,31 @@ appControllers.controller('MainCtrl',
     // next line is important for displaying mobile id in personal widget
     $scope.mobileId = TextTransmission.mobileId;
     $rootScope.mobileId = TextTransmission.mobileId;
+
+
     $rootScope.widgets = WidgetData.widgets.map(function(d, i) {
-      // console.log(d.name)
-      if (WidgetData[d.name]) {
-        console.log('What is this?', WidgetData[d.name], d.name);
-        WidgetData[d.name].then(
-          function(data) {
-            console.log('$scope[social]??', $scope[d.name]);
-            $scope[d.name] = data;
-          }, function (cleardata) {
-            console.log('Data in reject social promise: ',cleardata);
-            $scope[d.name] = cleardata;
-          }, function (notification) {
-            console.log('Notification: ' , notification);
-          });
-      }
+
+      // if (WidgetData[d.name]) {
+      //   console.log('What is this?', WidgetData[d.name], d.name);
+      //   WidgetData[d.name].then(
+      //     function(data) {
+      //       console.log('$scope[social]??', $scope[d.name]);
+      //       if ($rootScope.currentUser && !$rootScope.currentUser.fbResolved) {
+      //         $scope[d.name] = data;
+      //         console.log('This social promis was resolved');
+      //         $rootScope.currentUser.fbResolved = true;
+      //       }
+      //     }, function (cleardata) {
+      //       console.log('Data in reject social promise: ',cleardata);
+      //       $scope[d.name] = cleardata;
+      //     }, function (notification) {
+      //       console.log('Notification: ' , notification);
+      //     });
+      // }
+      // if (d.name === 'social') {
+      //   console.log('$scope[d.name]',$scope[d.name], $rootScope.socialData);
+      //   $scope[d.name] = $rootScope.socialData;
+      // }
       return {
         name: d.name,
         data: d.name,
@@ -50,24 +60,20 @@ appControllers.controller('MainCtrl',
     });
 
     $rootScope.getCssForWidget = function (name) {
-      console.log('Someone wants the Css for a certain widget.' ,name);
       var wdgt = $rootScope.widgets.filter(
         function(el) {
           return el.name === name;
         }
       )[0];
-      console.log(wdgt.css);
       return wdgt.css;
     };
 
     $rootScope.getSocketForWidget = function (name) {
-      console.log('Someone wants the Socket for a certain widget.');
       var wdgt = $rootScope.widgets.filter(
         function(el) {
           return el.name === name;
         }
       )[0];
-      console.log(wdgt.socket);
       return wdgt.socket;
     };
 
@@ -76,8 +82,12 @@ appControllers.controller('MainCtrl',
       for (var i = 0; i < $rootScope.widgets.length; i++) {
         $rootScope.widgets[i].data = undefined;
       }
+      $rootScope.posts = undefined;
+      // console.log('Clear all widget Data: ' ,$rootScope.widgets['social']);
+      // $rootScope.widgets['social'].reject('test');
+      // $rootScope.clearSocialData();
       console.log('Clearead all widget Data!', $rootScope.widgets);
-      $state.reload();
+      // $state.reload();
 
     };
 
@@ -242,12 +252,14 @@ appControllers.controller('MainCtrl',
           } else if ($state.current.name === 'wrapper.main' && $rootScope.currentUser.niteID === data.data.niteID) {
             if ($rootScope.knownUsers.length > 0) {
               // do the fb Logout
+              // WidgetData.logoutFB2nd();
               $FB.getLoginStatus(WidgetData.logoutFB);
               $rootScope.clearAllWidgetData();
               $rootScope.currentUser = $rootScope.knownUsers[0];
-              $state.reload();
+              // $state.reload();
             } else if ($rootScope.unknownUsers.length > 0) {
               // do the fb Logout
+              // WidgetData.logoutFB2nd();
               $FB.getLoginStatus(WidgetData.logoutFB);
               $rootScope.clearAllWidgetData();
               $rootScope.currentUser = $rootScope.unknownUser[0];
@@ -256,6 +268,7 @@ appControllers.controller('MainCtrl',
           } else if ($state.current.name === 'wrapper.social' && $rootScope.currentUser.niteID === data.data.niteID) {
             if ($rootScope.knownUsers.length >= 2) {
               // do the fb Logout
+              // WidgetData.logoutFB2nd();
               $FB.getLoginStatus(WidgetData.logoutFB);
               $rootScope.clearAllWidgetData();
               $rootScope.currentUser = $rootScope.knownUsers[0];
@@ -263,13 +276,19 @@ appControllers.controller('MainCtrl',
             } else if ($rootScope.knownUsers.length === 1) {
               console.log($FB);
               // do the fb Logout
+              // WidgetData.logoutFB2nd();
               $FB.getLoginStatus(WidgetData.logoutFB);
               $rootScope.clearAllWidgetData();
-              console.log($FB);
               $rootScope.currentUser = $rootScope.knownUsers[0];
               $state.transitionTo('wrapper.main');
             } else {
               console.log('Else case in REMOVE_USER. Should not happen!');
+            }
+          } else if ($state.current.name === 'wrapper.social' && $rootScope.currentUser.niteID !== data.data.niteID) {
+            if ($rootScope.knownUsers.length >= 2) {
+              //  UPDATE SOCIAL
+            } else {
+              $state.transitionTo('wrapper.main');
             }
           }
         }
