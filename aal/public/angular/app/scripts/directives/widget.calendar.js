@@ -17,7 +17,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
     },
     link: function($scope) {
 
-      $scope.data = $rootScope.calendarData;
+      // $scope.data = $rootScope.calendarData;
 
       TextTransmission.fetchTextForWall(function(data) {
         if(data.data === 'addCalendarEntry'){
@@ -61,9 +61,11 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       TextTransmission.fetchDataForWall(function(data) {
         console.log('Calendar got: ', data);
         // the length is a hack
-        if (!$rootScope.calendarData || $rootScope.calendarData.length !== data.data.entries.length) {
-          $rootScope.calendarData = data.data.entries;
-          $scope.data = $rootScope.calendarData;
+        // if (!$rootScope.calendarData || $rootScope.calendarData.length !== data.data.entries.length) {
+        if (!$scope.data || $scope.data.length !== data.data.entries.length) {
+          console.log('$rootScope.calendarData is going to be', data.data.entries);
+          // $rootScope.calendarData = data.data.entries;
+          $scope.data = data.data.entries;
         }
       }, $scope.socket);
 
@@ -88,7 +90,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       };
 
       // initially fetch calendar
-      fetchCalendar();
+      $scope.data = fetchCalendar();
 
 
       

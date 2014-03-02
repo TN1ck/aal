@@ -131,6 +131,10 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         url: '/train',
         templateUrl: 'views/auth/train.html'
       })
+      .state('wrapper.auth.userselect', {
+        url: '/userselect',
+        templateUrl: 'views/auth/userselect.html'
+      })
       .state('test', {
         url: '/test',
         templateUrl: 'views/test.html',

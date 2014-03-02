@@ -77,7 +77,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
     // we are not logged in so we cant log out
     if (!response.session) {
       console.log('NOW we are logged out!');
-      social.resolve({});
+      social.reject('test');
       return;
     }
     // we have to do this loop to make sure fb really destroys our session

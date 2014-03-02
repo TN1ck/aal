@@ -21,9 +21,17 @@ appControllers.controller('MainCtrl',
     $rootScope.mobileId = TextTransmission.mobileId;
     $rootScope.widgets = WidgetData.widgets.map(function(d, i) {
       if (WidgetData[d.name]) {
-        WidgetData[d.name].then(function(data) {
-          $scope[d.name] = data;
-        });
+        console.log('What is this?', WidgetData[d.name], d.name);
+        WidgetData[d.name].then(
+          function(data) {
+            console.log('$scope[social]??', $scope[d.name]);
+            $scope[d.name] = data;
+          }, function (cleardata) {
+            console.log('Data in reject social promise: ',cleardata);
+            $scope[d.name] = cleardata;
+          }, function (notification) {
+            console.log('Notification: ' , notification);
+          });
       }
       return {
         name: d.name,
@@ -57,10 +65,11 @@ appControllers.controller('MainCtrl',
     };
 
     $rootScope.clearAllWidgetData = function () {
-      console.log('Clear all widget Data!');
+      console.log('Clear all widget Data!', $rootScope.widgets);
       for (var i = 0; i < $rootScope.widgets.length; i++) {
-        $rootScope.widgets[i].data = {};
+        $rootScope.widgets[i].data = undefined;
       }
+      console.log('Clearead all widget Data!', $rootScope.widgets);
       $state.reload();
 
     };
@@ -311,8 +320,9 @@ appControllers.controller('MainCtrl',
             }
           }
           $rootScope.knownUsers.splice(index,1);
-          if ($state.current.name === 'wrapper.main' && $rootScope.knownUsers.length === 0 && $rootScope.unknownUsers.length === 0){
+          if ($rootScope.knownUsers.length === 0 && $rootScope.unknownUsers.length === 0){
             $rootScope.currentUser = $rootScope.knownUsers[0];
+            // DO fb logout???
             $state.transitionTo('wrapper.nouser');
           } else if ($state.current.name === 'wrapper.main' && $rootScope.currentUser.niteID === data.data.niteID) {
             if ($rootScope.knownUsers.length > 0) {
