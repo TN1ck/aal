@@ -8,6 +8,10 @@ var appControllers = angular.module('appControllers', []);
 appControllers.controller('MainCtrl',
   function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
 
+    WidgetData.compareTwoPersons.then(function(result) {
+      result.call('maximilian.bachl', 'tom.lehmann.98');
+    });
+
     $scope.colors = WidgetData.colors;
     $scope.css = cssService.createCss($scope.colors);
 
@@ -22,6 +26,7 @@ appControllers.controller('MainCtrl',
 
 
     $rootScope.widgets = WidgetData.widgets.map(function(d, i) {
+
       // if (WidgetData[d.name]) {
       //   console.log('What is this?', WidgetData[d.name], d.name);
       //   WidgetData[d.name].then(
@@ -98,7 +103,7 @@ appControllers.controller('MainCtrl',
     $(document).on('keypress', function(e) {
 
       switch(e.keyCode) {
-        
+
       case 48:
         // $rootScope.currentUser = false;
         // $state.transitionTo('wrapper.auth.loading');

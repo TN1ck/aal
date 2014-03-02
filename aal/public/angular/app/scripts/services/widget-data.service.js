@@ -35,19 +35,22 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
 
   var social = $q.defer(),
       colors,
-      widgets;
+      widgets,
+      compareTwoPersons = $q.defer();
 
   var updateApiCall = function (token) {
 
-    console.log('BIN DRIN1111111111111111111 with token: ' ,token);
+    console.log("updateApiCall called!")
+
+    // console.log('BIN DRIN1111111111111111111 with token: ' ,token);
 
     $FB.api('/me/home' + (token ? '?access_token=' + token : '')).then(function(posts) {
 
-      console.log('BIN DRIN', posts);
+      // console.log('BIN DRIN', posts);
 
       if (!posts.error) {
         posts.picturePosts = [];
-        
+
         var picturePosts = posts.data.filter(function(d) {
           return d.type === 'photo';
         });
@@ -70,13 +73,13 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
         $rootScope.posts = posts;
         // social.resolve(posts);
         TextTransmission.deliverDataForWall(posts,'SOCIAL');
+        compareTwoPersons.resolve(SocialComparison.getCompareFunctionWithToken(token));
+
         // $rootScope.setSocialData(posts);
       } else {
         TextTransmission.deliverDataForWall($rootScope.posts,'SOCIAL');
       }
-
     });
-    SocialComparison.compareTwoPersons('maximilian.bachl', 'tom.lehmann.98');
   };
 
   var logoutFB = function (response) {
@@ -123,7 +126,6 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
         updateApiCall();
       } else {
         console.log('Else case of getLoginStatus');
-        
       }
     });
 
@@ -146,6 +148,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
     updateApiCall: updateApiCall,
     social: social.promise,
     colors: colors,
-    widgets: widgets
+    widgets: widgets,
+    compareTwoPersons: compareTwoPersons.promise
   };
 });

@@ -62,24 +62,6 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
         });
       };
 
-      // This function seems to be useless too
-      // $scope.addSocialPost = function() {
-
-      //   var WidgetModal = $modal.open({
-      //     templateUrl: '/views/widgets/mobile/mobile.social.html',
-      //     controller: 'ModalSocialCtrl'
-      //   });
-
-      //   WidgetModal.result.then(function(data){
-      //     if (data.type === 'facebook') {
-      //       var newPost = {message: data.message};
-      //       newPost = angular.extend(newPost, FacebookPost.facebookPost);
-      //       $FB.api('/me/feed', 'post', newPost, function(data) {
-      //       });
-      //     }
-      //   });
-      // };
-
       $scope.lastShownPost = null;
 
       $scope.showPost = function(evnt, data) {

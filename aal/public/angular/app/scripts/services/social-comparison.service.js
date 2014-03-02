@@ -6,12 +6,15 @@ var app = angular.module('angularApp');
 
 app.factory('SocialComparison', function($FB, $q) {
 
+  var token;
   var things = ['movies','video.watches','music','music.listens','books','books.reads','friends'];
   var otherThings = ['games','likes','links','interests'];
   things = things.concat(otherThings);
   // console.log(things);
   // console.log(otherThings);
   var grouping = ['movies','music','books','friends','other'];
+  var colorMapping = {movies: 'red', music: 'yellow',
+    books: 'green', friends: 'blue', other: 'orange'};
 
   var createNewMapping = function() {
     var mapping = {};
@@ -24,6 +27,7 @@ app.factory('SocialComparison', function($FB, $q) {
   var semanticallyGroupThings = function(array) {
     var mapping = createNewMapping();
 
+    // console.log(array)
     // console.log(mapping)
     for (var i=0; i<array.length; i++) {
       if ($.inArray(things[i], otherThings) != -1) {
@@ -62,18 +66,30 @@ app.factory('SocialComparison', function($FB, $q) {
   };
 
   var filterDifferences = function(dataSets) {
+    // console.log(dataSets);
     var commonObjects = createNewMapping();
     // Iterate over all categories of information
     for (var currentCategory in dataSets[0]) {
       for (var i=0; i<dataSets[0][currentCategory].length; i++) {
         var currentObject = dataSets[0][currentCategory][i];
-        var bothHaveIt = $.inArray(currentObject, dataSets[1][currentCategory]);
-        if (bothHaveIt) {
-          commonObjects[currentCategory].push(currentObject);
+        if (typeof currentObject === 'undefined')
+          continue;
+        for (var j=0; j<dataSets[1][currentCategory].length; j++) {
+          // debugger;
+          if (typeof dataSets[1][currentCategory][j] === 'undefined')
+            continue;
+          if (currentObject.id == dataSets[1][currentCategory][j].id) {
+            // console.log(currentObject);
+            commonObjects[currentCategory].push(currentObject);
+          }
         }
       }
     }
     return commonObjects;
+  }
+
+  var setToken = function(token) {
+    token = token;
   }
 
   var compareTwoPersons = function(person1, person2) {
@@ -95,6 +111,8 @@ app.factory('SocialComparison', function($FB, $q) {
   };
 
   return {
-    compareTwoPersons: compareTwoPersons
+    compareTwoPersons: compareTwoPersons,
+    colorMapping: colorMapping,
+    setToken: setToken
   };
 });
