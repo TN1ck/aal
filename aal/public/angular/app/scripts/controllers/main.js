@@ -8,6 +8,10 @@ var appControllers = angular.module('appControllers', []);
 appControllers.controller('MainCtrl',
   function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
 
+    WidgetData.compareTwoPersons.then(function(result) {
+      result.call('maximilian.bachl', 'tom.lehmann.98');
+    });
+
     $scope.colors = WidgetData.colors;
     $scope.css = cssService.createCss($scope.colors);
 
@@ -20,6 +24,7 @@ appControllers.controller('MainCtrl',
     $scope.mobileId = TextTransmission.mobileId;
     $rootScope.mobileId = TextTransmission.mobileId;
     $rootScope.widgets = WidgetData.widgets.map(function(d, i) {
+      // console.log(d.name)
       if (WidgetData[d.name]) {
         WidgetData[d.name].then(function(data) {
           $scope[d.name] = data;
@@ -67,7 +72,7 @@ appControllers.controller('MainCtrl',
     $(document).on('keypress', function(e) {
 
       switch(e.keyCode) {
-        
+
       case 48:
         // $rootScope.currentUser = false;
         // $state.transitionTo('wrapper.auth.loading');
@@ -78,7 +83,7 @@ appControllers.controller('MainCtrl',
 
     // Listen for user changes, this is important for ALL widgets
     TextTransmission.fetchDataForWall(function(data) {
-        
+
         console.log('ADD USER!', $rootScope.currentUser, data.data);
 
         // okay, first check if a currentUser is set
@@ -95,13 +100,13 @@ appControllers.controller('MainCtrl',
             }
           }, 60000);
           $state.transitionTo('wrapper.auth.loading');
-        
+
         // if a currentUser is set, check his niteID is equal to the incoming message and go to welcome/unkown
         // if he does not have a userID (-2)
         } else if (data.data.niteID === $rootScope.currentUser.niteID && $rootScope.currentUser.userID === -2) {
-          
+
           $rootScope.currentUser = data.data;
-          
+
           // The user is known to the system
           if ($rootScope.currentUser.userID >= 0) {
             $state.transitionTo('wrapper.auth.welcome');
@@ -131,7 +136,7 @@ appControllers.controller('MainCtrl',
 
         if ($rootScope.currentUser && filteredUsers.length === $rootScope.users.length) {
           $rootScope.users.push(data.data);
-          
+
           if (alertsFilter.length === 0) {
             $scope.alerts.push({
               data: data.data,
@@ -146,10 +151,10 @@ appControllers.controller('MainCtrl',
 
 
         } else if ($rootScope.currentUser) {
-          
+
           $rootScope.users = filteredUsers;
           $rootScope.users.push(data.data);
-          
+
           if (alertsFilter.length === 0) {
             $scope.alerts.push({
               data: data.data,
@@ -173,7 +178,7 @@ appControllers.controller('MainCtrl',
         if ($rootScope.currentUser && data.data.niteID === $rootScope.currentUser.niteID) {
           $rootScope.currentUser = false;
         }
-        
+
         $rootScope.users = $rootScope.users.filter(function(d) {
           return d.niteID !== data.data.niteID;
         });

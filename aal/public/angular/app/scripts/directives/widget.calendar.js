@@ -43,7 +43,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
 
         WidgetModal.result.then(function(data){
           //TODO: Make new calender entry.
-        
+
           data.startTime.setHours(data.startHours.getHours());
           data.startTime.setMinutes(data.startHours.getMinutes());
           data.startTime.setDate(data.startTime.getDate()+1);
@@ -89,7 +89,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       fetchCalendar();
 
 
-      
+
       $scope.lastShownCalEntry = null;
 
       //Popover shall disappear if the element looses "focus"
@@ -129,7 +129,6 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
           console.log('I am in if case and have to hide the popover of: ', $scope.lastShownCalEntry);
           $scope.lastShownCalEntry.popover('destroy');
           $('.popover').remove();
-
         }
 
         var content = '<div class="col-md-12 row"><div class="popovertext"><div class="col-md-4">Description:</div><div class="col-md-8">' + data.description + '</div><div class="col-md-4">Location:</div><div class="col-md-8">' + data.location + '</div><div class="col-md-4">Start:</div><div class="col-md-8">' + moment(data.startTime).format('D.M H:mm') + '</div><div class="col-md-4">End:</div><div class="col-md-8">' + moment(data.endTime).format('D.M H:mm') + '</div><div class="col-md-4">Persons:</div><div class="col-md-8">' + data.persons + '</div><div class="col-md-12"><button id="{{data.id}}" class="btn btn-primary full-width popovertext margin-bt {{css}}" ng-click="$parent.removeCalendarEntry(data)">Remove</button></div></div></div>';
@@ -164,7 +163,7 @@ app.directive('widgetCalendar', function($timeout,$modal, TextTransmission, $com
       };
 
       moment.lang('de');
-      
+
       // update time every second
       var setTime = function() {
         $scope.time = moment().format('D.M H:mm');

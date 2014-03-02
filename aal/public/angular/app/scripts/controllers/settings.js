@@ -4,8 +4,8 @@
 
 var appControllers = angular.module('appControllers');
 
-appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission', '$FB', 'FacebookPost',
-    function ($scope, $http, TextTransmission, $FB, FacebookPost) {
+appControllers.controller('SettingsCtrl',
+    function (SocialComparison, $scope, $http, TextTransmission, $FB, FacebookPost) {
 
       // Finding out how Gmail works...
       $scope.providers = ['twitter', 'facebook', 'linkedin', 'instagram', 'foursquare', 'github', 'googlemail'];
@@ -81,5 +81,5 @@ appControllers.controller('SettingsCtrl', ['$scope', '$http', 'TextTransmission'
           });
       };
     }
-]);
+);
 

@@ -35,9 +35,12 @@ app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
 
   var social = $q.defer(),
       colors,
-      widgets;
+      widgets,
+      compareTwoPersons = $q.defer();
 
   var updateApiCall = function updateApiCall (token) {
+
+    console.log("updateApiCall called!")
 
     // console.log('BIN DRIN1111111111111111111 with token: ' ,token);
 
@@ -67,25 +70,17 @@ app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
         posts.goodPosts = goodPosts;
         posts.goodPosts = posts.goodPosts.slice(0,11);
         social.resolve(posts);
+        compareTwoPersons.resolve(SocialComparison.getCompareFunctionWithToken(token));
       }
-
     });
-    // SocialComparison.compareTwoPersons('maximilian.bachl', 'tom.lehmann.98');
   };
 
-  // $FB.provide('', {
-  //   'setAccessToken': function(a) {
-  //     this._authResponse = { 'accessToken': a };
-  //   }
-  // });
-// Usage
   $FB.getLoginStatus()
     .then(function(response) {
       if (response.status === 'connected') {
         updateApiCall();
       } else {
         console.log('Else case of getLoginStatus');
-
       }
     });
 
@@ -97,7 +92,6 @@ app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
     {name: 'social', color: '#70BE8A', socket: 'SOCIAL'},
     {name: 'todo', color: '#19806E', socket: 'TODO'},
     {name: 'debug', color: '#D77F47', socket: 'DEBUG'}
-
   ];
 
   colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#2980b9', '#19806E', '#AE8EA7', '#bdc3c7'];
@@ -106,6 +100,7 @@ app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
     updateApiCall: updateApiCall,
     social: social.promise,
     colors: colors,
-    widgets: widgets
+    widgets: widgets,
+    compareTwoPersons: compareTwoPersons.promise
   };
 });

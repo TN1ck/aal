@@ -6,6 +6,7 @@ var app = angular.module('angularApp');
 
 app.factory('SocialComparison', function($FB, $q) {
 
+  var token;
   var things = ['movies','video.watches','music','music.listens','books','books.reads','friends'];
   var otherThings = ['games','likes','links','interests'];
   things = things.concat(otherThings);
@@ -26,6 +27,7 @@ app.factory('SocialComparison', function($FB, $q) {
   var semanticallyGroupThings = function(array) {
     var mapping = createNewMapping();
 
+    // console.log(array)
     // console.log(mapping)
     for (var i=0; i<array.length; i++) {
       if ($.inArray(things[i], otherThings) != -1) {
@@ -86,6 +88,10 @@ app.factory('SocialComparison', function($FB, $q) {
     return commonObjects;
   }
 
+  var setToken = function(token) {
+    token = token;
+  }
+
   var compareTwoPersons = function(person1, person2) {
     var persons = [person1, person2];
     var arrayOfStrings = constructStringsForApi(persons);
@@ -106,6 +112,7 @@ app.factory('SocialComparison', function($FB, $q) {
 
   return {
     compareTwoPersons: compareTwoPersons,
-    colorMapping: colorMapping
+    colorMapping: colorMapping,
+    setToken: setToken
   };
 });
