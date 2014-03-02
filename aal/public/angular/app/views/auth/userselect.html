@@ -2,8 +2,10 @@
 	<div class="widget-padding col-md-4">
 	</div>
 	<div class="widget-padding col-md-4 text-center">
-		<h1 class="auth header">NO USER HERE.</h1>
-		<h1 class="auth header">Or something went wrong.</h1>
+		<h1 class="auth header">Select the user u want to train.</h1>
+		<div ng-repeat="user in $rootScope.unknownUsers">
+			{{user.niteID}}
+		</div>
 	</div>
 	<div class="widget-padding col-md-4">
 	</div>

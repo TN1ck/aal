@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $FB) {
+app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $FB, $modal) {
   return {
     templateUrl: '/views/widgets/widget.personal.html',
     restrict: 'E',
@@ -22,16 +22,28 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
 			}, $scope.socket);
 
       var fetchPersonal = function(token) {
-        if (!$rootScope.currentUser) {
-          $http.get('/user/' + 1337 + '/' + token);
-        } else {
-          $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
-        }
+        /*if (token === '') {
+          if (!$rootScope.currentUser) {
+            $http.get('/user/' + 1337);
+          } else {
+            $http.get('/user/' + $rootScope.currentUser.userID);
+          }
+        } else {*/
+          if (!$rootScope.currentUser) {
+            $http.get('/user/' + 1337 + '/' + token);
+          } else {
+            $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
+          }
         console.log(token);
+        //}
       };
 
       var putPersonal = function(data) {
-        $http.put('/user/' + $rootScope.currentUser.userID, data);
+        if (!$rootScope.currentUser) {
+          $http.put('/user/' + 1337, data);
+        } else {
+          $http.put('/user/' + $rootScope.currentUser.userID, data);
+        }
       };
 
       var deletePersonal = function(id) {
@@ -39,6 +51,20 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
       };
 
       $rootScope.fbToken.promise.then(fetchPersonal);
+
+
+      $scope.displayPersonal = function (evnt, data) {
+        var $target = $(evnt.currentTarget);
+
+        console.log('Data in displayPersonal: ' , data);
+        var WidgetModal = $modal.open({
+          templateUrl: '/views/widgets/modals/modal.qrcode.html',
+          scope: $target.scope()
+        });
+      };
+
+      $scope.qrSizeModal = $(window).height()/2;
+      $scope.qrSizeWidget =  $(window).height()/5;
       /*$FB.getLoginStatus().then(function(response) {
         if(response.authResponse.accessToken) {
           fetchPersonal(response.authResponse.accessToken);

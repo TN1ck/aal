@@ -3,6 +3,7 @@ package jiac.beans;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.google.gson.Gson;
 
@@ -84,6 +85,26 @@ public class TodoBean extends AbstractCommunicatingBean {
 			}
 		}	
 	}
+	
+	public void deleteTodo(int userID, int id) {
+		ArrayList<IAgentDescription> agentDescriptions = (ArrayList<IAgentDescription>) thisAgent.searchAllAgents(new AgentDescription());
+		
+		String receiverID = null;
+		for (IAgentDescription agent : agentDescriptions) {
+			if (agent.getName().equals(agentName)) {
+				IMessageBoxAddress receiver = agent.getMessageBoxAddress();
+				receiverID = agent.getAid();
+			
+				log.info("");
+				log.info("sending DeleteTodo to: " + receiver);
+				log.info("");
+				log.info("");
+				// sending a test todo
+				JiacMessage delTodo = new JiacMessage(new DeleteTodo(thisAgent.getAgentId(), receiverID,userID,id));
+				invoke(sendAction, new Serializable[] { delTodo, receiver });
+			}
+		}	
+	}
 
 
 	@Override
@@ -125,6 +146,14 @@ public class TodoBean extends AbstractCommunicatingBean {
 	protected void receiveMessage(Message message) {
 		if(message instanceof TodoData){
 			TodoData todo = ((TodoData) message);
+			
+			
+			List<TodoItem> items = todo.getItems();
+			
+			for (TodoItem i : items) {
+				log.info("Todo: " + i.text + " p: " + i.prio);
+			}
+			
 			String json = gson.toJson(todo);
 			log.info("TodoAgent - received Todos: " + json);
 			ASingleton.sendData(ASingleton.Sockets.TODO, json);

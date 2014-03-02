@@ -17,7 +17,6 @@ app.directive('widgetNews', function(Websocket, TextTransmission, $http, $rootSc
     },
     link: function($scope) {
 			TextTransmission.fetchDataForWall(function(data) {
-        console.log('News: ' ,data);
 				$scope.data = data.data.news;
 			}, $scope.socket);
       
@@ -33,10 +32,6 @@ app.directive('widgetNews', function(Websocket, TextTransmission, $http, $rootSc
         var WidgetModal = $modal.open({
           templateUrl: '/views/widgets/modals/modal.news.html',
           scope: $target.scope()
-        });
-
-        WidgetModal.result.then(function(data){
-          console.log('RESULT FOR NEWS WIDGET');
         });
       };
 

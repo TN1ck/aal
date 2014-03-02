@@ -92,7 +92,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 			}
 			log.info("ALLOWED: " + user.allowed + " GestureAgent - received Gesture: " + gesture);
 			switch(gesture) {
-			case "screen_toggle":
+			/*case "screen_toggle":
 				if (user.allowed) {
 					pressKey(KeyEvent.VK_2);					
 				}
@@ -149,11 +149,73 @@ public class GestureBean extends AbstractCommunicatingBean {
 				break;
 			case "both_top!hand_both":
 				if (user.allowed) {
-					pressKey(KeyEvent.VK_0);
+					pressKey(KeyEvent.VK_ESCAPE);
 				}
 				
 			case "blocking":
 				user.setAllowed(!user.allowed);
+				ASingleton.sendData(ASingleton.Sockets.ADD_USER, gson.toJson(user));
+				log.info("BLOCKING: " + user.allowed + " NITEID: " + user.niteID);
+				break;*/
+
+				case "display_menu":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_2);					
+				}
+				break;
+			case "tab_up": 
+				if (user.allowed) {					
+					pressKey(KeyEvent.VK_UP);
+				}
+				break;
+			case "scroll_right":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_RIGHT);					
+				}
+				break;
+			case "scroll_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_LEFT);					
+				}
+				break;
+			case "tab_right":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_RIGHT);					
+				}
+				break;
+			case "tab_left":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_LEFT);					
+				}
+				break;
+			case "tab_down":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_DOWN);					
+				}
+				break;
+			case "enter":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_ENTER);					
+				}
+				break;
+			case "escape":
+				if (user.allowed) {
+					pressKey(KeyEvent.VK_ESCAPE);
+				}
+
+			case "social_graph":
+				if (user.allowed) {
+					//TODO
+				}
+
+			case "user_selection":
+				if (user.allowed) {
+					//TODO
+				}
+				
+			case "toggle_block_gestures":
+				user.setAllowed(!user.allowed);
+				ASingleton.sendData(ASingleton.Sockets.ADD_USER, gson.toJson(user));
 				log.info("BLOCKING: " + user.allowed + " NITEID: " + user.niteID);
 				break;
 				

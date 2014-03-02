@@ -51,8 +51,8 @@ appControllers.controller('AuthCtrl',
       case KEYMAPPING.ENTER:
         $buttons = $('.buttons').find('.btn');
         $('.buttons').find('.btn-primary').click();
-        var nextLocation = $('.buttons').find('.btn-primary').attr('ui-sref');
-        $state.transitionTo(nextLocation);
+        // var nextLocation = $('.buttons').find('.btn-primary').attr('ui-sref');
+        // $state.transitionTo(nextLocation);
         break;
 
       }
@@ -98,6 +98,7 @@ appControllers.controller('AuthCtrl',
           // makeSnapshot('step2');
           $scope.countDown(2, 100, 'step3countdown', function() {
             $scope.step++;
+            $state.transitionTo('wrapper.waiting');
             // makeSnapshot('step3');
           });
         });
@@ -154,17 +155,19 @@ appControllers.controller('AuthCtrl',
 
     // Get IP of Mobile site and generate Data for QR-Code
 
-      $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
-        function(data){
-          $scope.displayUrl = 'http://' + data.host + '/index.html#/mobile';
-          $scope.url = 'http://' + data.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
-        }
-      );
+      // $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
+      //   function(data){
+      //     $scope.displayUrl = 'http://' + data.host + '/index.html#/mobile';
+      //     $scope.url = 'http://' + data.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
+      //   }
+      // );
 
-    // $scope.url = 'http://' + document.location.host + '/index.html#/mobile';
-    $scope.version = 4;
-    $scope.level = 'L';
-    $scope.size = $(window).height()/3;
+    $rootScope.url = 'https://' + document.location.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
+    $rootScope.displayUrl = 'https://' + document.location.host + '/index.html#/mobile';
+
+    $rootScope.version = 4;
+    $rootScope.level = 'L';
+    $rootScope.size = $(window).height()/3;
 
 
   });

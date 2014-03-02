@@ -86,6 +86,7 @@ public class NewsBean extends AbstractCommunicatingBean {
 		receiveMessage(testMess);
 		
 		*/
+		
 	}
 	
 	

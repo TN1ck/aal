@@ -1,6 +1,6 @@
 'use strict';
 
-/* global angular */
+/* global angular, moment */
 
 var app = angular.module('angularApp');
 
@@ -17,8 +17,6 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
     },
     link: function($scope) {
 
-      $scope.data = $rootScope.mailData;
-
       TextTransmission.fetchTextForWall(function(data) {
         if(data.data === 'newMail'){
           try {
@@ -31,8 +29,7 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
 
 	    TextTransmission.fetchDataForWall(function(data) {
         // the length is a hack
-        if (!$rootScope.mailData || $rootScope.mailData.length !== data.data.mails.length) {
-          $rootScope.mailData = data.data.mails;
+        if (!$scope.data || $scope.data.length !== data.data.mails.length) {
           $scope.data = data.data.mails;
         }
 	    },$scope.socket);
@@ -58,7 +55,7 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
       };
 
       // initially fetch the mails
-      fetchMail();
+      $scope.data = fetchMail();
 
       $scope.newMail = function() {
 
@@ -81,6 +78,10 @@ app.directive('widgetMail', function(TextTransmission, $http, $modal, $rootScope
           scope: $target.scope()
         });
       };
+
+      moment.lang('de');
+      $scope.moment = moment;
+
 		}
   };
 });

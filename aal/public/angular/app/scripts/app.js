@@ -37,9 +37,19 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .state('wrapper.social', {
+        url: '/socialgraph',
+        templateUrl: 'views/socialgraph.html',
+        controller: 'MainCtrl'
+      })
       .state('wrapper.nouser', {
         url: '/nouser',
         templateUrl: 'views/nouser.html',
+        controller: 'MainCtrl'
+      })
+      .state('wrapper.waiting', {
+        url: '/waiting',
+        templateUrl: 'views/waiting.html',
         controller: 'MainCtrl'
       })
       .state('wrapper.toygamer', {
@@ -120,5 +130,14 @@ angularApp.config(function($urlRouterProvider, $stateProvider, $FBProvider) {
       .state('wrapper.auth.train', {
         url: '/train',
         templateUrl: 'views/auth/train.html'
+      })
+      .state('wrapper.auth.userselect', {
+        url: '/userselect',
+        templateUrl: 'views/auth/userselect.html'
+      })
+      .state('test', {
+        url: '/test',
+        templateUrl: 'views/test.html',
+        controller: 'TestCtrl'
       });
   });

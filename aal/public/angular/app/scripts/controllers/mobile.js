@@ -48,6 +48,7 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
             $state.transitionTo('wrapper.mobile.calendar');
           } else if(data.data === 'wrapper.mobile.navigation'){
             $state.transitionTo('wrapper.mobile.navigation');
+            console.log('CurrentState: ', $state);
           } else if(data.data === 'wrapper.mobile.mail') {
             $state.transitionTo('wrapper.mobile.mail');
           }
@@ -68,11 +69,14 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
       //   });
 
       $scope.$watchCollection('modal', function () {
-        console.log('model listener');
-        TextTransmission.deliverTextForWall($scope.modal);
+        //console.log('model listener', $scope.modal);
+        if ($scope.modal) {
+          TextTransmission.deliverTextForWall($scope.modal);
+        }
       });
 
       $scope.cancel = function () {
+        $scope.modal = undefined;
         TextTransmission.deliverTextForWall('cancel');
       };
 
@@ -116,15 +120,23 @@ appControllers.controller('MobileCtrl', ['$scope', 'TextTransmission','$state','
       };
 
       $scope.fbLogin = function () {
-        $FB.login(null, {
-          scope: 'email, user_likes, read_stream, publish_actions, publish_stream'
-        }).then(function(response) {
-          if (response.authResponse) {
+        $FB.getLoginStatus()
+          .then(function(response) {
             if (response.status === 'connected') {
+              //TODO: send token
               TextTransmission.deliverTextForWall(response.authResponse.accessToken, 'FBAUTH');
+            } else {
+              $FB.login(null, {
+                scope: 'email, user_likes, read_stream, publish_actions, publish_stream'
+              }).then(function(response) {
+                if (response.authResponse) {
+                  if (response.status === 'connected') {
+                    TextTransmission.deliverTextForWall(response.authResponse.accessToken, 'FBAUTH');
+                  }
+                }
+              });
             }
-          }
-        });
+          });
       };
 
     }

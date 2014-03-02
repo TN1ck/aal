@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
+app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialComparison) {
 
   var checkIfPostHasBeenLiked = function(myFacebookId, post) {
     if (post.likes === undefined) {
@@ -16,14 +16,14 @@ app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
       }
     }
     return false;
-  }
+  };
 
   var iterateThroughPosts = function(myFacebookId, posts) {
     for (var i=0; i<posts.length; i++) {
       posts[i].alreadyLiked = checkIfPostHasBeenLiked(myFacebookId, posts[i]);
     }
     return posts;
-  }
+  };
 
   var createMapFromPostToAlreadyLiked = function(posts) {
     var mappingOfLikedPosts = {};
@@ -31,7 +31,7 @@ app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
       mappingOfLikedPosts[posts[i].id] = posts[i].alreadyLiked;
     }
     return mappingOfLikedPosts;
-  }
+  };
 
   var social = $q.defer(),
       colors,
@@ -75,6 +75,23 @@ app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
     });
   };
 
+  var logoutFB = function (response) {
+    // we are not logged in so we cant log out
+    if (!response.session) {
+      console.log('NOW we are logged out!');
+      social.reject('test');
+      return;
+    }
+    // we have to do this loop to make sure fb really destroys our session
+    $FB.logout(logoutFB);
+  };
+
+  // $FB.provide('', {
+  //   'setAccessToken': function(a) {
+  //     this._authResponse = { 'accessToken': a };
+  //   }
+  // });
+// Usage
   $FB.getLoginStatus()
     .then(function(response) {
       if (response.status === 'connected') {
@@ -86,17 +103,19 @@ app.factory('WidgetData', function(SocialComparison, $FB, $q, $rootScope) {
 
   widgets = [
     {name: 'news', color: '#D65B3C', socket: 'NEWS'},
-    {name: 'mail', color: '#AE8EA7', socket: 'MAIL'},
+    {name: 'mail', color: '#D77F47', socket: 'MAIL'},
     {name: 'calendar', color: '#D9AA5A', socket: 'CALENDAR'},
-    {name: 'personal', color: '#D77F47', socket: 'FACEBOOK'},
-    {name: 'social', color: '#70BE8A', socket: 'SOCIAL'},
-    {name: 'todo', color: '#19806E', socket: 'TODO'},
-    {name: 'debug', color: '#D77F47', socket: 'DEBUG'}
+    {name: 'personal', color: '#2980b9', socket: 'FACEBOOK'},
+    {name: 'social', color: '#19806E', socket: 'SOCIAL'},
+    {name: 'todo', color: '#AE8EA7', socket: 'TODO'},
+    {name: 'debug', color: '#bdc3c7', socket: 'DEBUG'}
+
   ];
 
   colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#2980b9', '#19806E', '#AE8EA7', '#bdc3c7'];
 
   return {
+    logoutFB: logoutFB,
     updateApiCall: updateApiCall,
     social: social.promise,
     colors: colors,

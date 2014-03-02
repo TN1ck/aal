@@ -27,7 +27,7 @@ app.directive('widgetDebug', function(TextTransmission, $rootScope) {
         console.log('key received: ', data.data);
         $scope.keys.push(data.data);
         $scope.gestureCounter++;
-        if ($scope.keys.length > 5) {
+        if ($scope.keys.length > 3) {
           $scope.keys.shift();
         }
       }, 'DEBUG_KEYS');

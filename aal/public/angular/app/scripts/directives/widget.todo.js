@@ -17,8 +17,6 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
     },
     controller: function($scope, $modal) {
 
-      $scope.data = $rootScope.todoData;
-
       TextTransmission.fetchTextForWall( function(data) {
         if(data.data === 'addTodo'){
           try {
@@ -33,8 +31,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
       TextTransmission.fetchDataForWall(function(data) {
         console.log('TODO: ', data);
         // the length is a hack
-        if (!$rootScope.todoData || $rootScope.todoData.length !== data.data.items.length) {
-          $rootScope.todoData = data.data.items;
+        if (!$scope.data || $scope.data.length !== data.data.items.length) {
           $scope.data = data.data.items;
           console.log('TODO.scope: ', $scope.data);
         }
@@ -62,7 +59,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
       };
 
       // initially fetch todos
-      fetchTodo();
+      $scope.data = fetchTodo();
 
       $scope.lastShownTodo = null;
 
@@ -122,7 +119,7 @@ app.directive('widgetTodo', function(TextTransmission, $compile, $http, $timeout
         $scope.data.forEach(function (element,index,array) {
           console.log('Current element: ', element);
           if( JSON.stringify(element) === JSON.stringify(data)){
-            console.log('I can now remove');
+            console.log('I can now remove', element.id);
             $scope.data.splice(index, 1);
             deleteTodo(element.id);
           }

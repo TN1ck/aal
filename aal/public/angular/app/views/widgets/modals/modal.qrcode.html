@@ -1,9 +1,8 @@
 <div class="row">
     <div class="col-xs-12 auth header" style="font-weight: 200; font-size: 3em;">
-        {{data.title}}
+        QR-Code
     </div>
     <div class="col-xs-12 modal-col separation-border" style="font-size: 2em; padding-top: .5em; margin-top: .5em">
-        {{data.description}}
-        <center class="margin-tp"><img ng-src="{{data.enclosure}}" style="float: left;"/></center>
+		<center><qrcode version="4" error-correction-level="L" size="{{qrSizeModal}}" data="{{'https://' + document.location.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId}}"></qrcode></center>
     </div>
 </div>
