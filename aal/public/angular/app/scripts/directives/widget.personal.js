@@ -22,12 +22,20 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
 			}, $scope.socket);
 
       var fetchPersonal = function(token) {
-        if (!$rootScope.currentUser) {
-          $http.get('/user/' + 1337 + '/' + token);
-        } else {
-          $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
-        }
+        /*if (token === '') {
+          if (!$rootScope.currentUser) {
+            $http.get('/user/' + 1337);
+          } else {
+            $http.get('/user/' + $rootScope.currentUser.userID);
+          }
+        } else {*/
+          if (!$rootScope.currentUser) {
+            $http.get('/user/' + 1337 + '/' + token);
+          } else {
+            $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
+          }
         console.log(token);
+        //}
       };
 
       var putPersonal = function(data) {
