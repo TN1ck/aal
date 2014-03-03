@@ -55,9 +55,6 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
       };
 
       fetchPersonal('');
-      if ($rootScope.fbToken) {
-        $rootScope.fbToken.promise.then(fetchPersonal);
-      }
 
 
       $scope.displayPersonal = function (evnt, data) {

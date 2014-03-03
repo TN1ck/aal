@@ -6,7 +6,7 @@ var appControllers = angular.module('appControllers', []);
 
 
 appControllers.controller('MainCtrl',
-  function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
+  function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state, widgetPersonal) {
 
     WidgetData.compareTwoPersons.then(function(result) {
       $rootScope.comparedData = result.call(this, 'maximilian.bachl', 'nyelkenci', function(data) {
@@ -306,13 +306,11 @@ appControllers.controller('MainCtrl',
           }
         }
       }, 'REMOVE_USER');
-
-      // $rootScope.fbToken = $q.defer;
       
       TextTransmission.fetchTextForWall(function(data) {
           try {
             console.log('DATEN EMPFANGEN');
-            // $rootScope.fbToken.resolve(data.data);
+            widgetPersonal.fetchPersonal(data.data);
             WidgetData.updateApiCall(data.data);
           } catch (e) {
             console.log(e);
