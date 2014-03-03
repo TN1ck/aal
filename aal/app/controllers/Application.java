@@ -215,6 +215,7 @@ public class Application extends Controller {
 					final WebSocket.Out<String> out) {
 
 				outSockets.add(out); // add to outSockets, this could be changed
+				System.out.println("added websocket " + out);
 										// in the future, used for jiac-stuff
 				inToOut.put(in, out);
 
