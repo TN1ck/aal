@@ -1,0 +1,620 @@
+2014-02-13 21:21:40,115 WARN [n-7c94de687b2] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-02-13 21:21:41,422 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - starting....
+2014-02-13 21:21:41,423 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - my ID: a-7c8fcb411e1
+2014-02-13 21:21:41,424 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - my Name: GestureTestAgent
+2014-02-13 21:21:41,426 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - my Node: ApplicationNode
+2014-02-13 21:21:41,430 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - send action provider bean: de.dailab.jiactng.agentcore.comm.CommunicationBean@35060a12
+2014-02-13 21:21:41,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:41,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:41,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:42,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:42,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:42,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:43,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:43,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:43,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:43,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:43,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:43,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:43,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:44,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:44,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:44,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:44,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:44,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:44,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:44,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:45,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:45,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:45,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:45,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:45,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:45,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:45,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:45,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:45,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:45,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:45,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:46,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:46,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:46,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:46,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:46,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:46,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:46,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:46,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:46,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:46,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:46,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:47,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:47,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:47,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:47,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:47,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:47,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:47,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:47,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:47,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:47,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:47,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:48,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:48,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:48,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:48,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:48,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:48,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:48,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:48,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:48,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:48,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:48,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:49,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:49,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:49,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:49,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:49,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:49,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:49,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:49,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:49,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:49,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:49,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:50,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:50,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:50,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:50,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:50,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:50,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:50,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:50,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:50,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:50,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:50,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:51,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:51,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:51,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:51,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:51,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:51,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:51,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:51,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:51,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:51,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:51,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:52,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:52,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:52,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:52,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:52,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:52,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:52,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:52,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:52,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:52,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:52,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:53,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:53,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:53,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:53,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:53,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:53,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:53,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:53,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:53,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:53,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:53,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:54,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:54,449 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:54,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:54,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:54,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:54,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:54,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:54,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:54,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:54,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:54,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:55,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:55,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:55,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:55,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:55,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:55,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:55,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:55,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:55,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:55,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:55,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:56,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:56,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:56,450 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:56,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:56,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:56,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:56,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:56,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:56,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:56,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:56,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:57,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:57,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:57,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:57,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:57,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:57,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:57,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:57,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:57,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:57,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:57,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:58,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:58,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:58,451 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:58,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:58,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:58,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:58,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:58,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:58,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:58,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:58,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:59,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:21:59,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:21:59,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:21:59,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:59,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:59,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:21:59,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:21:59,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:21:59,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:21:59,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:21:59,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:00,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:00,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:00,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:00,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:00,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:00,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:00,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:00,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:00,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:00,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:22:00,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:01,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:01,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:01,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:01,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:01,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:01,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:01,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:01,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:01,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:01,456 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:22:01,456 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:02,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:02,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:02,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:02,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:02,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:02,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:02,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:02,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:02,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:02,456 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:22:02,456 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:03,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:03,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:03,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:03,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:03,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:03,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:03,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:03,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:03,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:03,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:22:03,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:04,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:04,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:04,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:04,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:04,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:04,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:04,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:04,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:04,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:04,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:22:04,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:05,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:05,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:05,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:05,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:05,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:05,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:05,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:05,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:05,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:05,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:22:05,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:06,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:06,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:06,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:06,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:06,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:06,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:06,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:06,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:06,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:06,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:22:06,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:07,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:07,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:07,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:07,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:07,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:07,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:07,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:07,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:07,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:07,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-7992dab6fa0/a-79954cdd2d4
+2014-02-13 21:22:07,456 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:08,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:08,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:08,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:08,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:08,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:08,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:08,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:09,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:09,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:09,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:09,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:09,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:09,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:09,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:10,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:10,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:10,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:10,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:10,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:10,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:10,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:11,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:11,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:11,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:11,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:11,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:11,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:11,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:12,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:12,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:12,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:12,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:12,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:12,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:12,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:13,452 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:13,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:13,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:13,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:13,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:13,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:13,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:14,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:14,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:14,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:14,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:14,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:14,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:14,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:15,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:15,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:15,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:15,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:15,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:15,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:15,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:15,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:15,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-13528654d18eed12/a-13528654b8f6155b
+2014-02-13 21:22:15,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:15,456 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:16,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:16,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:16,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:16,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:16,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:16,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:16,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:16,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:16,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-13528654d18eed12/a-13528654b8f6155b
+2014-02-13 21:22:16,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:16,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:17,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:17,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:17,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:17,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:17,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:17,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:17,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:17,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:17,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-13528654d18eed12/a-13528654b8f6155b
+2014-02-13 21:22:17,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:17,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:18,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:18,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:18,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:18,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:18,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:18,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:18,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:18,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:18,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-13528654d18eed12/a-13528654b8f6155b
+2014-02-13 21:22:18,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:18,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:19,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:19,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:19,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:19,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:19,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:19,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:19,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:19,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:19,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-13528654d18eed12/a-13528654b8f6155b
+2014-02-13 21:22:19,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:19,456 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:20,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:20,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:20,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:20,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:20,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:20,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:20,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:20,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:20,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-13528654d18eed12/a-13528654b8f6155b
+2014-02-13 21:22:20,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:20,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:21,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:21,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:21,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:21,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:21,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:21,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:21,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:21,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:21,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-13528654d18eed12/a-13528654b8f6155b
+2014-02-13 21:22:21,456 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:21,456 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:22,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:22,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:22,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:22,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:22,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:22,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:22,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:22,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:22,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-13528654d18eed12/a-13528654b8f6155b
+2014-02-13 21:22:22,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:22,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:23,453 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestAgent - execute
+2014-02-13 21:22:23,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-13 21:22:23,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-13 21:22:23,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:23,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-785bf92bd7f/a-78602138e0a
+2014-02-13 21:22:23,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:23,454 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:23,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: GestureAgent
+2014-02-13 21:22:23,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - sending Gesture to: msgbox:n-13528654d18eed12/a-13528654b8f6155b
+2014-02-13 21:22:23,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: TodoAgent
+2014-02-13 21:22:23,455 INFO [n-7c94de687b2.a-7c8fcb411e1.GestureTestBean] - GestureTestBean - searching agent: DatabaseMockupAgent
+2014-02-13 21:22:24,656 ERROR [n-7c94de687b2.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node ApplicationNode as JMX resource.
+2014-02-13 21:22:24,656 ERROR [n-7c94de687b2.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-7c94de687b2,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-02-14 14:00:09,105 WARN [n-1437d11773b] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-02-14 14:00:09,869 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - starting....
+2014-02-14 14:00:09,870 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - my ID: a-1434db137cf
+2014-02-14 14:00:09,870 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - my Name: GestureTestAgent
+2014-02-14 14:00:09,871 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - my Node: ApplicationNode
+2014-02-14 14:00:09,872 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - send action provider bean: de.dailab.jiactng.agentcore.comm.CommunicationBean@29f0a0a2
+2014-02-14 14:00:10,249 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:10,249 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:10,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:11,249 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:11,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:11,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:12,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:12,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:12,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:13,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:13,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:13,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:14,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:14,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:14,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:15,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:15,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:15,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:16,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:16,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:16,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:17,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:17,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:17,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:18,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:18,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:18,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:19,250 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:19,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:19,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:20,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:20,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:20,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:21,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:21,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:21,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:22,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:22,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:22,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:23,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:23,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:23,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:24,251 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:24,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:24,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:25,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:25,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:25,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:26,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:26,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:26,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:27,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:27,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:27,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:28,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:28,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:28,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:29,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:29,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:29,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:30,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:30,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:30,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:31,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:31,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:31,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:32,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:32,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:32,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:33,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:33,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:33,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:34,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:34,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:34,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:35,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:35,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:35,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:36,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:36,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:36,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:37,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:37,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:37,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:38,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:38,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:38,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:39,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:39,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:39,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:40,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:40,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:40,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:41,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:41,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:41,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:42,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:42,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:42,252 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:43,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:43,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:43,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:44,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:44,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:44,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:45,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:45,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:45,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:46,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:46,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:46,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:47,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:47,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:47,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:48,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:48,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:48,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:49,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:49,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:49,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:50,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:50,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:50,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:51,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:51,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:51,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:52,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:52,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:52,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:53,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:53,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:53,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:54,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:54,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:54,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:55,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:55,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:55,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:56,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:56,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:56,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:57,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:57,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:57,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:58,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:58,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:58,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:00:59,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:00:59,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:00:59,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:01:00,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:01:00,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:01:00,255 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:01:01,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:01:01,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:01:01,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:01:02,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:01:02,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:01:02,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:01:03,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:01:03,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:01:03,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:01:04,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:01:04,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:01:04,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:01:05,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:01:05,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:01:05,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:01:06,253 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:01:06,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:01:06,254 INFO [n-1437d11773b.a-1434db137cf.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:01:07,079 ERROR [n-1437d11773b.StandardJMSBroker] - WARNING: Unable to deregister transport connector tcp://0.0.0.0:0 of the broker of agent node ApplicationNode as JMX resource.
+2014-02-14 14:01:07,079 ERROR [n-1437d11773b.StandardJMSBroker] - de.dailab.jiactng:category1=AgentNode,agentnode=n-1437d11773b,category2=agentNodeBean,agentnodebean=StandardJMSBroker,category3=TransportConnector,resource="tcp://0.0.0.0:0"
+2014-02-14 14:08:18,298 WARN [n-1b5633caef7] - JIAC version: JIAC TNG Agent Core version 5.1.4 (01.08.2013 17:23:34) (DAI-Labor, TU Berlin)
+2014-02-14 14:08:18,949 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestBean - starting....
+2014-02-14 14:08:18,949 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestBean - my ID: a-1b53213710a
+2014-02-14 14:08:18,950 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestBean - my Name: GestureTestAgent
+2014-02-14 14:08:18,950 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestBean - my Node: ApplicationNode
+2014-02-14 14:08:18,952 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestBean - send action provider bean: de.dailab.jiactng.agentcore.comm.CommunicationBean@2c661664
+2014-02-14 14:08:19,411 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:08:19,411 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:08:19,412 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent
+2014-02-14 14:08:20,411 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestAgent - execute
+2014-02-14 14:08:20,411 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestBean - try sending gesture: MENU
+2014-02-14 14:08:20,411 INFO [n-1b5633caef7.a-1b53213710a.GestureTestBean] - GestureTestBean - searching agent: GestureTestAgent

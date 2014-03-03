@@ -38,7 +38,7 @@ public class Application extends Controller {
 	}
 
 	/*
-	 * JI97AC COMMUNICATION VIA HTTP STARTS HERE
+	 * JIAC COMMUNICATION VIA HTTP STARTS HERE
 	 */
 
 	public static Result getTodo(int uid, int id) {

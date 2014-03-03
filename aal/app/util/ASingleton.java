@@ -5,7 +5,10 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
+import org.eclipse.jetty.util.log.Log;
+
 import models.User;
+import play.Logger;
 import play.mvc.*;
 import play.mvc.WebSocket.Out;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
@@ -33,9 +36,11 @@ public final class ASingleton {
     }
     
     public static void sendData(Sockets id, String json) {
-        if (!json.equals("")) {
+        Logger.info("nr. Websockets: " + outSockets.size());
+    	if (!json.equals("")) {
             for (WebSocket.Out<String> socket : outSockets) {
                 socket.write(""+id+":"+json);
+                //socket.close();
             }
         }
         
