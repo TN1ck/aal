@@ -25,7 +25,7 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
         }
 			}, $scope.socket);
 
-      var fetchPersonal = function(token) {
+      /*var fetchPersonal = function(token) {
         if (token === '') {
           if (!$rootScope.currentUser) {
             $http.get('/user/' + 1337);
@@ -40,7 +40,7 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
           }
         console.log('FBToken: ' + token);
         }
-      };
+      };*/
 
       var putPersonal = function(data) {
         if (!$rootScope.currentUser) {
@@ -54,10 +54,9 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
         $http.put('/user/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
-      fetchPersonal('');
-      if ($rootScope.fbToken) {
-        $rootScope.fbToken.promise.then(fetchPersonal);
-      }
+      console.log('Wir versuchen jetzt persönliche Daten zu holen');
+      WidgetData.fetchPersonal('');
+      console.log('Jetzt sollten Daten verfügbar sein');
 
 
       $scope.displayPersonal = function (evnt, data) {

@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialComparison, TextTransmission) {
+app.factory('WidgetData', function(Persistence, $http, $FB, $q, $rootScope, SocialComparison, TextTransmission) {
 
   var checkIfPostHasBeenLiked = function(myFacebookId, post) {
     if (post.likes === undefined) {
@@ -37,6 +37,25 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
       colors,
       widgets,
       compareTwoPersons = $q.defer();
+
+  var fetchPersonal = function(token) {
+        if (token === '') {
+          console.log('Hole persönliche Daten ohne Token');
+          if (!$rootScope.currentUser) {
+            $http.get('/user/' + 1337);
+          } else {
+            $http.get('/user/' + $rootScope.currentUser.userID);
+          }
+        } else {
+          if (!$rootScope.currentUser) {
+            console.log('Hole persönliche Daten mit Token');
+            $http.get('/user/' + 1337 + '/' + token);
+          } else {
+            $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
+          }
+        console.log('FBToken: ' + token);
+        }
+      };
 
   var updateApiCall = function (token) {
 
@@ -147,6 +166,7 @@ app.factory('WidgetData', function(Persistence, $FB, $q, $rootScope, SocialCompa
   colors = ['#D65B3C', '#D77F47', '#D9AA5A', '#2980b9', '#19806E', '#AE8EA7', '#bdc3c7'];
 
   return {
+    fetchPersonal: fetchPersonal,
     logoutFB: logoutFB,
     logoutFB2nd: logoutFB2nd,
     updateApiCall: updateApiCall,

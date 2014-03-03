@@ -306,13 +306,11 @@ appControllers.controller('MainCtrl',
           }
         }
       }, 'REMOVE_USER');
-
-      // $rootScope.fbToken = $q.defer;
       
       TextTransmission.fetchTextForWall(function(data) {
           try {
-            console.log('DATEN EMPFANGEN');
-            // $rootScope.fbToken.resolve(data.data);
+            console.log('Neuer Facebook-AccessToken wurde empfangen');
+            WidgetData.fetchPersonal(data.data);
             WidgetData.updateApiCall(data.data);
           } catch (e) {
             console.log(e);
