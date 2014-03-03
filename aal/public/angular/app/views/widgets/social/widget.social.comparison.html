@@ -1,10 +1,25 @@
-<div class="row full-height">
-  <div class="col-md-6 row-md-1 widget {{css}}"><widget-h1 class="stick-bottom">
-  	Social Graph</widget-h1>
-  </div>
-  <div ng-repeat="(category, things) in data">
-  	<h2>{{category}}</h2>
-  	<p ng-repeat="commonThing in things track by $index">{{commonThing.name}}</p>
-  </div>
-  <div ng-hide="data" class="spinner"></div>
+<div class="row full-height col-md-12 social-graph">
+    <div class="col-md-1 full-height social-graph-name" style="background-color: {{data.personInfo.color}};">
+        <div class="glyphicon glyphicon-user"></div>
+        <div class="social-graph-person">
+        {{data.personInfo[0].name}}
+        </div>
+    </div>
+    <div class="col-md-10 full-height social-graph-list">
+        <table>
+            <tr ng-repeat="(category, things) in data.data" ng-if="data.data[category].length > 0" style="background-color: {{data.data[category].color}};">
+                <td>
+                    <div><strong class="social-graph-heading">{{category}}</strong></div>
+                    <span ng-repeat="commonThing in things track by $index">{{commonThing.name}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-1 full-height social-graph-name" style="background-color: {{data.personInfo.color}};">
+        <div class="glyphicon glyphicon-user"></div>
+        <div class="social-graph-person">
+        {{data.personInfo[1].name}}
+        </div>
+    </div>
+    <div ng-hide="data" class="spinner"></div>
 </div>
