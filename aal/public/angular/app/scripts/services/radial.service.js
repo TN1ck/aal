@@ -5,7 +5,7 @@
 var app = angular.module('angularApp');
 
 
-app.factory('RadialService', function($rootScope, WidgetData) {
+app.factory('RadialService', function($rootScope, WidgetData, $state) {
 
   var KEYMAPPING = {
     LEFT: 37,
@@ -13,7 +13,9 @@ app.factory('RadialService', function($rootScope, WidgetData) {
     UP: 38,
     DOWN: 40,
     TOGGLE: 50,
-    SELECT: 13
+    SELECT: 13,
+    SOCIALGRAPH: 53,
+    USERSELECT: 54
   };
 
   var Menu = function(dict) {
@@ -331,6 +333,14 @@ app.factory('RadialService', function($rootScope, WidgetData) {
         markElem();
         break;
 
+      case KEYMAPPING.SOCIALGRAPH:
+        console.log('SOCIALGRAPH key pressed');
+        $state.transitionTo('wrapper.social');
+        break;
+
+      case KEYMAPPING.USERSELECT:
+        console.log('USERSELECT key pressed');
+        $state.transitionTo('wrapper.auth.userselect');
       }
 
     });

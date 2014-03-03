@@ -167,6 +167,10 @@ appControllers.controller('AuthCtrl',
 
     $scope.user = user.get;
 
+    var recognizeAgain = function(nid) {
+      $http.get('/recognize/' + nid);
+    };
+
 
     // Get IP of Mobile site and generate Data for QR-Code
 
