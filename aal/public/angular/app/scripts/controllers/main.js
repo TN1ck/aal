@@ -6,7 +6,7 @@ var appControllers = angular.module('appControllers', []);
 
 
 appControllers.controller('MainCtrl',
-  function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state, widgetPersonal) {
+  function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
 
     WidgetData.compareTwoPersons.then(function(result) {
       $rootScope.comparedData = result.call(this, 'maximilian.bachl', 'nyelkenci', function(data) {
@@ -310,7 +310,7 @@ appControllers.controller('MainCtrl',
       TextTransmission.fetchTextForWall(function(data) {
           try {
             console.log('DATEN EMPFANGEN');
-            widgetPersonal.fetchPersonal(data.data);
+            WidgetData.fetchPersonal(data.data);
             WidgetData.updateApiCall(data.data);
           } catch (e) {
             console.log(e);
