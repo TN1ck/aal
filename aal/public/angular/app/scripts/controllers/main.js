@@ -309,7 +309,7 @@ appControllers.controller('MainCtrl',
       
       TextTransmission.fetchTextForWall(function(data) {
           try {
-            console.log('DATEN EMPFANGEN');
+            console.log('Neuer Facebook-AccessToken wurde empfangen');
             WidgetData.fetchPersonal(data.data);
             WidgetData.updateApiCall(data.data);
           } catch (e) {

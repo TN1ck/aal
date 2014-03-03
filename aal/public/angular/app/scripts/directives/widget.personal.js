@@ -54,7 +54,9 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
         $http.put('/user/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
-      $scope.data = WidgetData.fetchPersonal('');
+      console.log('Wir versuchen jetzt persönliche Daten zu holen');
+      WidgetData.fetchPersonal('');
+      console.log('Jetzt sollten Daten verfügbar sein');
 
 
       $scope.displayPersonal = function (evnt, data) {

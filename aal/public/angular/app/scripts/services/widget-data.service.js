@@ -40,6 +40,7 @@ app.factory('WidgetData', function(Persistence, $http, $FB, $q, $rootScope, Soci
 
   var fetchPersonal = function(token) {
         if (token === '') {
+          console.log('Hole persönliche Daten ohne Token');
           if (!$rootScope.currentUser) {
             $http.get('/user/' + 1337);
           } else {
@@ -47,6 +48,7 @@ app.factory('WidgetData', function(Persistence, $http, $FB, $q, $rootScope, Soci
           }
         } else {
           if (!$rootScope.currentUser) {
+            console.log('Hole persönliche Daten mit Token');
             $http.get('/user/' + 1337 + '/' + token);
           } else {
             $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
