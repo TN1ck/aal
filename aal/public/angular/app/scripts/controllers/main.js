@@ -305,6 +305,8 @@ appControllers.controller('MainCtrl',
         }
       }, 'REMOVE_USER');
 
+      $rootScope.fbToken = q.defer;
+      
       TextTransmission.fetchTextForWall(function(data) {
           try {
             console.log('DATEN EMPFANGEN');

@@ -195,7 +195,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 				break;
 			case "enter":
 				if (user.allowed) {
-					pressKey(KeyEvent.VK_9);
+					//pressKey(KeyEvent.VK_9);
 					pressKey(KeyEvent.VK_ENTER);					
 				}
 				break;
