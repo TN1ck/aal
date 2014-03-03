@@ -187,9 +187,11 @@ public class Application extends Controller {
 	}
 
 	public static Result recognize(int nid) {
+		Logger.info("starting to send recognize again");
 		for (AbstractAgentBean agent : ASingleton.agents) {
 			if (agent instanceof GestureBean) {
 				((GestureBean) agent).recognize(nid, false);
+				Logger.info("sent recognize again");
 			}
 		}
 		return ok("ok");
