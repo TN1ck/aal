@@ -164,9 +164,10 @@ appControllers.controller('MainCtrl',
 
 
       TextTransmission.fetchDataForWall(function (data) {
-        console.log(data.data, $state.current.name, $rootScope.currentUser, $rootScope.knownUsers, $rootScope.unknownUsers);
-        console.log('isKnown: ', isKnown(data.data), 'isUnknown: ', isUnknown(data.data), 'isUndetected: ', isUndetected(data.data));
+        // console.log(data.data, $state.current.name, $rootScope.currentUser, $rootScope.knownUsers, $rootScope.unknownUsers);
+        // console.log('isKnown: ', isKnown(data.data), 'isUnknown: ', isUnknown(data.data), 'isUndetected: ', isUndetected(data.data));
 
+        console.log('ADD_USER:', data);
         if ($rootScope.knownUsers.length === 0 && $rootScope.unknownUsers.length === 0 && data.data.userID === -2) {
           $state.transitionTo('wrapper.auth.loading');
         }
@@ -238,6 +239,7 @@ appControllers.controller('MainCtrl',
       }, 'ADD_USER');
 
       TextTransmission.fetchDataForWall(function (data) {
+        console.log('REMOVE_USER: ' , data);
         if (containsNiteID($rootScope.knownUsers,data.data.niteID)){
           for (var index = 0; index < $rootScope.knownUsers.length; index++) {
             if ($rootScope.knownUsers[index].niteID === data.data.niteID) {
