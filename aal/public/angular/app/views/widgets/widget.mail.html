@@ -7,7 +7,7 @@
 		<div class="col-md-12 row-md-1 widget {{css}} widget-padding" ng-click="displayMail($event, d)">
 			<div>
 				<widget-h2>{{d.from | uppercase}} - {{d.subject}}</widget-h2>
-				<widget-h2 class="pull-right">{{$parent.moment(d.received).format('DD.MM HH:mm')}}</widget-h2>
+				<widget-h2 class="pull-right">{{$parent.moment(d.received).format('DD.MM H:mm')}}</widget-h2>
 			</div>
 			<p class="widget-padding">
 			{{d.content | truncate:450}}	
