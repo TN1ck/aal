@@ -5,7 +5,7 @@ public class User {
 	public int niteID;
 	public int userID;
 	public String image;
-	public boolean allowed = false;
+	public boolean allowed = true;
 	
 	public User (int niteID) {
 		this.niteID = niteID;

@@ -97,11 +97,11 @@ app.factory('WidgetData', function(Persistence, $http, $FB, $q, $rootScope, Soci
         TextTransmission.deliverDataForWall($rootScope.posts,'SOCIAL');
       }
 
-      $FB.getLoginStatus(function(response) {
+      /*$FB.getLoginStatus(function(response) {
         token = response.authResponse.accessToken;
         SocialComparison.setToken(token);
         compareTwoPersons.resolve(SocialComparison.compareTwoPersons);
-      });
+      });*/
     });
   };
 
