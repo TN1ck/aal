@@ -8,12 +8,12 @@ var app = angular.module('angularApp');
 app.factory('RadialService', function($rootScope, WidgetData) {
 
   var KEYMAPPING = {
-    'LEFT': 37,
-    'RIGHT': 39,
-    'UP': 38,
-    'DOWN': 40,
-    'TOGGLE': 50,
-    'SELECT': 13
+    LEFT: 37,
+    RIGHT: 39,
+    UP: 38,
+    DOWN: 40,
+    TOGGLE: 50,
+    SELECT: 13
   };
 
   var Menu = function(dict) {
@@ -329,6 +329,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
   };
 
   return {
+    KEYMAPPING: KEYMAPPING,
     Menu: Menu
   };
 });

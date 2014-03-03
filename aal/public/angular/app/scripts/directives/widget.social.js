@@ -34,7 +34,7 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
       }, $scope.socket);
 
       $scope.$watch('data', function (newVal,oldVal) {
-        console.log('My social data changed from to:',newVal,oldVal);
+        console.log('My social data changed from to:',oldVal,newVal);
       },function(a,b) { console.log(a,b); return a !== b;});
 
       // $rootScope.setSocialData = function (data) {

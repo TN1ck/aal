@@ -1,23 +1,23 @@
 'use strict';
 
-/* global angular, $ */
+/* global angular, d3, $ */
 
 var appControllers = angular.module('appControllers');
 
 
 appControllers.controller('AuthCtrl',
   
-  function ($scope, user, $FB, $location, $timeout, $rootScope, $state, $http, cssService, WidgetData) {
+  function ($scope, user, $FB, $location, $timeout, $rootScope, $state, $http, cssService, WidgetData, RadialService) {
     
     $scope.patOpts = {x: 0, y: 0, w: 25, h: 25};
 
     cssService.createCss(WidgetData.colors);
 
-    var KEYMAPPING = {
-      ENTER: 57,
-      UP: 56,
-      DOWN: 55
-    };
+    // var KEYMAPPING = {
+    //   ENTER: 57,
+    //   UP: 56,
+    //   DOWN: 55
+    // };
 
     $scope.startTraining = function () {
       $http.get('/starttraining/' + $rootScope.currentUser.niteID, function () {
@@ -28,36 +28,51 @@ appControllers.controller('AuthCtrl',
 
     var currentSelection = 0;
 
-    $(document).on('keypress', function(e) {
+    // $(document).on('keypress', function(e) {
 
-      var $buttons = $('.buttons').find('.btn');
+    //   var $buttons = $('.buttons').find('.btn');
 
-      switch(e.keyCode) {
-        
-      case KEYMAPPING.DOWN:
-        $buttons = $('.buttons').find('.btn');
-        currentSelection = (currentSelection === ($buttons.length - 1)) ? 0 : currentSelection + 1;
-        $buttons.removeClass('btn-primary');
-        $($buttons[currentSelection]).addClass('btn-primary');
-        break;
+    //   switch(e.keyCode) {
+    if ($state.includes('wrapper.auth')) {
 
-      case KEYMAPPING.UP:
-        $buttons = $('.buttons').find('.btn');
-        currentSelection = (currentSelection === 0) ? ($buttons.length - 1) : currentSelection - 1;
-        $buttons.removeClass('btn-primary');
-        $($buttons[currentSelection]).addClass('btn-primary');
-        break;
-      
-      case KEYMAPPING.ENTER:
-        $buttons = $('.buttons').find('.btn');
-        $('.buttons').find('.btn-primary').click();
-        // var nextLocation = $('.buttons').find('.btn-primary').attr('ui-sref');
-        // $state.transitionTo(nextLocation);
-        break;
+      d3.select('body')
+        .on('keydown', function() {
 
-      }
 
-    });
+
+          var $buttons = $('.buttons').find('.btn');
+
+          switch (d3.event.keyCode) {
+            
+          case RadialService.KEYMAPPING.DOWN:
+            $buttons = $('.buttons').find('.btn');
+            currentSelection = (currentSelection === ($buttons.length - 1)) ? 0 : currentSelection + 1;
+            $buttons.removeClass('btn-primary');
+            $($buttons[currentSelection]).addClass('btn-primary');
+            break;
+
+          case RadialService.KEYMAPPING.UP:
+            $buttons = $('.buttons').find('.btn');
+            currentSelection = (currentSelection === 0) ? ($buttons.length - 1) : currentSelection - 1;
+            $buttons.removeClass('btn-primary');
+            $($buttons[currentSelection]).addClass('btn-primary');
+            break;
+          
+          case RadialService.KEYMAPPING.SELECT:
+            $buttons = $('.buttons').find('.btn');
+            console.log('The following button will be clicked:' , $('.buttons').find('.btn-primary'));
+            $('.buttons').find('.btn-primary')[0].click();
+
+            // $buttons.removeClass('btn-primary');
+
+            // var nextLocation = $('.buttons').find('.btn-primary').attr('ui-sref');
+            // $state.transitionTo(nextLocation);
+            break;
+
+          }
+        }
+      );
+    }
 
     var getVideoData = function getVideoData(x, y, w, h) {
       var hiddenCanvas = document.createElement('canvas');

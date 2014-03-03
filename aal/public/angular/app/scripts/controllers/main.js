@@ -102,16 +102,16 @@ appControllers.controller('MainCtrl',
 
     $scope.alerts = [];
 
-    $(document).on('keypress', function(e) {
+    // $(document).on('keypress', function(e) {
 
-      switch(e.keyCode) {
+    //   switch(e.keyCode) {
 
-      case 48:
-        // $rootScope.currentUser = false;
-        // $state.transitionTo('wrapper.auth.loading');
-      }
+    //   case 48:
+    //     // $rootScope.currentUser = false;
+    //     // $state.transitionTo('wrapper.auth.loading');
+    //   }
 
-    });
+    // });
 
 
     // Listen for user changes, this is important for ALL widgets
