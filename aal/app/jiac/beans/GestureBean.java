@@ -202,17 +202,17 @@ public class GestureBean extends AbstractCommunicatingBean {
 				if (user.allowed) {
 					pressKey(KeyEvent.VK_ESCAPE);
 				}
-
+				break;
 			case "social_graph":
 				if (user.allowed) {
-					//TODO
+					pressKey(KeyEvent.VK_5);
 				}
-
+				break;
 			case "user_selection":
 				if (user.allowed) {
-					//TODO
+					pressKey(KeyEvent.VK_6);
 				}
-				
+				break;
 			case "toggle_block_gestures":
 				user.setAllowed(!user.allowed);
 				ASingleton.sendData(ASingleton.Sockets.ADD_USER, gson.toJson(user));
