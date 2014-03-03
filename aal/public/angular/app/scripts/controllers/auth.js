@@ -168,6 +168,7 @@ appControllers.controller('AuthCtrl',
     $scope.user = user.get;
 
     $scope.recognizeAgain = function(nid) {
+      console.log('recognize: ', nid);
       $http.get('/recognize/' + nid);
     };
 
