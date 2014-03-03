@@ -24,7 +24,11 @@ app.directive('widgetSocial', function($q, $modal, $FB, FacebookPost, TextTransm
         console.log('SOCIAL: ', data);
         // the length is a hack
         if (!$scope.data || $scope.data.length !== data.data.length) {
-          $scope.data = data.data;
+          if (data.data === 'undefined') {
+            $scope.data = undefined;
+          } else {
+            $scope.data = data.data;
+          }
           console.log('SOCIAL.scope: ', $scope.data);
         }
       }, $scope.socket);
