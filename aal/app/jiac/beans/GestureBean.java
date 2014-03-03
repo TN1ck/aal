@@ -165,7 +165,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 				break;
 			case "tab_up": 
 				if (user.allowed) {					
-					pressKey(KeyEvent.VK_UP);
+					pressKey(KeyEvent.VK_8);
 				}
 				break;
 			case "scroll_right":
@@ -190,11 +190,12 @@ public class GestureBean extends AbstractCommunicatingBean {
 				break;
 			case "tab_down":
 				if (user.allowed) {
-					pressKey(KeyEvent.VK_DOWN);					
+					pressKey(KeyEvent.VK_7);					
 				}
 				break;
 			case "enter":
 				if (user.allowed) {
+					pressKey(KeyEvent.VK_9);
 					pressKey(KeyEvent.VK_ENTER);					
 				}
 				break;
