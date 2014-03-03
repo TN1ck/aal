@@ -78,6 +78,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 	
 	public void recognize(int niteID, boolean qr) {
 		sendMessage(new RecognizeUser(thisAgent.getAgentId(), null, niteID, qr), this.gestureAddress);
+		log.info("Send recognize again message");
 	}
 
 	@Override
@@ -202,20 +203,20 @@ public class GestureBean extends AbstractCommunicatingBean {
 				if (user.allowed) {
 					pressKey(KeyEvent.VK_ESCAPE);
 				}
-
+				break;
 			case "social_graph":
 				if (user.allowed) {
-					//TODO
+					pressKey(KeyEvent.VK_5);
 				}
-
+				break;
 			case "user_selection":
 				if (user.allowed) {
-					//TODO
+					pressKey(KeyEvent.VK_6);
 				}
-				
+				break;
 			case "toggle_block_gestures":
 				user.setAllowed(!user.allowed);
-				ASingleton.sendData(ASingleton.Sockets.ADD_USER, gson.toJson(user));
+				//ASingleton.sendData(ASingleton.Sockets.ADD_USER, gson.toJson(user));
 				log.info("BLOCKING: " + user.allowed + " NITEID: " + user.niteID);
 				break;
 				

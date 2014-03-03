@@ -80,16 +80,16 @@ appControllers.controller('MainCtrl',
 
     $scope.alerts = [];
 
-    $(document).on('keypress', function(e) {
+    // $(document).on('keypress', function(e) {
 
-      switch(e.keyCode) {
+    //   switch(e.keyCode) {
 
-      case 48:
-        // $rootScope.currentUser = false;
-        // $state.transitionTo('wrapper.auth.loading');
-      }
+    //   case 48:
+    //     // $rootScope.currentUser = false;
+    //     // $state.transitionTo('wrapper.auth.loading');
+    //   }
 
-    });
+    // });
 
 
     // Listen for user changes, this is important for ALL widgets
@@ -142,9 +142,10 @@ appControllers.controller('MainCtrl',
 
 
       TextTransmission.fetchDataForWall(function (data) {
-        console.log(data.data, $state.current.name, $rootScope.currentUser, $rootScope.knownUsers, $rootScope.unknownUsers);
-        console.log('isKnown: ', isKnown(data.data), 'isUnknown: ', isUnknown(data.data), 'isUndetected: ', isUndetected(data.data));
+        // console.log(data.data, $state.current.name, $rootScope.currentUser, $rootScope.knownUsers, $rootScope.unknownUsers);
+        // console.log('isKnown: ', isKnown(data.data), 'isUnknown: ', isUnknown(data.data), 'isUndetected: ', isUndetected(data.data));
 
+        console.log('ADD_USER:', data);
         if ($rootScope.knownUsers.length === 0 && $rootScope.unknownUsers.length === 0 && data.data.userID === -2) {
           $state.transitionTo('wrapper.auth.loading');
         }
@@ -169,10 +170,10 @@ appControllers.controller('MainCtrl',
               }
             }
           } else if (data.data.userID === -1) {
-            if (containsUID($rootScope.unknownUsers,data.data.userID)) {
-              console.log('ERROR: unknownUsers already contains an entry with that userID',data.data.userID);
+            if (containsNiteID($rootScope.unknownUsers,data.data.niteID)) {
+              console.log('ERROR: unknownUsers already contains an entry with that niteID',data.data.niteID);
             } else {
-              console.log('I push data in uid===1', data.data);
+              console.log('I push data in uid===-1', data.data);
               $rootScope.unknownUsers.push(data.data);
             }
           }
@@ -216,6 +217,7 @@ appControllers.controller('MainCtrl',
       }, 'ADD_USER');
 
       TextTransmission.fetchDataForWall(function (data) {
+        console.log('REMOVE_USER: ' , data);
         if (containsNiteID($rootScope.knownUsers,data.data.niteID)){
           for (var index = 0; index < $rootScope.knownUsers.length; index++) {
             if ($rootScope.knownUsers[index].niteID === data.data.niteID) {
@@ -280,13 +282,16 @@ appControllers.controller('MainCtrl',
           if ($rootScope.unknownUsers.length ===  0  && $rootScope.knownUsers.length ===  0){
             $state.transitionTo('wrapper.nouser');
           }
+          if ($state.current.name === 'wrapper.social' && $rootScope.knownUsers.length <= 1) {
+            $state.transitionTo('wrapper.main');
+          }
         }
       }, 'REMOVE_USER');
-
+      
       TextTransmission.fetchTextForWall(function(data) {
           try {
-            console.log('DATEN EMPFANGEN');
-            $rootScope.fbToken.resolve(data.data);
+            console.log('Neuer Facebook-AccessToken wurde empfangen');
+            WidgetData.fetchPersonal(data.data);
             WidgetData.updateApiCall(data.data);
           } catch (e) {
             console.log(e);
@@ -296,6 +301,12 @@ appControllers.controller('MainCtrl',
 
       var Menu = new RadialService.Menu({selector: '#right'});
 
+      $scope.initWallWithTestData = function () {
+        TextTransmission.deliverDataForWall({entries: [{name: 'Birthday Party', description: 'Meet lots of people!', location: 'TU Berlin', startTime: moment(), endTime: moment()},{name: 'Homework', description: 'Do a lot of work!', location: 'TU Berlin', startTime: moment(), endTime: moment()},{name: 'Meeting', description: 'Discuss buz stuff!', location: 'Bussiness Center', startTime: moment(), endTime: moment()},{name: 'Stuff', description: 'Chicken!', location: 'Chicken town', startTime: moment(), endTime: moment()}]},'CALENDAR');
+        TextTransmission.deliverDataForWall({items: [{text: 'Do groceries', prio: 'HIGH', created: moment()},{text: 'Clean room', prio: 'MIDDLE', created: moment()},{text: 'Homework', prio: 'LOW', created: moment()},{text: 'Buy Car', prio: 'LOW', created: moment()}]}, 'TODO');
+        TextTransmission.deliverDataForWall({news: [{title: 'Klitschko fights', description: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN'},{title: 'Klitschko fought', description: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN'},{title: 'Klitschko won', description: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN'}]}, 'NEWS');
+        TextTransmission.deliverDataForWall({mails: [{from: 'Klitschko', content: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN', received: moment(), subject: 'Yummy yummy'},{from: 'Your Mom', content: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN', received: moment(), subject: 'You have to do ballet'},{from: 'Your girlfriend', content: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN', received: moment(), subject: 'I slept with tom'}]}, 'MAIL');
+      };
     }
 
   });

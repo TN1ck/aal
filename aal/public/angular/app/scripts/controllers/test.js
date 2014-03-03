@@ -14,22 +14,22 @@ appControllers.controller('TestCtrl', ['$scope', 'TextTransmission','$state','$r
       }, 500);
 
     };
-    $scope.newUnknownUser = function () {
-      TextTransmission.deliverDataForWall({niteID: 13, userID: -2, fbResolved: false}, 'ADD_USER');
+    $scope.newUnknownUser = function (nid) {
+      TextTransmission.deliverDataForWall({niteID: nid, userID: -2, fbResolved: false}, 'ADD_USER');
       $timeout(function() {
-        TextTransmission.deliverDataForWall({niteID: 13, userID: -1, fbResolved: false},'ADD_USER');
+        TextTransmission.deliverDataForWall({niteID: nid, userID: -1, fbResolved: false},'ADD_USER');
       }, 500);
     };
 
     $scope.removeKnownUser = function (uid) {
       TextTransmission.deliverDataForWall({niteID: uid+1, userID: uid, fbResolved: false}, 'REMOVE_USER');
     };
-    $scope.removeUnknownUser = function () {
-      TextTransmission.deliverDataForWall({niteID: 13, userID: -1, fbResolved: false}, 'REMOVE_USER');
+    $scope.removeUnknownUser = function (nid) {
+      TextTransmission.deliverDataForWall({niteID: nid, userID: -1, fbResolved: false}, 'REMOVE_USER');
     };
 
-    $scope.recogniceFormerUnknownUser = function () {
-      TextTransmission.deliverDataForWall({niteID: 13, userID: 12, fbResolved: false}, 'ADD_USER');
+    $scope.recogniceFormerUnknownUser = function (nid) {
+      TextTransmission.deliverDataForWall({niteID: nid, userID: nid-1, fbResolved: false}, 'ADD_USER');
     };
 
 

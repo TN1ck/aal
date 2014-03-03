@@ -5,15 +5,17 @@
 var app = angular.module('angularApp');
 
 
-app.factory('RadialService', function($rootScope, WidgetData) {
+app.factory('RadialService', function($rootScope, WidgetData, $state) {
 
   var KEYMAPPING = {
-    'LEFT': 37,
-    'RIGHT': 39,
-    'UP': 38,
-    'DOWN': 40,
-    'TOGGLE': 50,
-    'SELECT': 13
+    LEFT: 37,
+    RIGHT: 39,
+    UP: 38,
+    DOWN: 40,
+    TOGGLE: 50,
+    SELECT: 13,
+    SOCIALGRAPH: 53,
+    USERSELECT: 54
   };
 
   var Menu = function(dict) {
@@ -38,6 +40,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
     var currentlySelected = 0;
     var currentLength = 0;
     var level = 0;
+    var menuOn = false;
 
     var updateRects = function(level, data) {
 
@@ -292,9 +295,17 @@ app.factory('RadialService', function($rootScope, WidgetData) {
       
       case KEYMAPPING.TOGGLE:
         console.log('TOGGLE key pressed');
-        if (level === 0) {
-          enterMenu();
-          markElem();
+        if (!menuOn) {
+          if (level === 0) {
+            menuOn = true;
+            enterMenu();
+            markElem();
+          }
+        } else {
+          while (level > 0) {
+            exitMenu();
+          }
+          menuOn = false;
         }
         break;
       case KEYMAPPING.LEFT:
@@ -322,6 +333,14 @@ app.factory('RadialService', function($rootScope, WidgetData) {
         markElem();
         break;
 
+      case KEYMAPPING.SOCIALGRAPH:
+        console.log('SOCIALGRAPH key pressed');
+        $state.transitionTo('wrapper.social');
+        break;
+
+      case KEYMAPPING.USERSELECT:
+        console.log('USERSELECT key pressed');
+        $state.transitionTo('wrapper.auth.userselect');
       }
 
     });
@@ -329,6 +348,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
   };
 
   return {
+    KEYMAPPING: KEYMAPPING,
     Menu: Menu
   };
 });

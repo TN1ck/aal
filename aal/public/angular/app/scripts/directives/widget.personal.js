@@ -4,7 +4,7 @@
 
 var app = angular.module('angularApp');
 
-app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $FB, $modal) {
+app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $FB, $modal, WidgetData) {
   return {
     templateUrl: '/views/widgets/widget.personal.html',
     restrict: 'E',
@@ -19,24 +19,28 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
       TextTransmission.fetchDataForWall(function(data) {
         console.log('Facebookdaten bekommen!', data);
         $scope.data = data.data;
+        if (data.data.accessToken) {
+          $rootScope.fbToken = data.data.accessToken;
+          WidgetData.updateApiCall($rootScope.fbToken);
+        }
 			}, $scope.socket);
 
-      var fetchPersonal = function(token) {
-        /*if (token === '') {
+      /*var fetchPersonal = function(token) {
+        if (token === '') {
           if (!$rootScope.currentUser) {
             $http.get('/user/' + 1337);
           } else {
             $http.get('/user/' + $rootScope.currentUser.userID);
           }
-        } else {*/
+        } else {
           if (!$rootScope.currentUser) {
             $http.get('/user/' + 1337 + '/' + token);
           } else {
             $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);
           }
-        console.log(token);
-        //}
-      };
+        console.log('FBToken: ' + token);
+        }
+      };*/
 
       var putPersonal = function(data) {
         if (!$rootScope.currentUser) {
@@ -50,10 +54,13 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
         $http.put('/user/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
-      $rootScope.fbToken.promise.then(fetchPersonal);
+      console.log('Wir versuchen jetzt persönliche Daten zu holen');
+      WidgetData.fetchPersonal('');
+      console.log('Jetzt sollten Daten verfügbar sein');
 
 
       $scope.displayPersonal = function (evnt, data) {
+        console.log('Modal should be displayed.');
         var $target = $(evnt.currentTarget);
 
         console.log('Data in displayPersonal: ' , data);

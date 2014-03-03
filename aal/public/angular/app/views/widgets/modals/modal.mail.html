@@ -1,7 +1,7 @@
 <div class="row">
     <div>
     	<div class="auth explain" style="float: left;">{{d.from | uppercase}}</div>
-		<div class="pull-right auth explain margin-bt">{{d.received}}</div>
+		<div class="pull-right auth explain margin-bt">{{$parent.moment(d.received).format('DD.MM HH:mm')}}</div>
 		<div class="col-xs-12 auth header separation-border" style="clear: both">{{d.subject}}</div>
 	</div>
 	<div class="col-xs-12 modal-col separation-border" style="font-size: 2em; padding-top: .5em; margin-top: .5em">

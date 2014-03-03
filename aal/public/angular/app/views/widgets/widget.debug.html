@@ -3,13 +3,24 @@
 		<widget-h1 class="stick-bottom">Debug</widget-h1>
 	</div>
 	<div class="col-md-6 row-md-1 widget {{css}}">
-		<b>Erkannte Benutzer:</b> 8
+		<b>Bekannte Benutzer:</b> {{r.knownUsers.length}}
 		<br/>
 		<b>Ausgeführte Gesten:</b> {{gestureCounter}}
 		<br/>
-		<b>Erkannte Benutzer:</b> 8
+		<b>Erkannte Benutzer:</b> {{r.unknownUsers.length}}
 	</div>
-	<div ng-repeat="user in r.users">
+	<div ng-repeat="user in r.knownUsers">
+		<div class="col-md-3 row-md-1 widget {{css}} widget-padding" style="background-image: url({{user.image}}); background-size: cover;">
+			<div class="footer">
+				niteID: {{user.niteID}}
+				<br/>
+				userID: {{user.userID}}
+				<br/>
+				allowed; {{user.allowed}}
+			</div>
+		</div>
+	</div ng-repeat>
+	<div ng-repeat="user in r.unknownUsers">
 		<div class="col-md-3 row-md-1 widget {{css}} widget-padding" style="background-image: url({{user.image}}); background-size: cover;">
 			<div class="footer">
 				niteID: {{user.niteID}}

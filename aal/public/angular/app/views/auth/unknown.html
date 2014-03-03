@@ -13,9 +13,9 @@
 				<div class="auth main-picture" style="background-image: url({{currentUser.image}});"></div>
 			</div>
 			<div class="buttons">
-				<button ui-sref="wrapper.main" type="button" class="btn btn-default btn-primary btn-lg btn-block">Demo Modus</button>
+				<button ui-sref="wrapper.main" ng-click="initWallWithTestData()" type="button" class="btn btn-default btn-primary btn-lg btn-block">Demo Modus</button>
 				<button ng-click="startTraining()" type="button" class="btn btn-default btn-lg btn-block">Eintrainieren</button>
-				<button ui-sref="wrapper.main.loading" type="button" class="btn btn-default btn-lg btn-block">versuch es nochmal</button>
+				<button ui-sref="wrapper.auth.loading" ng-click="recognizeAgain(currentUser.niteID)" type="button" class="btn btn-default btn-lg btn-block">versuch es nochmal</button>
 			</div>
 		</div>
 	</div>
