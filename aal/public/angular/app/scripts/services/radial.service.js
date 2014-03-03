@@ -38,6 +38,7 @@ app.factory('RadialService', function($rootScope, WidgetData) {
     var currentlySelected = 0;
     var currentLength = 0;
     var level = 0;
+    var menuOn = false;
 
     var updateRects = function(level, data) {
 
@@ -292,9 +293,17 @@ app.factory('RadialService', function($rootScope, WidgetData) {
       
       case KEYMAPPING.TOGGLE:
         console.log('TOGGLE key pressed');
-        if (level === 0) {
-          enterMenu();
-          markElem();
+        if (!menuOn) {
+          if (level === 0) {
+            menuOn = true;
+            enterMenu();
+            markElem();
+          }
+        } else {
+          while (level > 0) {
+            exitMenu();
+          }
+          menuOn = false;
         }
         break;
       case KEYMAPPING.LEFT:
