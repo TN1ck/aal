@@ -47,8 +47,8 @@ app.factory('WidgetData', function(Persistence, $http, $FB, $q, $rootScope, Soci
             $http.get('/user/' + $rootScope.currentUser.userID);
           }
         } else {
+          console.log('Hole persönliche Daten mit Token');
           if (!$rootScope.currentUser) {
-            console.log('Hole persönliche Daten mit Token');
             $http.get('/user/' + 1337 + '/' + token);
           } else {
             $http.get('/user/' + $rootScope.currentUser.userID + '/' + token);

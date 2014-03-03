@@ -78,6 +78,7 @@ public class GestureBean extends AbstractCommunicatingBean {
 	
 	public void recognize(int niteID, boolean qr) {
 		sendMessage(new RecognizeUser(thisAgent.getAgentId(), null, niteID, qr), this.gestureAddress);
+		log.info("Send recognize again message");
 	}
 
 	@Override
