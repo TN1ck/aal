@@ -50,10 +50,13 @@ app.directive('widgetPersonal', function(TextTransmission, $rootScope, $http, $F
         $http.put('/user/' + $rootScope.currentUser.userID + (id ? '/' + id : ''));
       };
 
-      $rootScope.fbToken.promise.then(fetchPersonal);
+      if ($rootScope.fbToken) {
+        $rootScope.fbToken.promise.then(fetchPersonal);
+      }
 
 
       $scope.displayPersonal = function (evnt, data) {
+        console.log('Modal should be displayed.');
         var $target = $(evnt.currentTarget);
 
         console.log('Data in displayPersonal: ' , data);

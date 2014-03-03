@@ -318,6 +318,12 @@ appControllers.controller('MainCtrl',
 
       var Menu = new RadialService.Menu({selector: '#right'});
 
+      $scope.initWallWithTestData = function () {
+        TextTransmission.deliverDataForWall({entries: [{name: 'Birthday Party', description: 'Meet lots of people!', location: 'TU Berlin', startTime: moment(), endTime: moment()},{name: 'Homework', description: 'Do a lot of work!', location: 'TU Berlin', startTime: moment(), endTime: moment()},{name: 'Meeting', description: 'Discuss buz stuff!', location: 'Bussiness Center', startTime: moment(), endTime: moment()},{name: 'Stuff', description: 'Chicken!', location: 'Chicken town', startTime: moment(), endTime: moment()}]},'CALENDAR');
+        TextTransmission.deliverDataForWall({items: [{text: 'Do groceries', prio: 'HIGH', created: moment()},{text: 'Clean room', prio: 'MIDDLE', created: moment()},{text: 'Homework', prio: 'LOW', created: moment()},{text: 'Buy Car', prio: 'LOW', created: moment()}]}, 'TODO');
+        TextTransmission.deliverDataForWall({news: [{title: 'Klitschko fights', description: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN'},{title: 'Klitschko fought', description: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN'},{title: 'Klitschko won', description: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN'}]}, 'NEWS');
+        TextTransmission.deliverDataForWall({mails: [{from: 'Klitschko', content: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN', received: moment(), subject: 'Yummy yummy'},{from: 'Your Mom', content: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN', received: moment(), subject: 'You have to do ballet'},{from: 'Your girlfriend', content: 'CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN CHICKEN', received: moment(), subject: 'I slept with tom'}]}, 'MAIL');
+      };
     }
 
   });

@@ -2,12 +2,16 @@
 	<div class="row">
 	    <div class="col-xs-3"><button class="btn btn-primary full-width" ng-click="newKnownUser(4)">New Known User (4)</button></div>
 	    <div class="col-xs-3"><button class="btn btn-primary full-width" ng-click="newKnownUser(10)">New Known User (10)</button></div>
-	    <div class="col-xs-3"><button class="btn btn-primary full-width" ng-click="newUnknownUser()">New Unknown User</button></div>
-	    <div class="col-xs-3"><button class="btn btn-primary full-width" ng-click="recogniceFormerUnknownUser()">Recognice Former Unknown User</button></div>
+	    <div class="col-xs-3"><button class="btn btn-primary full-width" ng-click="newUnknownUser(13)">New Unknown User</button></div>
+	    <div class="col-xs-3"><button class="btn btn-primary full-width" ng-click="recogniceFormerUnknownUser(13)">Recognice Former Unknown User</button></div>
 	    <div class="col-xs-3"><button class="btn btn-danger full-width" ng-click="removeKnownUser(4)">Remove Known User (4)</button></div>
 	    <div class="col-xs-3"><button class="btn btn-danger full-width" ng-click="removeKnownUser(10)">Remove Known User (10)</button></div>
-	    <div class="col-xs-3"><button class="btn btn-danger full-width" ng-click="removeUnknownUser()">Remove Unknown User</button></div>
+	    <div class="col-xs-3"><button class="btn btn-danger full-width" ng-click="removeUnknownUser(13)">Remove Unknown User</button></div>
 	    <div class="col-xs-3"><button class="btn btn-danger full-width" ng-click="removeKnownUser(12)">Remove former unknown User</button></div>
+	    <div class="col-xs-6"><input type="text" class="form-control" placeholder="NiteID" ng-model="unknownUserNiteID"></div>
+	    <div class="col-xs-3"><button class="btn btn-danger full-width" ng-click="newUnknownUser(unknownUserNiteID)">New Unknown user with nite ID {{unknownUserNiteID}}</button></div>
+	    <div class="col-xs-3"><button class="btn btn-danger full-width" ng-click="removeUnknownUser(unknownUserNiteID)">Remove Unknown user with nite ID {{unknownUserNiteID}}</button></div>
+
 	</div>
     <div class="margin-tp">
    		<div class="col-xs-3"><button class="btn btn-primary full-width" ng-click="initCalendar()">Init Calendar</button></div>
