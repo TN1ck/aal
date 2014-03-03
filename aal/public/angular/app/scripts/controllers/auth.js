@@ -157,8 +157,8 @@ appControllers.controller('AuthCtrl',
 
     $.getJSON( 'http://smart-ip.net/geoip-json?callback=?',
       function(data){
-        $scope.displayUrl = 'http://' + data.host + '/index.html#/mobile';
-        $scope.url = 'http://' + data.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
+        $scope.displayUrl = 'http://' + data.host + ':9000/index.html#/mobile';
+        $scope.url = 'http://' + data.host + ':9000/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
       }
     );
 
