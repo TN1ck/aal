@@ -162,8 +162,8 @@ appControllers.controller('AuthCtrl',
     //   }
     // );
 
-    $rootScope.url = 'https://living-wall.no-ip.org:9000/index.html#/mobile?mobileCode=' + $rootScope.mobileId;
-    $rootScope.displayUrl = 'https://living-wall.no-ip.org:9000/index.html#/mobile';
+    $rootScope.url = 'http://living-wall.no-ip.org:9000/index.html#/mobile?mobileCode=' + $rootScope.mobileId;
+    $rootScope.displayUrl = 'http://living-wall.no-ip.org:9000/index.html#/mobile';
 
     // $rootScope.url = 'https://' + document.location.host + '/index.html#/mobile' + '?mobileCode=' + $rootScope.mobileId;
     // $rootScope.displayUrl = 'https://' + document.location.host + '/index.html#/mobile';

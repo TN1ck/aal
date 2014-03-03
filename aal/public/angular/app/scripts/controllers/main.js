@@ -307,12 +307,12 @@ appControllers.controller('MainCtrl',
         }
       }, 'REMOVE_USER');
 
-      $rootScope.fbToken = $q.defer;
+      // $rootScope.fbToken = $q.defer;
       
       TextTransmission.fetchTextForWall(function(data) {
           try {
             console.log('DATEN EMPFANGEN');
-            $rootScope.fbToken.resolve(data.data);
+            // $rootScope.fbToken.resolve(data.data);
             WidgetData.updateApiCall(data.data);
           } catch (e) {
             console.log(e);
