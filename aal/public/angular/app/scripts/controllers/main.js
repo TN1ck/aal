@@ -191,10 +191,10 @@ appControllers.controller('MainCtrl',
               }
             }
           } else if (data.data.userID === -1) {
-            if (containsUID($rootScope.unknownUsers,data.data.userID)) {
-              console.log('ERROR: unknownUsers already contains an entry with that userID',data.data.userID);
+            if (containsNiteID($rootScope.unknownUsers,data.data.niteID)) {
+              console.log('ERROR: unknownUsers already contains an entry with that niteID',data.data.niteID);
             } else {
-              console.log('I push data in uid===1', data.data);
+              console.log('I push data in uid===-1', data.data);
               $rootScope.unknownUsers.push(data.data);
             }
           }
