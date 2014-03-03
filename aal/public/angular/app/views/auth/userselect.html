@@ -1,10 +1,11 @@
 <div class="row full-height">
 	<div class="widget-padding col-md-4">
 	</div>
-	<div class="widget-padding col-md-4 text-center">
+	<div class="widget-padding col-md-4 text-center buttons">
 		<h1 class="auth header">Select the user u want to train.</h1>
 		<div ng-repeat="user in $rootScope.unknownUsers">
-			{{user.niteID}}
+			<div class="col-md-3 row-md-1 widget {{css}} widget-padding" style="background-image: url({{user.image}}); background-size: cover;"></div>
+			<button ui-sref="wrapper.auth.loading" ng-click="recognizeAgain(user.niteID)" type="button" class="btn btn-default btn-lg btn-block">Train User</button>
 		</div>
 	</div>
 	<div class="widget-padding col-md-4">

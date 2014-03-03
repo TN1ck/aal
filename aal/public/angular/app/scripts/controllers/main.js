@@ -304,6 +304,9 @@ appControllers.controller('MainCtrl',
           if ($rootScope.unknownUsers.length ===  0  && $rootScope.knownUsers.length ===  0){
             $state.transitionTo('wrapper.nouser');
           }
+          if ($state.current.name === 'wrapper.social' && $rootScope.knownUsers.length <= 1) {
+            $state.transitionTo('wrapper.main');
+          }
         }
       }, 'REMOVE_USER');
       
