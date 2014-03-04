@@ -213,7 +213,7 @@ appControllers.controller('MainCtrl',
             } else if (data.data.userID === -1) {
               $scope.alerts.push({
                 data: data.data,
-                msg: 'Neuer unbekannter User entdeckt! Bewegen Sie beide Hände nach oben um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
+                msg: 'Neuer unbekannter User entdeckt! Bewegen Sie beide Hände nach links um zur Auswahl zu gelangen. Diese Nachricht verschwindet gleich!'
               });
               $timeout(function() {
                 $scope.alerts.shift();
@@ -224,7 +224,7 @@ appControllers.controller('MainCtrl',
             if (data.data.userID >= 0) {
               $scope.alerts.push({
                 data: data.data,
-                msg: 'Neuer bekannter User entdeckt! Wenn sie nach dem anmelden den Social-Graph angzeigt haben möchten, bewegen Sie beide Arme nach oben!'
+                msg: 'Neuer bekannter User entdeckt! Wenn sie nach dem anmelden den Social-Graph angzeigt haben möchten, bewegen Sie dann beide Arme nach rechts!'
               });
               $timeout(function() {
                 $scope.alerts.shift();
