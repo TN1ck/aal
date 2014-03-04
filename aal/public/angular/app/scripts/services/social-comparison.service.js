@@ -54,6 +54,7 @@ app.factory('SocialComparison', function($FB, $q) {
         var fbStr = '$FB.api("'+persons[i]+'/'+things[j]+(token ? '?access_token=' + token : '')+'")';
         array[i].push(fbStr);
       }
+      array[i].push('$FB.api("'+persons[i]+'/'+(token ? '?access_token=' + token : '')+'")');
     }
     return array;
   };
@@ -127,14 +128,20 @@ app.factory('SocialComparison', function($FB, $q) {
     $q.all(arrayOfFirstPerson).then(function(data1) {
       var arrayOfSecondPerson = evalStringsForOnePerson(1, arrayOfStrings);
       $q.all(arrayOfSecondPerson).then(function(data2) {
-        // console.log(data1);
-        data1 = semanticallyGroupThings(data1);
-        data2 = semanticallyGroupThings(data2);
-        var commonObjects = filterDifferences([data1, data2]);
+        var info1 = data1.pop();
+        var info2 = data2.pop();
+        var semanticallyFiltered1 = semanticallyGroupThings(data1);
+        var semanticallyFiltered2 = semanticallyGroupThings(data2);
+        var commonObjects = filterDifferences([semanticallyFiltered1, semanticallyFiltered2]);
         for (var category in commonObjects) {
           commonObjects[category].color = colorMapping[category];
         }
-        cb(commonObjects);
+        var retObject = {};
+        retObject.data = commonObjects;
+        retObject.personInfo = [info1, info2];
+        retObject.personInfo.color = '#DCDCDC';
+        // console.log(retObject);
+        cb(retObject);
       });
     });
   };

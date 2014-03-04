@@ -9,7 +9,7 @@ appControllers.controller('MainCtrl',
   function (SocialComparison, $scope, $q, $FB, $timeout, colorUtils, WidgetData, $rootScope, RadialService, TextTransmission, cssService, $state) {
 
     WidgetData.compareTwoPersons.then(function(result) {
-      $rootScope.comparedData = result.call(this, 'maximilian.bachl', 'nyelkenci', function(data) {
+      $rootScope.comparedData = result.call(this, 'maximilian.bachl', 'tom.lehmann.98', function(data) {
         $rootScope.comparedData = data;
       });
     });
@@ -26,30 +26,8 @@ appControllers.controller('MainCtrl',
     $scope.mobileId = TextTransmission.mobileId;
     $rootScope.mobileId = TextTransmission.mobileId;
 
-
     $rootScope.widgets = WidgetData.widgets.map(function(d, i) {
 
-      // if (WidgetData[d.name]) {
-      //   console.log('What is this?', WidgetData[d.name], d.name);
-      //   WidgetData[d.name].then(
-      //     function(data) {
-      //       console.log('$scope[social]??', $scope[d.name]);
-      //       if ($rootScope.currentUser && !$rootScope.currentUser.fbResolved) {
-      //         $scope[d.name] = data;
-      //         console.log('This social promis was resolved');
-      //         $rootScope.currentUser.fbResolved = true;
-      //       }
-      //     }, function (cleardata) {
-      //       console.log('Data in reject social promise: ',cleardata);
-      //       $scope[d.name] = cleardata;
-      //     }, function (notification) {
-      //       console.log('Notification: ' , notification);
-      //     });
-      // }
-      // if (d.name === 'social') {
-      //   console.log('$scope[d.name]',$scope[d.name], $rootScope.socialData);
-      //   $scope[d.name] = $rootScope.socialData;
-      // }
       return {
         name: d.name,
         data: d.name,
