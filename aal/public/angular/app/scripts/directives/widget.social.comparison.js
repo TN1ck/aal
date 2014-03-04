@@ -14,8 +14,6 @@ app.directive('widgetSocialComparison', function($q, $modal, $FB, SocialComparis
       color: '=',
       css: '=',
       socket: '='
-    },
-
-    link: function($scope) {}
+    }
   };
 });

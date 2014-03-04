@@ -140,7 +140,7 @@ app.factory('SocialComparison', function($FB, $q) {
         retObject.data = commonObjects;
         retObject.personInfo = [info1, info2];
         retObject.personInfo.color = '#DCDCDC';
-        console.log(retObject);
+        // console.log(retObject);
         cb(retObject);
       });
     });
