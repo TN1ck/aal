@@ -1,0 +1,9 @@
+\select@language {german}
+\contentsline {chapter}{\numberline {1}Entwicklerhandbuch}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Installation}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Projektstruktur}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Allgemeiner Aufbau}{2}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Frontend}{2}{subsection.1.2.2}
+\contentsline {section}{\numberline {1.3}Erweiterung}{2}{section.1.3}
+\contentsline {chapter}{\numberline {2}Nutzeranleitung}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Projektbericht}{4}{chapter.3}
