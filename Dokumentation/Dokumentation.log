@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  4 MAR 2014 22:37
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  4 MAR 2014 23:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -472,19 +472,40 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip46
 )
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count119
+))
+\Gin@req@height=\dimen120
+\Gin@req@width=\dimen121
+)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count119
-\Gm@cntv=\count120
-\c@Gm@tempcnt=\count121
-\Gm@bindingoffset=\dimen120
-\Gm@wd@mp=\dimen121
-\Gm@odd@mp=\dimen122
-\Gm@even@mp=\dimen123
-\Gm@layoutwidth=\dimen124
-\Gm@layoutheight=\dimen125
-\Gm@layouthoffset=\dimen126
-\Gm@layoutvoffset=\dimen127
+\Gm@cnth=\count120
+\Gm@cntv=\count121
+\c@Gm@tempcnt=\count122
+\Gm@bindingoffset=\dimen122
+\Gm@wd@mp=\dimen123
+\Gm@odd@mp=\dimen124
+\Gm@even@mp=\dimen125
+\Gm@layoutwidth=\dimen126
+\Gm@layoutheight=\dimen127
+\Gm@layouthoffset=\dimen128
+\Gm@layoutvoffset=\dimen129
 \Gm@dimlist=\toks23
 )
 (./Dokumentation.aux)
@@ -504,7 +525,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
-\c@lstlisting=\count122
+\c@lstlisting=\count123
 \AtBeginShipoutBox=\box30
 Package hyperref Info: Link coloring OFF on input line 16.
 
@@ -514,7 +535,7 @@ Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count123
+\c@section@level=\count124
 )
 LaTeX Info: Redefining \ref on input line 16.
 LaTeX Info: Redefining \pageref on input line 16.
@@ -525,6 +546,34 @@ LaTeX Info: Redefining \nameref on input line 16.
 \openout3 = `Dokumentation.out'.
 
 
+(/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count125
+\scratchdimen=\dimen130
+\scratchbox=\box31
+\nofMPsegments=\count126
+\nofMParguments=\count127
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen131
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
+\everyMPtoPDFconversion=\toks25
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -559,9 +608,15 @@ LaTeX Info: Redefining \nameref on input line 16.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-[1
+<TU_Logo.pdf, id=36, 134.5025pt x 100.375pt>
+File: TU_Logo.pdf Graphic file (type pdf)
+ <use TU_Logo.pdf>
+Package pdftex.def Info: TU_Logo.pdf used on input line 73.
+(pdftex.def)             Requested size: 134.50215pt x 100.37474pt.
+ [1
 
-{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./TU_Lo
+go.pdf>]
 (./Dokumentation.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 3.
 
@@ -580,24 +635,24 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.81 \chapter
+l.83 \chapter
              {Entwicklerhandbuch} [1
 
 ]
 Kapitel 1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 85.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 87.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 85.
-LaTeX Font Info:    Try loading font information for OT1+cmvtt on input line 91
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 87.
+LaTeX Font Info:    Try loading font information for OT1+cmvtt on input line 93
 .
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/ot1cmvtt.fd
 File: ot1cmvtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \hbox (badness 10000) in paragraph at lines 98--100
 
  []
 
@@ -609,26 +664,26 @@ Kapitel 2.
 
 ]
 Kapitel 3.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 107.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 109.
 [4
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
  (./Dokumentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 107.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 107.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 109.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 109.
 Package rerunfilecheck Info: File `Dokumentation.out' has not changed.
 (rerunfilecheck)             Checksum: A804472B1B8F4477834642916D7737CC;460.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 107.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 109.
  ) 
 Here is how much of TeX's memory you used:
- 7352 strings out of 493633
- 103942 string characters out of 3143378
- 193966 words of memory out of 3000000
- 10573 multiletter control sequences out of 15000+200000
+ 8171 strings out of 493633
+ 115461 string characters out of 3143378
+ 210495 words of memory out of 3000000
+ 11360 multiletter control sequences out of 15000+200000
  12962 words of font info for 49 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 29i,8n,32p,1058b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,8n,32p,1058b,409s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -639,10 +694,10 @@ ocal/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
 l/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
 exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmvtt10.pfb>
-Output written on Dokumentation.pdf (5 pages, 119818 bytes).
+Output written on Dokumentation.pdf (5 pages, 131683 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
+ 127 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
  16 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 70 words of extra memory for PDF output out of 10000 (max. 10000000)
 
