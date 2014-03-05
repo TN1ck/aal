@@ -12,9 +12,11 @@
 \usepackage{graphicx}
 
 \newcommand{\code}[1]{{\fontfamily{cmvtt}\selectfont #1}}
+\newcommand{\HRule}{\rule{\linewidth}{0.1pt}} % Defines a new command for the horizontal lines, change thickness here
 
 
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \begin{document}
 % \title{Dokumentation Projekt AAL}
 % \author{Tom Nick\\Jonathan Seilkopf\\Niklas Gebauer\\Maximilian Bachl\\Tom Lehmann}
@@ -25,7 +27,6 @@
 
 \begin{titlepage}
 
-\newcommand{\HRule}{\rule{\linewidth}{0.1pt}} % Defines a new command for the horizontal lines, change thickness here
 
 \center % Center everything on the page
  
@@ -111,6 +112,40 @@ Tom Lehmann\\
 				\paragraph{ModalCtrls}
 					Die Modal-Controller sind jeweils aktiv, sobald auf der Wall das entsprechende Eingabemodal für die angeforderte Funktionalität angezeigt wird. Sie kommunizieren mit dem Mobilgerät über Websockets und initiieren dadurch gewünschte Zustandsänderungen im MobileCtrl auf dem Mobilgerät. Die gesamte Funktionalität des ModalSocialCtrl, ist in der finalen Abgabe jedoch nicht erreichbar, da das Posten von anderen Gruppen nicht unterstützt wurde.
 				\paragraph{SettingsCtrl}
+					Der Settings-Controller ist aktiv, sobald in das Settings-Menü navigiert wurde. Das ist lediglich mit einem Mausklick auf den kleinen Button oben rechts möglich. Für den normalen Betrieb muss das Settings-Menü nicht aufgerufen werden. Es bietet sich aber für Testzwecke an, hier bestimmte Aufgaben manuell auslösen zu können (wie z.B. Facebook-Logout). Da das Settings-Menü für den User nicht sichtbar ist, finden sich hier auch noch Buttons, welche nicht mehr gebraucht werden, oder nicht mehr funktionieren.
+				\paragraph{TestCtrl}
+					Der Test-Controller simuliert lediglich das Eintreffen von \code{ADD\_USER} bzw. \code{REMOVE\_USER} Nachrichten mit verschiedenen User- und Nite-IDs um die, sich im Main-Controller befindende, Logik zu testen oder einzelne Widgets mit Testdaten zu versorgen. Dazu werden die Nachrichten auf den entsprechenden Kanälen der Websockets versendet.\\
+				\HRule
+			\subsubsection{Directives}
+				\paragraph{Calendar}
+					Das Calendar-Widget holt sich seine Daten über einen eigenen "`CALENDAR"'-Channel des Websockets. Außerdem ist hier die Funktionalität zum Hinzufügen eines eigenen Kalendereintrags vorhanden, welche dann das entsprechende Modal öffnet, dessen Controller sich dann um die Kommunikation mit dem Mobilgerät kümmert. Weiterhin benutzen wir Bootstrap\footnote{\href{http://getbootstrap.com/}{http://getbootstrap.com/}} Popovers, um weitere Detailinformationen zu einem Kalendareintrag anzuzeigen. Dazu dient die Funktion \code{showCalendarEntry} welche das Popover öffnet und mit diesem die entsprechenden Daten übergibt. Die zusätzlichen Directives \code{widgetCalendarSmall}, \code{widgetCalendarMiddle} bzw. \code{widgetCalendarBig} dienen lediglich dazu eine modularere, übersichtlichere und elegantere Notation in den HTML-Files zu ermöglichen.
+				\paragraph{Debug}
+					Das Debug-Widget sollte in der finalen Version selbstverständlich nicht mehr angezeigt werden, da es, wie der Name schon andeutet, lediglich zu Debugzwecken verwendet wird. Es zeigt die Anzahl aller bekannten sowie unbekannten Nutzer und die drei zuletzt erkannten Gesten an. Weiterhin zeigt es das für die Gesichtserkennung verwendete Bild, sowie User- und NiteID des jeweiligen Nutzers an. 
+				\paragraph{Fair}
+					Das Messe-Widget, zeigt lediglich hart codierte Daten an. Diese werden im in der \code{views/fair.html} übergeben. Logik zum holen von Daten ist noch nicht implementiert, da andere Gruppen dieses Szenario nicht unterstützen, ließe sich aber mit geringem Aufwand aus einem der anderen Widgets ableiten. 
+				\paragraph{Mail} 
+					Das Mail-Widget holt sich seine Daten über einen eigenen "`MAIL"'-Channel des Websockets. Der Rest der Funktionalität ist beinahe Äquivalent zum Calendar-Widget.
+				\paragraph{Widget}
+					Das Widget-Directive ist eine Art Wrapper dem wir die Daten für das eigentliche Widget sowie einen Widget-Type übergeben. Es fügt dann einen HTML-Tag mit typspezifischen CSS-Klassen um den eigentlichen Widget-Tag herum ein. Das hat den Vorteil, dass man beim Hinzufügen von Widgets in der \code{views/main.html} weniger beachten muss.
+				\paragraph{Maps}
+					TODO
+				\paragraph{News}
+					Das News-Widget wartet lediglich auf Daten in dem "`NEWS"'-Channel des Websockets und bietet eine Funktion um einen Newsbeitrag in einem Modal detailiert anzuzeigen.
+				\paragraph{Personal}
+					Das Personal-Widget zeigt persönliche Informationen des Users an. Diese holt es sich über den "`FACEBOOK"'-Channel des Websockets. Weiterhin kann man sich den QR-Code, welcher auf die Mobilseite verlinkt mit einem Modal in groß anzeigen lassen.
+				\paragraph{Social-Comparison}
+					TODO
+				\paragraph{Social}
+					Das Social-Widget zeigt dem User aktuelle Facebook-Posts aus seinem Facebookstream an. Die Daten bekommt es aus dem "`SOCIAL"'-Channel. Weiterhin stellt es die Möglichkeit zur Verfügung detailierte Informationen zu einem Post, wie Anzahl an Likes und Kommentaren, sowie die ersten Kommentare in einem Popover anzuzeigen. Auch das Liken eines Facebookposts ist möglich.
+				\paragraph{Todo}
+					Das Todo-Widget zeigt die ToDos an, welche auf dem "`TODO"'-Channel ankommen. \code{showTodo} kümmert sich hier um die Anzeige detailierter Informationen zu einem ToDo.\\
+				\HRule
+			\subsubsection{Services}
+				\paragraph{CSS-Service}
+					Hier wird ein Array von CSS-Klassen erstellt, was für jedes Widget eine eigene CSS-Klasse erstellt, die die Farbendarstellung im Widget beschreibt.
+				\paragraph{Radial-Service}
+					TODO  
+
 	
 	\section{Erweiterung}
 

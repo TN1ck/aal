@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  5 MAR 2014 13:28
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  5 MAR 2014 22:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -510,23 +510,23 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 (./Dokumentation.aux)
 \openout1 = `Dokumentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 \c@lstlisting=\count123
 \AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring OFF on input line 18.
+Package hyperref Info: Link coloring OFF on input line 20.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -536,9 +536,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count124
 )
-LaTeX Info: Redefining \ref on input line 18.
-LaTeX Info: Redefining \pageref on input line 18.
-LaTeX Info: Redefining \nameref on input line 18.
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
 
 (./Dokumentation.out) (./Dokumentation.out)
 \@outlinefile=\write3
@@ -581,15 +581,15 @@ e
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
-* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=483.69687pt
-* \textheight=731.23584pt
-* \oddsidemargin=-15.36449pt
-* \evensidemargin=-15.36449pt
-* \topmargin=-52.36449pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-23.91173pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -610,7 +610,7 @@ e
 <TU_Logo.pdf, id=36, 134.5025pt x 100.375pt>
 File: TU_Logo.pdf Graphic file (type pdf)
  <use TU_Logo.pdf>
-Package pdftex.def Info: TU_Logo.pdf used on input line 75.
+Package pdftex.def Info: TU_Logo.pdf used on input line 76.
 (pdftex.def)             Requested size: 134.50215pt x 100.37474pt.
  [1
 
@@ -634,55 +634,61 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.85 \chapter
+l.86 \chapter
              {Entwicklerhandbuch} [1
 
 ]
 Kapitel 1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 89.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 90.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 89.
-LaTeX Font Info:    Try loading font information for OT1+cmvtt on input line 95
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
+LaTeX Font Info:    Try loading font information for OT1+cmvtt on input line 96
 .
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/ot1cmvtt.fd
 File: ot1cmvtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 100--102
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
 [2
 
-] [3]
-Kapitel 2.
-[4
-
 ]
-Kapitel 3.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
+Overfull \hbox (2.66321pt too wide) in paragraph at lines 121--122
+ []\OT1/cmr/bx/n/10 Calendar[] \OT1/cmr/m/n/10 Das Calendar-Widget holt sich se
+i-ne Da-ten []uber einen ei-ge-nen []CA-LEN-DAR\-Channel
+ []
+
+[3] [4]
+Kapitel 2.
 [5
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
+Kapitel 3.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
+[6
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
  (./Dokumentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
 Package rerunfilecheck Info: File `Dokumentation.out' has not changed.
 (rerunfilecheck)             Checksum: A804472B1B8F4477834642916D7737CC;460.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 121.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 156.
  ) 
 Here is how much of TeX's memory you used:
- 8184 strings out of 493633
- 115601 string characters out of 3143378
- 212504 words of memory out of 3000000
+ 8202 strings out of 493633
+ 115792 string characters out of 3143378
+ 216519 words of memory out of 3000000
  11365 multiletter control sequences out of 15000+200000
  13130 words of font info for 50 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 29i,8n,32p,1090b,409s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,8n,32p,1090b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -694,10 +700,10 @@ l/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
 exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/tex
 live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmvtt10.pfb>
-Output written on Dokumentation.pdf (6 pages, 150567 bytes).
+Output written on Dokumentation.pdf (7 pages, 159337 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
+ 177 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
  70 words of extra memory for PDF output out of 10000 (max. 10000000)
 
