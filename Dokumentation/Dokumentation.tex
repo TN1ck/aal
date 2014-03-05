@@ -7,10 +7,12 @@
 \usepackage{amssymb}
 
 \usepackage{listings}
+\usepackage[hyphens]{url}
 \usepackage{hyperref}
 \usepackage{graphicx}
 
 \newcommand{\code}[1]{{\fontfamily{cmvtt}\selectfont #1}}
+
 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \begin{document}
@@ -90,15 +92,25 @@ Tom Lehmann\\
 		\item \href{http://www.google.de/intl/de/chrome/browser/}{Google Chrome}
 	\end{itemize}
 	Zum Starten des Projekts muss zunächst das Play-Backend gestartet werden. Das kann getan werden, indem aus dem Projektverzeichnis heraus Play mit
-	\code{play run} via Konsole gestartet wird. Nachdem der Server fertig geladen hat, muss die Seite einmalig über die Adresse \code{http://localhost:9000} gestartet werden.
-	Bei diesem Aufruf werden die Jiac-Agenten initialisiert und gestartet. Wird die Seite mehrmals über diese URL geladen, werden die Jiac-Agenten mehrfach gestartet. Das kann zu undefiniertem Verhalten führen und sollte deshalb vermieden werden. Nach dem ersten Aufruf, wechselt der Status zu \code{http://localhost:9000/index.html\#/nouser}. Ab sofort reagiert die Wall auf einkommende Nachrichten und ändert ihren Status selbstständig.
+	\code{play run} via Konsole gestartet wird. Nachdem der Server fertig geladen hat, muss die Seite einmalig über die Adresse \url{http://localhost:9000} gestartet werden.
+	Bei diesem Aufruf werden die Jiac-Agenten initialisiert und gestartet. Wird die Seite mehrmals über diese URL geladen, werden die Jiac-Agenten mehrfach gestartet. Das kann zu undefiniertem Verhalten führen und sollte deshalb vermieden werden. Nach dem ersten Aufruf, wechselt der Status zu \url{http://localhost:9000/index.html\#/nouser}. Ab sofort reagiert die Wall auf einkommende Nachrichten und ändert ihren Status selbstständig.
 
 	\section{Projektstruktur}
 		\subsection{Allgemeiner Aufbau}
 			Aus diversen Gründen haben wir uns dazu entschieden das Frontend mit dem, von Google entwickelten, Javascript-Framework AngularJS\footnote{\href{http://angularjs.org/}{http://angularjs.org/}} zu entwickeln. die komplette Frontendimplementierung befindet sich im Unterordner \code{public/angular/app}. Die Widgets haben wir als Angular-Directives implementiert und diese befinden sich im \code{scripts/directives}-Ordner. Allgemeine Funktionen, welche die gesamte Applikation beziehungsweise den gerade relevanten Teil der Applikation betreffen, werden in den Controllern realisiert. Für häufig genutzte und ausgliederbare Funktionalität, benutzen wir die Services. Ein weiterer zentraler Bestandteil unserer Applikation ist der AngularUI Router\footnote{\href{http://github.com/angular-ui/ui-router}{http://github.com/angular-ui/ui-router}} welcher für die Anzeige und den Wechsel der einzelnen Zustände zuständig ist. Sämtliche visuell relevanten Codeteile befinden sich in dem Unterordner \code{views}.\\\\
 			Unser Backend-Code ist im \code{app}-Verzeichnis abgelegt. Die Aufgabe des Backends  besteht im wesentlichen darin, sich um die Kommunikation mit anderen Gruppen des Projekts via Jiac zu kümmern und das Frontend mit Daten zu versorgen. Weiterhin stellt es der Wallapplikation sowie den Mobilgeräten, welche zur Bedienung ebenjener verwendet werden die Websockets als Kommunikationskanal zur Verfügung.
 
-		\subsection{Frontend} 
+		\subsection{Frontend}
+			\subsubsection{Controllers}
+				\paragraph{AuthCtrl}
+					Der Auth-Controller ist aktiv, wenn sich die Applikation in einem für die Nutzererkennung relevanten Zustand befindet. Also wenn sie anzeigt, dass gerade eine Erkennung durchgeführt wird oder ein Nutzer als bekannt oder unbekannt identifiziert wurde. Er stellt unter Anderem die Funktionen \code{startTraining} sowie \code{recognizeAgain} bereit, welche über Buttonklicks aufgerufen werden können und die Einleitung eines Trainings- oder Erkennungsprozesses durch das Backend initiieren. Weiterhin stellt er die, für die Anzeige des QR-Codes, relevanten Daten zur Verfügung.
+				\paragraph{MainCtrl}
+					Der Main-Controller ist in unserer Applikation praktisch der root-Controller. Er wird beim Start als erstes geladen, empfängt \code{ADD\_USER} und \code{REMOVE\_USER} Nachrichten unseres Backends und kümmert sich um die korrekte Zustansänderung der Applikation.
+				\paragraph{MobileCtrl}
+					Der Mobile-Controller ist auf allen, sich auf der Mobilseite \url{http://localhost:9000/index.html\#/mobile} befindenden, Geräten aktiv. Er wartet auf Nachrichten von der Wall, mit der er gepaired ist und initiiert Zustandsänderungen auf der Angularinstanz, welche auf dem Mobilgerät aktiv ist. Weiterhin sendet er, sofern das \code{modal}-Objekt verändert wurde, das neue Objekt an die Wall, sodass sich die Nutzereingaben auf dem Smartphone direkt im, auf der Wall eingeblendeten, Modal-Fenster verfolgen lassen. Initial befindet das Mobilgerät im Zustand \code{wrapper.mobile.navigation}. Das bedeutet zum Einen, dass sowohl der Main- als auch der Mobil-Controller aktiv sind und zum Anderen, dass in der Subview der \code{views/mobile.html} die \code{views/widgets/mobile/mobile.navigation.html} geladen wird. Diese bietet direkten Zugriff auf die Core-Features der Applikation vom Mobilgerät aus. Das heißt, man kann ohne auf der Wall navigieren zu müssen, Funktionen wie "`Facebook-Login"' oder "`Add Calendar Entry"' ausführen.
+				\paragraph{ModalCtrls}
+					Die Modal-Controller sind jeweils aktiv, sobald auf der Wall das entsprechende Eingabemodal für die angeforderte Funktionalität angezeigt wird. Sie kommunizieren mit dem Mobilgerät über Websockets und initiieren dadurch gewünschte Zustandsänderungen im MobileCtrl auf dem Mobilgerät. Die gesamte Funktionalität des ModalSocialCtrl, ist in der finalen Abgabe jedoch nicht erreichbar, da das Posten von anderen Gruppen nicht unterstützt wurde.
+				\paragraph{SettingsCtrl}
 	
 	\section{Erweiterung}
 
