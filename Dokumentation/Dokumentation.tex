@@ -144,7 +144,19 @@ Tom Lehmann\\
 				\paragraph{CSS-Service}
 					Hier wird ein Array von CSS-Klassen erstellt, was für jedes Widget eine eigene CSS-Klasse erstellt, die die Farbendarstellung im Widget beschreibt.
 				\paragraph{Radial-Service}
-					TODO  
+					Der Radial-Service ist ein zentraler Bestandteil unserer Applikation. Er stellt das Menü zur Verfügung. Das Menü ist insofern parametrisiert, als dass es nur die tatsächlich vorhandenen Widgets einbezieht und in den Submenüs auch immer nur so viele Auswahlmöglichkeiten anzeigt, wie Daten verfügbar sind. In der anfangs notierten \code{KEYMAPPING}-Variable werden die Tasten deklariert, die der Service für bestimmte Aktionen erwartet. Die Tastendrücke werden im Backend ausgelöst. Das hat den großen Vorteil, dass wir im Frontend direkt auf keypress-Events reagieren können und einige von uns benutzte Elemente, wie beispielsweise Modals, bereits das von uns gewünschte Verhalten (z.B. das Schließen bei Escape-Tastendruck) mitbringen.\\
+					Das Verhalten und die Funktionsweise des Menüs lassen sich recht einfach erschließen, indem man den switch-case-Block am Ende des Codes nachvollzieht.
+				\paragraph{Social-Comparison-Service}
+					TODO
+				\paragraph{Transmit-Text-Service}
+					Der Transmit-Text-Service stellt verschiedene Methoden zur Daten- bzw. Textübertragung via Websocket zur Verfügung. Dabei verwenden die Funktionen welche "`Text"' im Funktionsnamen enthalten stets auf irgendeine Weise die MobileID für den Übertragungschannel, sodass hier nur gepairte Geräte welche die gleiche MobileID verwenden Nachrichten bekommen. Funktionen mit "`Data"' im Funktionsnamen werden benutzt um Daten an Widgets zu senden bzw. diese zu empfangen.
+				\paragraph{Websocket-Service}
+					Der Websocket-Service wird lediglich vom Transmit-Text-Service benutzt und stellt diesem Funktionen zum Hinzufügen bzw. entfernen von sogenannten Listenern, sowie zum Senden von Nachrichten zur Verfügung.
+				\paragraph{Widget-Data-Service}
+					Der Widget-Data-Service kümmert sich zum Einen um den FB-Login-Status und das Holen und Übertragen der Facebookdaten an das Social-Widget und zum Anderen, stellt er die Liste, der über das Menü ansteuerbaren, Widgets inklusive deren Sockets etc. sowie deren Farben zur Verfügung.
+			\subsubsection{Styles}
+				\paragraph{responsive}
+					In der responsive.css wird für verschiedene Anzeigeweiten die body-Schriftgröße festgesetzt, sodass die \code{em}-Einheit, welche sich nach der body-Schriftgröße richtet ebenfalls angepasst wird. Außerdem werden für alle von uns verwendeten Bootstrap Komponenten, die px-Werte mit passenden em Werten überschrieben.
 
 	
 	\section{Erweiterung}
