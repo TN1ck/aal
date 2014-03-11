@@ -32,6 +32,13 @@
 \contentsline {paragraph}{Widget-Data-Service}{5}{section*.27}
 \contentsline {subsubsection}{Styles}{5}{section*.28}
 \contentsline {paragraph}{responsive}{5}{section*.29}
+\contentsline {subsubsection}{Views}{5}{section*.30}
+\contentsline {paragraph}{Loading}{5}{section*.31}
+\contentsline {paragraph}{New}{5}{section*.32}
+\contentsline {paragraph}{Train}{5}{section*.33}
+\contentsline {paragraph}{Unknown}{5}{section*.34}
+\contentsline {paragraph}{Userselect}{5}{section*.35}
+\contentsline {paragraph}{Welcome}{5}{section*.36}
 \contentsline {section}{\numberline {1.3}Erweiterung}{5}{section.1.3}
 \contentsline {chapter}{\numberline {2}Nutzeranleitung}{6}{chapter.2}
 \contentsline {chapter}{\numberline {3}Projektbericht}{7}{chapter.3}

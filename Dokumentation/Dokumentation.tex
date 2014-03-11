@@ -99,7 +99,7 @@ Tom Lehmann\\
 	\section{Projektstruktur}
 		\subsection{Allgemeiner Aufbau}
 			Aus diversen Gründen haben wir uns dazu entschieden das Frontend mit dem, von Google entwickelten, Javascript-Framework AngularJS\footnote{\href{http://angularjs.org/}{http://angularjs.org/}} zu entwickeln. die komplette Frontendimplementierung befindet sich im Unterordner \code{public/angular/app}. Die Widgets haben wir als Angular-Directives implementiert und diese befinden sich im \code{scripts/directives}-Ordner. Allgemeine Funktionen, welche die gesamte Applikation beziehungsweise den gerade relevanten Teil der Applikation betreffen, werden in den Controllern realisiert. Für häufig genutzte und ausgliederbare Funktionalität, benutzen wir die Services. Ein weiterer zentraler Bestandteil unserer Applikation ist der AngularUI Router\footnote{\href{http://github.com/angular-ui/ui-router}{http://github.com/angular-ui/ui-router}} welcher für die Anzeige und den Wechsel der einzelnen Zustände zuständig ist. Sämtliche visuell relevanten Codeteile befinden sich in dem Unterordner \code{views}.\\\\
-			Unser Backend-Code ist im \code{app}-Verzeichnis abgelegt. Die Aufgabe des Backends  besteht im wesentlichen darin, sich um die Kommunikation mit anderen Gruppen des Projekts via Jiac zu kümmern und das Frontend mit Daten zu versorgen. Weiterhin stellt es der Wallapplikation sowie den Mobilgeräten, welche zur Bedienung ebenjener verwendet werden die Websockets als Kommunikationskanal zur Verfügung.
+			Unser Backend-Code ist im \code{app}-Verzeichnis abgelegt. Die Aufgabe des Backends  besteht im wesentlichen darin, sich um die Kommunikation mit anderen Gruppen des Projekts via Jiac zu kümmern und das Frontend mit Daten zu versorgen. Weiterhin stellt es der Wallapplikation sowie den Mobilgeräten, welche zur Bedienung ebenjener verwendet werden, die Websockets als Kommunikationskanal zur Verfügung.
 
 		\subsection{Frontend}
 			\subsubsection{Controllers}
@@ -153,10 +153,20 @@ Tom Lehmann\\
 				\paragraph{Websocket-Service}
 					Der Websocket-Service wird lediglich vom Transmit-Text-Service benutzt und stellt diesem Funktionen zum Hinzufügen bzw. entfernen von sogenannten Listenern, sowie zum Senden von Nachrichten zur Verfügung.
 				\paragraph{Widget-Data-Service}
-					Der Widget-Data-Service kümmert sich zum Einen um den FB-Login-Status und das Holen und Übertragen der Facebookdaten an das Social-Widget und zum Anderen, stellt er die Liste, der über das Menü ansteuerbaren, Widgets inklusive deren Sockets etc. sowie deren Farben zur Verfügung.
+					Der Widget-Data-Service kümmert sich zum Einen um den FB-Login-Status und das Holen und Übertragen der Facebookdaten an das Social-Widget und zum Anderen, stellt er die Liste, der über das Menü ansteuerbaren, Widgets inklusive deren Sockets etc. sowie deren Farben zur Verfügung.\\
+					\HRule
 			\subsubsection{Styles}
 				\paragraph{responsive}
-					In der responsive.css wird für verschiedene Anzeigeweiten die body-Schriftgröße festgesetzt, sodass die \code{em}-Einheit, welche sich nach der body-Schriftgröße richtet ebenfalls angepasst wird. Außerdem werden für alle von uns verwendeten Bootstrap Komponenten, die px-Werte mit passenden em Werten überschrieben.
+					In der responsive.css wird für verschiedene Anzeigeweiten die body-Schriftgröße festgesetzt, sodass die \code{em}-Einheit, welche sich nach der body-Schriftgröße richtet ebenfalls angepasst wird. Außerdem werden für alle von uns verwendeten Bootstrap-Komponenten, die \code{px}-Werte mit passenden \code{em}-Werten überschrieben.\\
+					\HRule
+			\subsubsection{Views}
+				\paragraph{Loading}
+				\paragraph{New}
+				\paragraph{Train}
+				\paragraph{Unknown}
+				\paragraph{Userselect}
+				\paragraph{Welcome}
+
 
 	
 	\section{Erweiterung}
@@ -164,5 +174,11 @@ Tom Lehmann\\
 \chapter{Nutzeranleitung}
 
 \chapter{Projektbericht}
+	In diesem letzten Kapitel der Projektdokumentation möchten wir noch einmal auf besondere Herausforderungen und Leistungen eingehen, sowie eine allgemeine Reflektion des Projekts durchführen.\\\\
+	Ziel des Projekts war es, eine "`Living Wall"' zu erstellen, welche den Nutzer in verschiedenen Szenarien unterstützt und Informationen bereitstellt. Unsere Aufgabe war es dabei, für die Visualisierung sowie die Möglichkeit der Texteingabe zu sorgen. Die Realisierung der Aufgabe sollte bis zum Ende des Semesters erfolgen und die Projektfortschritte während zwölf, in wöchentlichem Abstand stattfindenden Terminen, den anderen Projektteilnehmern präsentiert werden. Schlussendlich sollte noch eine Dokumentation, bestehend aus Entwickler- und Userhandbuch, sowie ein Projektbericht erstellt werden.\\\\
+	Die Aufgabenstellung wirkte sehr reizvoll und wir begannen damit, uns Gedanken über die Mög"-lich"-kei"-ten der Darstellung zu machen. Wir entschieden uns dafür, die Darstellung der Informationen in "`Widgets"' zu realisieren. Das hat den Vorteil, dass man einen modularen Aufbau hat und eventuell später erforderliche Funktionalität einfach hinzufügen kann, bzw. in bestimmten Anwendungsfällen nicht benötigte Komponenten ausblenden kann, ohne andere Teile der Anwendung zu beeinträchtigen. Auf dieser Basis arbeiteten wir einige Designentwürfe aus, entschieden uns für geeignete Software und erstellten eine passende Projektstruktur. Bei der Wahl der Software waren insbesondere zwei Faktoren von besonderer Signifikanz. Zum einen sollten wir Jiac zur Kommunikation mit anderen Gruppen einsetzen, sodass unser Backend Java unterstützen musste und zum Anderen wollten wir, dass die Vorteile unseres Widgetkonzepts sich auch im Code äußern. Deshalb entschieden wir uns dafür, im Backend Play einzusetzen und im Frontend mit AngularJS zu arbeiten, da die Angular Directives unsere Anforderungen in besonderem Maße erfüllen würden.\\\\
+	Bei den Überlegungen zum Design unseres Interfaces war es von Nöten eine Vielzahl von Faktoren zu berücksichtigen, die wir aber zunächst selbst herausfinden mussten und über deren Wichtigkeit wir zum Teil ausführlichst nachgedacht und diskutiert haben, da wir kaum Vorwissen über Interfacedesign mitbrachten.\\\\
+	Die nächste große Herausforderung für uns war, wie man unser Interface möglichst intuitiv und sinnvoll bedienen kann. Ein Cursor wurde aus verschiedenen Gründen ausgeschlossen, also überlegten wir uns verschiedene Möglichkeiten die Wand über anders geartete Gesten zu steuern und haben uns schließlich für "`Vier-Wege-Tabbing"' entschieden.
+
 
 \end{document}
