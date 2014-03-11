@@ -20,12 +20,12 @@
 \contentsline {paragraph}{Maps}{4}{section*.15}
 \contentsline {paragraph}{News}{4}{section*.16}
 \contentsline {paragraph}{Personal}{4}{section*.17}
-\contentsline {paragraph}{Social-Comparison}{4}{section*.18}
+\contentsline {paragraph}{Social-Comparison (Social Graph)}{4}{section*.18}
 \contentsline {paragraph}{Social}{4}{section*.19}
-\contentsline {paragraph}{Todo}{4}{section*.20}
-\contentsline {subsubsection}{Services}{4}{section*.21}
-\contentsline {paragraph}{CSS-Service}{4}{section*.22}
-\contentsline {paragraph}{Radial-Service}{4}{section*.23}
+\contentsline {paragraph}{To-Do}{4}{section*.20}
+\contentsline {subsubsection}{Services}{5}{section*.21}
+\contentsline {paragraph}{CSS-Service}{5}{section*.22}
+\contentsline {paragraph}{Radial-Service}{5}{section*.23}
 \contentsline {paragraph}{Social-Comparison-Service}{5}{section*.24}
 \contentsline {paragraph}{Transmit-Text-Service}{5}{section*.25}
 \contentsline {paragraph}{Websocket-Service}{5}{section*.26}

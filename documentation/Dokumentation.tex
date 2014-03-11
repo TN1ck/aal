@@ -14,7 +14,8 @@
 \newcommand{\code}[1]{{\fontfamily{cmvtt}\selectfont #1}}
 \newcommand{\HRule}{\rule{\linewidth}{0.1pt}} % Defines a new command for the horizontal lines, change thickness here
 
-
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0cm}
 
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \begin{document}
@@ -118,7 +119,7 @@ Tom Lehmann\\
 				\HRule
 			\subsubsection{Directives}
 				\paragraph{Calendar}
-					Das Calendar-Widget holt sich seine Daten über einen eigenen "`CALENDAR"'-Channel des Websockets. Außerdem ist hier die Funktionalität zum Hinzufügen eines eigenen Kalendereintrags vorhanden, welche dann das entsprechende Modal öffnet, dessen Controller sich dann um die Kommunikation mit dem Mobilgerät kümmert. Weiterhin benutzen wir Bootstrap\footnote{\href{http://getbootstrap.com/}{http://getbootstrap.com/}} Popovers, um weitere Detailinformationen zu einem Kalendareintrag anzuzeigen. Dazu dient die Funktion \code{showCalendarEntry} welche das Popover öffnet und mit diesem die entsprechenden Daten übergibt. Die zusätzlichen Directives \code{widgetCalendarSmall}, \code{widgetCalendarMiddle} bzw. \code{widgetCalendarBig} dienen lediglich dazu eine modularere, übersichtlichere und elegantere Notation in den HTML-Files zu ermöglichen.
+					Das Calendar-Widget holt sich seine Daten über einen eigenen "`CALENDAR"'-Channel des Websockets. Außerdem ist hier die Funktionalität zum Hinzufügen eines eigenen Kalendereintrags vorhanden, welche dann das entsprechende Modal öffnet, dessen Controller sich dann um die Kommunikation mit dem Mobilgerät kümmert. Weiterhin benutzen wir Bootstrap\footnote{\href{http://getbootstrap.com/}{http://getbootstrap.com/}} \glqq Popovers\grqq, um weitere Detailinformationen zu einem Kalendareintrag anzuzeigen. Ein Popover ist ein kleines Info-Fenster, das sich beim Klicken auf ein Element öffnet um detailliertere Informationen anzuzeigen und weitere Optionen zu bieten. Ein Dazu dient die Funktion \code{showCalendarEntry} welche das Popover öffnet und mit diesem die entsprechenden Daten übergibt. Die zusätzlichen Directives \code{widgetCalendarSmall}, \code{widgetCalendarMiddle} bzw. \code{widgetCalendarBig} dienen lediglich dazu eine modularere, übersichtlichere und elegantere Notation in den HTML-Files zu ermöglichen.
 				\paragraph{Debug}
 					Das Debug-Widget sollte in der finalen Version selbstverständlich nicht mehr angezeigt werden, da es, wie der Name schon andeutet, lediglich zu Debugzwecken verwendet wird. Es zeigt die Anzahl aller bekannten sowie unbekannten Nutzer und die drei zuletzt erkannten Gesten an. Weiterhin zeigt es das für die Gesichtserkennung verwendete Bild, sowie User- und NiteID des jeweiligen Nutzers an. 
 				\paragraph{Fair}
@@ -128,16 +129,18 @@ Tom Lehmann\\
 				\paragraph{Widget}
 					Das Widget-Directive ist eine Art Wrapper dem wir die Daten für das eigentliche Widget sowie einen Widget-Type übergeben. Es fügt dann einen HTML-Tag mit typspezifischen CSS-Klassen um den eigentlichen Widget-Tag herum ein. Das hat den Vorteil, dass man beim Hinzufügen von Widgets in der \code{views/main.html} weniger beachten muss.
 				\paragraph{Maps}
-					TODO
+					Das Maps-Widget zeigt Google-Maps an. Man kann seinen Standort bestimmen und dann Dinge sehen, die es in der Nähe zu erkunden gibt. Das Google-Maps ist in der finalen Version allerdings nicht mehr enthalten, da wir lieber auf andere Widgets zurückgegriffen haben. Es lässt sich allerdings bei Bedarf wieder aktivieren.
 				\paragraph{News}
 					Das News-Widget wartet lediglich auf Daten in dem "`NEWS"'-Channel des Websockets und bietet eine Funktion um einen Newsbeitrag in einem Modal detailiert anzuzeigen.
 				\paragraph{Personal}
 					Das Personal-Widget zeigt persönliche Informationen des Users an. Diese holt es sich über den "`FACEBOOK"'-Channel des Websockets. Weiterhin kann man sich den QR-Code, welcher auf die Mobilseite verlinkt mit einem Modal in groß anzeigen lassen.
-				\paragraph{Social-Comparison}
-					TODO
+				\paragraph{Social-Comparison (Social Graph)}
+					Das Social-Comparison Widget füllt den Bildschirm komplett aus und visualisiert die Gemeinsamkeiten zwischen zwei Personen. So werden etwa gemeinsame Vorlieben für Musik, gemeinsame Freunde, aber auch gemeinsame Sportarten gefiltert und präsentiert. Die verschiedenen Gemeinsamkeiten sind außerdem semantisch gruppiert, das heißt es werden Filme, Freunde etc. getrennt dargestellt.
 				\paragraph{Social}
-					Das Social-Widget zeigt dem User aktuelle Facebook-Posts aus seinem Facebookstream an. Die Daten bekommt es aus dem "`SOCIAL"'-Channel. Weiterhin stellt es die Möglichkeit zur Verfügung detailierte Informationen zu einem Post, wie Anzahl an Likes und Kommentaren, sowie die ersten Kommentare in einem Popover anzuzeigen. Auch das Liken eines Facebookposts ist möglich.
-				\paragraph{Todo}
+					Das Social-Widget zeigt dem User aktuelle Facebook-Posts aus seinem Facebookstream an. Die Daten bekommt es aus dem "`SOCIAL"'-Channel. Weiterhin stellt es die Möglichkeit zur Verfügung detailierte Informationen zu einem Post, wie Anzahl an Likes und Kommentaren, sowie die ersten Kommentare in einem Popover anzuzeigen. Auch das "`Liken"' eines Facebook-Posts ist möglich, die Daten werden über das Facebook API übertragen.
+					
+					Es gibt auch ein Feature, das ermöglicht, von der Wall aus auf seine Facebook-Pinnwand zu posten.
+				\paragraph{To-Do}
 					Das Todo-Widget zeigt die ToDos an, welche auf dem "`TODO"'-Channel ankommen. \code{showTodo} kümmert sich hier um die Anzeige detailierter Informationen zu einem ToDo.\\
 				\HRule
 			\subsubsection{Services}
@@ -147,7 +150,11 @@ Tom Lehmann\\
 					Der Radial-Service ist ein zentraler Bestandteil unserer Applikation. Er stellt das Menü zur Verfügung. Das Menü ist insofern parametrisiert, als dass es nur die tatsächlich vorhandenen Widgets einbezieht und in den Submenüs auch immer nur so viele Auswahlmöglichkeiten anzeigt, wie Daten verfügbar sind. In der anfangs notierten \code{KEYMAPPING}-Variable werden die Tasten deklariert, die der Service für bestimmte Aktionen erwartet. Die Tastendrücke werden im Backend ausgelöst. Das hat den großen Vorteil, dass wir im Frontend direkt auf keypress-Events reagieren können und einige von uns benutzte Elemente, wie beispielsweise Modals, bereits das von uns gewünschte Verhalten (z.B. das Schließen bei Escape-Tastendruck) mitbringen.\\
 					Das Verhalten und die Funktionsweise des Menüs lassen sich recht einfach erschließen, indem man den switch-case-Block am Ende des Codes nachvollzieht.
 				\paragraph{Social-Comparison-Service}
-					TODO
+					Der Social-Comparison-Service ist das Backend für den Social Graph. Hier wird auf das Facebook-API zugegriffen. Durch das modulare Design hat man die Möglichkeit, noch weiter Daten von Facebook herunterzuladen und im Social-Graph zu visualisieren. Das Hinzufügen einer neuen Kategorie benötigt sonst keinen weiteren Aufwand, denn der graphische Teil passt sich dynamisch an die neuen Daten an, die im Source-Code spezifiziert wurden. 
+					
+					Das konkrete Vorgehen ist folgendes: Zuerst wird der Access-Token für Facebook über \texttt{setToken} für den Service gesetzt. Dann werden die Namen der beteiligten Personen an die Funktion \texttt{compareTwoPersons} übergeben. Anschließend werden alle relevanten Daten von Facebook geholt. Diese Daten werden anschließend gruppiert, auf Gemeinsamkeiten überprüft und zuletzt werden doppelte Datensätze noch gefiltert und Verworfen.
+					
+					Ein \textsc{JSON}-Objekt wird als Antwort an das Frontend übergeben, weches die Daten dann visualisiert.
 				\paragraph{Transmit-Text-Service}
 					Der Transmit-Text-Service stellt verschiedene Methoden zur Daten- bzw. Textübertragung via Websocket zur Verfügung. Dabei verwenden die Funktionen welche "`Text"' im Funktionsnamen enthalten stets auf irgendeine Weise die MobileID für den Übertragungschannel, sodass hier nur gepairte Geräte welche die gleiche MobileID verwenden Nachrichten bekommen. Funktionen mit "`Data"' im Funktionsnamen werden benutzt um Daten an Widgets zu senden bzw. diese zu empfangen.
 				\paragraph{Websocket-Service}
