@@ -73,7 +73,7 @@ Tom Lehmann\\
 
 {\large \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
 
-\includegraphics{TU_Logo}\\[1cm] % Include a department/university logo - this will require the graphicx package
+\includegraphics{TU_Logo.pdf}\\[1cm] % Include a department/university logo - this will require the graphicx package
 
 \vfill % Fill the rest of the page with whitespace
 \end{titlepage}
@@ -170,6 +170,52 @@ Tom Lehmann\\
 
 	
 	\section{Erweiterung}
+		\subsection{Widget hinzufügen}
+			Zum Hinzufügen eines Widgets müssen folgende Dateien geändert werden:
+			\begin{itemize}
+				\item{} scripts/services/widget-data.service.js
+				\item{} index.html
+				\item{} views/main.html 
+			\end{itemize}
+			Und in den folgenden Ordnern die entsprechenden Dateien für das Widget neu erstellt werden:
+			\begin{itemize}
+				\item{} scripts/directives/
+				\item{} views/widgets/
+				\item{} views/modals/ (falls benötigt)
+			\end{itemize}
+			In der \code{widget-data.service.js} befinden sich am Ende der Datei die beiden Arrays \code{widgets} und \code{colors}. Dort muss jeweils der entsprechende Eintrag für das neue Widget hinzugefügt werden. Dabei ist zu beachten, dass der neue Eintrag an der Position in die Arrays eingetragen werden muss, an der das Widget im Quellcode der \code{main.html} notiert ist, um eine korrekte Funktion des Auswahlmenüs zu gewährleisten.\\\\
+			In der \code{index.html} muss die Javascript Datei, welche sich im \code{scripts/directives}-Ordner befinden sollte, für das neue Directive eingetragen werden.\\\\
+			Das neue Widget muss, um tatsächlich angezeigt zu werden noch in der \code{main.html} notiert werden. Dabei hängt die Postition von der Stelle an der es im Quellcode steht ab. Dazu müssen entweder andere Widgets entfernt werden oder deren Größe angepasst werden. Das kann über das Zuweisen der entsprechenden \code{row-md}-CSS-Klasse erreicht werden. 
+		\subsection{Widget ändern}
+			\subsubsection{Position ändern}
+				Um die Position des Widgets zu ändern, müssen folgende Dateien angepasst werden:
+				\begin{itemize}
+					\item{} scripts/services/widget-data.service.js
+					\item{} views/main.html 
+				\end{itemize}
+				In welcher Reihenfolge und Größe die einzelnen Widgets angeordnet sind, wird vollständig in der \code{main.html} beschrieben. Sie werden in drei Spalten angezeigt. Die Höhe eines jeden Widgets (in Grideinheiten) wird über die \code{col-md}-Klasse angegeben. Jede Spalte hat eine Gesamthöhe von acht Grideinheiten. Möchte man jetzt beispielsweise ein Widget der dritten Spalte mit einem Widget der ersten Spalte vertauschen, dann muss man darauf achten, dass die Gesamthöhe der Widgets in der ersten sowie der dritten Spalte auch nach dem Tausch acht beträgt.\\\\
+				Anschließend müssen die Arrayeinträge der vertauschten Widgets in den Arrays \code{widgets} und \code{colors} in der \code{widget-data.service.js} so verschoben werden, dass die Einträge in den Arrays wieder die gleiche Reihenfolge aufweisen, wie die in der \code{main.html} notierten Widgets. Ist dies nicht der Fall, kann es zu Problemen mit dem Menü kommen.
+			\subsubsection{Logik ändern}
+				Um die Logik eines Widgets x zu ändern (z.B. weil sich das Datenformat ändert), müssen folgende Dateien angepasst werden:
+				\begin{itemize}
+				\item{} scripts/directives/widget.x.js
+				\end{itemize}
+			\subsubsection{Darstellung ändern} 
+				Um die visuelle Darstellung eines Widgets x zu ändern, müssen folgende Dateien angepasst werden:
+				\begin{itemize}
+					\item{} views/widgets/x/*
+				\end{itemize}
+				Die jeweiligen \code{small}, \code{middle} und \code{big}-Dateien eines Widgets visualisieren jeweils ein Rechteck mit bestimmten Abmessungen im Bootstrap-Grid. Sollen beispielsweise neue Felder eines Kalendareintrags angezeigt werden, dann muss zunächst entschieden werden, ob sie in allen drei Darstellungsgrößen visualisiert werden sollen oder nur in einer Teilmenge. Die geeignete Darstellung kann dann in den entsprechenden HTML-Dateien notiert werden. Soll die Zusammensetzung oder Reihenfolge der unterschiedlichen Rechtecke des Widgets verändert werden, muss das in der \code{widget.x.html} erledigt werden.
+		\subsection{Widget entfernen}
+			Um ein Widget nicht mehr anzuzeigen, müssen folgende Dateien geändert werden:
+			\begin{itemize}
+				\item{} scripts/services/widget-data.service.js
+				\item{} views/main.html
+			\end{itemize}
+			Das zu entfernende Widget muss zum einen aus der \code{main.html} entfernt werden und die anderen, in dieser Spalte dargestellten Widgets, müssen gegebenenfalls in ihrer Höhe, über die Zuweisung einer anderen \code{col-md}-Klasse, angepasst werden.\\\\
+			Jetzt müssen nur noch die entsprechenden Einträge in den Arrays \code{widgets} und \code{colors} in der \code{widget-data.service.js} entfernt werden.
+
+
 
 \chapter{Nutzeranleitung}
 
@@ -179,7 +225,8 @@ Tom Lehmann\\
 	Die Aufgabenstellung wirkte sehr reizvoll und wir begannen damit, uns Gedanken über die Mög"-lich"-kei"-ten der Darstellung zu machen. Wir entschieden uns dafür, die Darstellung der Informationen in "`Widgets"' zu realisieren. Das hat den Vorteil, dass man einen modularen Aufbau hat und eventuell später erforderliche Funktionalität einfach hinzufügen kann, bzw. in bestimmten Anwendungsfällen nicht benötigte Komponenten ausblenden kann, ohne andere Teile der Anwendung zu beeinträchtigen. Auf dieser Basis arbeiteten wir einige Designentwürfe aus, entschieden uns für geeignete Software und erstellten eine passende Projektstruktur. Bei der Wahl der Software waren insbesondere zwei Faktoren von besonderer Signifikanz. Zum einen sollten wir Jiac zur Kommunikation mit anderen Gruppen einsetzen, sodass unser Backend Java unterstützen musste und zum Anderen wollten wir, dass die Vorteile unseres Widgetkonzepts sich auch im Code äußern. Deshalb entschieden wir uns dafür, im Backend Play einzusetzen und im Frontend mit AngularJS zu arbeiten, da die Angular Directives unsere Anforderungen in besonderem Maße erfüllen würden.\\\\
 	Bei den Überlegungen zum Design unseres Interfaces war es vonnöten eine Vielzahl von Faktoren zu berücksichtigen, die wir aber zunächst selbst herausfinden mussten und über deren Wichtigkeit wir zum Teil ausführlichst nachgedacht und diskutiert haben, da wir kaum Vorwissen über Interfacedesign mitbrachten.\\\\
 	Die nächste große Herausforderung für uns war, wie man unser Interface möglichst intuitiv und sinnvoll bedienen kann. Ein Cursor wurde aus verschiedenen Gründen ausgeschlossen, also überlegten wir uns verschiedene Möglichkeiten die Wand über anders geartete Gesten zu steuern und haben uns schließlich für "`Vier-Wege-Tabbing"' in Kombination mit der Darstellung eines Menüs zur Unterstützung der Navigation und Interaktion entschieden. Die visuelle Darstellung des Menüs war recht komplex, da wir das Menü generisch implementieren wollten, um es somit unabhängig von der Anzahl der dargestellten Widgets zu gestalten.\\\\
-	Weil wir ohnehin eine Mobilseite für die Texteingabe erstellen mussten, welche die Möglichkeit bieten sollte, Texteingaben im Interface der Wall mit Live-Feedback via Smartphone zu realisieren, haben wir uns dafür entschieden, den Inhalt der Mobilseite dynamisch zu updaten. Das heißt, dass sich die Anzeige auf dem Mobilgerät selbstständig ändert, wenn auf der Wall eine Aktion ausgeführt wurde, welche das Mobilgerät erforderlich macht. Wird die Aktion über das Smartphone oder über die Wall beendet, kehrt die Mobilseite automatisch in einen Zustand zurück, in dem die Kernfeatures der Wall (z.B. Mail erstellen) direkt mit einem Knopfdruck ausgelöst werden können und sich der Zustand auf dem Mobilgerät dementsprechend anpassen würde. Wir haben also für gekoppelte Geräte und die Wall einen asynchrone Echtzeitkommunikationskanal aufgebaut, um dem User das bestmögliche Feedback, direktes visuelles Livefeedback, zu ermöglichen. Um die Orientierung des Nutzers zu vereinfachen, haben wir bei der Implementierung darauf geachtet, dass sowohl das Fenster auf der Wall, als auch der auf dem Mobilgerät angezeigte Dialog das selbe Template benutzen und sich somit, bis auf einige bildschirmgrößenspezifische Unterschiede, visuell gleichen und die Anpassung und Wartung des Codes vereinfacht wird.
+	Weil wir ohnehin eine Mobilseite für die Texteingabe erstellen mussten, welche die Möglichkeit bieten sollte, Texteingaben im Interface der Wall mit Live-Feedback via Smartphone zu realisieren, haben wir uns dafür entschieden, den Inhalt der Mobilseite dynamisch zu updaten. Das heißt, dass sich die Anzeige auf dem Mobilgerät selbstständig ändert, wenn auf der Wall eine Aktion ausgeführt wurde, welche das Mobilgerät erforderlich macht. Wird die Aktion über das Smartphone oder über die Wall beendet, kehrt die Mobilseite automatisch in einen Zustand zurück, in dem die Kernfeatures der Wall (z.B. Mail erstellen) direkt mit einem Knopfdruck ausgelöst werden können und sich der Zustand auf dem Mobilgerät dementsprechend anpassen würde. Wir haben also für gekoppelte Geräte und die Wall einen asynchrone Echtzeitkommunikationskanal aufgebaut, um dem User das bestmögliche Feedback, direktes visuelles Livefeedback, zu ermöglichen. Um die Orientierung des Nutzers zu vereinfachen, haben wir bei der Implementierung darauf geachtet, dass sowohl das Fenster auf der Wall, als auch der auf dem Mobilgerät angezeigte Dialog das selbe Template benutzen und sich somit, bis auf einige bildschirmgrößenspezifische Unterschiede, visuell gleichen und die Anpassung und Wartung des Codes vereinfacht wird.\\\\
+	TODO: Herausforderungen/Leistungen im Backend und ggf. Social-Graph oder andere Dinge im Frontend, die mir noch nicht eingefallen sind
 
 
 \end{document}
