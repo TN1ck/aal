@@ -169,6 +169,79 @@ Tom Lehmann\\
 
 
 	
+
+    \newpage
+    \subsection{Backend}
+    Der Code für das Backend befindet sich im \code{app}-Verzeichnis.
+         \subsubsection{JIAC}
+        Zur Kommunikation mit den anderen Projekt-Gruppen benutzen wir das
+        Agentenframework JIAC, über das Nachrichten gesendet werden, die für
+        das zusammenwirken der einzelnen Teilprojekte nötig sind. Die
+        Kommunikation läuft über folgende vier Agenten, welche zu dem
+        ApplicationNode gehören: \\
+        \paragraph{Gesture Agent}
+            Agent zur Kommunikation mit der Gesten und Personenerkennung. \\
+        \paragraph{SocialMedia Agent}
+            Agent zur Beschaffung von Daten aus
+            SocialMedia Plattformen wie z.B. Facebook, aus der Datenbank. \\
+        \paragraph{Information Agent}
+            Agent zur Beschaffung von News und Verwaltung
+            von ToDo's aus der Datenbank. \\
+        \paragraph{Communication Agent}
+            Agent zur Beschaffung und Verwaltung von
+            Mails und Kalender. \\
+      
+        Die JIAC-Konfigurationsdatei befindet sich im Verzeichnis
+        \code{aal/conf/jiac.xml}. \\
+                
+        
+        Die Implementierung der Beans befindet sich im Verzeichnis
+        \code{jiac/beans}. Alle Beans erben von der Klasse
+        AbstractCommunicatingBean, um die Modellierung der Beans möglichst
+        weit zu vereinheitlichen und zu vereinfachen. \\
+
+        \paragraph{Beans}
+        Im Folgenden nun eine Auflistung aller Beans mit kurzer Beschreibung,
+        wofür sie gebracht werden:
+        \begin{itemize}
+        \item Gesture Bean: \\
+            Sendet Nachrichten zum starten des Trainings
+            einer neuen Person und zum erneuten erkennen einer Person, falls
+            diese nicht richtig erkannt wurde. \\
+            Außerdem Empfängt er Gesten, die über virtuelle Tastendrücke
+            Aktionen im Frontend auslösen, und Nachrichten zur
+            Benutzererkennung. \\
+        \item Todo Bean: \\
+            Fordert ToDo's des aktuellen Benutzers an und leitet die
+            empfangenen Daten über einen Websocket an das Frontend weiter. \\
+            Außerdem bietet er die Möglichkeit Nachrichten zu versenden für das
+            Löschen eines existierenden ToDo's und das erstellen eines neuen
+            ToDo's. \\
+        \item News Bean: \\
+            Fordert aktuelle Nachrichten an und leitet die empfangenen Daten an
+            das Frontend weiter über einen Websocket. \\
+        \item Calendar Bean: \\
+            Fordert Kalenderdaten des aktuellen Benutzers an und leitet die
+            empfangenen Daten über einen Websocket an das Frontend weiter.
+            Außerdem bietet er die Möglichkeit einen veränderten
+            Kalendereintrag in der Datenbank zu speichern. \\ 
+        \item Mail Bean: \\
+            Fordert Mails des aktuellen Benutzers von der Datenbank an und
+            leitet die empfangenen Daten über einen Websocket an das Frontend
+            weiter. \\
+            Zusätzlich bietet er die Möglichkeit des Versendens von Mails. \\
+        \item Facebook Bean: \\
+            Fordert Facebook-Profildaten des aktuellen Benutzers an. Die
+            Nachricht enthält entweder ein gültiges access Token, wenn sich der
+            Benutzer neu bei Facebook eingeloggt hat, oder das Feld für das
+            Token bleibt leer. In diesem Fall wird das letzte gespeicherte
+            access Token von der Datenbank verwendet um die Daten zu
+            beschaffen. \\
+            Die empfangenen Daten werden über einen Websocket an das Frontend
+            weitergeleitet. \\
+        \end{itemize}
+
+
 	\section{Erweiterung}
 		\subsection{Widget hinzufügen}
 			Zum Hinzufügen eines Widgets müssen folgende Dateien geändert werden:
