@@ -20,31 +20,44 @@
 \contentsline {paragraph}{Maps}{4}{section*.15}
 \contentsline {paragraph}{News}{4}{section*.16}
 \contentsline {paragraph}{Personal}{4}{section*.17}
-\contentsline {paragraph}{Social-Comparison}{4}{section*.18}
+\contentsline {paragraph}{Social-Comparison (Social-Graph)}{4}{section*.18}
 \contentsline {paragraph}{Social}{4}{section*.19}
-\contentsline {paragraph}{Todo}{4}{section*.20}
-\contentsline {subsubsection}{Services}{4}{section*.21}
-\contentsline {paragraph}{CSS-Service}{4}{section*.22}
-\contentsline {paragraph}{Radial-Service}{4}{section*.23}
+\contentsline {paragraph}{To Do}{5}{section*.20}
+\contentsline {subsubsection}{Services}{5}{section*.21}
+\contentsline {paragraph}{CSS-Service}{5}{section*.22}
+\contentsline {paragraph}{Radial-Service}{5}{section*.23}
 \contentsline {paragraph}{Social-Comparison-Service}{5}{section*.24}
 \contentsline {paragraph}{Transmit-Text-Service}{5}{section*.25}
 \contentsline {paragraph}{Websocket-Service}{5}{section*.26}
 \contentsline {paragraph}{Widget-Data-Service}{5}{section*.27}
 \contentsline {subsubsection}{Styles}{5}{section*.28}
 \contentsline {paragraph}{responsive}{5}{section*.29}
-\contentsline {subsubsection}{Views}{5}{section*.30}
-\contentsline {paragraph}{Loading}{5}{section*.31}
-\contentsline {paragraph}{New}{5}{section*.32}
-\contentsline {paragraph}{Train}{5}{section*.33}
-\contentsline {paragraph}{Unknown}{5}{section*.34}
-\contentsline {paragraph}{Userselect}{5}{section*.35}
-\contentsline {paragraph}{Welcome}{5}{section*.36}
-\contentsline {section}{\numberline {1.3}Erweiterung}{5}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Widget hinzuf\IeC {\"u}gen}{5}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Widget \IeC {\"a}ndern}{6}{subsection.1.3.2}
-\contentsline {subsubsection}{Position \IeC {\"a}ndern}{6}{section*.37}
-\contentsline {subsubsection}{Logik \IeC {\"a}ndern}{6}{section*.38}
-\contentsline {subsubsection}{Darstellung \IeC {\"a}ndern}{6}{section*.39}
-\contentsline {subsection}{\numberline {1.3.3}Widget entfernen}{7}{subsection.1.3.3}
-\contentsline {chapter}{\numberline {2}Nutzeranleitung}{8}{chapter.2}
-\contentsline {chapter}{\numberline {3}Projektbericht}{9}{chapter.3}
+\contentsline {subsubsection}{Views}{6}{section*.30}
+\contentsline {paragraph}{Loading}{6}{section*.31}
+\contentsline {paragraph}{New}{6}{section*.32}
+\contentsline {paragraph}{Train}{6}{section*.33}
+\contentsline {paragraph}{Unknown}{6}{section*.34}
+\contentsline {paragraph}{Userselect}{6}{section*.35}
+\contentsline {paragraph}{Welcome}{6}{section*.36}
+\contentsline {subsection}{\numberline {1.2.3}Backend}{7}{subsection.1.2.3}
+\contentsline {subsubsection}{JIAC}{7}{section*.37}
+\contentsline {paragraph}{Gesture Agent}{7}{section*.38}
+\contentsline {paragraph}{SocialMedia Agent}{7}{section*.39}
+\contentsline {paragraph}{Information Agent}{7}{section*.40}
+\contentsline {paragraph}{Communication Agent}{7}{section*.41}
+\contentsline {paragraph}{Beans}{7}{section*.42}
+\contentsline {section}{\numberline {1.3}Erweiterung}{8}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Widget hinzuf\IeC {\"u}gen}{8}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Widget \IeC {\"a}ndern}{8}{subsection.1.3.2}
+\contentsline {subsubsection}{Position \IeC {\"a}ndern}{8}{section*.43}
+\contentsline {subsubsection}{Logik \IeC {\"a}ndern}{9}{section*.44}
+\contentsline {subsubsection}{Darstellung \IeC {\"a}ndern}{9}{section*.45}
+\contentsline {subsection}{\numberline {1.3.3}Widget entfernen}{9}{subsection.1.3.3}
+\contentsline {chapter}{\numberline {2}Nutzeranleitung}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}Gesten}{10}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Geste 1}{10}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Geste 2}{10}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Geste 3}{10}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Geste 4}{10}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Benutzung}{10}{section.2.2}
+\contentsline {chapter}{\numberline {3}Projektbericht}{12}{chapter.3}

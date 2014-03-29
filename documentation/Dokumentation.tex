@@ -14,8 +14,6 @@
 \newcommand{\code}[1]{{\fontfamily{cmvtt}\selectfont #1}}
 \newcommand{\HRule}{\rule{\linewidth}{0.1pt}} % Defines a new command for the horizontal lines, change thickness here
 
-
-
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \begin{document}
 % \title{Dokumentation Projekt AAL}
@@ -87,8 +85,9 @@ Tom Lehmann\\
 	\section{Installation}
 	Für die vollständige Lauffähigkeit unserer finalen Abgabe, müssen folgende Programme installiert sein:
 	\begin{itemize}
-		\item \href{http://www.playframework.com/}{Play}
-		\item \href{http://nodejs.org/}{node.js} 
+		\item \href{http://github.com}{Git (nötig, um den Programmcode von Github herunterzuladen)}
+		\item \href{http://www.playframework.com}{Play}
+		\item \href{http://nodejs.org}{node.js}
 		\item \href{http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html}{Java 1.7} 
 		\item \href{http://www.google.de/intl/de/chrome/browser/}{Google Chrome}
 	\end{itemize}
@@ -128,17 +127,18 @@ Tom Lehmann\\
 				\paragraph{Widget}
 					Das Widget-Directive ist eine Art Wrapper dem wir die Daten für das eigentliche Widget sowie einen Widget-Type übergeben. Es fügt dann einen HTML-Tag mit typspezifischen CSS-Klassen um den eigentlichen Widget-Tag herum ein. Das hat den Vorteil, dass man beim Hinzufügen von Widgets in der \code{views/main.html} weniger beachten muss.
 				\paragraph{Maps}
-					TODO
+					Das Maps-Widget zeigt Google-Maps an. Man kann seinen Standort bestimmen und dann Dinge sehen, die es in der Nähe zu erkunden gibt. Das Google-Maps ist in der finalen Version allerdings nicht mehr enthalten, da wir lieber auf andere Widgets zurückgegriffen haben. Es lässt sich allerdings bei Bedarf wieder aktivieren.
 				\paragraph{News}
 					Das News-Widget wartet lediglich auf Daten in dem "`NEWS"'-Channel des Websockets und bietet eine Funktion um einen Newsbeitrag in einem Modal detailiert anzuzeigen.
 				\paragraph{Personal}
 					Das Personal-Widget zeigt persönliche Informationen des Users an. Diese holt es sich über den "`FACEBOOK"'-Channel des Websockets. Weiterhin kann man sich den QR-Code, welcher auf die Mobilseite verlinkt mit einem Modal in groß anzeigen lassen.
-				\paragraph{Social-Comparison}
-					TODO
+				\paragraph{Social-Comparison (Social-Graph)}
+					Das Social-Widget zeigt dem User aktuelle Facebook-Posts aus seinem Facebookstream an. Die Daten bekommt es aus dem "`SOCIAL"'-Channel. Weiterhin stellt es die Möglichkeit zur Verfügung detailierte Informationen zu einem Post, wie Anzahl an Likes und Kommentaren, sowie die ersten Kommentare in einem Popover anzuzeigen. Auch das "`Liken"' eines Facebook-Posts ist möglich, die Daten werden über das Facebook API übertragen.\\
+Es gibt auch ein Feature, das ermöglicht, von der Wall aus auf seine Facebook-Pinnwand zu posten.
 				\paragraph{Social}
 					Das Social-Widget zeigt dem User aktuelle Facebook-Posts aus seinem Facebookstream an. Die Daten bekommt es aus dem "`SOCIAL"'-Channel. Weiterhin stellt es die Möglichkeit zur Verfügung detailierte Informationen zu einem Post, wie Anzahl an Likes und Kommentaren, sowie die ersten Kommentare in einem Popover anzuzeigen. Auch das Liken eines Facebookposts ist möglich.
-				\paragraph{Todo}
-					Das Todo-Widget zeigt die ToDos an, welche auf dem "`TODO"'-Channel ankommen. \code{showTodo} kümmert sich hier um die Anzeige detailierter Informationen zu einem ToDo.\\
+				\paragraph{To Do}
+					Das To-Do-Widget zeigt die ToDos an, welche auf dem "`TODO"'-Channel ankommen. \code{showTodo} kümmert sich hier um die Anzeige detailierter Informationen zu einem ToDo.\\
 				\HRule
 			\subsubsection{Services}
 				\paragraph{CSS-Service}
@@ -147,7 +147,11 @@ Tom Lehmann\\
 					Der Radial-Service ist ein zentraler Bestandteil unserer Applikation. Er stellt das Menü zur Verfügung. Das Menü ist insofern parametrisiert, als dass es nur die tatsächlich vorhandenen Widgets einbezieht und in den Submenüs auch immer nur so viele Auswahlmöglichkeiten anzeigt, wie Daten verfügbar sind. In der anfangs notierten \code{KEYMAPPING}-Variable werden die Tasten deklariert, die der Service für bestimmte Aktionen erwartet. Die Tastendrücke werden im Backend ausgelöst. Das hat den großen Vorteil, dass wir im Frontend direkt auf keypress-Events reagieren können und einige von uns benutzte Elemente, wie beispielsweise Modals, bereits das von uns gewünschte Verhalten (z.B. das Schließen bei Escape-Tastendruck) mitbringen.\\
 					Das Verhalten und die Funktionsweise des Menüs lassen sich recht einfach erschließen, indem man den switch-case-Block am Ende des Codes nachvollzieht.
 				\paragraph{Social-Comparison-Service}
-					TODO
+					Der Social-Comparison-Service ist das Backend für den Social Graph. Hier wird auf das Facebook-API zugegriffen. Durch das modulare Design hat man die Möglichkeit, noch weiter Daten von Facebook herunterzuladen und im Social-Graph zu visualisieren. Das Hinzufügen einer neuen Kategorie benötigt sonst keinen weiteren Aufwand, denn der graphische Teil passt sich dynamisch an die neuen Daten an, die im Source-Code spezifiziert wurden. 
+\\
+Das konkrete Vorgehen ist folgendes: Zuerst wird der Access-Token für Facebook über \texttt{setToken} für den Service gesetzt. Dann werden die Namen der beteiligten Personen an die Funktion \texttt{compareTwoPersons} übergeben. Anschließend werden alle relevanten Daten von Facebook geholt. Diese Daten werden anschließend gruppiert, auf Gemeinsamkeiten überprüft und zuletzt werden doppelte Datensätze noch gefiltert und Verworfen.
+\\
+\textsc{JSON}-Objekt wird als Antwort an das Frontend übergeben, weches die Daten dann visualisiert.
 				\paragraph{Transmit-Text-Service}
 					Der Transmit-Text-Service stellt verschiedene Methoden zur Daten- bzw. Textübertragung via Websocket zur Verfügung. Dabei verwenden die Funktionen welche "`Text"' im Funktionsnamen enthalten stets auf irgendeine Weise die MobileID für den Übertragungschannel, sodass hier nur gepairte Geräte welche die gleiche MobileID verwenden Nachrichten bekommen. Funktionen mit "`Data"' im Funktionsnamen werden benutzt um Daten an Widgets zu senden bzw. diese zu empfangen.
 				\paragraph{Websocket-Service}
@@ -291,14 +295,49 @@ Tom Lehmann\\
 
 
 \chapter{Nutzeranleitung}
+\textbf{\textsc{TODO: Alle Schritte noch ausführlicher beschreiben. Ich habe den genauen schrittweisen Ablauf nicht im Kopf}}
+
+\section{Gesten}
+Vorab seien die Gesten erklärt, mit denen die Wall bedient werden kann:
+\subsection{Geste 1}
+foo
+\subsection{Geste 2}
+bar
+\subsection{Geste 3}
+spam
+\subsection{Geste 4}
+eggs
+
+\section{Benutzung}
+Im ersten Schritt stellen sich mehrere User -- bis zu fünf ist angesichts der Performance der Kinect-Technologie und des Rechners -- vor die Wall. Der Abstand zur Wall sollte etwa 2m betragen und es empfiehlt sich, möglichst mittig vor der Kinect-Kamera zu stehen.
+\\\\
+Als nächstes erscheint auf der Wall ein Dialog, in dem die erkannten Gesichter angezeigt werden und die User gebeten werden, grundlegende Daten, wie etwaige Facebook- und Google-Accounts anzugeben. 
+\\
+Danach erscheint der Social-Graph, um Gemeinsamkeiten zwischen den Usern abzubilden.\\
+Haben die User sich über ihre gemeinsamen Interessen ausgetauscht, ist es möglich zur Hauptansicht der Wall zu wechseln.
+\\\\
+Am Hauptbildschirm angekommen sieht man die Widgets in ihrer kachelförmigen Anordnung. Es sei angemerkt, dass es -- um das Funktionieren einiger Widgets zu gewährleisten -- erforderlich ist, sich bei Facebook und Google einzuloggen. Das Social-Widget, das To-Do-Widget und andere benötigen als Daten-Backend die vorher genannten Service-Anbieter.\\
+Durch Gesten lässt sich der Fokus auf ein bestimmtes Widget lenken, in welchem dann weiter Interaktion möglich ist. Das aktuell ausgewählte Widget kann man an der helleren Farbgebung erkennen.
+
 
 \chapter{Projektbericht}
 	In diesem letzten Kapitel der Projektdokumentation möchten wir noch einmal auf besondere Herausforderungen und Leistungen eingehen, sowie eine allgemeine Reflektion des Projekts durchführen.\\\\
 	Ziel des Projekts war es, eine "`Living Wall"' zu erstellen, welche den Nutzer in verschiedenen Szenarien unterstützt und Informationen bereitstellt. Unsere Aufgabe war es dabei, für die Visualisierung sowie die Möglichkeit der Texteingabe zu sorgen. Die Realisierung der Aufgabe sollte bis zum Ende des Semesters erfolgen und die Projektfortschritte während zwölf, in wöchentlichem Abstand stattfindenden Terminen, den anderen Projektteilnehmern präsentiert werden. Schlussendlich sollte noch eine Dokumentation, bestehend aus Entwickler- und Userhandbuch, sowie ein Projektbericht erstellt werden.\\\\
-	Die Aufgabenstellung wirkte sehr reizvoll und wir begannen damit, uns Gedanken über die Mög"-lich"-kei"-ten der Darstellung zu machen. Wir entschieden uns dafür, die Darstellung der Informationen in "`Widgets"' zu realisieren. Das hat den Vorteil, dass man einen modularen Aufbau hat und eventuell später erforderliche Funktionalität einfach hinzufügen kann, bzw. in bestimmten Anwendungsfällen nicht benötigte Komponenten ausblenden kann, ohne andere Teile der Anwendung zu beeinträchtigen. Auf dieser Basis arbeiteten wir einige Designentwürfe aus, entschieden uns für geeignete Software und erstellten eine passende Projektstruktur. Bei der Wahl der Software waren insbesondere zwei Faktoren von besonderer Signifikanz. Zum einen sollten wir Jiac zur Kommunikation mit anderen Gruppen einsetzen, sodass unser Backend Java unterstützen musste und zum anderen wollten wir, dass die Vorteile unseres Widgetkonzepts sich auch im Code äußern. Deshalb entschieden wir uns dafür, im Backend Play einzusetzen und im Frontend mit AngularJS zu arbeiten, da die Angular Directives unsere Anforderungen in besonderem Maße erfüllen würden.\\\\
+	Die Aufgabenstellung wirkte sehr reizvoll und wir begannen damit, uns Gedanken über die Mög"-lich"-kei"-ten der Darstellung zu machen. Wir entschieden uns dafür, die Darstellung der Informationen in "`Widgets"' zu realisieren. Ein Widget ist eine unabhängige Funktionseinheit, die gemeinsam mit anderen Widgets zur Gesamtanwendung komponiert wird. Ein Beispiel für ein Widget wäre etwa unser Kalender. Neben dem Kalender gibt es z.B.~auch noch das Facebook-Widget. All diese Widgets gemeinsam sind für das Gesamterlebnis der Anwendung verantwortlich. Das hat den Vorteil, dass man einen modularen Aufbau hat und eventuell später erforderliche Funktionalität einfach hinzufügen kann, bzw. in bestimmten Anwendungsfällen nicht benötigte Komponenten ausblenden kann, ohne andere Teile der Anwendung zu beeinträchtigen. Auf dieser Basis arbeiteten wir einige Designentwürfe aus, entschieden uns für geeignete Software und erstellten eine passende Projektstruktur. Bei der Wahl der Software waren insbesondere zwei Faktoren von besonderer Signifikanz. Zum einen sollten wir Jiac zur Kommunikation mit anderen Gruppen einsetzen, sodass unser Backend Java unterstützen musste und zum anderen wollten wir, dass die Vorteile unseres Widgetkonzepts sich auch im Code äußern. Deshalb entschieden wir uns dafür, im Backend Play einzusetzen und im Frontend mit AngularJS zu arbeiten, da die Angular Directives unsere Anforderungen in besonderem Maße erfüllen würden.\\\\
 	Bei den Überlegungen zum Design unseres Interfaces war es vonnöten eine Vielzahl von Faktoren zu berücksichtigen, die wir aber zunächst selbst herausfinden mussten und über deren Wichtigkeit wir zum Teil ausführlichst nachgedacht und diskutiert haben, da wir kaum Vorwissen über Interfacedesign mitbrachten.\\\\
 	Die nächste große Herausforderung für uns war, wie man unser Interface möglichst intuitiv und sinnvoll bedienen kann. Ein Cursor wurde aus verschiedenen Gründen ausgeschlossen, also überlegten wir uns verschiedene Möglichkeiten die Wand über anders geartete Gesten zu steuern und haben uns schließlich für "`Vier-Wege-Tabbing"' in Kombination mit der Darstellung eines Menüs zur Unterstützung der Navigation und Interaktion entschieden. Die visuelle Darstellung des Menüs war recht komplex, da wir das Menü generisch implementieren wollten, um es somit unabhängig von der Anzahl der dargestellten Widgets zu gestalten.\\\\
-	Weil wir ohnehin eine Mobilseite für die Texteingabe erstellen mussten, welche die Möglichkeit bieten sollte, Texteingaben im Interface der Wall mit Live-Feedback via Smartphone zu realisieren, haben wir uns dafür entschieden, den Inhalt der Mobilseite dynamisch zu updaten. Das heißt, dass sich die Anzeige auf dem Mobilgerät selbstständig ändert, wenn auf der Wall eine Aktion ausgeführt wurde, welche das Mobilgerät erforderlich macht. Wird die Aktion über das Smartphone oder über die Wall beendet, kehrt die Mobilseite automatisch in einen Zustand zurück, in dem die Kernfeatures der Wall (z.B. Mail erstellen) direkt mit einem Knopfdruck ausgelöst werden können und sich der Zustand auf dem Mobilgerät dementsprechend anpassen würde. Wir haben also für gekoppelte Geräte und die Wall einen asynchrone Echtzeitkommunikationskanal aufgebaut, um dem User das bestmögliche Feedback, direktes visuelles Livefeedback, zu ermöglichen. Um die Orientierung des Nutzers zu vereinfachen, haben wir bei der Implementierung darauf geachtet, dass sowohl das Fenster auf der Wall, als auch der auf dem Mobilgerät angezeigte Dialog das selbe Template benutzen und sich somit, bis auf einige bildschirmgrößenspezifische Unterschiede, visuell gleichen und die Anpassung und Wartung des Codes vereinfacht wird.\\\\
+	Weil wir ohnehin eine Mobilseite für die Texteingabe erstellen mussten, welche die Möglichkeit bieten sollte, Texteingaben im Interface der Wall mit Live-Feedback via Smartphone zu realisieren, haben wir uns dafür entschieden, den Inhalt der Mobilseite dynamisch zu updaten. Das heißt, dass sich die Anzeige auf dem Mobilgerät selbstständig ändert, wenn auf der Wall eine Aktion ausgeführt wurde, welche das Mobilgerät erforderlich macht. Wird die Aktion über das Smartphone oder über die Wall beendet, kehrt die Mobilseite automatisch in einen Zustand zurück, in dem die Kernfeatures der Wall (z.B. Mail erstellen) direkt mit einem Knopfdruck ausgelöst werden können und sich der Zustand auf dem Mobilgerät dementsprechend anpassen würde. Wir haben also für gekoppelte Geräte und die Wall einen asynchrone Echtzeitkommunikationskanal aufgebaut, um dem User das bestmögliche Feedback, direktes visuelles Livefeedback, zu ermöglichen. Um die Orientierung des Nutzers zu vereinfachen, haben wir bei der Implementierung darauf geachtet, dass sowohl das Fenster auf der Wall, als auch der auf dem Mobilgerät angezeigte Dialog das selbe Template benutzen und sich somit, bis auf einige bildschirmgrößenspezifische Unterschiede, visuell gleichen und die Anpassung und Wartung des Codes vereinfacht wird.
+\\\\
+Zuletzt sei zum Frontend noch der Social-Graph erwähnt. Wie vorhin schon erläutert ermöglicht er nach der Erkennung die Darstellung von Gemeinsamkeiten, damit User möglicherweise schon ein Gesprächsthema oder gemeinsames Interesse zu Beginn der Wall-Interaktion erkennen. \\
+Ursprünglich war für den Social-Graph -- wie der Name schon sagt -- eine Graph-Darstellung angedacht. Diese hat sich aber im Laufe des Entwurfsprozesses als nicht so praktikabel wie ursprünglich gedacht herausgestellt, da die Anzahl an Gemeinsamkeiten der User kleiner war als gedacht und der Graph somit meistens nur eine Hand voll Knoten hatte und wenig imposant aussah. \\
+Darum wurde dann eine tabellarische Darstellung gewählt. Ein Vorteil ist, dass sich bei dieser Form die Kategorien an angezeigten Daten problemlos erweitern lässt. Hierzu sind kaum Änderungen im Backend erforderlich.\\ 
+Eine weitere Änderung ist, dass ursprünglich bis zu 5 Leute für den Social-Graph geplant waren. Nach Tests stellte sich aber heraus, dass mit zunehmender Anzahl an Personen, die Ladezeiten -- um die Daten von Facebook zu laden und sie anschließend zu analysieren und darzustellen -- unannehmlich groß wurden.
+\\\\
+Im Backend entschieden wir uns wie vorhin schon kurz erwähnt für das Play-Framework. Diese Software ermöglichte uns große Performance und stellte uns auch alle benötigten Funktionen ohne Umwege zur Verfügung. Besondere Erwähnung verdienen hier die \glqq Websockets \grqq. \\
+Bei dieser Technologie wird es ermöglicht, auch direkt im laufenden Betrieb vom Server Daten für die Website nachzuladen. Das ganze ist sehr ähnlich zum älteren \glqq \textsc{Ajax} \grqq, mit dem Unterschied, dass Websockets auch der Server spontan Daten an den Client senden kann, ohne dass der Client dies vorher explizit gefordert hat.\\
+Somit ermöglichten uns Websockets, dass die Inhalte der Widgets -- etwa Nachrichten oder Facebook-Posts -- live from Server nachgeladen werden können. Auch ohne Aktualisierung der Website ist es somit möglich, dass die Daten auch über mehrere Tage hinweg aktuell bleiben.
+
+
 	TODO: Herausforderungen/Leistungen im Backend und ggf. Social-Graph oder andere Dinge im Frontend, die mir noch nicht eingefallen sind
 
 
