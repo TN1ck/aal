@@ -61,3 +61,6 @@
 \contentsline {subsection}{\numberline {2.1.4}Geste 4}{10}{subsection.2.1.4}
 \contentsline {section}{\numberline {2.2}Benutzung}{10}{section.2.2}
 \contentsline {chapter}{\numberline {3}Projektbericht}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}Frontend-Entwicklung}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}Backend-Entwicklung}{13}{section.3.2}
+\contentsline {section}{\numberline {3.3}Schlussfolgerungen}{13}{section.3.3}
