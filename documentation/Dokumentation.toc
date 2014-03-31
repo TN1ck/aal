@@ -22,7 +22,7 @@
 \contentsline {paragraph}{Personal}{4}{section*.17}
 \contentsline {paragraph}{Social-Comparison (Social-Graph)}{4}{section*.18}
 \contentsline {paragraph}{Social}{4}{section*.19}
-\contentsline {paragraph}{To Do}{5}{section*.20}
+\contentsline {paragraph}{To Do}{4}{section*.20}
 \contentsline {subsubsection}{Services}{5}{section*.21}
 \contentsline {paragraph}{CSS-Service}{5}{section*.22}
 \contentsline {paragraph}{Radial-Service}{5}{section*.23}
@@ -32,8 +32,8 @@
 \contentsline {paragraph}{Widget-Data-Service}{5}{section*.27}
 \contentsline {subsubsection}{Styles}{5}{section*.28}
 \contentsline {paragraph}{responsive}{5}{section*.29}
-\contentsline {subsubsection}{Views}{6}{section*.30}
-\contentsline {paragraph}{Loading}{6}{section*.31}
+\contentsline {subsubsection}{Views}{5}{section*.30}
+\contentsline {paragraph}{Loading}{5}{section*.31}
 \contentsline {paragraph}{New}{6}{section*.32}
 \contentsline {paragraph}{Train}{6}{section*.33}
 \contentsline {paragraph}{Unknown}{6}{section*.34}
@@ -55,12 +55,32 @@
 \contentsline {subsection}{\numberline {1.3.3}Widget entfernen}{9}{subsection.1.3.3}
 \contentsline {chapter}{\numberline {2}Nutzeranleitung}{10}{chapter.2}
 \contentsline {section}{\numberline {2.1}Gesten}{10}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Geste 1}{10}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Geste 2}{10}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Geste 3}{10}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}Geste 4}{10}{subsection.2.1.4}
-\contentsline {section}{\numberline {2.2}Benutzung}{10}{section.2.2}
-\contentsline {chapter}{\numberline {3}Projektbericht}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}Frontend-Entwicklung}{11}{section.3.1}
-\contentsline {section}{\numberline {3.2}Backend-Entwicklung}{12}{section.3.2}
-\contentsline {section}{\numberline {3.3}Schlussfolgerungen}{12}{section.3.3}
+\contentsline {subsection}{\numberline {2.1.1}Einh\IeC {\"a}ndige Gesten}{10}{subsection.2.1.1}
+\contentsline {subsubsection}{Enter}{10}{section*.46}
+\contentsline {subsubsection}{Vierwege-Tabbing}{10}{section*.47}
+\contentsline {subsubsection}{Scrolling}{10}{section*.48}
+\contentsline {subsection}{\numberline {2.1.2}Zweih\IeC {\"a}ndige Gesten}{11}{subsection.2.1.2}
+\contentsline {subsubsection}{Gestenerkennung ein-/ausschalten}{11}{section*.49}
+\contentsline {subsubsection}{Men\IeC {\"u} \IeC {\"o}ffnen}{11}{section*.50}
+\contentsline {subsubsection}{Escape}{11}{section*.51}
+\contentsline {subsubsection}{Social-Graph-Ansicht \IeC {\"o}ffnen}{11}{section*.52}
+\contentsline {subsubsection}{User-Auswahl anzeigen}{11}{section*.53}
+\contentsline {section}{\numberline {2.2}Benutzung}{11}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Ein Nutzer}{11}{subsection.2.2.1}
+\contentsline {subsubsection}{Hauptansicht (ohne User)}{11}{section*.54}
+\contentsline {subsubsection}{Nutzererkennung}{12}{section*.55}
+\contentsline {subsubsection}{Unbekannter Nutzer}{13}{section*.56}
+\contentsline {subsubsection}{Bekannter Nutzer}{13}{section*.57}
+\contentsline {subsubsection}{Hauptansicht}{14}{section*.58}
+\contentsline {subsection}{\numberline {2.2.2}Mehrere Nutzer}{18}{subsection.2.2.2}
+\contentsline {subsubsection}{Mindestens ein bekannter Nutzer}{18}{section*.59}
+\contentsline {subsubsection}{Nur unbekannte Nutzer}{19}{section*.60}
+\contentsline {subsection}{\numberline {2.2.3}Bedienung mit dem Smartphone}{19}{subsection.2.2.3}
+\contentsline {subsubsection}{Kopplung mit der Living Wall}{19}{section*.61}
+\contentsline {subsubsection}{Anlegen von Eintr\IeC {\"a}gen}{20}{section*.62}
+\contentsline {subsubsection}{Facebook-Login}{20}{section*.63}
+\contentsline {subsubsection}{Google-Login}{20}{section*.64}
+\contentsline {chapter}{\numberline {3}Projektbericht}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Frontend-Entwicklung}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}Backend-Entwicklung}{22}{section.3.2}
+\contentsline {section}{\numberline {3.3}Schlussfolgerungen}{22}{section.3.3}

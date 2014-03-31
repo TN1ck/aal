@@ -133,8 +133,7 @@ Tom Lehmann\\
 				\paragraph{Personal}
 					Das Personal-Widget zeigt persönliche Informationen des Users an. Diese holt es sich über den "`FACEBOOK"'-Channel des Websockets. Weiterhin kann man sich den QR-Code, welcher auf die Mobilseite verlinkt mit einem Modal in groß anzeigen lassen.
 				\paragraph{Social-Comparison (Social-Graph)}
-					Das Social-Widget zeigt dem User aktuelle Facebook-Posts aus seinem Facebookstream an. Die Daten bekommt es aus dem "`SOCIAL"'-Channel. Weiterhin stellt es die Möglichkeit zur Verfügung detailierte Informationen zu einem Post, wie Anzahl an Likes und Kommentaren, sowie die ersten Kommentare in einem Popover anzuzeigen. Auch das "`Liken"' eines Facebook-Posts ist möglich, die Daten werden über das Facebook API übertragen.\\
-Es gibt auch ein Feature, das ermöglicht, von der Wall aus auf seine Facebook-Pinnwand zu posten.
+					Das Social-Comparison Widget füllt den Bildschirm komplett aus und visualisiert die Gemeinsamkeiten zwischen zwei Personen. So werden etwa gemeinsame Vorlieben für Musik, gemeinsame Freunde, aber auch gemeinsame Sportarten gefiltert und präsentiert. Die verschiedenen Gemeinsamkeiten sind außerdem semantisch gruppiert, das heißt es werden Filme, Freunde etc. getrennt dargestellt.
 				\paragraph{Social}
 					Das Social-Widget zeigt dem User aktuelle Facebook-Posts aus seinem Facebookstream an. Die Daten bekommt es aus dem "`SOCIAL"'-Channel. Weiterhin stellt es die Möglichkeit zur Verfügung detailierte Informationen zu einem Post, wie Anzahl an Likes und Kommentaren, sowie die ersten Kommentare in einem Popover anzuzeigen. Auch das Liken eines Facebookposts ist möglich.
 				\paragraph{To Do}
@@ -339,23 +338,23 @@ Die Widgets sind durch ihre verschiedene Farbgebung und die Bennenung in der ers
 \begin{itemize}
 	\item Menü öffnen:\\
 Für fast alle Aktionen ist es nötig, das Menü zu öffnen. Hierzu wird die Geste 'Menü öffnen' verwendet. Auf dem folgenden Bild ist das geöffnete Menü zu sehen:\\
-\includegraphics[scale=0.29]{Menu1}\\
+\includegraphics[width=\linewidth]{Menu1}\\
 Durch das geöffnete Menü kann mittels der Gesten 'Tab nach links' und 'Tab nach rechts' navigiert werden. Das ausgewählte Widget ist immer \textbf{grau hinterlegt}. Im obigen Bild ist es das 'News'-Widget.
 	\item Widget fokussieren:\\
 Wenn ein ausgewähltes Widget im Menü durch die 'Enter'-Geste angewählt wird, wird es in die Mitte des Bildschirms verlagert. Es kann auch mit nicht im Fokus liegenden Widgets gearbeitet werden. Der Übersicht halber empfiehlt es sich jedoch, das Widget von Interesse mit Hilfe des Menüs in die Mitte des Bildschirmes zu verschieben. Im obigen Bild ist das 'Kalender'-Widget das fokussierte Widget.
 	\item Einträge öffnen:\\
 Jedes Widget beinhaltet Kacheln mit Einträgen. Diese Einträge können ebenfalls über das Menü angewählt und dann geöffnet werden. Dazu muss im Menü mit 'Tab nach links' und 'Tab nach rechts' das Widget mit dem gewünschten Eintrag ausgewählt werden. Wählen wir zum Beispiel das 'Kalender'-Widget:\\
-\includegraphics[scale=0.29]{MenuSelect}\\
+\includegraphics[width=\linewidth]{MenuSelect}\\
 Nun kann mit 'Tab nach unten' eine weitere Menüebene geöffnet werden. In dieser kann wieder mit 'Tab nach links' und 'Tab nach rechts' zwischen den Einträgen des Widgets gewechselt werden. Das jeweils ausgewählte Widget ist \textbf{grau hinterlegt}! Wird dieses nun mit der 'Enter'-Geste bestätigt, öffnet sich ein Popover zu dem angewählten Eintrag, das mehr Informationen enthält und je nach Widget die Möglichkeit zur Bearbeitung bzw. zum Löschen des Eintrags bietet:\\
-\includegraphics[scale=0.29]{Popover}\\
+\includegraphics[width=\linewidth]{Popover}\\
 Die möglichen Optionen werden wie im Bild zu sehen in einer dritten Ebene des Menüs angezeigt. Hier ist dies nur das Entfernen des Eintrags. Dieser müsste wiederum mit der 'Enter'-Geste bestätigt werden.
 	\item Menü verlassen:\\
 Das Menü kann durch die 'Escape'-Geste komplett geschlossen werden. Mit 'Tab nach oben' und 'Tab nach unten' wird zwischen den verschiedenen Ebenen des Menüs gewechselt. Befindet man sich in der ersten Ebene und verwendet 'Tab nach oben', schließt sich das Menü. Anderenfalls wird jeweils eine Menüebene nach oben navigiert. Die maximale Tiefe des Menüs ist drei. 'Tab nach unten' hat auf dieser Ebene keine Wirkung.
 	\item Neue Einträge anlegen:\\
 Das Anlegen neuer Einträge funktioniert am besten mit dem Smartphone und ist unter \textit{Bedienung mit dem Smartphone} erklärt. Der Dialog kann allerdings auch per Gestensteuerung geöffnet und danach mit einem gekoppelten Smartphone oder per Touchscreen ausgefüllt werden. Dazu wird zuerst das Menü geöffnet und mit 'Tab nach links' und 'Tab nach rechts' das entsprechende Widget ausgewählt. Mit 'Tab nach unten' muss nun die zweite Menüebene geöffnet und \textbf{die erste Kachel} mit dem Namen des Widgets mit 'Tab nach links' und 'Tab nach rechts' markiert werden:\\
-\includegraphics[scale=0.29]{SelectTodo}\\
+\includegraphics[width=\linewidth]{SelectTodo}\\
 Wird nun die 'Enter'-Geste verwendet, öffnet sich der Dialog zur Erstellung des neuen Eintrags auf der Living Wall selbst, auf der er per Touchscreen ausgefüllt werden kann, und auf dem gekoppelten Smartphone, insofern eines verbunden ist:\\
-\includegraphics[scale=0.29]{CreateTodo}\\
+\includegraphics[width=\linewidth]{CreateTodo}\\
 Nachdem die neuen Daten eingetragen wurden, kann der Eintrag entweder mit 'OK' angelegt oder mit 'Cancel' verworfen werden.
 \end{itemize}
 
@@ -364,23 +363,23 @@ Die Living Wall kann bis zu fünf Personen gleichzeitig erkennen und von diesen 
 \subsubsection{Mindestens ein bekannter Nutzer}
 Wenn ein Nutzer von der Living Wall erkannt wird, kann er von seinem Willkommensbildschirm oder aus der Hauptansichte der Einzelnutzung heraus mit der 'User-Auswahl anzeigen'-Geste die Nutzer-Auswahl-Seite öffnen, auf der die sich im Blickfeld der Kinectkamera befindenden Nutzer angezeigt werden. Mit 'Tab nach links', 'Tab nach rechts' und 'Enter' kann dann ein User ausgewählt werden, der entweder auf seinen Willkommensbildschirm kommt (siehe \textit{Bekannter Nutzer}) oder auf den Bildschirm eines neuen Benutzers (siehe \textit{Ubekannter Benutzer}).\\
 Auf diesen Bildschirmen können sich unbekannte User nun eintrainieren, neu erkennen oder ihre Widgets anzeigen lassen.
-Sollten sich zwei bekannte Nutzer vor der Wand befinden, kann mit der 'Social-Graph-Ansicht öffnen'-Geste der Social-Graph geöffnet werden, welcher Gemeinsamkeiten der beiden Personen übersichtlich darstellt:\\
-\includegraphics[scale=0.29]{socialgraph}\\
+Sollten sich zwei bekannte Nutzer vor der Wand befinden, kann mit der \glqq Social-Graph-Ansicht öffnen\grqq-Geste der Social-Graph geöffnet werden, welcher Gemeinsamkeiten der beiden Personen übersichtlich darstellt:\\
+\includegraphics[width=\linewidth]{socialgraph}\\
 Sollte ein bekannter Nutzer sich auf seiner Willkommensseite oder in der Hauptansicht befinden, wird eine kleine Meldung am unteren Bildschirmrand eingeblendet, sobald ein zweiter bekannter Nutzer das Bild betreten hat und der Social-Graph geöffnet werden kann:\\
-\includegraphics[scale=0.29]{NewUser}
+\includegraphics[width=\linewidth]{NewUser}
 \subsubsection{Nur unbekannte Nutzer}
 Wie im Fall von mindestens einem bekannten Nutzer, kann mit Hilfe der 'User-Auswahl anzeigen'-Geste die Nutzer-Auswahl-Seite geöffnet werden, um wie bereits beschrieben die den aktiven Nutzer auszuwählen. Allerdings wird sich nur die Seite für Unbekannte Nutzer öffnen, auf der diese sich eintrainieren oder neu erkennen lassen können. Außerdem können sie die Living Wall im Demo-Modus testen. Der Social-Graph lässt sich logischer Weise in diesem Falle nicht aufrufen.
 
 \subsection{Bedienung mit dem Smartphone}
 Das Smartphone ist ein mächtiges und komfortables Eingabegerät für die Nutzung der Living Wall. Im Folgenden ist die Bedienung der Living Wall mit dem Smartphone genauer beschrieben. Um eine einwandfreie Anzeige zu gewährleisten, empfehlen wir die mobile Version des Browsers 'Chrome' auf dem Smartphone zu installieren.
-\subsubsection{Kopplung mit der Living Wall}
+\subsubsection{Kopplung mit der Living Wall}g
 Um das eigene Smartphone mit der Living Wall zu verbinden, gibt es zwei Möglichkeiten. Wie im Abschnitt \textit{Bekannter Benutzer} zu sehen, gibt es auf der Willkommensseite oben links eine URL. Diese kann im Browser des Smartphones ganz einfach eingegeben und geladen werden. Es öffnet sich die mobile Seite der Living Wall:\\
-\includegraphics[scale=0.3]{mobile}\\
+\includegraphics[scale=0.3, trim=0 8cm 0 0]{mobile}\\
 In dem Feld 'Mobile code' muss der vierstellige Zahlen-Code eingegeben werden, welcher sich oben links auf der Willkommensseite befindet (siehe \textit{Bekannter Benutzer}) und danach mit einem Druck auf 'Confirm' bestätigt werden. Danach ist das Smartphone erfolgreich mit der Living Wall gekoppelt. \\
 Alternativ kann mit einem beliebigen QR-Code-Scanner der rechts oben auf der Willkommensseite abgebildete QR-Code gescannt und die entschlüsselte URL im Browser geöffnte werden. Der Mobile-Code wird bei dieser Methode automatisch eingetragen. Nach dem Laden der Seite ist das Smartphone also automatisch gekoppelt und bereit zur Interaktion mit der Living Wall.
 \subsubsection{Anlegen von Einträgen}
 Der Dialog zum Anlegen von Einträgen kann wie im Abschnitt \textit{Hauptansicht} beschrieben geöffnet werden. Wenn ein Smartphone mit der Living Wall verbunden ist, öffnet sich auch auf diesem der Dialog. Für Kalendereinträge, Todos und Mails kann der Dialog auch direkt über die Buttons auf dem Smartphone geöffnet werde. Er erscheint auch dann sowohl auf der Living Wall als auch auf dem Smartphone. Das folgende Bild zeigt beispielsweise den Dialog zum Anlegen von Todos auf dem Smartphone:\\
-\includegraphics[scale=0.3]{createTodoMobile}\\
+\includegraphics[scale=0.3, trim=0 8cm 0 0]{createTodoMobile}\\
 Die Daten, die auf dem Smartphone eingegeben werden, werden in Echtzeit an die Living Wall übertragen. Sobald alle erforderlichen Felder ausgefüllt sind, kann der Eintrag mit 'OK' entweder angelegt oder mit 'Cancel' verworfen werden. Das Smartphone kehrt darauf hin auf die normale Mobilseite zurück, die Living Wall zeigt die Hauptansicht.
 \subsubsection{Facebook-Login}
 \subsubsection{Google-Login}
