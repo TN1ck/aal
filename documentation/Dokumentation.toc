@@ -22,7 +22,7 @@
 \contentsline {paragraph}{Personal}{4}{section*.17}
 \contentsline {paragraph}{Social-Comparison (Social-Graph)}{4}{section*.18}
 \contentsline {paragraph}{Social}{4}{section*.19}
-\contentsline {paragraph}{To Do}{4}{section*.20}
+\contentsline {paragraph}{To Do}{5}{section*.20}
 \contentsline {subsubsection}{Services}{5}{section*.21}
 \contentsline {paragraph}{CSS-Service}{5}{section*.22}
 \contentsline {paragraph}{Radial-Service}{5}{section*.23}
@@ -32,8 +32,8 @@
 \contentsline {paragraph}{Widget-Data-Service}{5}{section*.27}
 \contentsline {subsubsection}{Styles}{5}{section*.28}
 \contentsline {paragraph}{responsive}{5}{section*.29}
-\contentsline {subsubsection}{Views}{5}{section*.30}
-\contentsline {paragraph}{Loading}{5}{section*.31}
+\contentsline {subsubsection}{Views}{6}{section*.30}
+\contentsline {paragraph}{Loading}{6}{section*.31}
 \contentsline {paragraph}{New}{6}{section*.32}
 \contentsline {paragraph}{Train}{6}{section*.33}
 \contentsline {paragraph}{Unknown}{6}{section*.34}
@@ -75,12 +75,12 @@
 \contentsline {subsection}{\numberline {2.2.2}Mehrere Nutzer}{18}{subsection.2.2.2}
 \contentsline {subsubsection}{Mindestens ein bekannter Nutzer}{18}{section*.59}
 \contentsline {subsubsection}{Nur unbekannte Nutzer}{19}{section*.60}
-\contentsline {subsection}{\numberline {2.2.3}Bedienung mit dem Smartphone}{19}{subsection.2.2.3}
-\contentsline {subsubsection}{Kopplung mit der Living Wall}{19}{section*.61}
+\contentsline {subsection}{\numberline {2.2.3}Bedienung mit dem Smartphone}{20}{subsection.2.2.3}
+\contentsline {subsubsection}{Kopplung mit der Living Wall}{20}{section*.61}
 \contentsline {subsubsection}{Anlegen von Eintr\IeC {\"a}gen}{20}{section*.62}
-\contentsline {subsubsection}{Facebook-Login}{20}{section*.63}
-\contentsline {subsubsection}{Google-Login}{20}{section*.64}
-\contentsline {chapter}{\numberline {3}Projektbericht}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}Frontend-Entwicklung}{21}{section.3.1}
-\contentsline {section}{\numberline {3.2}Backend-Entwicklung}{22}{section.3.2}
-\contentsline {section}{\numberline {3.3}Schlussfolgerungen}{22}{section.3.3}
+\contentsline {subsubsection}{Facebook-Login}{21}{section*.63}
+\contentsline {subsubsection}{Google-Login}{21}{section*.64}
+\contentsline {chapter}{\numberline {3}Projektbericht}{22}{chapter.3}
+\contentsline {section}{\numberline {3.1}Frontend-Entwicklung}{22}{section.3.1}
+\contentsline {section}{\numberline {3.2}Backend-Entwicklung}{23}{section.3.2}
+\contentsline {section}{\numberline {3.3}Schlussfolgerungen}{23}{section.3.3}

@@ -133,7 +133,7 @@ Tom Lehmann\\
 				\paragraph{Personal}
 					Das Personal-Widget zeigt persönliche Informationen des Users an. Diese holt es sich über den "`FACEBOOK"'-Channel des Websockets. Weiterhin kann man sich den QR-Code, welcher auf die Mobilseite verlinkt mit einem Modal in groß anzeigen lassen.
 				\paragraph{Social-Comparison (Social-Graph)}
-					Das Social-Comparison Widget füllt den Bildschirm komplett aus und visualisiert die Gemeinsamkeiten zwischen zwei Personen. So werden etwa gemeinsame Vorlieben für Musik, gemeinsame Freunde, aber auch gemeinsame Sportarten gefiltert und präsentiert. Die verschiedenen Gemeinsamkeiten sind außerdem semantisch gruppiert, das heißt es werden Filme, Freunde etc. getrennt dargestellt.
+					Das Social-Comparison Widget füllt den Bildschirm komplett aus und visualisiert die Gemeinsamkeiten zwischen zwei Personen. So werden etwa gemeinsame Vorlieben für Musik, gemeinsame Freunde, aber auch gemeinsame Sportarten gefiltert und präsentiert. Die verschiedenen Gemeinsamkeiten sind außerdem semantisch gruppiert, das heißt es werden Filme, Freunde etc. getrennt dargestellt. Es wird mit einer speziellen Geste geöffnet und kann nur angezeigt werden, wenn zwei bekannte Nutzer vor der Living Wall stehen.
 				\paragraph{Social}
 					Das Social-Widget zeigt dem User aktuelle Facebook-Posts aus seinem Facebookstream an. Die Daten bekommt es aus dem "`SOCIAL"'-Channel. Weiterhin stellt es die Möglichkeit zur Verfügung detailierte Informationen zu einem Post, wie Anzahl an Likes und Kommentaren, sowie die ersten Kommentare in einem Popover anzuzeigen. Auch das Liken eines Facebookposts ist möglich.
 				\paragraph{To Do}
@@ -260,129 +260,141 @@ Tom Lehmann\\
 \chapter{Nutzeranleitung}
 Die Living Wall kann mit Gesten, per Touchscreen und via Smartphone gesteuert werden. Da die Bildschirme, auf denen die Living Wall läuft allerdings in der Regel sehr groß sind, raten wir dazu, alle Eingaben bei circa 2 Metern Abstand von der Wand mit Gesten und einem Smartphone vorzunehmen. Die folgende Anleitung wird dementsprechend auch ausführlicher auf die Gesten- und Smartphonesteuerung eingehen.
 
-\section{Gesten}
-Vorab seien die Gesten erklärt, mit denen die Wall bedient werden kann. Für genauere Erläuterungen zur Gestenerkennung und -ausführung sei auf die Dokumentation der Gestengruppe verwiesen. Um die Living Wall ordnungsgemäß bedienen zu können, sollten die User möglichst frontal zu dieser stehen.
-\subsection{Einhändige Gesten}
-Folgenden Gesten können je nach Belieben des Nutzers entweder mit der linken oder mit der rechten Hand ausgeführt werden:
-\subsubsection{Enter}
-Die Enter-Geste dient zur Bestätigung einer Auswahl. Sie kann als ein Knopfdruck oder Mausklick verstanden werden.\\
+	\section{Gesten}
+	Vorab seien die Gesten erklärt, mit denen die Wall bedient werden kann. Für genauere Erläuterungen zur Gestenerkennung und -ausführung sei auf die Dokumentation der Gestengruppe verwiesen. Um die Living Wall ordnungsgemäß bedienen zu können, sollten die User möglichst frontal zu dieser stehen.
+		\subsection{Einhändige Gesten}
+		Folgenden Gesten können je nach Belieben des Nutzers entweder mit der linken oder mit der rechten Hand ausgeführt werden:
+		\subsubsection{Enter}
+		Die Enter-Geste dient zur Bestätigung einer Auswahl. Sie kann als ein Knopfdruck oder Mausklick verstanden werden.\\
 Um die Geste auszulösen, muss eine Hand für einen kurzen Moment vom Körper in Richtung Living Wall geführt und wieder zurückgezogen werden. Ein Arm wird also kurz nach vorne hin gestreckt und wieder gebeugt - wie zum Beispiel beim Knopfduck im Fahrstuhl.
-\subsubsection{Vierwege-Tabbing}
-Es ist möglich, einen Tab nach oben, unten, links oder rechts auszuführen. Dazu wird eine Hand parallel zur Living Wall in eine der vier Richtungen bewegt und wieder zurück gezogen.\\
+		\subsubsection{Vierwege-Tabbing}
+		Es ist möglich, einen Tab nach oben, unten, links oder rechts auszuführen. Dazu wird eine Hand parallel zur Living Wall in eine der vier Richtungen bewegt und wieder zurück gezogen.\\
 Das Zurückziehen der Hand unterscheidet das Tabbing vom Scrolling.
-\subsubsection{Scrolling}
-Scrolling ist in der horizontalen Ebene, also nach links und nach rechts, möglich. Um zu scrollen muss eine Hand parallel zur Living Wall in die gewünschte Richtung geführt und dort gehalten werden, solange gescrollt werden soll. Sobald die Hand zurück gezogen wird, endet das Scrolling.
-\textit{Hinweis: Das Scrolling wird in der momentanten Version der Living Wall nicht benötigt, da alle Anzeigen so angepasst sind, dass sie auf dem ganzen Bildschirm lesbar sind, ohne verschoben werden zu müssen. Das Rechts- oder Linksscrollen löst deswegen die selbe Aktion wie ein Links- oder Rechtstab aus.}
-\subsection{Zweihändige Gesten}
-Folgende Gesten müssen immer mit beiden Händen ausgeführt werden:
-\subsubsection{Gestenerkennung ein-/ausschalten}
-Manchmal ist es erwünscht, beliebige Bewegungen vor der Wand ausführen zu können, ohne dabei eine Aktion auszulösen. Für diesen Fall kann die Gestenerkennung ab- und wieder eingeschaltet werden. \\
+		\subsubsection{Scrolling}
+		Scrolling ist in der horizontalen Ebene, also nach links und nach rechts, möglich. Um zu scrollen muss eine Hand parallel zur Living Wall in die gewünschte Richtung geführt und dort gehalten werden, solange gescrollt werden soll. Sobald die Hand zurück gezogen wird, endet das Scrolling.
+		\textit{Hinweis: Das Scrolling wird in der momentanten Version der Living Wall nicht benötigt, da alle Anzeigen so angepasst sind, dass sie auf dem ganzen Bildschirm lesbar sind, ohne verschoben werden zu müssen. Das Rechts- oder Linksscrollen löst deswegen die selbe Aktion wie ein Links- oder Rechtstab aus.}
+		\subsection{Zweihändige Gesten}
+		Folgende Gesten müssen immer mit beiden Händen ausgeführt werden:
+		\subsubsection{Gestenerkennung ein-/ausschalten}
+		Manchmal ist es erwünscht, beliebige Bewegungen vor der Wand ausführen zu können, ohne dabei eine Aktion auszulösen. Für diesen Fall kann die Gestenerkennung ab- und wieder eingeschaltet werden. \\
 Um die Gestenerkennung vorübergehend zu blockieren, müssen beide Arme gleichzeitig in Richtung Living Wall ausgestreckt und wieder zurückgezogen werden. Es handelt sich also um ein 'Enter' mit beiden Händen gleichzeitig.\\
 Um die Gestenerkennung wieder zu aktivieren, muss ein weiteres Mal ein 'Enter' mit beiden Händen gleichzeitig ausgeführt werden.
-\subsubsection{Menü öffnen}
-Das Menü kann in der Hauptansicht geöffnet werden, indem beide Hände gleichzeitig nach Außen vom Körper weggeführt und wieder zurückgezogen werden. Es handelt sich also um einen gleichzeitigen Tab nach rechts mit der rechten Hand und Tab nach Links mit der linken Hand.
-\subsubsection{Escape}
-Die Escape-Geste wird verwendet, um das gesamte Menü zu schließen. Um sie auszulösen, müssen beide Hände gleichzeitig nach oben und wieder zurück geführt werden. Es handelt sich dementsprechend um ein Tab nach oben mit beiden Händen gleichzeitig.
-\subsubsection{Social-Graph-Ansicht öffnen}
-Wenn sich mehrere bekannte Nutzer vor der Wall befinden, kann mit dieser Geste in die Social-Graph-Ansicht, in der Gemeinsamkeiten der Nutzer angezeigt werden, gewechselt werden. Dazu mussen beide Hände gleichzeitig parallel zur Living Wall nach rechts und wieder zurück geführt werden. Die Geste kann als gleichzeitiges Tabben nach rechts mit beiden Händen verstanden werden.
-\subsubsection{User-Auswahl anzeigen}
-Wenn sich mehrere Nutzer vor der Living Wall befinden, kann ausgewählt werden, welcher Nutzer der Hauptnutzer sein soll, dessen Informationen in der Hauptansicht mit diversen Widgets angezeigt werden.\\
+		\subsubsection{Menü öffnen}
+		Das Menü kann in der Hauptansicht geöffnet werden, indem beide Hände gleichzeitig nach Außen vom Körper weggeführt und wieder zurückgezogen werden. Es handelt sich also um einen gleichzeitigen Tab nach rechts mit der rechten Hand und Tab nach Links mit der linken Hand.
+		\subsubsection{Escape}
+		Die Escape-Geste wird verwendet, um das gesamte Menü zu schließen. Um sie auszulösen, müssen beide Hände gleichzeitig nach oben und wieder zurück geführt werden. Es handelt sich dementsprechend um ein Tab nach oben mit beiden Händen gleichzeitig.
+		\subsubsection{Social-Graph-Ansicht öffnen}
+		Wenn sich mehrere bekannte Nutzer vor der Wall befinden, kann mit dieser Geste in die Social-Graph-Ansicht, in der Gemeinsamkeiten der Nutzer angezeigt werden, gewechselt werden. Dazu mussen beide Hände gleichzeitig parallel zur Living Wall nach rechts und wieder zurück geführt werden. Die Geste kann als gleichzeitiges Tabben nach rechts mit beiden Händen verstanden werden.
+		\subsubsection{User-Auswahl anzeigen}
+		Wenn sich mehrere Nutzer vor der Living Wall befinden, kann ausgewählt werden, welcher Nutzer der Hauptnutzer sein soll, dessen Informationen in der Hauptansicht mit diversen Widgets angezeigt werden.\\
 Um zur User-Auswahl zu gelangen, müssen beide Hände gleichzeitig parallel zur Living Wall nach links und wieder zurück geführt werden. Die Geste kann als gleichzeitiges Tabben nach links mit beiden Händen verstanden werden.
 
-\section{Benutzung}
-Im folgenden werden die verschiedenen Nutzungsmöglichkeiten und die genaue Bedienung der Living Wall erklärt. Die verwendeten Gesten richten sich nach der vorherigen Auflistung unter Punkt \textit{2.1}, wobei das 'Vierwege-Tabbing' je nach Richtung als 'Tab nach rechts', 'Tab nach links', 'Tab nach oben' und 'Tab nach unten' beschrieben wird.
-\subsection{Ein Nutzer}
-\subsubsection{Hauptansicht (ohne User)}
-Solange sich kein User im Sichtfeld der Kinectkamera der Living Wall befindet, wird ein schlichter weißer Bildschirm angezeigt: \\
-\includegraphics[scale=0.31]{NoUser} \\
-\textit{Hinweis: Sollte dieser Bildschirm nicht verschwinden, obwohl ein oder mehrere Benutzer das Sichtfeld der Kamera betreten, deutet dies darauf hin, dass entweder die Kinectkamera nicht richtig angeschlossen bzw. ausgerichtet ist, nicht alle Komponenten der Living Wall (Gesichtserkennung, Gestenerkennung, Datenbank) oder die JIAC-Agenten nicht richtig gestartet wurden.}
-\subsubsection{Nutzererkennung}
-Sobald nun ein Nutzer das Sichtfeld der Kinectkamera betritt, wird der Erkennungsprozess gestartet:\\
-\includegraphics[scale=0.31]{Erkennung}\\Während dieser Bildschirm angezeigt wird, sollte der Nutzer möglichst in ungefähr zwei Metern Abstand frontal zur Kamera stehen und in deren Linse blicken.\\
+	\section{Benutzung}
+	Im folgenden werden die verschiedenen Nutzungsmöglichkeiten und die genaue Bedienung der Living Wall erklärt. Die verwendeten Gesten richten sich nach der vorherigen Auflistung unter Punkt \textit{2.1}, wobei das 'Vierwege-Tabbing' je nach Richtung als 'Tab nach rechts', 'Tab nach links', 'Tab nach oben' und 'Tab nach unten' beschrieben wird.
+		\subsection{Ein Nutzer}
+		\subsubsection{Hauptansicht (ohne User)}
+		Solange sich kein User im Sichtfeld der Kinectkamera der Living Wall befindet, wird ein schlichter weißer Bildschirm angezeigt: \\
+		\includegraphics[scale=0.31]{NoUser} \\
+		\textit{Hinweis: Sollte dieser Bildschirm nicht verschwinden, obwohl ein oder mehrere Benutzer das Sichtfeld der Kamera betreten, deutet dies darauf hin, dass entweder die Kinectkamera nicht richtig angeschlossen bzw. ausgerichtet ist, nicht alle Komponenten der Living Wall (Gesichtserkennung, Gestenerkennung, Datenbank) oder die JIAC-Agenten nicht richtig gestartet wurden.}
+		\subsubsection{Nutzererkennung}
+		Sobald nun ein Nutzer das Sichtfeld der Kinectkamera betritt, wird der Erkennungsprozess gestartet:\\
+		\includegraphics[scale=0.31]{Erkennung}\\Während dieser Bildschirm angezeigt wird, sollte der Nutzer möglichst in ungefähr zwei Metern Abstand frontal zur Kamera stehen und in deren Linse blicken.\\
 Je nachdem, ob der Nutzer von der Kinectkamera erkannt wird oder nicht, öffnen sich verschiedene Dialoge.
-\subsubsection{Unbekannter Nutzer}
-Sollte der Nutzer von der Gesichtserkennung als unbekannt eingestuft werden, erscheint folgender Bildschirm:\\
-\includegraphics[scale=0.31]{UnknownUser}\\
-Es stehen nun drei Optionen zur Auswahl:
-\begin{itemize}
-	\item Demo Modus:\\
-Startet den Demo-Modus mit vorgespeicherten Demo-Daten, um dem Nutzer eine Möglichkeit zu geben, die Oberfläche der Living Wall auszuprobieren, ohne sich registrieren zu müssen. Die Bedienung ist unter dem Punkt \textit{Hauptansicht} erklärt.
-	\item Eintrainieren:\\
-Startet den Eintrainierungsprozess. Hierzu muss der Nutzer frontal zur Kamera stehen und in ihre Linse blicken. Es empfiehlt sich, den Kopf langsam und leicht zu neigen und drehen. Ein erfolgreiches Training führt in den Willkommensbildschirm für bekannte Nutzer (siehe \textit{Bekannter Nutzer}). Wenn die Kamera keine brauchbaren Bilder aufnehmen konnte, wird erneut der Bildschirm \textit{Unbekannter Nutzer} angezeigt, in dem der Prozess erneut gestartet werden kann.
-	\item versuch es nochmal:\\
-Wenn der Nutzer weiß, dass er schon in der eintrainiert ist und fälschlicherweise nicht erkannt wurde, kann er mit diesem Button einen neuen Erkennungsprozess starten.\\ \\
-\textit{Hinweis: Sollte die Erkennung nicht richtig funktionieren, empfiehlt es sich die Entfernung zur Kamera und die Beleuchtung zu variieren. Außerdem sollte der Nutzer stets in die Linse der Kinectkamera blicken.}
-\end{itemize}
-Um zwischen den Optionen zu wechseln, können die Gesten 'Tab nach oben' oder 'Tab nach unten' verwendet werden. Zum Bestätigen der Auswahl dient die 'Enter'-Geste.\\
+		\subsubsection{Unbekannter Nutzer}
+		Sollte der Nutzer von der Gesichtserkennung als unbekannt eingestuft werden, erscheint folgender Bildschirm:\\
+		\includegraphics[scale=0.31]{UnknownUser}\\
+		Es stehen nun drei Optionen zur Auswahl:
+			\begin{itemize}
+				\item \textbf{Demo Modus}\\
+				Startet den Demo-Modus mit vorgespeicherten Demo-Daten, um dem Nutzer eine Möglichkeit zu geben, die Oberfläche der Living Wall auszuprobieren, ohne sich registrieren zu müssen. Die Bedienung ist unter dem Punkt 		\textit{Hauptansicht} erklärt.
+				\item \textbf{Eintrainieren}\\
+				Startet den Eintrainierungsprozess. Hierzu muss der Nutzer frontal zur Kamera stehen und in ihre Linse blicken. Es empfiehlt sich, den Kopf langsam und leicht zu neigen und drehen. Ein erfolgreiches Training führt in den Willkommensbildschirm für bekannte Nutzer (siehe \textit{Bekannter Nutzer}). Wenn die Kamera keine brauchbaren Bilder aufnehmen konnte, wird erneut der Bildschirm \textit{Unbekannter Nutzer} angezeigt, in dem der Prozess erneut gestartet werden kann.
+				\item \textbf{versuch es nochmal}\\
+				Wenn der Nutzer weiß, dass er schon in der eintrainiert ist und fälschlicherweise nicht erkannt wurde, kann er mit diesem Button einen neuen Erkennungsprozess starten.\\ \\
+				\textit{Hinweis: Sollte die Erkennung nicht richtig funktionieren, empfiehlt es sich die Entfernung zur Kamera und die Beleuchtung zu variieren. Außerdem sollte der Nutzer stets in die Linse der Kinectkamera blicken.}
+			\end{itemize}
+		Um zwischen den Optionen zu wechseln, können die Gesten 'Tab nach oben' oder 'Tab nach unten' verwendet werden. Zum Bestätigen der Auswahl dient die 'Enter'-Geste.\\
 Ausgewählt ist die jeweils \textbf{blau hinterlegte} Option! Im obigen Bild ist dies der Demo-Modus.\\ \\
 Die Verwendung des Mobile- und des QR-Codes wird im Abschnitt \textit{Bekannter Nutzer} erklärt.
-\subsubsection{Bekannter Nutzer}
-Sollte der Nutzer von der Gesichtserkennung als unbekannt eingestuft werden, erscheint folgender Bildschirm:\\
-\includegraphics[scale=0.31]{Welcome}\\
-Es stehen nun zwei Optionen zur Auswahl:
-\begin{itemize}
-	\item Start!:\\
-Startet die individuelle Hauptansicht des erkannten Users mit seinen Widgets und Informationen. Die Bedienung ist im Abschnitt \textit{Hauptansicht} erklärt.
-	\item Anderer User:\\
-Wenn der Nutzer als ein anderer Nutzer erkannt wurde, als er eigentlich ist, kann er mit diesem Button eine neue Erkennung starten, um richtig erkannt zu werden.\\
-\textit{Hinweis: Sollte die Erkennung nicht richtig funktionieren, empfiehlt es sich die Entfernung zur Kamera und die Beleuchtung zu variieren. Außerdem sollte der Nutzer stets in die Linse der Kinectkamera blicken.}
-\end{itemize}
-Um zwischen den Optionen zu wechseln, können die Gesten 'Tab nach oben' oder 'Tab nach unten' verwendet werden. Zum Bestätigen der Auswahl dient die 'Enter'-Geste.\\
+		\subsubsection{Bekannter Nutzer}
+		Sollte der Nutzer von der Gesichtserkennung als unbekannt eingestuft werden, erscheint folgender Bildschirm:\\
+		\includegraphics[scale=0.31]{Welcome}\\
+		Es stehen nun zwei Optionen zur Auswahl:
+			\begin{itemize}
+				\item \textbf{Start!}\\
+					Startet die individuelle Hauptansicht des erkannten Users mit seinen Widgets und Informationen. Die Bedienung ist im Abschnitt \textit{Hauptansicht} erklärt.
+				\item \textbf{Anderer User}\\
+				Wenn der Nutzer als ein anderer Nutzer erkannt wurde, als er eigentlich ist, kann er mit diesem Button eine neue Erkennung starten, um richtig erkannt zu werden.\\
+				\textit{Hinweis: Sollte die Erkennung nicht richtig funktionieren, empfiehlt es sich die Entfernung zur Kamera und die Beleuchtung zu variieren. Außerdem sollte der Nutzer stets in die Linse der Kinectkamera blicken.}
+			\end{itemize}
+		Um zwischen den Optionen zu wechseln, können die Gesten 'Tab nach oben' oder 'Tab nach unten' verwendet werden. Zum Bestätigen der Auswahl dient die 'Enter'-Geste.\\
 Ausgewählt ist die jeweils \textbf{blau hinterlegte} Option! Im obigen Bild ist dies 'Start!'.\\ \\
-Der auf dem Bildschirm sichtbare Mobile-Code dient dazu, sein Smartphone mit der Wand zu verbinden, um mit ihm Eingaben machen zu können. Das genaue Verfahren und die Optionen zur Nutzung der Living Wall mit dem Smartphone werden im Abschnitt \textit{2.2.3 Bedienung mit dem Smartphone} behandelt.
+Der auf dem Bildschirm sichtbare Mobile-Code dient dazu, sein Smartphone mit der Wand zu verbinden, um mit ihm Eingaben machen zu können. Das genaue Verfahren und die Optionen zur Nutzung der Living Wall mit dem Smartphone werden im Abschnitt 	\textit{2.2.3 Bedienung mit dem Smartphone} behandelt.
 
-\subsubsection{Hauptansicht}
-Die Hauptansicht ist das Herzstück der Living Wall. In ihr bekommt der Nutzer seine persönlichen Informationen, Neuigkeiten wie News und Mails, Kalendereinträge, Todos und Meldungen aus sozialen Netzwerken, in denen er regsitriert und über die Living Wall angemeldet ist, in verschiedenen Widgets angezeigt:\\
-\includegraphics[scale=0.31]{Main}\\
-Die Widgets sind durch ihre verschiedene Farbgebung und die Bennenung in der ersten, oberen linken Kachel leicht identifizierbar. In der Hauptansicht stehen viele verschiedene Möglichkeiten der Interaktion zur Verfügung:
-\begin{itemize}
-	\item Menü öffnen:\\
-Für fast alle Aktionen ist es nötig, das Menü zu öffnen. Hierzu wird die Geste 'Menü öffnen' verwendet. Auf dem folgenden Bild ist das geöffnete Menü zu sehen:\\
-\includegraphics[width=\linewidth]{Menu1}\\
-Durch das geöffnete Menü kann mittels der Gesten 'Tab nach links' und 'Tab nach rechts' navigiert werden. Das ausgewählte Widget ist immer \textbf{grau hinterlegt}. Im obigen Bild ist es das 'News'-Widget.
-	\item Widget fokussieren:\\
-Wenn ein ausgewähltes Widget im Menü durch die 'Enter'-Geste angewählt wird, wird es in die Mitte des Bildschirms verlagert. Es kann auch mit nicht im Fokus liegenden Widgets gearbeitet werden. Der Übersicht halber empfiehlt es sich jedoch, das Widget von Interesse mit Hilfe des Menüs in die Mitte des Bildschirmes zu verschieben. Im obigen Bild ist das 'Kalender'-Widget das fokussierte Widget.
-	\item Einträge öffnen:\\
-Jedes Widget beinhaltet Kacheln mit Einträgen. Diese Einträge können ebenfalls über das Menü angewählt und dann geöffnet werden. Dazu muss im Menü mit 'Tab nach links' und 'Tab nach rechts' das Widget mit dem gewünschten Eintrag ausgewählt werden. Wählen wir zum Beispiel das 'Kalender'-Widget:\\
-\includegraphics[width=\linewidth]{MenuSelect}\\
-Nun kann mit 'Tab nach unten' eine weitere Menüebene geöffnet werden. In dieser kann wieder mit 'Tab nach links' und 'Tab nach rechts' zwischen den Einträgen des Widgets gewechselt werden. Das jeweils ausgewählte Widget ist \textbf{grau hinterlegt}! Wird dieses nun mit der 'Enter'-Geste bestätigt, öffnet sich ein Popover zu dem angewählten Eintrag, das mehr Informationen enthält und je nach Widget die Möglichkeit zur Bearbeitung bzw. zum Löschen des Eintrags bietet:\\
-\includegraphics[width=\linewidth]{Popover}\\
-Die möglichen Optionen werden wie im Bild zu sehen in einer dritten Ebene des Menüs angezeigt. Hier ist dies nur das Entfernen des Eintrags. Dieser müsste wiederum mit der 'Enter'-Geste bestätigt werden.
-	\item Menü verlassen:\\
-Das Menü kann durch die 'Escape'-Geste komplett geschlossen werden. Mit 'Tab nach oben' und 'Tab nach unten' wird zwischen den verschiedenen Ebenen des Menüs gewechselt. Befindet man sich in der ersten Ebene und verwendet 'Tab nach oben', schließt sich das Menü. Anderenfalls wird jeweils eine Menüebene nach oben navigiert. Die maximale Tiefe des Menüs ist drei. 'Tab nach unten' hat auf dieser Ebene keine Wirkung.
-	\item Neue Einträge anlegen:\\
-Das Anlegen neuer Einträge funktioniert am besten mit dem Smartphone und ist unter \textit{Bedienung mit dem Smartphone} erklärt. Der Dialog kann allerdings auch per Gestensteuerung geöffnet und danach mit einem gekoppelten Smartphone oder per Touchscreen ausgefüllt werden. Dazu wird zuerst das Menü geöffnet und mit 'Tab nach links' und 'Tab nach rechts' das entsprechende Widget ausgewählt. Mit 'Tab nach unten' muss nun die zweite Menüebene geöffnet und \textbf{die erste Kachel} mit dem Namen des Widgets mit 'Tab nach links' und 'Tab nach rechts' markiert werden:\\
-\includegraphics[width=\linewidth]{SelectTodo}\\
-Wird nun die 'Enter'-Geste verwendet, öffnet sich der Dialog zur Erstellung des neuen Eintrags auf der Living Wall selbst, auf der er per Touchscreen ausgefüllt werden kann, und auf dem gekoppelten Smartphone, insofern eines verbunden ist:\\
-\includegraphics[width=\linewidth]{CreateTodo}\\
-Nachdem die neuen Daten eingetragen wurden, kann der Eintrag entweder mit 'OK' angelegt oder mit 'Cancel' verworfen werden.
-\end{itemize}
+		\subsubsection{Hauptansicht}
+		Die Hauptansicht ist das Herzstück der Living Wall. In ihr bekommt der Nutzer seine persönlichen Informationen, Neuigkeiten wie News und Mails, Kalendereinträge, Todos und Meldungen aus sozialen Netzwerken, in denen er regsitriert und über die Living Wall angemeldet ist, in verschiedenen Widgets angezeigt:\\
+		\includegraphics[scale=0.31]{Main}\\ \\
+		\textit{Hinweis: Damit das Kalender- und das Mail-Widget Daten anzeigen, müssen die Google-Accountdaten des Nutzers in der Datenbank der Living Wall hinterlegt werden. Diese können komfortabel mit dem Smartphone eingetragen werden. Um das Facebook-Widget nutzen zu können, muss der Nutzer sich bei Facebook einloggen und der 'Ambient Assisted Living'-Facebookapp den Zugriff auf seine Daten gestatten. Auch der Facebook-Login kann mit dem Smartphone vollzogen werden. Das Vorgehen ist unter 'Bedienung mit dem Smartphone' genauer erklärt.}\\ \\
+		Die Widgets sind durch ihre verschiedene Farbgebung und die Bennenung in der ersten, oberen linken Kachel leicht identifizierbar. In der Hauptansicht stehen viele verschiedene Möglichkeiten der Interaktion zur Verfügung:
+			\begin{itemize}
+				\item \textbf{Menü öffnen}\\
+				Für fast alle Aktionen ist es nötig, das Menü zu öffnen. Hierzu wird die Geste 'Menü öffnen' verwendet. Auf dem folgenden Bild ist das geöffnete Menü zu sehen:\\
+				\includegraphics[width=\linewidth]{Menu1}\\
+				Durch das geöffnete Menü kann mittels der Gesten 'Tab nach links' und 'Tab nach rechts' navigiert werden. Das ausgewählte Widget ist immer \textbf{grau hinterlegt}. Im obigen Bild ist es das 'News'-Widget.
+				\item \textbf{Widget fokussieren}\\
+				Wenn ein ausgewähltes Widget im Menü durch die 'Enter'-Geste angewählt wird, wird es in die Mitte des Bildschirms verlagert. Es kann auch mit nicht im Fokus liegenden Widgets gearbeitet werden. Der Übersicht halber empfiehlt es sich jedoch, das Widget von Interesse mit Hilfe des Menüs in die Mitte des Bildschirmes zu verschieben. Im obigen Bild ist das 'Kalender'-Widget das fokussierte Widget.
+				\item \textbf{Einträge öffnen}\\
+				Jedes Widget beinhaltet Kacheln mit Einträgen. Diese Einträge können ebenfalls über das Menü angewählt und dann geöffnet werden. Dazu muss im Menü mit 'Tab nach links' und 'Tab nach rechts' das Widget mit dem gewünschten Eintrag ausgewählt werden. Wählen wir zum Beispiel das 'Kalender'-Widget:\\
+				\includegraphics[width=\linewidth]{MenuSelect}\\
+				Nun kann mit 'Tab nach unten' eine weitere Menüebene geöffnet werden. In dieser kann wieder mit 'Tab nach links' und 'Tab nach rechts' zwischen den Einträgen des Widgets gewechselt werden. Das jeweils ausgewählte Widget ist \textbf{grau hinterlegt}! Wird dieses nun mit der 'Enter'-Geste bestätigt, öffnet sich ein Popover zu dem angewählten Eintrag, das mehr Informationen enthält und je nach Widget die Möglichkeit zur Bearbeitung bzw. zum Löschen des Eintrags bietet:\\
+				\includegraphics[width=\linewidth]{Popover}\\
+				Die möglichen Optionen werden wie im Bild zu sehen in einer dritten Ebene des Menüs angezeigt. Hier ist dies nur das Entfernen des Eintrags. Dieser müsste wiederum mit der 'Enter'-Geste bestätigt werden.
+				\item \textbf{Menü verlassen}\\
+				Das Menü kann durch die 'Escape'-Geste komplett geschlossen werden. Mit 'Tab nach oben' und 'Tab nach unten' wird zwischen den verschiedenen Ebenen des Menüs gewechselt. Befindet man sich in der ersten Ebene und verwendet 'Tab nach oben', schließt sich das Menü. Anderenfalls wird jeweils eine Menüebene nach oben navigiert. Die maximale Tiefe des Menüs ist drei. 'Tab nach unten' hat auf dieser Ebene keine Wirkung.
+				\item \textbf{Neue Einträge anlegen}\\
+				Das Anlegen neuer Einträge funktioniert am besten mit dem Smartphone und ist unter \textit{Bedienung mit dem Smartphone} erklärt. Der Dialog kann allerdings auch per Gestensteuerung geöffnet und danach mit einem gekoppelten Smartphone oder per Touchscreen ausgefüllt werden. Dazu wird zuerst das Menü geöffnet und mit 'Tab nach links' und 'Tab nach rechts' das entsprechende Widget ausgewählt. Mit 'Tab nach unten' muss nun die zweite Menüebene geöffnet und \textbf{die erste Kachel} mit dem Namen des Widgets mit 'Tab nach links' und 'Tab nach rechts' markiert werden:\\
+				\includegraphics[width=\linewidth]{SelectTodo}\\
+				Wird nun die 'Enter'-Geste verwendet, öffnet sich der Dialog zur Erstellung des neuen Eintrags auf der Living Wall selbst, auf der er per Touchscreen ausgefüllt werden kann, und auf dem gekoppelten Smartphone, insofern eines verbunden ist:\\
+				\includegraphics[width=\linewidth]{CreateTodo}\\
+				Nachdem die neuen Daten eingetragen wurden, kann der Eintrag entweder mit 'OK' angelegt oder mit 'Cancel' verworfen werden.
+			\end{itemize}
 
-\subsection{Mehrere Nutzer}
-Die Living Wall kann bis zu fünf Personen gleichzeitig erkennen und von diesen mit Gesten gesteuert werden. Die Gestensteuerung wird bei größerer Anzahl an Nutzern allerdings erheblich Fehleranfälliger. Daher sollte der Großteil der erkannten Personen die Gestenerkennung für sich selbst mit der 'Gestenerkennung ein-/ausschalten'-Geste blockieren.
-\subsubsection{Mindestens ein bekannter Nutzer}
-Wenn ein Nutzer von der Living Wall erkannt wird, kann er von seinem Willkommensbildschirm oder aus der Hauptansichte der Einzelnutzung heraus mit der 'User-Auswahl anzeigen'-Geste die Nutzer-Auswahl-Seite öffnen, auf der die sich im Blickfeld der Kinectkamera befindenden Nutzer angezeigt werden. Mit 'Tab nach links', 'Tab nach rechts' und 'Enter' kann dann ein User ausgewählt werden, der entweder auf seinen Willkommensbildschirm kommt (siehe \textit{Bekannter Nutzer}) oder auf den Bildschirm eines neuen Benutzers (siehe \textit{Ubekannter Benutzer}).\\
-Auf diesen Bildschirmen können sich unbekannte User nun eintrainieren, neu erkennen oder ihre Widgets anzeigen lassen.
-Sollten sich zwei bekannte Nutzer vor der Wand befinden, kann mit der \glqq Social-Graph-Ansicht öffnen\grqq-Geste der Social-Graph geöffnet werden, welcher Gemeinsamkeiten der beiden Personen übersichtlich darstellt:\\
-\includegraphics[width=\linewidth]{socialgraph}\\
-Sollte ein bekannter Nutzer sich auf seiner Willkommensseite oder in der Hauptansicht befinden, wird eine kleine Meldung am unteren Bildschirmrand eingeblendet, sobald ein zweiter bekannter Nutzer das Bild betreten hat und der Social-Graph geöffnet werden kann:\\
-\includegraphics[width=\linewidth]{NewUser}
-\subsubsection{Nur unbekannte Nutzer}
-Wie im Fall von mindestens einem bekannten Nutzer, kann mit Hilfe der 'User-Auswahl anzeigen'-Geste die Nutzer-Auswahl-Seite geöffnet werden, um wie bereits beschrieben die den aktiven Nutzer auszuwählen. Allerdings wird sich nur die Seite für Unbekannte Nutzer öffnen, auf der diese sich eintrainieren oder neu erkennen lassen können. Außerdem können sie die Living Wall im Demo-Modus testen. Der Social-Graph lässt sich logischer Weise in diesem Falle nicht aufrufen.
+		\subsection{Mehrere Nutzer}
+		Die Living Wall kann bis zu fünf Personen gleichzeitig erkennen und von diesen mit Gesten gesteuert werden. Die Gestensteuerung wird bei größerer Anzahl an Nutzern allerdings erheblich Fehleranfälliger. Daher sollte der Großteil der erkannten Personen die Gestenerkennung für sich selbst mit der 'Gestenerkennung ein-/ausschalten'-Geste blockieren.
+		\subsubsection{Mindestens ein bekannter Nutzer}
+		Wenn ein Nutzer von der Living Wall erkannt wird, kann er von seinem Willkommensbildschirm oder aus der Hauptansicht der Einzelnutzung heraus mit der 'User-Auswahl anzeigen'-Geste die Nutzer-Auswahl-Seite öffnen, auf der die sich im Blickfeld der Kinectkamera befindenden Nutzer angezeigt werden. Mit 'Tab nach links', 'Tab nach rechts' und 'Enter' kann dann ein User ausgewählt werden, der entweder auf seinen Willkommensbildschirm kommt (siehe \textit{Bekannter Nutzer}) oder auf den Bildschirm eines neuen Benutzers (siehe \textit{Ubekannter Benutzer}).\\
+		Auf diesen Bildschirmen können sich unbekannte User nun eintrainieren, neu erkennen oder ihre Widgets anzeigen lassen.
+		Sollten sich zwei bekannte Nutzer vor der Wand befinden, kann mit der 'Social-Graph-Ansicht öffnen'-Geste der Social-Graph geöffnet werden, welcher Gemeinsamkeiten der beiden Personen übersichtlich darstellt:\\
+		\includegraphics[width=\linewidth]{socialgraph}\\
+		Sollte ein bekannter Nutzer sich auf seiner Willkommensseite oder in der Hauptansicht befinden, wird eine kleine Meldung am unteren Bildschirmrand eingeblendet, sobald ein zweiter bekannter Nutzer das Bild betreten hat und der Social-Graph geöffnet werden kann:\\
+		\includegraphics[width=\linewidth]{NewUser}
+		\subsubsection{Nur unbekannte Nutzer}
+		Wie im Fall von mindestens einem bekannten Nutzer, kann mit Hilfe der 'User-Auswahl anzeigen'-Geste die Nutzer-Auswahl-Seite geöffnet werden, um wie bereits beschrieben den aktiven Nutzer auszuwählen. Allerdings wird sich nur die Seite für Unbekannte Nutzer öffnen, auf der diese sich eintrainieren oder neu erkennen lassen können (siehe \textit{Ubekannter Benutzer}). Außerdem können sie die Living Wall im Demo-Modus testen. Der Social-Graph lässt sich allerdings nur mit bekannten Nutzern aufrufen.
 
-\subsection{Bedienung mit dem Smartphone}
-Das Smartphone ist ein mächtiges und komfortables Eingabegerät für die Nutzung der Living Wall. Im Folgenden ist die Bedienung der Living Wall mit dem Smartphone genauer beschrieben. Um eine einwandfreie Anzeige zu gewährleisten, empfehlen wir die mobile Version des Browsers 'Chrome' auf dem Smartphone zu installieren.
-\subsubsection{Kopplung mit der Living Wall}g
-Um das eigene Smartphone mit der Living Wall zu verbinden, gibt es zwei Möglichkeiten. Wie im Abschnitt \textit{Bekannter Benutzer} zu sehen, gibt es auf der Willkommensseite oben links eine URL. Diese kann im Browser des Smartphones ganz einfach eingegeben und geladen werden. Es öffnet sich die mobile Seite der Living Wall:\\
-\includegraphics[scale=0.3, trim=0 8cm 0 0]{mobile}\\
-In dem Feld 'Mobile code' muss der vierstellige Zahlen-Code eingegeben werden, welcher sich oben links auf der Willkommensseite befindet (siehe \textit{Bekannter Benutzer}) und danach mit einem Druck auf 'Confirm' bestätigt werden. Danach ist das Smartphone erfolgreich mit der Living Wall gekoppelt. \\
-Alternativ kann mit einem beliebigen QR-Code-Scanner der rechts oben auf der Willkommensseite abgebildete QR-Code gescannt und die entschlüsselte URL im Browser geöffnte werden. Der Mobile-Code wird bei dieser Methode automatisch eingetragen. Nach dem Laden der Seite ist das Smartphone also automatisch gekoppelt und bereit zur Interaktion mit der Living Wall.
-\subsubsection{Anlegen von Einträgen}
-Der Dialog zum Anlegen von Einträgen kann wie im Abschnitt \textit{Hauptansicht} beschrieben geöffnet werden. Wenn ein Smartphone mit der Living Wall verbunden ist, öffnet sich auch auf diesem der Dialog. Für Kalendereinträge, Todos und Mails kann der Dialog auch direkt über die Buttons auf dem Smartphone geöffnet werde. Er erscheint auch dann sowohl auf der Living Wall als auch auf dem Smartphone. Das folgende Bild zeigt beispielsweise den Dialog zum Anlegen von Todos auf dem Smartphone:\\
-\includegraphics[scale=0.3, trim=0 8cm 0 0]{createTodoMobile}\\
-Die Daten, die auf dem Smartphone eingegeben werden, werden in Echtzeit an die Living Wall übertragen. Sobald alle erforderlichen Felder ausgefüllt sind, kann der Eintrag mit 'OK' entweder angelegt oder mit 'Cancel' verworfen werden. Das Smartphone kehrt darauf hin auf die normale Mobilseite zurück, die Living Wall zeigt die Hauptansicht.
-\subsubsection{Facebook-Login}
-\subsubsection{Google-Login}
+		\subsection{Bedienung mit dem Smartphone}
+		Das Smartphone ist ein mächtiges und komfortables Eingabegerät für die Nutzung der Living Wall. Im Folgenden ist die Bedienung der Living Wall mit dem Smartphone genauer beschrieben. Um eine einwandfreie Anzeige zu gewährleisten, empfehlen wir die mobile Version des Browsers 'Chrome' auf dem Smartphone zu installieren.\\ \\
+		\textit{Hinweis: Um sich mit der Living Wall verbinden zu können, muss das Smartphone mit dem Internet verbunden sein.}
+		\subsubsection{Kopplung mit der Living Wall}
+		Um das eigene Smartphone mit der Living Wall zu verbinden, gibt es zwei Möglichkeiten.
+			\begin{itemize}
+				\item \textbf{Website aufrufen und Mobile-Code eingeben}\\
+				Wie im Abschnitt \textit{Bekannter Benutzer} zu sehen, gibt es auf der Willkommensseite oben links eine URL. Diese kann im Browser des Smartphones ganz einfach eingegeben und geladen werden. Es öffnet sich die mobile Seite der Living Wall:\\
+				\includegraphics[scale=0.3, trim=0 8cm 0 0]{mobile}\\
+				In dem Feld 'Mobile code' muss der vierstellige Zahlen-Code eingegeben werden, welcher sich oben links auf der Willkommensseite befindet (siehe \textit{Bekannter Benutzer}) und danach mit einem Druck auf 'Confirm' bestätigt werden. Danach ist das Smartphone erfolgreich mit der Living Wall gekoppelt. \\
+				\item \textbf{QR-Code scannen}\\
+				Alternativ kann mit einem beliebigen QR-Code-Scanner der rechts oben auf der Willkommensseite abgebildete QR-Code gescannt und die entschlüsselte URL im Browser geöffnte werden. Der Mobile-Code wird bei dieser Methode automatisch eingetragen. Nach dem Laden der Seite ist das Smartphone also automatisch gekoppelt und bereit zur Interaktion mit der Living Wall.
+			\end{itemize}
+		\subsubsection{Anlegen von Einträgen}
+		Der Dialog zum Anlegen von Einträgen kann wie im Abschnitt \textit{Hauptansicht} beschrieben geöffnet werden. Wenn ein Smartphone mit der Living Wall verbunden ist, öffnet sich auch auf diesem der Dialog. Für Kalendereinträge, Todos und Mails kann der Dialog auch direkt über die Buttons auf dem Smartphone geöffnet werden. Er erscheint auch dann sowohl auf der Living Wall als auch auf dem Smartphone. Das folgende Bild zeigt beispielsweise den Dialog zum Anlegen von Todos auf dem Smartphone:\\
+		\includegraphics[scale=0.3, trim=0 8cm 0 0]{createTodoMobile}\\
+		Die Daten, die auf dem Smartphone eingegeben werden, werden in Echtzeit an die Living Wall übertragen. Sobald alle erforderlichen Felder ausgefüllt sind, kann der Eintrag mit 'OK' entweder angelegt oder mit 'Cancel' verworfen werden. Das Smartphone kehrt darauf hin auf die normale Mobilseite zurück, die Living Wall zeigt die Hauptansicht.
+		\subsubsection{Facebook-Login}
+		Sobald das Smartphone wie oben unter \textit{Kopplung mit der Living Wall} beschrieben verbunden wurde, kann der Nutzer sich über den 'FB-Login'-Button bei Facebook einloggen.\\
+Es öffnet sich der Standard-Login-Dialog von Facebook. Sobald die Mailadresse und das Passwort, mit denen der Nutzer bei Facebook registriert ist, erfolgreich eingegeben wurden, kann das Facebook-Widget der Living Wall die Daten des Nutzers anzeigen.\\ \\
+		\textit{Hinweis: Beim ersten Login bei Facebook mit der Living Wall, muss der Nutzer der 'Ambient Assisted Living'-Facebookapp den Zugriff auf seine Daten gewähren. Ohne diese Erlaubnis kann das Facebook-Widget keine Daten anzeigen. Die Erlaubnis kann jederzeit im Nachhinein in Facebooks App-Verwaltung entfernt werden. Sollte sich der Nutzer danach erneut mit der Living Wall bei Facebook einloggen, muss die Erlaubnis weider erteilt werden, falls das Facebook-Widget benutzt werden soll.}
+		\subsubsection{Google-Login}
+		Sobald das Smartphone wie oben unter \textit{Kopplung mit der Living Wall} beschrieben verbunden wurde, kann der Nutzer über den 'Google Login'-Button seine Google-Daten in der Datenbank der Living Wall hinterlegen. Mit diesen werden dann zum Beispiel die Mails und Kalenderdaten des Google-Accounts in die Datenbank geladen.\\
+Nach dem Drücken des 'Google Login'-Buttons öffnet sich ein Dialog, in dem lediglich die Googlemail-E-Mail-Adresse und das dazugehörige Passwort eingegeben und mit 'OK' bestätigt werden müssen. Dieser Vorgang braucht im Gegensatz zum Facebook-Login nur einmalig vom Nutzer durchgeführt werden.
 
 \chapter{Projektbericht}
 	In diesem letzten Kapitel der Projektdokumentation möchten wir noch einmal auf besondere Herausforderungen und Leistungen eingehen, sowie eine allgemeine Reflexion des Projekts durchführen.\\\\
@@ -396,7 +408,8 @@ Die Daten, die auf dem Smartphone eingegeben werden, werden in Echtzeit an die L
 	Zuletzt sei zum Frontend noch der Social-Graph erwähnt. Wie vorhin schon erläutert ermöglicht er nach der Erkennung die Darstellung von Gemeinsamkeiten, damit User möglicherweise schon ein Gesprächsthema oder gemeinsames Interesse zu Beginn der Wall-Interaktion erkennen.\\
 	Ursprünglich war für den Social-Graph eine Graph-Darstellung angedacht. Diese hat sich aber im Laufe des Entwurfsprozesses als nicht so praktikabel wie ursprünglich gedacht herausgestellt, da die Anzahl an Gemeinsamkeiten der User kleiner war als vermutet und der Graph somit meistens nur eine Hand voll Knoten besaß und kaum informativ war.\\
 	Darum wurde dann eine tabellarische Darstellung gewählt. Ein Vorteil ist, dass sich bei dieser Form die Kategorien der angezeigten Daten problemlos erweitern lassen. Hierzu sind kaum Änderungen im Backend erforderlich.\\ 
-	Eine weitere Änderung ist, dass ursprünglich bis zu 5 Leute für den Social-Graph geplant waren. Nach Tests stellte sich aber heraus, dass mit zunehmender Anzahl an Personen, die Ladezeiten (um die Daten von Facebook zu laden und sie anschließend zu analysieren und darzustellen) unannehmlich groß wurden.
+	Eine weitere Änderung ist, dass ursprünglich bis zu 5 Leute für den Social-Graph geplant waren. Nach Tests stellte sich aber heraus, dass mit zunehmender Anzahl an Personen, die Ladezeiten (um die Daten von Facebook zu laden und sie anschließend zu analysieren und darzustellen) unannehmlich groß wurden.\\
+Daher wäre hier für eine potentielle Weiterentwicklung unserer Arbeit ein guter Ansatzpunkt. Allerdings müssten dafür auch die Funktionalitäten anderer Gruppen erweitert werden. Um den Graph für fünf Personen sinnvoll nutzbar zu machen, sollten mehr Daten zu jedem User aus mehr Quellen frühzeitig in der Datenbank sortiert und gespeichert werden. Erst dann kann eine nützliche Visualisierung in Form einer Graph-Darstellung stattfinden.
 
 \section{Backend-Entwicklung}
 	Im Backend entschieden wir uns wie vorhin schon kurz erwähnt für das Play-Framework. Diese Software ermöglichte uns große Performance und stellte uns auch alle benötigten Funktionen ohne Umwege zur Verfügung. Besondere Erwähnung verdienen hier die "`Websockets"'.\\
