@@ -209,6 +209,36 @@ Tom Lehmann\\
             Fordert Facebook-Profildaten des aktuellen Benutzers an. Die Nachricht enthält entweder ein gültiges access Token, wenn sich der Benutzer neu bei Facebook eingeloggt hat, oder das Feld für das Token bleibt leer. In diesem Fall wird das letzte gespeicherte Accesstoken von der Datenbank verwendet um die Daten zu beschaffen. \\
             Die empfangenen Daten werden über einen Websocket an das Frontend weitergeleitet.
         \end{itemize}
+        Hier eine Auflistung aller Nachrichten (teilweise nicht verwendet): 
+        \begin{itemize}
+        	\item GetCalendarData - fordert aktuelle und zukünftige Kalendereinträge eines Benutzers an
+			\item GetEntryInformation - fordert Profildaten eines Benutzers an
+			\item GetFacebookData - fordert Facebook-Profildaten eines Benutzers an
+			\item GetMailData - fordert alle Mails eines Benutzers an
+			\item GetNewsData - fordert aktuelle News an
+			\item GetTodoData - fordert ToDo's eines Benutzers an
+			\item GetUserKeys - fordert in der Datenbank abgelegte AccessTokens an
+			\item GetUserPic -	fordert ein Profilbild eines Benutzers an
+			\item CalendarData - enthält Kalendereinträge eines Benutzers
+			\item FacebookData - enthält Facebook-Profildaten eines Benutzers
+			\item NewsFeedData - enthält aktuelle News
+			\item MailData - enthält alle Mails eines Benutzers
+			\item TodoData - enthält alle ToDo's eines Benutzers
+			\item SaveGmailData - übergibt ein AccessToken für den Google Account eines Benutzers
+			\item UpdateUserKeys - übergibt ein AccessTokens eines Benutzers
+			\item SendMail - enthält Mail, die abgeschickt und gespeichert werden soll
+			\item CreateCalendarEntry - enthält einen neuen Kalendereintrag
+			\item DeleteCalendarEntry - enthält ID eines Kalendereintrags, der gelöscht werden soll
+			\item UpdateCalendarData - aktualisiert einen vorhandenen Kalendereintrag in der Datenbank
+			\item DeleteTodo - enthält ID eines ToDo`s, das gelöscht werden soll
+			\item Gesture - enthält eine Geste
+			\item NewUser -
+			\item RecognizeUser -
+			\item RestartTraining -
+			\item TrainUser -
+			\item UserLeft -
+			\item UserState -
+        \end{itemize}
 	\section{Erweiterung}
 		\subsection{Widget hinzufügen}
 			Zum Hinzufügen eines Widgets müssen folgende Dateien geändert werden:
@@ -254,6 +284,31 @@ Tom Lehmann\\
 			\end{itemize}
 			Das zu entfernende Widget muss zum einen aus der \code{main.html} entfernt werden und die anderen, in dieser Spalte dargestellten Widgets, müssen gegebenenfalls in ihrer Höhe, über die Zuweisung einer anderen \code{col-md}-Klasse, angepasst werden.\\\\
 			Zum anderen müssen noch die entsprechenden Einträge in den Arrays \code{widgets} und \code{colors} in der \code{widget-data.service.js} entfernt werden.
+
+		\subsection{Bean hinzufügen}
+        	Die Beans befinden sich im Verzeichnis \code{app/jiac/beans}. Ein neuer Bean sollte von der abstrakten Klasse \code{AbstractCommunicatingBean} erben um eine einheitliche Form und einfachere Wartbarkeit zu gewährleisten. \\
+        	Zusätzlich werden folgende Variablen benötigt:
+			\begin{itemize}
+				\item{} \code{Action sendAction} - nur wenn Nachrichten gesendet werden
+				\item{} \code{String agentName} - Name des Agenten über welchen Agenten kommuniziert werden soll
+			\end{itemize}
+			Nun sollten folgende Methoden implementiert werden: 
+			\begin{itemize}
+			\item{} \code{doStart()}:  \\
+				Um später Zugriff auf die Funktionen bestimmter Beans zu bekommen, muss dieser sich in die Agentenliste des ASingleton eintragen.  \\
+				Außerdem wird hier die sendAction instanziiert (mit \code{retrieveAction()}).
+			\item{}	\code{receiveMessage(Message)}:  \\
+				Hier können empfangene Nachrichten, mit einem \code{if}-Konstrukt und der Funktion \code{instanceof}, nach Typ gefiltert werden und entsprechend weiterverarbeitet werden. In unserem Projekt ist dies meißt die Übergabe des Nachrichteninhalts an das Frontend über einen Websocket-Channel.
+			\item{} Funktionen für das Senden von Nachrichten:
+				Zur Interaktion mit anderen Agenten können zusätzliche Methoden implementiert werden, welche Nachrichten an diese versenden. Zuerst müssen dazu alle verfügbaren Agenten gesucht werden ( \code{thisAgent.searchAllAgents(...)} ) und dann werden Nachrichten an die Agenten, deren Name mit dem oben definierten \code{agentName} übereinstimmt, gesendet, mit der Funktion \code{invoke(...)}.
+			\end{itemize}
+			Ein neuer Bean muss nun noch in die JIAC-Konfigurationsdatei {conf/jiac.xml} eingetragen werden.
+
+		\subsection{Nachrichten hinzufügen}
+			Neue Nachrichten werden im Verzeichnis \code{app/ontology/messages} angelegt und erben von der Klasse \code{Message}. Als Nutzdaten kann eine Nachricht alle Datentypen enthalten die serialisierbar sind.
+
+
+
 
 
 
