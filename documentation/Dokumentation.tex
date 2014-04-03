@@ -103,9 +103,8 @@ Tom Lehmann\\
 		\subsection{Frontend}
 			\subsubsection{Bibliotheken}
 				\paragraph{D3.js}
-					D3.js ist der standard für komplexere interaktive Visualisierung im Web, sie wird weitläufig benutzt und ist von der Konzeption und Implementierung kaum zu schlagen bzw. niemand hat es bisher geschafft eine bessere oder gleichwertigere Bibliothek für diesen Einsatszweck zu schreiben. Einer der bekanntesten Benutzer ist die New York Times deren Visualisierungen sehr zu empfehlen sind.
-					Wir haben uns aus den vorherigen Gründen für die Benutzung von \textbf{D3.js} entschieden und damit das Menü zur Unsterstützung der Gesten erstellt.
-
+					D3.js ist der Standard für komplexere, interaktive Visualisierung im Web. Sie wird weitläufig benutzt und ist von der Konzeption und Implementierung kaum zu schlagen. Einer der bekanntesten Benutzer ist die New York Times deren Visualisierungen zur Veranschaulichung der Möglichkeiten sehr zu empfehlen sind.
+					Wir haben uns aus den vorherigen Gründen für die Benutzung von \textbf{D3.js} entschieden und damit das Menü zur Unterstützung der Gesten erstellt.\\\\
 					Hier sind einige nützliche Ressourcen im Umgang mit \textbf{D3.js}:
 					\begin{itemize}
 						\item \url{http://d3js.org}
@@ -113,18 +112,16 @@ Tom Lehmann\\
 						\item \url{https://github.com/mbostock/d3/wiki/Gallery}
 					\end{itemize}
 				\paragraph{Angular.JS}
-					Angular.js ist eine von Google entwickelte und gewartete Librarie die unglaublich großen Anklang in letzter Zeit gefunden hat und aus diesem ein großes Ökosystem entstanden ist,
-					wodurch man sehr schnell komplexe Anwendungen erstellen kann. Es gibt viele und hilfreiche Ressourcen, wodurch es schnell erlernt werden kann.
-					Alternativen wäre EmberJS oder Backbone.js gewesen, beide Frameworks haben weit kleinere Benutzergruppen und keiner aus unserer Gruppe hatte Erfahrung mit dem Framework.
-					In letzter Zeit hat sich Facebooks React als innovativstes Framework gezeigt, aber zur Zeit der Entscheidung war React noch nicht so publik wie heute wodurch Angular.js als unumstrittene Wahl stand.
-
+					Angular.js ist eine von Google entwickelte und gewartete Library die in letzter Zeit unglaublich großen Anklang gefunden hat und somit ein großes Ökosystem entstanden ist,	wodurch man sehr schnell komplexe Anwendungen erstellen kann. Es gibt viele und hilfreiche Ressourcen, wodurch sich das Erlernen sehr einfach gestaltet.\\\\
+					Alternativen wären EmberJS oder Backbone.js gewesen. Beide Frameworks haben weit kleinere Benutzergruppen und keiner aus unserer Gruppe hatte Erfahrung mit dem Framework.\\
+					In letzter Zeit hat sich Facebooks React als innovativstes Framework erwiesen, aber zur Zeit der Entscheidung war React noch nicht so publik wie heute, wodurch Angular.js für uns die unumstrittene erste Wahl war.\\\\
 					Hier sind einige nützliche Ressourcen im Umgang mit \textbf{Angular.js}:
 					\begin{itemize}
 						\item \url{https://github.com/jmcunningham/AngularJS-Learning} 
 						\item \url{http://shop.oreilly.com/product/0636920028055.do} 
 					\end{itemize}
 				\paragraph{Jquery und alle anderen Libraries}
-					Jquery wird von ca. 50\% der Top-100 Webseiten benutzt, so benutzen auch wir es, für geeignete Ressourcen siehe deren Projektseite. Die anderen Libraries sind kleinere mit guten Apis und schneller Einarbeitung, wir hielten es für unnötig sie hier aufzuführen.
+					Jquery wird von ca. 50\% der Top-100 Webseiten benutzt. Auch wir benutzen es um bestimmte Aufgaben möglichst effizient erledigen zu können.
 			\subsubsection{Controllers}
 				\paragraph{AuthCtrl}
 					Der Auth-Controller ist aktiv, wenn sich die Applikation in einem für die Nutzererkennung relevanten Zustand befindet. Also wenn sie anzeigt, dass gerade eine Erkennung durchgeführt wird oder ein Nutzer als bekannt oder unbekannt identifiziert wurde. Er stellt unter Anderem die Funktionen \code{startTraining} sowie \code{recognizeAgain} bereit, welche über Buttonklicks aufgerufen werden können und die Einleitung eines Trainings- oder Erkennungsprozesses durch das Backend initiieren. Weiterhin stellt er die, für die Anzeige des QR-Codes, relevanten Daten zur Verfügung.
@@ -135,7 +132,7 @@ Tom Lehmann\\
 				\paragraph{ModalCtrls}
 					Die Modal-Controller sind jeweils aktiv, sobald auf der Wall das entsprechende Eingabemodal für die angeforderte Funktionalität angezeigt wird. Sie kommunizieren mit dem Mobilgerät über Websockets und initiieren dadurch gewünschte Zustandsänderungen im MobileCtrl auf dem Mobilgerät. Die gesamte Funktionalität des ModalSocialCtrl, ist in der finalen Abgabe jedoch nicht erreichbar, da das Posten von anderen Gruppen nicht unterstützt wurde.
 				\paragraph{SettingsCtrl}
-					Der Settings-Controller ist aktiv, sobald in das Settings-Menü navigiert wurde. Das ist lediglich mit einem Mausklick auf den kleinen Button oben rechts möglich. Für den normalen Betrieb muss das Settings-Menü nicht aufgerufen werden. Es bietet sich aber für Testzwecke an, hier bestimmte Aufgaben manuell auslösen zu können (wie z.B. Facebook-Logout). Da das Settings-Menü für den User nicht sichtbar ist, finden sich hier auch noch Buttons, welche nicht mehr gebraucht werden, oder nicht mehr funktionieren.
+					Der Settings-Controller ist aktiv, sobald in das Settings-Menü navigiert wurde. Das ist lediglich mit einem Mausklick auf den kleinen Button oben rechts möglich. Für den normalen Betrieb muss das Settings-Menü nicht aufgerufen werden. Es bietet sich aber für Testzwecke an, hier bestimmte Aufgaben manuell auslösen zu können (wie z. B. Facebook-Logout). Da das Settings-Menü für den User nicht sichtbar ist, finden sich hier auch noch Buttons, welche nicht mehr gebraucht werden, oder nicht mehr funktionieren.
 				\paragraph{TestCtrl}
 					Der Test-Controller simuliert lediglich das Eintreffen von \code{ADD\_USER} bzw. \code{REMOVE\_USER} Nachrichten mit verschiedenen User- und Nite-IDs um die, sich im Main-Controller befindende, Logik zu testen oder einzelne Widgets mit Testdaten zu versorgen. Dazu werden die Nachrichten auf den entsprechenden Kanälen der Websockets versendet.\\
 				\HRule
@@ -169,25 +166,25 @@ Tom Lehmann\\
 					Eine alternative wäre gewesen etwas wie \textbf{less, scss} oder \textbf{sass} zu benutzen, jedoch hätte das den Rahmen des Projektes gesprengt.
 					Dieser Service war hauptsächlich notwendig weil wir viel mit den Farben herumexperementiert haben und es eine Qual gewesen wäre für die jeweilige Farbe die zugehörigen css-Klassen per Hand zu schreiben. Zum Beispiel waren anfangs die Ränder farblich und die Innenflächen weiß mit schwarzer Schrift, mithilfe dieses Services konnten wir schnell neue Möglichkeiten der Repräsentation ausprobieren was zu unserem derzeitigen Ansatz geführt hat.
 				\paragraph{Radial-Service}
-					Der Radial-Service ist ein zentraler Bestandteil unserer Applikation. Er stellt das Menü zur Verfügung. Das Menü ist insofern parametrisiert, als dass es nur die tatsächlich vorhandenen Widgets einbezieht und in den Submenüs auch immer nur so viele Auswahlmöglichkeiten anzeigt, wie Daten verfügbar sind. In der anfangs notierten \code{KEYMAPPING}-Variable werden die Tasten deklariert, die der Service für bestimmte Aktionen erwartet. Die Tastendrücke werden im Backend ausgelöst. Das hat den großen Vorteil, dass wir im Frontend direkt auf keypress-Events reagieren können und einige von uns benutzte Elemente, wie beispielsweise Modals, bereits das von uns gewünschte Verhalten (z.B. das Schließen bei Escape-Tastendruck) mitbringen.\\
+					Der Radial-Service ist ein zentraler Bestandteil unserer Applikation. Er stellt das Menü zur Verfügung. Das Menü ist insofern parametrisiert, als dass es nur die tatsächlich vorhandenen Widgets einbezieht und in den Submenüs auch immer nur so viele Auswahlmöglichkeiten anzeigt, wie Daten verfügbar sind. In der anfangs notierten \code{KEYMAPPING}-Variable werden die Tasten deklariert, die der Service für bestimmte Aktionen erwartet. Die Tastendrücke werden im Backend ausgelöst. Das hat den großen Vorteil, dass wir im Frontend direkt auf keypress-Events reagieren können und einige von uns benutzte Elemente, wie beispielsweise Modals, bereits das von uns gewünschte Verhalten (z. B. das Schließen bei Escape-Tastendruck) mitbringen.\\
 					Das Verhalten und die Funktionsweise des Menüs lassen sich recht einfach erschließen, indem man den switch-case-Block am Ende des Codes nachvollzieht.
-					Das Menu wurde mit \textbf{D3.js} realisiert, die de facto standard-Bibliothek für komplexere Visulalisierungen im Web.
+					Das Menu wurde mit \textbf{D3.js} realisiert, die de facto Standardbibliothek für komplexere Visulalisierungen im Web.
 					Für nähere Informationen zu \textbf{D3.js} siehe den eigenen Abschnitt dazu.
-					Für die Visualisierung sind die \code{updateRects/drawRects} Methoden zuständig, sie benutzen den für \textbf{D3.js} typischen enter/transition/exit-loop.
-					Alle anderen Methoden sind für das Auswählen der korrekten Element zuständig und was bei den jeweiligen Aktionen in dem aktuellen Level geschehen soll.
-					Dies ist kein leichtes unterfangen und ist sehr eng mit den zugehörigen HTML-Dateien geknüpft, ein optimalerer Weg würde verlangen das man die Widgets and derer Unterelemente kennt, sie eine uniforme Datenstruktur haben und man eine \textit{Variable} hat die zu jeder Zeit den aktuellen Stand der Daten wiederspiegelt.
-					Dies zu erreichen hätte aber den Rahmen des Projekts bei weitem gesprengt und hätte andere Restriktionen mitgebracht, wie die uniforme Datenstruktur.
+					Für die Visualisierung sind die \code{updateRects/drawRects} Methoden zuständig. Sie benutzen den für \textbf{D3.js} typischen enter/transition/exit-loop.
+					Alle anderen Methoden sind zum einen für das Auswählen der korrekten Elemente zuständig und zum anderen, was bei den jeweiligen Aktionen in dem aktuellen Level geschehen soll.
+					Dies ist kein leichtes Unterfangen und ist sehr eng mit den zugehörigen HTML-Dateien verknüpft. Ein besserer Weg würde verlangen, dass man die Widgets und deren Unterelemente kennt, sie eine uniforme Datenstruktur haben und man eine \textit{Variable} hat, die zu jeder Zeit den aktuellen Stand der Daten widerspiegelt.
+					Dies zu erreichen hätte aber den Rahmen des Projekts bei weitem gesprengt und hätte andere Restriktionen mitgebracht, wie beispielsweise die konsistente Verwendung einer uniformen Datenstruktur.
 					Die Methoden zur Auswahl sind relativ spezalisiert, da in jeder Stufe der Menü-Hierarchie die Reaktionen auf Events andere sind:
 					\begin{itemize}
 						\item In der ersten Stufe können die Widgets ausgewählt werden sowie Widgets miteinander vertauscht werden
 						\item In der zweiten Stufe können Unterpunkte des Widgets ausgewählt werden und je nach Unterpunkt eine Aktion ausgeführt werden
-						\item In der dritten Stufe, die es nur bei bestimmten Unterpunkten gibt, erscheint ein kontextuelle Übersicht wie z.B. das entfernen eines Kalendereintrags.
+						\item In der dritten Stufe, die es nur bei bestimmten Unterpunkten gibt, erscheint eine kontextuelle Übersicht wie z. B. das Entfernen eines Kalendereintrags.
 					\end{itemize}
-					Beliebig viele weitere Stufen sind möglich, die jeweiligen Methoden die erweitert werden müssen sind \code{markeElem, selectElem, moveMenuRight, moveMenuLeft, selectData}.
-					Die größte Herausforderung für uns, da wir relativ vertraut mit mit
+					Beliebig viele weitere Stufen sind möglich. Die jeweiligen Methoden, die erweitert werden müssen sind \code{markeElem, selectElem, moveMenuRight, moveMenuLeft, selectData}.
+					Die größte Herausforderung für uns, da wir relativ vertraut mit mit??????????????????????????????????
 
 				\paragraph{Social-Comparison-Service}
-					Der Social-Comparison-Service ist das Backend für den Social Graph. Hier wird auf das Facebook-API zugegriffen. Durch das modulare Design hat man die Möglichkeit, noch weiter Daten von Facebook herunterzuladen und im Social-Graph zu visualisieren. Das Hinzufügen einer neuen Kategorie benötigt sonst keinen weiteren Aufwand, denn der graphische Teil passt sich dynamisch an die neuen Daten an, die im Source-Code spezifiziert wurden.\\
+					Der Social-Comparison-Service ist das Backend für den Social Graph. Hier wird auf das Facebook-API zugegriffen. Durch das modulare Design hat man die Möglichkeit, noch weitere Daten von Facebook herunterzuladen und im Social-Graph zu visualisieren. Das Hinzufügen einer neuen Kategorie benötigt sonst keinen weiteren Aufwand, denn der graphische Teil passt sich dynamisch an die neuen Daten an, die im Source-Code spezifiziert wurden.\\
 					Das konkrete Vorgehen ist folgendes: Zuerst wird der Access-Token für Facebook über \texttt{setToken} für den Service gesetzt. Dann werden die Namen der beteiligten Personen an die Funktion \texttt{compare\-Two\-Persons} übergeben. Anschließend werden alle relevanten Daten von Facebook geholt. Diese Daten werden anschließend gruppiert, auf Gemeinsamkeiten überprüft und zuletzt werden doppelte Datensätze noch gefiltert und Verworfen.\\
 					Das JSON-Objekt wird als Antwort an das Frontend übergeben, weches die Daten dann visualisiert.
 				\paragraph{Transmit-Text-Service}
@@ -200,12 +197,12 @@ Tom Lehmann\\
 			\subsubsection{Styles}
 				\paragraph{responsive}
 					In der responsive.css wird für verschiedene Anzeigeweiten die body-Schriftgröße festgesetzt, sodass die \code{em}-Einheit, welche sich nach der body-Schriftgröße richtet ebenfalls angepasst wird. Außerdem werden für alle von uns verwendeten Bootstrap-Komponenten, die \code{px}-Werte mit passenden \code{em}-Werten überschrieben.\\
-					Diese Art von Webapplikation ist etwas was es vorher so noch nicht gegeben hat, wodurch es auch kein passendes Framework für unsere Ansätze gab was heißt wir mussten uns selbst überlegen wie wir eine Ansicht auf jeglichem Endgerät, unabhängigi von der Auflösung zu ermöglichen. Wir haben uns dafür entschieden bei all unseren Elementen \code{em} als Größeneinheit zu benutzen, da diese je nach gesetzter Schriftgröße der Elternobjekts (In unserem Fall des bodys) die Größe proportional mitskaliert.
-					Es gibt keinen einheitlichen Faktor um unsere Elemente abhängig der Auflösung zu skalieren, da z.B. Mobiltelefone eine ganz andere Ansicht benutzen als Geräte mit einer Auflösung als \code{960px}. Wir haben uns also dafür entschieden je nach Auflösung eine bestimmte Textgröße zu benutzen, diese sogenannten media-breakpoints sind in der \code{responsive.css} deklariert.
+					Diese Art von Webapplikation ist etwas, was es in dieser Form noch nicht gegeben hat, wodurch es auch kein passendes Framework für unsere Ansätze gab. Das bedeutet wir mussten uns selbst überlegen wie wir eine fehlerfreie Darstellung auf einem beliebigen Endgerät, unabhängig von der Auflösung zu ermöglichen. Wir haben uns dafür entschieden bei all unseren Elementen \code{em} als Größeneinheit zu benutzen, da diese je nach gesetzter Schriftgröße der Elternobjekts (In unserem Fall des bodys) die Größe proportional mitskaliert.\\
+					Es gibt keinen einheitlichen Faktor um unsere Elemente abhängig von der Auflösung zu skalieren, da z. B. Mobiltelefone eine ganz andere Ansicht benutzen als Geräte mit einer Auflösung jenseits der \code{960px}. Wir haben uns also dafür entschieden je nach Auflösung eine bestimmte Textgröße zu benutzen, diese sogenannten \code{media-breakpoints} sind in der \code{responsive.css} deklariert.
 					\HRule
 			\subsubsection{Views}
-			Im Unterordner \code{views} liegen sämtliche \code{HTML}-Dokumente der Implementierung. Sowohl die einzelnen Widgets und ihre Bestandteile als auch ganze Seiten wie der Willkommensbildschirm sind hier beschrieben. Es handelt sich um normalen \code{HTML}-Code, der durch \code{AngularJS}-Funktionalität aufgewertet wurde. Während standardmäßiges \code{HTML} nicht dazu entwickelt wurde, dynamische Inhalte anzuzeigen, können wir mit Hilfe der \code{AngularJS}-Syntax, effizient und übersichtlich interaktive und dynamische Elemente einbinden und darstellen.\\
-Der Trick dabei ist, dass durch \code{AngularJSs} Data-Binding jedes Mal, wenn sich das Modell, also unser dynamischer und interaktiver Inhalt, ändert, auch die \code{DOM} manipuliert und somit die Darstellung angepasst wird. Umgekehrt wird auch bei jeder Änderung der \code{View} das Modell aktualisiert. Für die genaue Syntax und Funktionsfähigkeit vom \code{AngularJS}-Framework sei auf die offizielle Dokumentation\footnote{\href{http://docs.angularjs.org/guide}{http://docs.angularjs.org/guide}} verwiesen.
+			Im Unterordner \code{views} liegen sämtliche \code{HTML}-Dokumente der Implementierung. Sowohl die einzelnen Widgets und ihre Bestandteile, als auch ganze Seiten wie der Willkommensbildschirm sind hier beschrieben. Es handelt sich um normalen \code{HTML}-Code, der durch \code{AngularJS}-Funktionalität aufgewertet wurde. Während normales \code{HTML} nicht dazu entwickelt wurde, dynamische Inhalte anzuzeigen, können wir mit Hilfe der \code{AngularJS}-Syntax, effizient und übersichtlich, interaktive und dynamische Elemente einbinden und darstellen.\\
+			Der Trick dabei ist, dass durch \code{AngularJSs} Data-Binding jedes Mal, wenn sich das Modell, also unser dynamischer und interaktiver Inhalt, ändert, auch die \code{DOM} manipuliert und somit die Darstellung angepasst wird. Umgekehrt wird auch bei jeder Änderung der \code{View} das Modell aktualisiert. Für die genaue Syntax und Funktionsfähigkeit vom \code{AngularJS}-Framework sei auf die offizielle Dokumentation\footnote{\href{http://docs.angularjs.org/guide}{http://docs.angularjs.org/guide}} verwiesen.
 
 
 	
@@ -214,13 +211,12 @@ Der Trick dabei ist, dass durch \code{AngularJSs} Data-Binding jedes Mal, wenn s
     \subsection{Backend}
     Der Code für das Backend befindet sich im \code{app}-Verzeichnis.
          \subsubsection{JIAC}
-        Zur Kommunikation mit den anderen Projekt-Gruppen benutzen wir das Agentenframework JIAC, über das Nachrichten gesendet werden, die für das Zusammenwirken der einzelnen Teilprojekte nötig sind. Für das Grundelegende Verständnis von JIAC sei auf die offizielle Dokumentation\footnote{\href{http://repositories.dai-labor.de/sites/jiactng/5.1.5/}{http://repositories.dai-labor.de/sites/jiactng/5.1.5/}} hingewiesen. Die JIAC-Konfigurationsdatei befindet sich im Verzeichnis \code{aal/conf/jiac.xml}, während sich die Implementierung der Beans im Verzeichnis \code{jiac/beans} befindet. Alle Beans erben von der Klasse \code{AbstractCommunicatingBean}, um die Modellierung der Beans möglichst weit zu vereinheitlichen und zu vereinfachen. Die Kommunikation läuft über folgende vier Agenten, welche zu dem
-        ApplicationNode gehören:
+        Zur Kommunikation mit den anderen Projekt-Gruppen benutzen wir das Agentenframework JIAC, über das Nachrichten gesendet werden, die für das Zusammenwirken der einzelnen Teilprojekte nötig sind. Für das Grundelegende Verständnis von JIAC sei auf die offizielle Dokumentation\footnote{\href{http://repositories.dai-labor.de/sites/jiactng/5.1.5/}{http://repositories.dai-labor.de/sites/jiactng/5.1.5/}} hingewiesen. Die JIAC-Konfigurationsdatei befindet sich im Verzeichnis \code{aal/conf/jiac.xml}, während sich die Implementierung der Beans im Verzeichnis \code{jiac/beans} befindet. Alle Beans erben von der Klasse \code{AbstractCommunicatingBean}, um die Modellierung der Beans möglichst weit zu vereinheitlichen und zu vereinfachen. Die Kommunikation läuft über folgende vier Agenten, welche zum ApplicationNode gehören:
         \paragraph{Gesture Agent}
             Agent zur Kommunikation mit der Gesten und Personenerkennung.
         \paragraph{SocialMedia Agent}
             Agent zur Beschaffung von Daten aus
-            SocialMedia Plattformen wie z.B. Facebook, aus der Datenbank.
+            SocialMedia Plattformen wie z. B. Facebook, aus der Datenbank.
         \paragraph{Information Agent}
             Agent zur Beschaffung von News und Verwaltung
             von ToDo's aus der Datenbank.
@@ -305,7 +301,7 @@ Der Trick dabei ist, dass durch \code{AngularJSs} Data-Binding jedes Mal, wenn s
 				In welcher Reihenfolge und Größe die einzelnen Widgets angeordnet sind, wird vollständig in der \code{main.html} beschrieben. Sie werden in drei Spalten angezeigt. Die Höhe eines jeden Widgets (in Grideinheiten) wird über die \code{col-md}-Klasse angegeben. Jede Spalte hat eine Gesamthöhe von acht Grideinheiten. Möchte man jetzt beispielsweise ein Widget der dritten Spalte mit einem Widget der ersten Spalte vertauschen, dann muss man darauf achten, dass die Gesamthöhe der Widgets in der ersten sowie der dritten Spalte auch nach dem Tausch acht beträgt.\\\\
 				Anschließend müssen die Arrayeinträge der vertauschten Widgets in den Arrays \code{widgets} und \code{colors} in der \code{widget-data.service.js} so verschoben werden, dass die Einträge in den Arrays wieder die gleiche Reihenfolge aufweisen, wie die in der \code{main.html} notierten Widgets. Ist dies nicht der Fall, kann es zu Problemen mit dem Menü kommen.
 			\subsubsection{Logik ändern}
-				Um die Logik eines Widgets x zu ändern (z.B. weil sich das Datenformat ändert), müssen folgende Dateien angepasst werden:
+				Um die Logik eines Widgets x zu ändern (z. B. weil sich das Datenformat ändert), müssen folgende Dateien angepasst werden:
 				\begin{itemize}
 				\item{} scripts/directives/widget.x.js
 				\end{itemize}
@@ -339,7 +335,7 @@ Der Trick dabei ist, dass durch \code{AngularJSs} Data-Binding jedes Mal, wenn s
 			\item{}	\code{receiveMessage(Message)}:  \\
 				Hier können empfangene Nachrichten, mit einem \code{if}-Konstrukt und der Funktion \code{instanceof}, nach Typ gefiltert werden und entsprechend weiterverarbeitet werden. In unserem Projekt ist dies meist die Übergabe des Nachrichteninhalts an das Frontend über einen Websocket-Channel.
 			\item{} Funktionen für das Senden von Nachrichten:
-				Zur Interaktion mit anderen Agenten können zusätzliche Methoden implementiert werden, welche Nachrichten an diese versenden. Zuerst müssen dazu alle verfügbaren Agenten gesucht werden ( \code{thisAgent.searchAllAgents(...)} ) und dann werden Nachrichten an die Agenten, deren Name mit dem oben definierten \code{agentName} übereinstimmt, gesendet, mit der Funktion \code{invoke(...)}.
+				Zur Interaktion mit anderen Agenten können zusätzliche Methoden implementiert werden, welche Nachrichten an diese versenden. Zuerst müssen dazu alle verfügbaren Agenten gesucht werden ( \code{thisAgent.searchAllAgents(...)} ) und dann werden Nachrichten an die Agenten, deren Name mit dem oben definierten \code{agentName} übereinstimmt, gesendet. Dies geschieht mit der Funktion \code{invoke(...)}.
 			\end{itemize}
 			Ein neuer Bean muss nun noch in die JIAC-Konfigurationsdatei {conf/jiac.xml} eingetragen werden.
 
@@ -389,15 +385,16 @@ Um zur User-Auswahl zu gelangen, müssen beide Hände gleichzeitig parallel zur 
 		\subsection{Ein Nutzer}
 		\subsubsection{Hauptansicht (ohne User)}
 		Solange sich kein User im Sichtfeld der Kinectkamera der Living Wall befindet, wird ein schlichter weißer Bildschirm angezeigt: \\
-		\includegraphics[scale=0.31]{NoUser} \\
+		\includegraphics[scale=0.31]{NoUser}\\\\
 		\textit{Hinweis: Sollte dieser Bildschirm nicht verschwinden, obwohl ein oder mehrere Benutzer das Sichtfeld der Kamera betreten, deutet dies darauf hin, dass entweder die Kinectkamera nicht richtig angeschlossen bzw. ausgerichtet ist, nicht alle Komponenten der Living Wall (Gesichtserkennung, Gestenerkennung, Datenbank) oder die JIAC-Agenten nicht richtig gestartet wurden.}
 		\subsubsection{Nutzererkennung}
-		Sobald nun ein Nutzer das Sichtfeld der Kinectkamera betritt, wird der Erkennungsprozess gestartet:\\
-		\includegraphics[scale=0.31]{Erkennung}\\Während dieser Bildschirm angezeigt wird, sollte der Nutzer möglichst in ungefähr zwei Metern Abstand frontal zur Kamera stehen und in deren Linse blicken.\\
+		Sobald nun ein Nutzer das Sichtfeld der Kinectkamera betritt, wird der Erkennungsprozess gestartet:\\\\
+		\includegraphics[scale=0.31]{Erkennung}\\\\
+		Während dieser Bildschirm angezeigt wird, sollte der Nutzer möglichst in ungefähr zwei Metern Abstand frontal zur Kamera stehen und in deren Linse blicken.\\
 Je nachdem, ob der Nutzer von der Kinectkamera erkannt wird oder nicht, öffnen sich verschiedene Dialoge.
 		\subsubsection{Unbekannter Nutzer}
-		Sollte der Nutzer von der Gesichtserkennung als unbekannt eingestuft werden, erscheint folgender Bildschirm:\\
-		\includegraphics[scale=0.31]{UnknownUser}\\
+		Sollte der Nutzer von der Gesichtserkennung als unbekannt eingestuft werden, erscheint folgender Bildschirm:\\\\
+		\includegraphics[scale=0.31]{UnknownUser}\\\\
 		Es stehen nun drei Optionen zur Auswahl:
 			\begin{itemize}
 				\item \textbf{Demo Modus}\\
@@ -412,8 +409,8 @@ Je nachdem, ob der Nutzer von der Kinectkamera erkannt wird oder nicht, öffnen 
 Ausgewählt ist die jeweils \textbf{blau hinterlegte} Option! Im obigen Bild ist dies der Demo-Modus.\\ \\
 Die Verwendung des Mobile- und des QR-Codes wird im Abschnitt \textit{Bekannter Nutzer} erklärt.
 		\subsubsection{Bekannter Nutzer}
-		Sollte der Nutzer von der Gesichtserkennung als unbekannt eingestuft werden, erscheint folgender Bildschirm:\\
-		\includegraphics[scale=0.31]{Welcome}\\
+		Sollte der Nutzer von der Gesichtserkennung als unbekannt eingestuft werden, erscheint folgender Bildschirm:\\\\
+		\includegraphics[scale=0.31]{Welcome}\\\\
 		Es stehen nun zwei Optionen zur Auswahl:
 			\begin{itemize}
 				\item \textbf{Start!}\\
@@ -427,30 +424,30 @@ Ausgewählt ist die jeweils \textbf{blau hinterlegte} Option! Im obigen Bild ist
 Der auf dem Bildschirm sichtbare Mobile-Code dient dazu, sein Smartphone mit der Wand zu verbinden, um mit ihm Eingaben machen zu können. Das genaue Verfahren und die Optionen zur Nutzung der Living Wall mit dem Smartphone werden im Abschnitt 	\textit{2.2.3 Bedienung mit dem Smartphone} behandelt.
 
 		\subsubsection{Hauptansicht}
-		Die Hauptansicht ist das Herzstück der Living Wall. In ihr bekommt der Nutzer seine persönlichen Informationen, Neuigkeiten wie News und Mails, Kalendereinträge, Todos und Meldungen aus sozialen Netzwerken, in denen er regsitriert und über die Living Wall angemeldet ist, in verschiedenen Widgets angezeigt:\\
-		\includegraphics[scale=0.31]{Main}\\ \\
+		Die Hauptansicht ist das Herzstück der Living Wall. In ihr bekommt der Nutzer seine persönlichen Informationen, Neuigkeiten wie News und Mails, Kalendereinträge, Todos und Meldungen aus sozialen Netzwerken, in denen er regsitriert und über die Living Wall angemeldet ist, in verschiedenen Widgets angezeigt:\\\\
+		\includegraphics[scale=0.31]{Main}\\\\
 		\textit{Hinweis: Damit das Kalender- und das Mail-Widget Daten anzeigen, müssen die Google-Accountdaten des Nutzers in der Datenbank der Living Wall hinterlegt werden. Diese können komfortabel mit dem Smartphone eingetragen werden. Um das Facebook-Widget nutzen zu können, muss der Nutzer sich bei Facebook einloggen und der 'Ambient Assisted Living'-Facebookapp den Zugriff auf seine Daten gestatten. Auch der Facebook-Login kann mit dem Smartphone vollzogen werden. Das Vorgehen ist unter 'Bedienung mit dem Smartphone' genauer erklärt.}\\ \\
 		Die Widgets sind durch ihre verschiedene Farbgebung und die Bennenung in der ersten, oberen linken Kachel leicht identifizierbar. In der Hauptansicht stehen viele verschiedene Möglichkeiten der Interaktion zur Verfügung:
 			\begin{itemize}
 				\item \textbf{Menü öffnen}\\
-				Für fast alle Aktionen ist es nötig, das Menü zu öffnen. Hierzu wird die Geste 'Menü öffnen' verwendet. Auf dem folgenden Bild ist das geöffnete Menü zu sehen:\\
-				\includegraphics[width=\linewidth]{Menu1}\\
+				Für fast alle Aktionen ist es nötig, das Menü zu öffnen. Hierzu wird die Geste 'Menü öffnen' verwendet. Auf dem folgenden Bild ist das geöffnete Menü zu sehen:\\\\
+				\includegraphics[width=\linewidth]{Menu1}\\\\
 				Durch das geöffnete Menü kann mittels der Gesten 'Tab nach links' und 'Tab nach rechts' navigiert werden. Das ausgewählte Widget ist immer \textbf{grau hinterlegt}. Im obigen Bild ist es das 'News'-Widget.
 				\item \textbf{Widget fokussieren}\\
 				Wenn ein ausgewähltes Widget im Menü durch die 'Enter'-Geste angewählt wird, wird es in die Mitte des Bildschirms verlagert. Es kann auch mit nicht im Fokus liegenden Widgets gearbeitet werden. Der Übersicht halber empfiehlt es sich jedoch, das Widget von Interesse mit Hilfe des Menüs in die Mitte des Bildschirmes zu verschieben. Im obigen Bild ist das 'Kalender'-Widget das fokussierte Widget.
 				\item \textbf{Einträge öffnen}\\
-				Jedes Widget beinhaltet Kacheln mit Einträgen. Diese Einträge können ebenfalls über das Menü angewählt und dann geöffnet werden. Dazu muss im Menü mit 'Tab nach links' und 'Tab nach rechts' das Widget mit dem gewünschten Eintrag ausgewählt werden. Wählen wir zum Beispiel das 'Kalender'-Widget:\\
-				\includegraphics[width=\linewidth]{MenuSelect}\\
-				Nun kann mit 'Tab nach unten' eine weitere Menüebene geöffnet werden. In dieser kann wieder mit 'Tab nach links' und 'Tab nach rechts' zwischen den Einträgen des Widgets gewechselt werden. Das jeweils ausgewählte Widget ist \textbf{grau hinterlegt}! Wird dieses nun mit der 'Enter'-Geste bestätigt, öffnet sich ein Popover zu dem angewählten Eintrag, das mehr Informationen enthält und je nach Widget die Möglichkeit zur Bearbeitung bzw. zum Löschen des Eintrags bietet:\\
-				\includegraphics[width=\linewidth]{Popover}\\
+				Jedes Widget beinhaltet Kacheln mit Einträgen. Diese Einträge können ebenfalls über das Menü angewählt und dann geöffnet werden. Dazu muss im Menü mit 'Tab nach links' und 'Tab nach rechts' das Widget mit dem gewünschten Eintrag ausgewählt werden. Wählen wir zum Beispiel das 'Kalender'-Widget:\\\\
+				\includegraphics[width=\linewidth]{MenuSelect}\\\\
+				Nun kann mit 'Tab nach unten' eine weitere Menüebene geöffnet werden. In dieser kann wieder mit 'Tab nach links' und 'Tab nach rechts' zwischen den Einträgen des Widgets gewechselt werden. Das jeweils ausgewählte Widget ist \textbf{grau hinterlegt}! Wird dieses nun mit der 'Enter'-Geste bestätigt, öffnet sich ein Popover zu dem angewählten Eintrag, das mehr Informationen enthält und je nach Widget die Möglichkeit zur Bearbeitung bzw. zum Löschen des Eintrags bietet:\\\\
+				\includegraphics[width=\linewidth]{Popover}\\\\
 				Die möglichen Optionen werden wie im Bild zu sehen in einer dritten Ebene des Menüs angezeigt. Hier ist dies nur das Entfernen des Eintrags. Dieser müsste wiederum mit der 'Enter'-Geste bestätigt werden.
 				\item \textbf{Menü verlassen}\\
 				Das Menü kann durch die 'Escape'-Geste komplett geschlossen werden. Mit 'Tab nach oben' und 'Tab nach unten' wird zwischen den verschiedenen Ebenen des Menüs gewechselt. Befindet man sich in der ersten Ebene und verwendet 'Tab nach oben', schließt sich das Menü. Anderenfalls wird jeweils eine Menüebene nach oben navigiert. Die maximale Tiefe des Menüs ist drei. 'Tab nach unten' hat auf dieser Ebene keine Wirkung.
 				\item \textbf{Neue Einträge anlegen}\\
-				Das Anlegen neuer Einträge funktioniert am besten mit dem Smartphone und ist unter \textit{Bedienung mit dem Smartphone} erklärt. Der Dialog kann allerdings auch per Gestensteuerung geöffnet und danach mit einem gekoppelten Smartphone oder per Touchscreen ausgefüllt werden. Dazu wird zuerst das Menü geöffnet und mit 'Tab nach links' und 'Tab nach rechts' das entsprechende Widget ausgewählt. Mit 'Tab nach unten' muss nun die zweite Menüebene geöffnet und \textbf{die erste Kachel} mit dem Namen des Widgets mit 'Tab nach links' und 'Tab nach rechts' markiert werden:\\
-				\includegraphics[width=\linewidth]{SelectTodo}\\
-				Wird nun die 'Enter'-Geste verwendet, öffnet sich der Dialog zur Erstellung des neuen Eintrags auf der Living Wall selbst, auf der er per Touchscreen ausgefüllt werden kann, und auf dem gekoppelten Smartphone, insofern eines verbunden ist:\\
-				\includegraphics[width=\linewidth]{CreateTodo}\\
+				Das Anlegen neuer Einträge funktioniert am besten mit dem Smartphone und ist unter \textit{Bedienung mit dem Smartphone} erklärt. Der Dialog kann allerdings auch per Gestensteuerung geöffnet und danach mit einem gekoppelten Smartphone oder per Touchscreen ausgefüllt werden. Dazu wird zuerst das Menü geöffnet und mit 'Tab nach links' und 'Tab nach rechts' das entsprechende Widget ausgewählt. Mit 'Tab nach unten' muss nun die zweite Menüebene geöffnet und \textbf{die erste Kachel} mit dem Namen des Widgets mit 'Tab nach links' und 'Tab nach rechts' markiert werden:\\\\
+				\includegraphics[width=\linewidth]{SelectTodo}\\\\
+				Wird nun die 'Enter'-Geste verwendet, öffnet sich der Dialog zur Erstellung des neuen Eintrags auf der Living Wall selbst, auf der er per Touchscreen ausgefüllt werden kann, und auf dem gekoppelten Smartphone, insofern eines verbunden ist:\\\\
+				\includegraphics[width=\linewidth]{CreateTodo}\\\\
 				Nachdem die neuen Daten eingetragen wurden, kann der Eintrag entweder mit 'OK' angelegt oder mit 'Cancel' verworfen werden.
 			\end{itemize}
 
@@ -459,10 +456,10 @@ Der auf dem Bildschirm sichtbare Mobile-Code dient dazu, sein Smartphone mit der
 		\subsubsection{Mindestens ein bekannter Nutzer}
 		Wenn ein Nutzer von der Living Wall erkannt wird, kann er von seinem Willkommensbildschirm oder aus der Hauptansicht der Einzelnutzung heraus mit der 'User-Auswahl anzeigen'-Geste die Nutzer-Auswahl-Seite öffnen, auf der die sich im Blickfeld der Kinectkamera befindenden Nutzer angezeigt werden. Mit 'Tab nach links', 'Tab nach rechts' und 'Enter' kann dann ein User ausgewählt werden, der entweder auf seinen Willkommensbildschirm kommt (siehe \textit{Bekannter Nutzer}) oder auf den Bildschirm eines neuen Benutzers (siehe \textit{Ubekannter Benutzer}).\\
 		Auf diesen Bildschirmen können sich unbekannte User nun eintrainieren, neu erkennen oder ihre Widgets anzeigen lassen.
-		Sollten sich zwei bekannte Nutzer vor der Wand befinden, kann mit der 'Social-Graph-Ansicht öffnen'-Geste der Social-Graph geöffnet werden, welcher Gemeinsamkeiten der beiden Personen übersichtlich darstellt:\\
-		\includegraphics[width=\linewidth]{socialgraph}\\
+		Sollten sich zwei bekannte Nutzer vor der Wand befinden, kann mit der 'Social-Graph-Ansicht öffnen'-Geste der Social-Graph geöffnet werden, welcher Gemeinsamkeiten der beiden Personen übersichtlich darstellt:\\\\
+		\includegraphics[width=\linewidth]{socialgraph}\\\\
 		Sollte ein bekannter Nutzer sich auf seiner Willkommensseite oder in der Hauptansicht befinden, wird eine kleine Meldung am unteren Bildschirmrand eingeblendet, sobald ein zweiter bekannter Nutzer das Bild betreten hat und der Social-Graph geöffnet werden kann:\\
-		\includegraphics[width=\linewidth]{NewUser}
+		\includegraphics[width=\linewidth]{NewUser}\\\\
 		\subsubsection{Nur unbekannte Nutzer}
 		Wie im Fall von mindestens einem bekannten Nutzer, kann mit Hilfe der 'User-Auswahl anzeigen'-Geste die Nutzer-Auswahl-Seite geöffnet werden, um wie bereits beschrieben den aktiven Nutzer auszuwählen. Allerdings wird sich nur die Seite für Unbekannte Nutzer öffnen, auf der diese sich eintrainieren oder neu erkennen lassen können (siehe \textit{Ubekannter Benutzer}). Außerdem können sie die Living Wall im Demo-Modus testen. Der Social-Graph lässt sich allerdings nur mit bekannten Nutzern aufrufen.
 
@@ -473,19 +470,23 @@ Der auf dem Bildschirm sichtbare Mobile-Code dient dazu, sein Smartphone mit der
 		Um das eigene Smartphone mit der Living Wall zu verbinden, gibt es zwei Möglichkeiten.
 			\begin{itemize}
 				\item \textbf{Website aufrufen und Mobile-Code eingeben}\\
-				Wie im Abschnitt \textit{Bekannter Benutzer} zu sehen, gibt es auf der Willkommensseite oben links eine URL. Diese kann im Browser des Smartphones ganz einfach eingegeben und geladen werden. Es öffnet sich die mobile Seite der Living Wall:\\
-				\includegraphics[scale=0.3, trim=0 8cm 0 0]{mobile}\\
+				Wie im Abschnitt \textit{Bekannter Benutzer} zu sehen, gibt es auf der Willkommensseite oben links eine URL. Diese kann im Browser des Smartphones ganz einfach eingegeben und geladen werden. Es öffnet sich die mobile Seite der Living Wall:\\\\
+				\begin{center}
+					\includegraphics[scale=0.3, trim=0 8cm 0 0]{mobile}
+				\end{center}
 				In dem Feld 'Mobile code' muss der vierstellige Zahlen-Code eingegeben werden, welcher sich oben links auf der Willkommensseite befindet (siehe \textit{Bekannter Benutzer}) und danach mit einem Druck auf 'Confirm' bestätigt werden. Danach ist das Smartphone erfolgreich mit der Living Wall gekoppelt. \\
 				\item \textbf{QR-Code scannen}\\
 				Alternativ kann mit einem beliebigen QR-Code-Scanner der rechts oben auf der Willkommensseite abgebildete QR-Code gescannt und die entschlüsselte URL im Browser geöffnte werden. Der Mobile-Code wird bei dieser Methode automatisch eingetragen. Nach dem Laden der Seite ist das Smartphone also automatisch gekoppelt und bereit zur Interaktion mit der Living Wall.
 			\end{itemize}
 		\subsubsection{Anlegen von Einträgen}
-		Der Dialog zum Anlegen von Einträgen kann wie im Abschnitt \textit{Hauptansicht} beschrieben geöffnet werden. Wenn ein Smartphone mit der Living Wall verbunden ist, öffnet sich auch auf diesem der Dialog. Für Kalendereinträge, Todos und Mails kann der Dialog auch direkt über die Buttons auf dem Smartphone geöffnet werden. Er erscheint auch dann sowohl auf der Living Wall als auch auf dem Smartphone. Das folgende Bild zeigt beispielsweise den Dialog zum Anlegen von Todos auf dem Smartphone:\\
-		\includegraphics[scale=0.3, trim=0 8cm 0 0]{createTodoMobile}\\
+		Der Dialog zum Anlegen von Einträgen kann wie im Abschnitt \textit{Hauptansicht} beschrieben geöffnet werden. Wenn ein Smartphone mit der Living Wall verbunden ist, öffnet sich auch auf diesem der Dialog. Für Kalendereinträge, Todos und Mails kann der Dialog auch direkt über die Buttons auf dem Smartphone geöffnet werden. Er erscheint auch dann sowohl auf der Living Wall als auch auf dem Smartphone. Das folgende Bild zeigt beispielsweise den Dialog zum Anlegen von Todos auf dem Smartphone:\\\\
+		\begin{center}
+		\includegraphics[scale=0.3, trim=0 8cm 0 0]{createTodoMobile}
+		\end{center}
 		Die Daten, die auf dem Smartphone eingegeben werden, werden in Echtzeit an die Living Wall übertragen. Sobald alle erforderlichen Felder ausgefüllt sind, kann der Eintrag mit 'OK' entweder angelegt oder mit 'Cancel' verworfen werden. Das Smartphone kehrt darauf hin auf die normale Mobilseite zurück, die Living Wall zeigt die Hauptansicht.
 		\subsubsection{Facebook-Login}
 		Sobald das Smartphone wie oben unter \textit{Kopplung mit der Living Wall} beschrieben verbunden wurde, kann der Nutzer sich über den 'FB-Login'-Button bei Facebook einloggen.\\
-Es öffnet sich der Standard-Login-Dialog von Facebook. Sobald die Mailadresse und das Passwort, mit denen der Nutzer bei Facebook registriert ist, erfolgreich eingegeben wurden, kann das Facebook-Widget der Living Wall die Daten des Nutzers anzeigen.\\ \\
+Es öffnet sich der Standard-Login-Dialog von Facebook. Sobald die Mailadresse und das Passwort, mit denen der Nutzer bei Facebook registriert ist, erfolgreich eingegeben wurden, kann das Facebook-Widget der Living Wall die Daten des Nutzers anzeigen.\\\\
 		\textit{Hinweis: Beim ersten Login bei Facebook mit der Living Wall, muss der Nutzer der 'Ambient Assisted Living'-Facebookapp den Zugriff auf seine Daten gewähren. Ohne diese Erlaubnis kann das Facebook-Widget keine Daten anzeigen. Die Erlaubnis kann jederzeit im Nachhinein in Facebooks App-Verwaltung entfernt werden. Sollte sich der Nutzer danach erneut mit der Living Wall bei Facebook einloggen, muss die Erlaubnis weider erteilt werden, falls das Facebook-Widget benutzt werden soll.}
 		\subsubsection{Google-Login}
 		Sobald das Smartphone wie oben unter \textit{Kopplung mit der Living Wall} beschrieben verbunden wurde, kann der Nutzer über den 'Google Login'-Button seine Google-Daten in der Datenbank der Living Wall hinterlegen. Mit diesen werden dann zum Beispiel die Mails und Kalenderdaten des Google-Accounts in die Datenbank geladen.\\
@@ -496,10 +497,10 @@ Nach dem Drücken des 'Google Login'-Buttons öffnet sich ein Dialog, in dem led
 	Ziel des Projekts war es, eine "`Living Wall"' zu erstellen, welche den Nutzer in verschiedenen Szenarien unterstützt und Informationen bereitstellt. Unsere Aufgabe war es dabei, für die Visualisierung sowie die Möglichkeit der Texteingabe zu sorgen. Die Realisierung der Aufgabe sollte bis zum Ende des Semesters erfolgen und die Projektfortschritte während zwölf, in wöchentlichem Abstand stattfindenden Terminen, den anderen Projektteilnehmern präsentiert werden. Schlussendlich sollte noch eine Dokumentation, bestehend aus Entwickler- und Userhandbuch, sowie ein Projektbericht erstellt werden.
 	
 \section{Frontend-Entwicklung}
-	Die Aufgabenstellung wirkte sehr reizvoll und wir begannen damit, uns Gedanken über die Möglichkeiten der Darstellung zu machen. Wir entschieden uns dafür, die Darstellung der Informationen in "`Widgets"' zu realisieren. Ein Widget ist eine unabhängige Funktionseinheit, die gemeinsam mit anderen Widgets zur Gesamtanwendung komponiert wird. Ein Beispiel für ein Widget wäre etwa unser Kalender. Neben dem Kalender gibt es z.B. auch noch das Facebook-Widget. All diese Widgets gemeinsam sind für das Gesamterlebnis der Anwendung verantwortlich. Das hat den Vorteil, dass man einen modularen Aufbau hat und eventuell später erforderliche Funktionalität einfach hinzufügen kann, bzw. in bestimmten Anwendungsfällen nicht benötigte Komponenten ausblenden kann, ohne andere Teile der Anwendung zu beeinträchtigen. Auf dieser Basis arbeiteten wir einige Designentwürfe aus, entschieden uns für geeignete Software und erstellten eine passende Projektstruktur. Bei der Wahl der Software waren insbesondere zwei Faktoren von besonderer Signifikanz. Zum einen sollten wir Jiac zur Kommunikation mit anderen Gruppen einsetzen, sodass unser Backend Java unterstützen musste und zum anderen wollten wir, dass die Vorteile unseres Widgetkonzepts sich auch im Code äußern. Deshalb entschieden wir uns dafür, im Backend Play einzusetzen und im Frontend mit AngularJS zu arbeiten, da die Angular Directives unsere Anforderungen in besonderem Maße erfüllen würden.\\\\
+	Die Aufgabenstellung wirkte sehr reizvoll und wir begannen damit, uns Gedanken über die Mög\-lich\-kei\-ten der Darstellung zu machen. Wir entschieden uns dafür, die Darstellung der Informationen in "`Widgets"' zu realisieren. Ein Widget ist eine unabhängige Funktionseinheit, die gemeinsam mit anderen Widgets zur Gesamtanwendung komponiert wird. Ein Beispiel für ein Widget wäre etwa unser Kalender. Neben dem Kalender gibt es z. B. auch noch das Facebook-Widget. All diese Widgets gemeinsam sind für das Gesamterlebnis der Anwendung verantwortlich. Das hat den Vorteil, dass man einen modularen Aufbau hat und eventuell später erforderliche Funktionalität einfach hinzufügen kann, bzw. in bestimmten Anwendungsfällen nicht benötigte Komponenten ausblenden kann, ohne andere Teile der Anwendung zu beeinträchtigen. Auf dieser Basis arbeiteten wir einige Designentwürfe aus, entschieden uns für geeignete Software und erstellten eine passende Projektstruktur. Bei der Wahl der Software waren insbesondere zwei Faktoren von besonderer Signifikanz. Zum einen sollten wir Jiac zur Kommunikation mit anderen Gruppen einsetzen, sodass unser Backend Java unterstützen musste und zum anderen wollten wir, dass die Vorteile unseres Widgetkonzepts sich auch im Code äußern. Deshalb entschieden wir uns dafür, im Backend Play einzusetzen und im Frontend mit AngularJS zu arbeiten, da die Angular Directives unsere Anforderungen in besonderem Maße erfüllen würden.\\\\
 	Bei den Überlegungen zum Design unseres Interfaces war es vonnöten eine Vielzahl von Faktoren zu berücksichtigen, die wir aber zunächst selbst herausfinden mussten und über deren Wichtigkeit wir zum Teil ausführlichst nachgedacht und diskutiert haben, da wir kaum Vorwissen über Interfacedesign mitbrachten.\\\\
-	Die nächste große Herausforderung für uns war, wie man unser Interface möglichst intuitiv und sinnvoll bedienen kann. Ein Cursor wurde aus verschiedenen Gründen ausgeschlossen, also überlegten wir uns verschiedene Möglichkeiten die Wand über anders geartete Gesten zu steuern und haben uns schließlich für "`Vier-Wege-Tabbing"' in Kombination mit der Darstellung eines Menüs zur Unterstützung der Navigation und Interaktion entschieden. Die visuelle Darstellung des Menüs war recht komplex, da wir das Menü generisch implementieren wollten, um es somit unabhängig von der Anzahl der dargestellten Widgets zu gestalten.\\\\
-	Weil wir ohnehin eine Mobilseite für die Texteingabe erstellen mussten, welche die Möglichkeit bieten sollte, Texteingaben im Interface der Wall mit Live-Feedback via Smartphone zu realisieren, haben wir uns dafür entschieden, den Inhalt der Mobilseite dynamisch zu updaten. Das heißt, dass sich die Anzeige auf dem Mobilgerät selbstständig ändert, wenn auf der Wall eine Aktion ausgeführt wurde, welche das Mobilgerät erforderlich macht. Wird die Aktion über das Smartphone oder über die Wall beendet, kehrt die Mobilseite automatisch in einen Zustand zurück, in dem die Kernfeatures der Wall (z.B. Mail erstellen) direkt mit einem Knopfdruck ausgelöst werden können und sich der Zustand auf dem Mobilgerät dementsprechend anpassen würde. Wir haben also für gekoppelte Geräte und die Wall einen asynchrone Echtzeitkommunikationskanal aufgebaut, um dem User das bestmögliche Feedback, direktes visuelles Livefeedback, zu ermöglichen. Um die Orientierung des Nutzers zu vereinfachen, haben wir bei der Implementierung darauf geachtet, dass sowohl das Fenster auf der Wall, als auch der auf dem Mobilgerät angezeigte Dialog das selbe Template benutzen und sich somit, bis auf einige bildschirmgrößenspezifische Unterschiede, visuell gleichen und die Anpassung und Wartung des Codes vereinfacht wird.\\\\
+	Die nächste große Herausforderung für uns war, wie man unser Interface möglichst intuitiv und sinnvoll bedienen kann. Ein Cursor wurde aus verschiedenen Gründen ausgeschlossen, also über\-leg\-ten wir uns verschiedene Möglichkeiten die Wand über anders geartete Gesten zu steuern und haben uns schließlich für "`Vier-Wege-Tabbing"' in Kombination mit der Darstellung eines Menüs zur Unterstützung der Navigation und Interaktion entschieden. Die visuelle Darstellung des Menüs war recht komplex, da wir das Menü generisch implementieren wollten, um es somit unabhängig von der Anzahl der dargestellten Widgets zu gestalten.\\\\
+	Weil wir ohnehin eine Mobilseite für die Texteingabe erstellen mussten, welche die Möglichkeit bieten sollte, Texteingaben im Interface der Wall mit Live-Feedback via Smartphone zu realisieren, haben wir uns dafür entschieden, den Inhalt der Mobilseite dynamisch zu updaten. Das heißt, dass sich die Anzeige auf dem Mobilgerät selbstständig ändert, wenn auf der Wall eine Aktion ausgeführt wurde, welche das Mobilgerät erforderlich macht. Wird die Aktion über das Smartphone oder über die Wall beendet, kehrt die Mobilseite automatisch in einen Zustand zurück, in dem die Kernfeatures der Wall (z. B. Mail erstellen) direkt mit einem Knopfdruck ausgelöst werden können und sich der Zustand auf dem Mobilgerät dementsprechend anpassen würde. Wir haben also für gekoppelte Geräte und die Wall einen asynchrone Echtzeitkommunikationskanal aufgebaut, um dem User das bestmögliche Feedback, direktes visuelles Livefeedback, zu ermöglichen. Um die Orientierung des Nutzers zu vereinfachen, haben wir bei der Implementierung darauf geachtet, dass sowohl das Fenster auf der Wall, als auch der auf dem Mobilgerät angezeigte Dialog das selbe Template benutzen und sich somit, bis auf einige bildschirmgrößenspezifische Unterschiede, visuell gleichen und die Anpassung und Wartung des Codes vereinfacht wird.\\\\
 	Zuletzt sei zum Frontend noch der Social-Graph erwähnt. Wie vorhin schon erläutert ermöglicht er nach der Erkennung die Darstellung von Gemeinsamkeiten, damit User möglicherweise schon ein Gesprächsthema oder gemeinsames Interesse zu Beginn der Wall-Interaktion erkennen.\\
 	Ursprünglich war für den Social-Graph eine Graph-Darstellung angedacht. Diese hat sich aber im Laufe des Entwurfsprozesses als nicht so praktikabel wie ursprünglich gedacht herausgestellt, da die Anzahl an Gemeinsamkeiten der User kleiner war als vermutet und der Graph somit meistens nur eine Hand voll Knoten besaß und kaum informativ war.\\
 	Darum wurde dann eine tabellarische Darstellung gewählt. Ein Vorteil ist, dass sich bei dieser Form die Kategorien der angezeigten Daten problemlos erweitern lassen. Hierzu sind kaum Änderungen im Backend erforderlich.\\ 
@@ -514,9 +515,11 @@ Daher wäre hier für eine potentielle Weiterentwicklung unserer Arbeit ein gute
 \section{Schlussfolgerungen}
 Allgemein kann man festhalten, dass die Motivation für das Projekt in unserer Gruppe sehr groß war und wir besonders zu Beginn sehr begeistert waren. Darum starteten wir auch zügig mit der Entwicklung des Frontends, welches schon sehr schnell konkrete Formen annahm.\\
 %ACHTUNG: der nächste Absatz ist Bullshit.
-Ein Problem hierbei war, dass die benutzten Technologien sowohl auf Frontend- als auch auf Backend-Seite den meisten Gruppenmitgliedern zu Beginn nicht geläufig waren. Das ist an sich kein Problem, da unsere Erfahrung mit derartigen Webprojekten natürlich als Studenten beschränkt ist. Wir unterschätzten aber den Aufwand, den die Einarbeitung erfordert. Besonders Angular-JS ist sehr mächtig, komplex und facettenreich, wodurch eine lange Einarbeitungszeit notwendig wurde. Bezüglich der Entwicklungsarbeiten hätten wir den Einarbeitungsaufwand also großzügiger schätzen sollen.\\\\
+% Ein Problem hierbei war, dass die benutzten Technologien sowohl auf Frontend- als auch auf Backend-Seite den meisten Gruppenmitgliedern zu Beginn nicht geläufig waren. Das ist an sich kein Problem, da unsere Erfahrung mit derartigen Webprojekten natürlich als Studenten beschränkt ist. Wir unterschätzten aber den Aufwand, den die Einarbeitung erfordert. 
+Ein Faktor, welcher von uns zu Beginn etwas unterschätzt wurde, war die Tatsache, dass nicht alle Gruppenmitglieder die von uns eingesetzten Technologien beherrschten. Besonders Angular-JS ist sehr mächtig, komplex und facettenreich, wodurch eine lange Einarbeitungszeit notwendig wurde. Bezüglich der Entwicklungsarbeiten hätten wir den Einarbeitungsaufwand also großzügiger schätzen sollen.\\\\
 Die Kommunikation mit den anderen Gruppen war generell sehr harmonisch und die Arbeitsatmosphäre war produktiv-angespannt, aber stets höflich und hilfsbereit. Als einzigen Missstand kann man hier die mangelnde Kommunikation anführen. Manchmal schien es, als ob die Gruppen aneinander vorbeiarbeiten würden, da einfach nicht genug Absprachen getroffen wurden. Wir vermuten, dass dies der bis jetzt mangelnden Erfahrung in großen Gruppenarbeiten der Beteiligten zu schulden ist.\\
 Wie auch bezüglich der Entwicklungsarbeiten zuvor, stellt man schnell fest, dass die mangelnde Erfahrung in mancherlei Hinsicht ein Problem darstellte, das aber in gewisser Weise natürlich gegeben war, da die meisten von uns Bachelor-Studenten im 4.~bis 6.~Semester sind.\\\\
+Von unserer Seite negativ anzumerken, wäre der Umstand, dass Zugeständnisse der verantwortlichen zum Teil erst nach mehreren Wochen und mehrmaligem Nachfragen umgesetzt wurden. Weiterhin sind wir nach wie vor nicht der Meinung, dass alle Vorgaben sinnvoll waren. Ein Beispiel hierfür ist die geforderte Verwendung von JIAC als Agentensystem, was für unsere Anwendung zu mächtig ist und einen gewaltigen Entwicklungsoverhead verursacht hat. Positiv ist allerdings anzumerken, dass wir freien Zugang zu den Räumlichkeiten bekommen haben, und somit produktiv und gemeinsam das Projekt vorantreiben konnten. Auch die Zusammenarbeit mit dem Tutor Tobias Schemenz verlief unkompliziert und war stets zufriedenstellend.\\\\
 
 	TODO: Herausforderungen/Leistungen im Backend und ggf. Social-Graph oder andere Dinge im Frontend, die mir noch nicht eingefallen sind
 
