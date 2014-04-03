@@ -161,12 +161,8 @@ Tom Lehmann\\
 					In der responsive.css wird für verschiedene Anzeigeweiten die body-Schriftgröße festgesetzt, sodass die \code{em}-Einheit, welche sich nach der body-Schriftgröße richtet ebenfalls angepasst wird. Außerdem werden für alle von uns verwendeten Bootstrap-Komponenten, die \code{px}-Werte mit passenden \code{em}-Werten überschrieben.\\
 					\HRule
 			\subsubsection{Views}
-				\paragraph{Loading}
-				\paragraph{New}
-				\paragraph{Train}
-				\paragraph{Unknown}
-				\paragraph{Userselect}
-				\paragraph{Welcome}
+			Im Unterordner \code{views} liegen sämtliche \code{HTML}-Dokumente der Implementierung. Sowohl die einzelnen Widgets und ihre Bestandteile als auch ganze Seiten wie der Willkommensbildschirm sind hier beschrieben. Es handelt sich um normalen \code{HTML}-Code, der durch \code{AngularJS}-Funktionalität aufgewertet wurde. Während standardmäßiges \code{HTML} nicht dazu entwickelt wurde, dynamische Inhalte anzuzeigen, können wir mit Hilfe der \code{AngularJS}-Syntax, effizient und übersichtlich interaktive und dynamische Elemente einbinden und darstellen.\\
+Der Trick dabei ist, dass durch \code{AngularJSs} Data-Binding jedes Mal, wenn sich das Modell, also unser dynamischer und interaktiver Inhalt, ändert, auch die \code{DOM} manipuliert und somit die Darstellung angepasst wird. Umgekehrt wird auch bei jeder Änderung der \code{View} das Modell aktualisiert. Für die genaue Syntax und Funktionsfähigkeit vom \code{AngularJS}-Framework sei auf die offizielle Dokumentation\footnote{\href{http://docs.angularjs.org/guide}{http://docs.angularjs.org/guide}} verwiesen.
 
 
 	
