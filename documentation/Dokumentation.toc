@@ -46,41 +46,43 @@
 \contentsline {paragraph}{Information Agent}{7}{section*.40}
 \contentsline {paragraph}{Communication Agent}{7}{section*.41}
 \contentsline {paragraph}{Beans}{7}{section*.42}
-\contentsline {section}{\numberline {1.3}Erweiterung}{8}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Widget hinzuf\IeC {\"u}gen}{8}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Widget \IeC {\"a}ndern}{8}{subsection.1.3.2}
-\contentsline {subsubsection}{Position \IeC {\"a}ndern}{8}{section*.43}
-\contentsline {subsubsection}{Logik \IeC {\"a}ndern}{8}{section*.44}
-\contentsline {subsubsection}{Darstellung \IeC {\"a}ndern}{9}{section*.45}
-\contentsline {subsection}{\numberline {1.3.3}Widget entfernen}{9}{subsection.1.3.3}
-\contentsline {chapter}{\numberline {2}Nutzeranleitung}{10}{chapter.2}
-\contentsline {section}{\numberline {2.1}Gesten}{10}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Einh\IeC {\"a}ndige Gesten}{10}{subsection.2.1.1}
-\contentsline {subsubsection}{Enter}{10}{section*.46}
-\contentsline {subsubsection}{Vierwege-Tabbing}{10}{section*.47}
-\contentsline {subsubsection}{Scrolling}{10}{section*.48}
-\contentsline {subsection}{\numberline {2.1.2}Zweih\IeC {\"a}ndige Gesten}{11}{subsection.2.1.2}
-\contentsline {subsubsection}{Gestenerkennung ein-/ausschalten}{11}{section*.49}
-\contentsline {subsubsection}{Men\IeC {\"u} \IeC {\"o}ffnen}{11}{section*.50}
-\contentsline {subsubsection}{Escape}{11}{section*.51}
-\contentsline {subsubsection}{Social-Graph-Ansicht \IeC {\"o}ffnen}{11}{section*.52}
-\contentsline {subsubsection}{User-Auswahl anzeigen}{11}{section*.53}
-\contentsline {section}{\numberline {2.2}Benutzung}{11}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Ein Nutzer}{11}{subsection.2.2.1}
-\contentsline {subsubsection}{Hauptansicht (ohne User)}{11}{section*.54}
-\contentsline {subsubsection}{Nutzererkennung}{12}{section*.55}
-\contentsline {subsubsection}{Unbekannter Nutzer}{13}{section*.56}
-\contentsline {subsubsection}{Bekannter Nutzer}{13}{section*.57}
-\contentsline {subsubsection}{Hauptansicht}{14}{section*.58}
-\contentsline {subsection}{\numberline {2.2.2}Mehrere Nutzer}{18}{subsection.2.2.2}
-\contentsline {subsubsection}{Mindestens ein bekannter Nutzer}{18}{section*.59}
-\contentsline {subsubsection}{Nur unbekannte Nutzer}{19}{section*.60}
-\contentsline {subsection}{\numberline {2.2.3}Bedienung mit dem Smartphone}{20}{subsection.2.2.3}
-\contentsline {subsubsection}{Kopplung mit der Living Wall}{20}{section*.61}
-\contentsline {subsubsection}{Anlegen von Eintr\IeC {\"a}gen}{20}{section*.62}
-\contentsline {subsubsection}{Facebook-Login}{21}{section*.63}
-\contentsline {subsubsection}{Google-Login}{21}{section*.64}
-\contentsline {chapter}{\numberline {3}Projektbericht}{22}{chapter.3}
-\contentsline {section}{\numberline {3.1}Frontend-Entwicklung}{22}{section.3.1}
-\contentsline {section}{\numberline {3.2}Backend-Entwicklung}{23}{section.3.2}
-\contentsline {section}{\numberline {3.3}Schlussfolgerungen}{23}{section.3.3}
+\contentsline {section}{\numberline {1.3}Erweiterung}{9}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Widget hinzuf\IeC {\"u}gen}{9}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Widget \IeC {\"a}ndern}{9}{subsection.1.3.2}
+\contentsline {subsubsection}{Position \IeC {\"a}ndern}{9}{section*.43}
+\contentsline {subsubsection}{Logik \IeC {\"a}ndern}{9}{section*.44}
+\contentsline {subsubsection}{Darstellung \IeC {\"a}ndern}{10}{section*.45}
+\contentsline {subsection}{\numberline {1.3.3}Widget entfernen}{10}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Bean hinzuf\IeC {\"u}gen}{10}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}Nachrichten hinzuf\IeC {\"u}gen}{11}{subsection.1.3.5}
+\contentsline {chapter}{\numberline {2}Nutzeranleitung}{12}{chapter.2}
+\contentsline {section}{\numberline {2.1}Gesten}{12}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Einh\IeC {\"a}ndige Gesten}{12}{subsection.2.1.1}
+\contentsline {subsubsection}{Enter}{12}{section*.46}
+\contentsline {subsubsection}{Vierwege-Tabbing}{12}{section*.47}
+\contentsline {subsubsection}{Scrolling}{12}{section*.48}
+\contentsline {subsection}{\numberline {2.1.2}Zweih\IeC {\"a}ndige Gesten}{13}{subsection.2.1.2}
+\contentsline {subsubsection}{Gestenerkennung ein-/ausschalten}{13}{section*.49}
+\contentsline {subsubsection}{Men\IeC {\"u} \IeC {\"o}ffnen}{13}{section*.50}
+\contentsline {subsubsection}{Escape}{13}{section*.51}
+\contentsline {subsubsection}{Social-Graph-Ansicht \IeC {\"o}ffnen}{13}{section*.52}
+\contentsline {subsubsection}{User-Auswahl anzeigen}{13}{section*.53}
+\contentsline {section}{\numberline {2.2}Benutzung}{13}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Ein Nutzer}{13}{subsection.2.2.1}
+\contentsline {subsubsection}{Hauptansicht (ohne User)}{13}{section*.54}
+\contentsline {subsubsection}{Nutzererkennung}{14}{section*.55}
+\contentsline {subsubsection}{Unbekannter Nutzer}{15}{section*.56}
+\contentsline {subsubsection}{Bekannter Nutzer}{15}{section*.57}
+\contentsline {subsubsection}{Hauptansicht}{16}{section*.58}
+\contentsline {subsection}{\numberline {2.2.2}Mehrere Nutzer}{20}{subsection.2.2.2}
+\contentsline {subsubsection}{Mindestens ein bekannter Nutzer}{20}{section*.59}
+\contentsline {subsubsection}{Nur unbekannte Nutzer}{21}{section*.60}
+\contentsline {subsection}{\numberline {2.2.3}Bedienung mit dem Smartphone}{22}{subsection.2.2.3}
+\contentsline {subsubsection}{Kopplung mit der Living Wall}{22}{section*.61}
+\contentsline {subsubsection}{Anlegen von Eintr\IeC {\"a}gen}{22}{section*.62}
+\contentsline {subsubsection}{Facebook-Login}{23}{section*.63}
+\contentsline {subsubsection}{Google-Login}{23}{section*.64}
+\contentsline {chapter}{\numberline {3}Projektbericht}{24}{chapter.3}
+\contentsline {section}{\numberline {3.1}Frontend-Entwicklung}{24}{section.3.1}
+\contentsline {section}{\numberline {3.2}Backend-Entwicklung}{25}{section.3.2}
+\contentsline {section}{\numberline {3.3}Schlussfolgerungen}{25}{section.3.3}

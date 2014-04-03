@@ -175,7 +175,7 @@ Tom Lehmann\\
     \subsection{Backend}
     Der Code für das Backend befindet sich im \code{app}-Verzeichnis.
          \subsubsection{JIAC}
-        Zur Kommunikation mit den anderen Projekt-Gruppen benutzen wir das Agentenframework JIAC, über das Nachrichten gesendet werden, die für das Zusammenwirken der einzelnen Teilprojekte nötig sind. Die JIAC-Konfigurationsdatei befindet sich im Verzeichnis \code{aal/conf/jiac.xml}. Während sich die Implementierung der Beans im Verzeichnis \code{jiac/beans} befindet. Alle Beans erben von der Klasse \code{AbstractCommunicatingBean}, um die Modellierung der Beans möglichst weit zu vereinheitlichen und zu vereinfachen. Die Kommunikation läuft über folgende vier Agenten, welche zu dem
+        Zur Kommunikation mit den anderen Projekt-Gruppen benutzen wir das Agentenframework JIAC, über das Nachrichten gesendet werden, die für das Zusammenwirken der einzelnen Teilprojekte nötig sind. Für das Grundelegende Verständnis von JIAC sei auf die offizielle Dokumentation\footnote{\href{http://repositories.dai-labor.de/sites/jiactng/5.1.5/}{http://repositories.dai-labor.de/sites/jiactng/5.1.5/}} hingewiesen. Die JIAC-Konfigurationsdatei befindet sich im Verzeichnis \code{aal/conf/jiac.xml}, während sich die Implementierung der Beans im Verzeichnis \code{jiac/beans} befindet. Alle Beans erben von der Klasse \code{AbstractCommunicatingBean}, um die Modellierung der Beans möglichst weit zu vereinheitlichen und zu vereinfachen. Die Kommunikation läuft über folgende vier Agenten, welche zu dem
         ApplicationNode gehören:
         \paragraph{Gesture Agent}
             Agent zur Kommunikation mit der Gesten und Personenerkennung.
@@ -232,12 +232,12 @@ Tom Lehmann\\
 			\item UpdateCalendarData - aktualisiert einen vorhandenen Kalendereintrag in der Datenbank
 			\item DeleteTodo - enthält ID eines ToDo`s, das gelöscht werden soll
 			\item Gesture - enthält eine Geste
-			\item NewUser -
-			\item RecognizeUser -
-			\item RestartTraining -
-			\item TrainUser -
-			\item UserLeft -
-			\item UserState -
+			\item NewUser - enthält die NiteID eines unbekannten Nutzers
+			\item RecognizeUser - startet den Erkennungsprozess für einen unbekannten Nutzer mit der angegebenen NiteID
+			\item RestartTraining - initialisiert erneut den Eintrainierungsprozess für einen User, falls der vorherige erfolglos war
+			\item TrainUser - initialisiert den EIntrainierungsprozess für einen unbekannten Nutzer mit dessen NiteID
+			\item UserLeft - signalisiert, dass ein Nutzer das Blickfeld der Kinectkamera verlassen hat
+			\item UserState - enthält NiteID, UserID und ein Bild des Nutzers
         \end{itemize}
 	\section{Erweiterung}
 		\subsection{Widget hinzufügen}
@@ -298,14 +298,15 @@ Tom Lehmann\\
 				Um später Zugriff auf die Funktionen bestimmter Beans zu bekommen, muss dieser sich in die Agentenliste des ASingleton eintragen.  \\
 				Außerdem wird hier die sendAction instanziiert (mit \code{retrieveAction()}).
 			\item{}	\code{receiveMessage(Message)}:  \\
-				Hier können empfangene Nachrichten, mit einem \code{if}-Konstrukt und der Funktion \code{instanceof}, nach Typ gefiltert werden und entsprechend weiterverarbeitet werden. In unserem Projekt ist dies meißt die Übergabe des Nachrichteninhalts an das Frontend über einen Websocket-Channel.
+				Hier können empfangene Nachrichten, mit einem \code{if}-Konstrukt und der Funktion \code{instanceof}, nach Typ gefiltert werden und entsprechend weiterverarbeitet werden. In unserem Projekt ist dies meist die Übergabe des Nachrichteninhalts an das Frontend über einen Websocket-Channel.
 			\item{} Funktionen für das Senden von Nachrichten:
 				Zur Interaktion mit anderen Agenten können zusätzliche Methoden implementiert werden, welche Nachrichten an diese versenden. Zuerst müssen dazu alle verfügbaren Agenten gesucht werden ( \code{thisAgent.searchAllAgents(...)} ) und dann werden Nachrichten an die Agenten, deren Name mit dem oben definierten \code{agentName} übereinstimmt, gesendet, mit der Funktion \code{invoke(...)}.
 			\end{itemize}
 			Ein neuer Bean muss nun noch in die JIAC-Konfigurationsdatei {conf/jiac.xml} eingetragen werden.
 
 		\subsection{Nachrichten hinzufügen}
-			Neue Nachrichten werden im Verzeichnis \code{app/ontology/messages} angelegt und erben von der Klasse \code{Message}. Als Nutzdaten kann eine Nachricht alle Datentypen enthalten die serialisierbar sind.
+			Neue Nachrichten werden im Verzeichnis \code{app/ontology/messages} angelegt und erben von der Klasse \code{Message}. Als Nutzdaten kann eine Nachricht alle Datentypen enthalten die serialisierbar sind.\\
+Eine Message-Klasse besteht üblicherweise aus einem \code{Konstruktor} und \code{get-} und \code{set-Methoden}, um auf den Payload (die Attribute) der Message zuzugreifen.
 
 
 
