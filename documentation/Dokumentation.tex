@@ -97,10 +97,34 @@ Tom Lehmann\\
 
 	\section{Projektstruktur}
 		\subsection{Allgemeiner Aufbau}
-			Aus diversen Gründen haben wir uns dazu entschieden das Frontend mit dem, von Google entwickelten, Javascript-Framework AngularJS\footnote{\href{http://angularjs.org/}{http://angularjs.org/}} zu entwickeln. Die komplette Frontendimplementierung befindet sich im Unterordner \code{public/angular/app}. Die Widgets haben wir als Angular-Directives implementiert und diese befinden sich im \code{scripts/directives}-Ordner. Allgemeine Funktionen, welche die gesamte Applikation beziehungsweise den gerade relevanten Teil der Applikation betreffen, werden in den Controllern realisiert. Für häufig genutzte und ausgliederbare Funktionalität, benutzen wir die Services. Ein weiterer zentraler Bestandteil unserer Applikation ist der AngularUI Router\footnote{\href{http://github.com/angular-ui/ui-router}{http://github.com/angular-ui/ui-router}} welcher für die Anzeige und den Wechsel der einzelnen Zustände zuständig ist. Sämtliche visuell relevanten Codeteile befinden sich in dem Unterordner \code{views}.\\\\
+			Aus diversen Gründen haben wir uns dazu entschieden das Frontend mit dem, von Google entwickelten, Javascript-Framework AngularJS\footnote{\href{http://angularjs.org/}{http://angularjs.org/}} zu entwickeln (siehe Frontend/Biobliotheken/AngularJS). Die komplette Frontendimplementierung befindet sich im Unterordner \code{public/angular/app}. Die Widgets haben wir als Angular-Directives implementiert und diese befinden sich im \code{scripts/directives}-Ordner. Allgemeine Funktionen, welche die gesamte Applikation beziehungsweise den gerade relevanten Teil der Applikation betreffen, werden in den Controllern realisiert. Für häufig genutzte und ausgliederbare Funktionalität, benutzen wir die Services. Ein weiterer zentraler Bestandteil unserer Applikation ist der AngularUI Router\footnote{\href{http://github.com/angular-ui/ui-router}{http://github.com/angular-ui/ui-router}} welcher für die Anzeige und den Wechsel der einzelnen Zustände zuständig ist. Sämtliche visuell relevanten Codeteile befinden sich in dem Unterordner \code{views}.\\\\
 			Unser Backend-Code ist im \code{app}-Verzeichnis abgelegt. Die Aufgabe des Backends  besteht im wesentlichen darin, sich um die Kommunikation mit anderen Gruppen des Projekts via Jiac zu kümmern und das Frontend mit Daten zu versorgen. Weiterhin stellt es der Wallapplikation sowie den Mobilgeräten, welche zur Bedienung ebenjener verwendet werden, die Websockets als Kommunikationskanal zur Verfügung.
 
 		\subsection{Frontend}
+			\subsubsection{Bibliotheken}
+				\paragraph{D3.js}
+					D3.js ist der standard für komplexere interaktive Visualisierung im Web, sie wird weitläufig benutzt und ist von der Konzeption und Implementierung kaum zu schlagen bzw. niemand hat es bisher geschafft eine bessere oder gleichwertigere Bibliothek für diesen Einsatszweck zu schreiben. Einer der bekanntesten Benutzer ist die New York Times deren Visualisierungen sehr zu empfehlen sind.
+					Wir haben uns aus den vorherigen Gründen für die Benutzung von \textbf{D3.js} entschieden und damit das Menü zur Unsterstützung der Gesten erstellt.
+
+					Hier sind einige nützliche Ressourcen im Umgang mit \textbf{D3.js}:
+					\begin{itemize}
+						\item \url{http://d3js.org}
+						\item \url{http://shop.oreilly.com/product/0636920025429.do}
+						\item \url{https://github.com/mbostock/d3/wiki/Gallery}
+					\end{itemize}
+				\paragraph{Angular.JS}
+					Angular.js ist eine von Google entwickelte und gewartete Librarie die unglaublich großen Anklang in letzter Zeit gefunden hat und aus diesem ein großes Ökosystem entstanden ist,
+					wodurch man sehr schnell komplexe Anwendungen erstellen kann. Es gibt viele und hilfreiche Ressourcen, wodurch es schnell erlernt werden kann.
+					Alternativen wäre EmberJS oder Backbone.js gewesen, beide Frameworks haben weit kleinere Benutzergruppen und keiner aus unserer Gruppe hatte Erfahrung mit dem Framework.
+					In letzter Zeit hat sich Facebooks React als innovativstes Framework gezeigt, aber zur Zeit der Entscheidung war React noch nicht so publik wie heute wodurch Angular.js als unumstrittene Wahl stand.
+
+					Hier sind einige nützliche Ressourcen im Umgang mit \textbf{Angular.js}:
+					\begin{itemize}
+						\item \url{https://github.com/jmcunningham/AngularJS-Learning} 
+						\item \url{http://shop.oreilly.com/product/0636920028055.do} 
+					\end{itemize}
+				\paragraph{Jquery und alle anderen Libraries}
+					Jquery wird von ca. 50\% der Top-100 Webseiten benutzt, so benutzen auch wir es, für geeignete Ressourcen siehe deren Projektseite. Die anderen Libraries sind kleinere mit guten Apis und schneller Einarbeitung, wir hielten es für unnötig sie hier aufzuführen.
 			\subsubsection{Controllers}
 				\paragraph{AuthCtrl}
 					Der Auth-Controller ist aktiv, wenn sich die Applikation in einem für die Nutzererkennung relevanten Zustand befindet. Also wenn sie anzeigt, dass gerade eine Erkennung durchgeführt wird oder ein Nutzer als bekannt oder unbekannt identifiziert wurde. Er stellt unter Anderem die Funktionen \code{startTraining} sowie \code{recognizeAgain} bereit, welche über Buttonklicks aufgerufen werden können und die Einleitung eines Trainings- oder Erkennungsprozesses durch das Backend initiieren. Weiterhin stellt er die, für die Anzeige des QR-Codes, relevanten Daten zur Verfügung.
@@ -142,9 +166,26 @@ Tom Lehmann\\
 			\subsubsection{Services}
 				\paragraph{CSS-Service}
 					Hier wird ein Array von CSS-Klassen erstellt, was für jedes Widget eine eigene CSS-Klasse erstellt, die die Farbendarstellung im Widget beschreibt.
+					Eine alternative wäre gewesen etwas wie \textbf{less, scss} oder \textbf{sass} zu benutzen, jedoch hätte das den Rahmen des Projektes gesprengt.
+					Dieser Service war hauptsächlich notwendig weil wir viel mit den Farben herumexperementiert haben und es eine Qual gewesen wäre für die jeweilige Farbe die zugehörigen css-Klassen per Hand zu schreiben. Zum Beispiel waren anfangs die Ränder farblich und die Innenflächen weiß mit schwarzer Schrift, mithilfe dieses Services konnten wir schnell neue Möglichkeiten der Repräsentation ausprobieren was zu unserem derzeitigen Ansatz geführt hat.
 				\paragraph{Radial-Service}
 					Der Radial-Service ist ein zentraler Bestandteil unserer Applikation. Er stellt das Menü zur Verfügung. Das Menü ist insofern parametrisiert, als dass es nur die tatsächlich vorhandenen Widgets einbezieht und in den Submenüs auch immer nur so viele Auswahlmöglichkeiten anzeigt, wie Daten verfügbar sind. In der anfangs notierten \code{KEYMAPPING}-Variable werden die Tasten deklariert, die der Service für bestimmte Aktionen erwartet. Die Tastendrücke werden im Backend ausgelöst. Das hat den großen Vorteil, dass wir im Frontend direkt auf keypress-Events reagieren können und einige von uns benutzte Elemente, wie beispielsweise Modals, bereits das von uns gewünschte Verhalten (z.B. das Schließen bei Escape-Tastendruck) mitbringen.\\
 					Das Verhalten und die Funktionsweise des Menüs lassen sich recht einfach erschließen, indem man den switch-case-Block am Ende des Codes nachvollzieht.
+					Das Menu wurde mit \textbf{D3.js} realisiert, die de facto standard-Bibliothek für komplexere Visulalisierungen im Web.
+					Für nähere Informationen zu \textbf{D3.js} siehe den eigenen Abschnitt dazu.
+					Für die Visualisierung sind die \code{updateRects/drawRects} Methoden zuständig, sie benutzen den für \textbf{D3.js} typischen enter/transition/exit-loop.
+					Alle anderen Methoden sind für das Auswählen der korrekten Element zuständig und was bei den jeweiligen Aktionen in dem aktuellen Level geschehen soll.
+					Dies ist kein leichtes unterfangen und ist sehr eng mit den zugehörigen HTML-Dateien geknüpft, ein optimalerer Weg würde verlangen das man die Widgets and derer Unterelemente kennt, sie eine uniforme Datenstruktur haben und man eine \textit{Variable} hat die zu jeder Zeit den aktuellen Stand der Daten wiederspiegelt.
+					Dies zu erreichen hätte aber den Rahmen des Projekts bei weitem gesprengt und hätte andere Restriktionen mitgebracht, wie die uniforme Datenstruktur.
+					Die Methoden zur Auswahl sind relativ spezalisiert, da in jeder Stufe der Menü-Hierarchie die Reaktionen auf Events andere sind:
+					\begin{itemize}
+						\item In der ersten Stufe können die Widgets ausgewählt werden sowie Widgets miteinander vertauscht werden
+						\item In der zweiten Stufe können Unterpunkte des Widgets ausgewählt werden und je nach Unterpunkt eine Aktion ausgeführt werden
+						\item In der dritten Stufe, die es nur bei bestimmten Unterpunkten gibt, erscheint ein kontextuelle Übersicht wie z.B. das entfernen eines Kalendereintrags.
+					\end{itemize}
+					Beliebig viele weitere Stufen sind möglich, die jeweiligen Methoden die erweitert werden müssen sind \code{markeElem, selectElem, moveMenuRight, moveMenuLeft, selectData}.
+					Die größte Herausforderung für uns, da wir relativ vertraut mit mit
+
 				\paragraph{Social-Comparison-Service}
 					Der Social-Comparison-Service ist das Backend für den Social Graph. Hier wird auf das Facebook-API zugegriffen. Durch das modulare Design hat man die Möglichkeit, noch weiter Daten von Facebook herunterzuladen und im Social-Graph zu visualisieren. Das Hinzufügen einer neuen Kategorie benötigt sonst keinen weiteren Aufwand, denn der graphische Teil passt sich dynamisch an die neuen Daten an, die im Source-Code spezifiziert wurden.\\
 					Das konkrete Vorgehen ist folgendes: Zuerst wird der Access-Token für Facebook über \texttt{setToken} für den Service gesetzt. Dann werden die Namen der beteiligten Personen an die Funktion \texttt{compare\-Two\-Persons} übergeben. Anschließend werden alle relevanten Daten von Facebook geholt. Diese Daten werden anschließend gruppiert, auf Gemeinsamkeiten überprüft und zuletzt werden doppelte Datensätze noch gefiltert und Verworfen.\\
@@ -159,6 +200,8 @@ Tom Lehmann\\
 			\subsubsection{Styles}
 				\paragraph{responsive}
 					In der responsive.css wird für verschiedene Anzeigeweiten die body-Schriftgröße festgesetzt, sodass die \code{em}-Einheit, welche sich nach der body-Schriftgröße richtet ebenfalls angepasst wird. Außerdem werden für alle von uns verwendeten Bootstrap-Komponenten, die \code{px}-Werte mit passenden \code{em}-Werten überschrieben.\\
+					Diese Art von Webapplikation ist etwas was es vorher so noch nicht gegeben hat, wodurch es auch kein passendes Framework für unsere Ansätze gab was heißt wir mussten uns selbst überlegen wie wir eine Ansicht auf jeglichem Endgerät, unabhängigi von der Auflösung zu ermöglichen. Wir haben uns dafür entschieden bei all unseren Elementen \code{em} als Größeneinheit zu benutzen, da diese je nach gesetzter Schriftgröße der Elternobjekts (In unserem Fall des bodys) die Größe proportional mitskaliert.
+					Es gibt keinen einheitlichen Faktor um unsere Elemente abhängig der Auflösung zu skalieren, da z.B. Mobiltelefone eine ganz andere Ansicht benutzen als Geräte mit einer Auflösung als \code{960px}. Wir haben uns also dafür entschieden je nach Auflösung eine bestimmte Textgröße zu benutzen, diese sogenannten media-breakpoints sind in der \code{responsive.css} deklariert.
 					\HRule
 			\subsubsection{Views}
 				\paragraph{Loading}
